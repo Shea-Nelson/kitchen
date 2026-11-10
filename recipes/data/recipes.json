@@ -1,18 +1,18 @@
 {
   "schema": "kitchen.recipes",
   "schemaVersion": 1,
-  "authoring": "Garlic-butter salmon matches the Thu Nov 5, 2026 household card, including 145\u00b0F in the thickest part. Nov 9 evening correction for Nov 8\u201314: store-bought Vital pizza (Sun), Kevin's frozen teriyaki (Mon), garlic Parmesan chicken (Tue, on hand), Wednesday pizza night, broccoli ham bake (Thu), garlic butter steak bites (Fri), out of town Sat. Egg roll in a bowl and pork carnitas are dropped this week. No seafood. No nutrition figures.",
+  "authoring": "Garlic-butter salmon matches the Thu Nov 5, 2026 household card, including 145°F in the thickest part. Nov 10 afternoon swap for Nov 8–14: store-bought Vital pizza (Sun), Kevin's frozen teriyaki (Mon), pizza night (Tue, one-time swap), garlic Parmesan chicken (Wed, on hand), broccoli ham bake (Thu), garlic butter steak bites (Fri), out of town Sat. Standing rule remains Wednesday pizza night. Egg roll in a bowl and pork carnitas are dropped this week. No seafood. No nutrition figures.",
   "recipes": [
     {
       "id": "garlic-butter-salmon",
       "version": 1,
       "title": "Garlic butter salmon and asparagus",
-      "summary": "Sheet-pan salmon for Thursday, Nov 5. Six fillets, asparagus, and a garlic-butter drizzle. Pull it at 145\u00b0F.",
+      "summary": "Sheet-pan salmon for Thursday, Nov 5. Six fillets, asparagus, and a garlic-butter drizzle. Pull it at 145°F.",
       "servings": 6,
       "servingsNote": "About 6 adult portions.",
       "style": "Sheet-pan dinner. Low-carb as written.",
       "illustration": "oven",
-      "authoring": "Household seed for Thu Nov 5, 2026. Bake to 145\u00b0F in the thickest part.",
+      "authoring": "Household seed for Thu Nov 5, 2026. Bake to 145°F in the thickest part.",
       "photo": {
         "src": "assets/photos/salmon-lemon-bake.jpg",
         "alt": "A side of salmon baked with lemon slices, parsley, and butter on a white platter.",
@@ -29,7 +29,7 @@
           "name": "salmon fillets",
           "amount": 6,
           "unit": "fillets",
-          "note": "about 2.5\u20133 lb total at 6 portions",
+          "note": "about 2.5–3 lb total at 6 portions",
           "scalable": true,
           "group": "shop",
           "groceryKey": "salmon-fillets",
@@ -133,7 +133,7 @@
       "steps": [
         {
           "id": "heat",
-          "text": "Heat the oven to 450\u00b0F. Lightly oil a rimmed sheet pan.",
+          "text": "Heat the oven to 450°F. Lightly oil a rimmed sheet pan.",
           "timers": [
             {
               "id": "preheat",
@@ -157,13 +157,13 @@
         },
         {
           "id": "bake",
-          "text": "Bake 12 to 15 minutes, depending on thickness, until the thickest part of the salmon is 145\u00b0F. Serve the salmon with the asparagus.",
+          "text": "Bake 12 to 15 minutes, depending on thickness, until the thickest part of the salmon is 145°F. Serve the salmon with the asparagus.",
           "timers": [
             {
               "id": "bake-12",
               "label": "Bake",
               "seconds": 720,
-              "note": "Start with 12 minutes. Thick fillets may need the full 15. Pull the salmon at 145\u00b0F."
+              "note": "Start with 12 minutes. Thick fillets may need the full 15. Pull the salmon at 145°F."
             }
           ]
         }
@@ -344,7 +344,7 @@
         },
         {
           "id": "potatoes",
-          "text": "Optional kid starch: bake the potatoes on a separate tray at 425\u00b0F. Keep them off the low-carb plates.",
+          "text": "Optional kid starch: bake the potatoes on a separate tray at 425°F. Keep them off the low-carb plates.",
           "timers": [
             {
               "id": "potatoes",
@@ -507,7 +507,7 @@
       "steps": [
         {
           "id": "heat",
-          "text": "Heat the oven to 375\u00b0F."
+          "text": "Heat the oven to 375°F."
         },
         {
           "id": "steam",
@@ -748,7 +748,7 @@
       "id": "keto-pizza-bowls",
       "version": 1,
       "title": "Keto pizza bowls",
-      "summary": "Crustless pepperoni pizza bowls for Wednesday, Nov 11, with optional pita pizzas for kids. Newly written for this app.",
+      "summary": "Crustless pepperoni pizza bowls for Tuesday, Nov 10 (one-time swap this week), with kids' pizza. Newly written for this app.",
       "servings": 6,
       "servingsNote": "About 6 adult bowls.",
       "style": "Oven. The bowls are low-carb. Pita is an optional kid crust.",
@@ -757,7 +757,7 @@
       "photo": {
         "src": "assets/photos/pizza-night.jpg",
         "alt": "A supreme pizza with pepperoni, olives, peppers, and mushrooms on a wooden table.",
-        "caption": "Photograph is a supreme pizza from the USDA (public domain). Wednesday's written dinner is crustless pepperoni bowls, with optional pita pizzas for kids.",
+        "caption": "Photograph is a supreme pizza from the USDA (public domain). Tuesday's written dinner this week is crustless pepperoni bowls, with kids' pizza. Wednesday is still the usual pizza night.",
         "author": "Scott Bauer",
         "license": "Public domain",
         "licenseUrl": "",
@@ -863,7 +863,7 @@
       "steps": [
         {
           "id": "heat",
-          "text": "Heat the oven to 400\u00b0F."
+          "text": "Heat the oven to 400°F."
         },
         {
           "id": "meat",
@@ -1078,7 +1078,7 @@
       "steps": [
         {
           "id": "heat",
-          "text": "Heat the oven to 325\u00b0F. Rub the pork with the salt, pepper, cumin, chili powder, and oregano."
+          "text": "Heat the oven to 325°F. Rub the pork with the salt, pepper, cumin, chili powder, and oregano."
         },
         {
           "id": "pot",
@@ -1135,7 +1135,7 @@
       "id": "tuscan-chicken",
       "version": 1,
       "title": "Tuscan chicken",
-      "summary": "Seared chicken in a creamy spinach and sun-dried tomato sauce for Saturday, Nov 14. Newly written for this app. Chicken is done at 165\u00b0F.",
+      "summary": "Seared chicken in a creamy spinach and sun-dried tomato sauce for Saturday, Nov 14. Newly written for this app. Chicken is done at 165°F.",
       "servings": 6,
       "servingsNote": "About 6 adult portions.",
       "style": "Skillet. Low-carb as written. Potatoes are an optional side for kids.",
@@ -1292,13 +1292,13 @@
         },
         {
           "id": "sear",
-          "text": "Sear the chicken in the oil, about 6 minutes per side. It is done at 165\u00b0F in the thickest part. If it is not there yet, it finishes in the sauce. Reset the timer after you flip.",
+          "text": "Sear the chicken in the oil, about 6 minutes per side. It is done at 165°F in the thickest part. If it is not there yet, it finishes in the sauce. Reset the timer after you flip.",
           "timers": [
             {
               "id": "sear-side",
               "label": "Sear one side",
               "seconds": 360,
-              "note": "Reset after you flip. Check 165\u00b0F in the thickest part."
+              "note": "Reset after you flip. Check 165°F in the thickest part."
             }
           ]
         },
@@ -1337,13 +1337,13 @@
         },
         {
           "id": "finish",
-          "text": "Return the chicken and spoon the sauce over it. Heat until the thickest part is 165\u00b0F. Potatoes, if you make them, stay on the side.",
+          "text": "Return the chicken and spoon the sauce over it. Heat until the thickest part is 165°F. Potatoes, if you make them, stay on the side.",
           "timers": [
             {
               "id": "finish-chicken",
               "label": "Heat through",
               "seconds": 300,
-              "note": "Check 165\u00b0F before serving."
+              "note": "Check 165°F before serving."
             }
           ]
         }
@@ -1371,18 +1371,18 @@
       "id": "garlic-parmesan-chicken",
       "version": 1,
       "title": "Garlic Parmesan chicken",
-      "summary": "Tuesday, Nov 10. Boneless chicken breasts coated with garlic butter, Parmesan, and oregano, with a side salad. The chicken is already on hand.",
+      "summary": "Wednesday, Nov 11 (moved from Tuesday this week only). Boneless chicken breasts coated with garlic butter, Parmesan, and oregano, with a side salad. The chicken is already on hand.",
       "servings": 6,
       "servingsNote": "About 6 adult portions from about 3 lb of chicken breasts.",
-      "style": "Oven, 400\u00b0F. Low-carb as written. Side salad for the table.",
+      "style": "Oven, 400°F. Low-carb as written. Side salad for the table.",
       "illustration": "oven",
-      "authoring": "Household plan for Tue Nov 10, 2026. The simple garlic-Parmesan coating is the one written for this week.",
-      "safety": "Chicken is done at 165\u00b0F in the thickest part.",
+      "authoring": "Household plan for Wed Nov 11, 2026, after a one-time Tuesday pizza swap. The simple garlic-Parmesan coating is the one written for this week.",
+      "safety": "Chicken is done at 165°F in the thickest part.",
       "kidSide": "The side salad is for the table. This dinner has no separate kid starch.",
       "photo": {
         "src": "assets/photos/garlic-parmesan-chicken.jpg",
         "alt": "A seasoned chicken breast beside a green salad on a patterned plate.",
-        "caption": "Photograph by Daderot, CC0. It shows a seasoned chicken breast with a side salad. Tuesday's coating is melted butter, garlic, Parmesan, and oregano, which this photo does not show. The salad in the photo is not dressed with the ranch from this plan.",
+        "caption": "Photograph by Daderot, CC0. It shows a seasoned chicken breast with a side salad. Wednesday's coating is melted butter, garlic, Parmesan, and oregano, which this photo does not show. The salad in the photo is not dressed with the ranch from this plan.",
         "author": "Daderot",
         "license": "CC0 1.0",
         "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -1395,7 +1395,7 @@
           "name": "boneless skinless chicken breasts",
           "amount": 3,
           "unit": "lb",
-          "note": "Already on hand. Check the amount and that it is still safe to cook on Tuesday. Do not buy more for this dinner.",
+          "note": "Already on hand. Check the amount and that it is still safe to cook on Wednesday. Do not buy more for this dinner.",
           "scalable": true,
           "group": "on-hand",
           "groceryKey": "chicken-breasts",
@@ -1486,7 +1486,7 @@
       "steps": [
         {
           "id": "heat",
-          "text": "Heat the oven to 400\u00b0F.",
+          "text": "Heat the oven to 400°F.",
           "timers": [
             {
               "id": "preheat",
@@ -1506,13 +1506,13 @@
         },
         {
           "id": "bake",
-          "text": "Bake at 400\u00b0F for 20 to 30 minutes, until the thickest part is 165\u00b0F.",
+          "text": "Bake at 400°F for 20 to 30 minutes, until the thickest part is 165°F.",
           "timers": [
             {
               "id": "bake-20",
               "label": "Bake chicken",
               "seconds": 1200,
-              "note": "Start with 20 minutes. It may need up to 30. Chicken is done at 165\u00b0F in the thickest part, not when the timer ends."
+              "note": "Start with 20 minutes. It may need up to 30. Chicken is done at 165°F in the thickest part, not when the timer ends."
             }
           ]
         },

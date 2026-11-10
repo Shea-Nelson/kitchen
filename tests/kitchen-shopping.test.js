@@ -20,12 +20,12 @@ test('the Nov 8 list is grouped by section and names its dinners', () => {
   const list = build('2026-11-08');
   const ids = list.sections.map(s => s.id);
   assert.deepEqual(ids, ['produce', 'meat', 'dairy', 'pantry', 'spices', 'snacks', 'kids']);
-  assert.deepEqual(list.dinners, ['Tue chicken', 'Wed pizza night', 'Thu ham bake', 'Fri steak bites']);
+  assert.deepEqual(list.dinners, ['Tue pizza night', 'Wed chicken', 'Thu ham bake', 'Fri steak bites']);
   const items = list.sections.flatMap(s => s.items);
   const by = key => items.find(i => i.key === key);
   assert.equal(by('sirloin').qty, 'about 4 lb');
   assert.deepEqual(by('sirloin').for, ['Fri steak bites']);
-  assert.deepEqual(by('garlic').for, ['Tue chicken', 'Thu ham bake', 'Fri steak bites']);
+  assert.deepEqual(by('garlic').for, ['Wed chicken', 'Thu ham bake', 'Fri steak bites']);
   assert.equal(by('broccoli').qty, '3 lb');
   assert.ok(by('kids-pizza'));
   new Set(items.map(i => i.checkKey)).size === items.length || assert.fail('duplicate keys');

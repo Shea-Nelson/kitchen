@@ -27,8 +27,8 @@ test('seed dates and confirmed dinner names', () => {
   assert.equal(K.recipeIdForDate('2026-11-05', schedule, weeksDoc), 'garlic-butter-salmon');
   assert.equal(K.recipeIdForDate('2026-11-08', schedule, weeksDoc), null);
   assert.equal(K.recipeIdForDate('2026-11-09', schedule, weeksDoc), null);
-  assert.equal(K.recipeIdForDate('2026-11-10', schedule, weeksDoc), 'garlic-parmesan-chicken');
-  assert.equal(K.recipeIdForDate('2026-11-11', schedule, weeksDoc), 'keto-pizza-bowls');
+  assert.equal(K.recipeIdForDate('2026-11-10', schedule, weeksDoc), 'keto-pizza-bowls');
+  assert.equal(K.recipeIdForDate('2026-11-11', schedule, weeksDoc), 'garlic-parmesan-chicken');
   assert.equal(K.recipeIdForDate('2026-11-13', schedule, weeksDoc), 'steak-bites');
   assert.equal(K.recipeIdForDate('2026-11-14', schedule, weeksDoc), null);
   assert.equal(K.recipeIdForDate('2026-11-06', schedule, weeksDoc), null);
@@ -39,8 +39,8 @@ test('seed dates and confirmed dinner names', () => {
   assert.deepEqual(week.days.map(day => day.title), [
     'Vital frozen pizza',
     "Kevin's frozen teriyaki",
-    'Garlic Parmesan chicken',
     'Pizza night',
+    'Garlic Parmesan chicken',
     'Broccoli ham bake',
     'Garlic butter steak bites',
     'Out of town'
@@ -101,7 +101,7 @@ test('grocery sums are reliable and optional starch stays separate', () => {
   assert.ok(list.kidsStarch.some(item => item.groceryKey === 'potatoes'));
   assert.ok(list.kidsStarch.some(item => item.groceryKey === 'dinner-rolls'));
   assert.ok(list.pantry.some(item => item.groceryKey === 'oregano'));
-  const doubled = K.aggregateGrocery(week, catalog, { '2026-11-10': { servings: 12 } });
+  const doubled = K.aggregateGrocery(week, catalog, { '2026-11-11': { servings: 12 } });
   assert.equal(doubled.shop.find(item => item.groceryKey === 'butter').amount, 9);
 });
 

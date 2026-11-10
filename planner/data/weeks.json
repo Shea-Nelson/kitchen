@@ -1,15 +1,15 @@
 {
   "schema": "kitchen.weeks",
   "schemaVersion": 1,
-  "authoring": "Final Nov 9 evening dinners for Sun Nov 8 through Sat Nov 14, 2026. Sunday Vital frozen pizza (store-bought, already eaten). Monday Kevin's frozen teriyaki (store-bought). Tuesday garlic Parmesan chicken with side salad (chicken already on hand). Wednesday is pizza night (always). Thursday broccoli ham bake. Friday garlic butter steak bites. Saturday out of town (also away Sunday Nov 15). Egg roll in a bowl and pork carnitas dropped. No seafood. No nutrition figures.",
+  "authoring": "Nov 10 afternoon swap for Sun Nov 8 through Sat Nov 14, 2026. Sunday Vital frozen pizza (store-bought, already eaten). Monday Kevin's frozen teriyaki (store-bought). Tuesday pizza night (one-time swap: Finn has friends over; no church Wednesday, Veterans Day). Wednesday garlic Parmesan chicken with side salad (chicken already on hand; moved from Tuesday this week only). Thursday broccoli ham bake. Friday garlic butter steak bites. Saturday out of town (also away Sunday Nov 15). Standing rule remains Wednesday is pizza night. Egg roll in a bowl and pork carnitas dropped. No seafood. No nutrition figures.",
   "household": "Family of five. Home-cooked dinners are written for about 6 adult portions. Adults eat keto or low-carb. Kid starches are optional and listed on their own. Store-bought nights and away nights have no invented recipes. Wednesday is always pizza night.",
   "weeks": [
     {
       "id": "2026-11-08",
       "startsOn": "2026-11-08",
       "endsOn": "2026-11-14",
-      "title": "Sun Nov 8 \u2013 Sat Nov 14, 2026",
-      "groceryNote": "Written shopping list for the remaining home-cooked dinners this week (Tue chicken already on hand, Wed pizza bowls, Thu ham bake, Fri steak bites). It does not resize when you change one dinner's portions. Pantry staples, salt, and pepper: check the shelf before buying. Nothing here orders food. Do not buy more chicken. Items only needed for egg roll in a bowl or carnitas are removed. No seafood.",
+      "title": "Sun Nov 8 – Sat Nov 14, 2026",
+      "groceryNote": "Written shopping list for the remaining home-cooked dinners this week (Tue pizza bowls, Wed chicken already on hand, Thu ham bake, Fri steak bites). It does not resize when you change one dinner's portions. Pantry staples, salt, and pepper: check the shelf before buying. Nothing here orders food. Do not buy more chicken. Items only needed for egg roll in a bowl or carnitas are removed. No seafood.",
       "days": [
         {
           "date": "2026-11-08",
@@ -34,22 +34,22 @@
         {
           "date": "2026-11-10",
           "weekday": "Tuesday",
-          "title": "Garlic Parmesan chicken",
-          "recipeId": "garlic-parmesan-chicken",
+          "title": "Pizza night",
+          "recipeId": "keto-pizza-bowls",
           "servings": 6,
           "breakfast": "Two Quest donuts or a Quest bar with coffee",
           "lunch": "Leftover Kevin's teriyaki if available; otherwise turkey and cheese roll-ups",
-          "dinnerNote": "Garlic Parmesan chicken breasts with a side salad. Use the chicken already on hand. Do not buy more."
+          "dinnerNote": "One-time swap this week: pizza night moved to Tuesday because Finn has friends over, and there is no church Wednesday (Veterans Day). Kids: takeout or kids' pizza. Adults: crustless keto pizza bowls."
         },
         {
           "date": "2026-11-11",
           "weekday": "Wednesday",
-          "title": "Pizza night",
-          "recipeId": "keto-pizza-bowls",
+          "title": "Garlic Parmesan chicken",
+          "recipeId": "garlic-parmesan-chicken",
           "servings": 6,
           "breakfast": "Sausage and cheddar egg bake (makes two mornings)",
-          "lunch": "Leftover garlic Parmesan chicken over greens, if available; otherwise turkey and cheese roll-ups",
-          "dinnerNote": "Wednesday is always pizza night. Kids: takeout or kids' pizza. Adults: crustless keto pizza bowls."
+          "lunch": "Leftover pizza bowls if available; otherwise turkey and cheese roll-ups",
+          "dinnerNote": "Moved from Tuesday this week only. Garlic Parmesan chicken breasts with a side salad. Use the chicken already on hand. Do not buy more."
         },
         {
           "date": "2026-11-12",
@@ -58,7 +58,7 @@
           "recipeId": "broccoli-ham-bake",
           "servings": 6,
           "breakfast": "Leftover sausage and cheddar egg bake",
-          "lunch": "Deli turkey and cheese roll-ups with pickles and string cheese; leftover pizza bowls are an option if available",
+          "lunch": "Deli turkey and cheese roll-ups with pickles and string cheese; leftover garlic Parmesan chicken over greens is an option if available",
           "dinnerNote": "Cheesy broccoli ham bake."
         },
         {
@@ -93,15 +93,15 @@
             },
             {
               "id": "ham",
-              "label": "Cooked ham, about 2.5\u20133 lb (Thursday broccoli ham bake)"
+              "label": "Cooked ham, about 2.5–3 lb (Thursday broccoli ham bake)"
             },
             {
               "id": "chicken",
-              "label": "Boneless skinless chicken breasts, about 3 lb \u2014 already on hand for Tuesday. Check the amount and that it stays safe to cook. Do not buy more."
+              "label": "Boneless skinless chicken breasts, about 3 lb — already on hand for Wednesday. Check the amount and that it stays safe to cook. Do not buy more."
             },
             {
               "id": "sausage",
-              "label": "Italian sausage, 1 lb, no added sugar (Wednesday pizza bowls)"
+              "label": "Italian sausage, 1 lb, no added sugar (Tuesday pizza bowls)"
             },
             {
               "id": "breakfast-sausage",
@@ -109,7 +109,7 @@
             },
             {
               "id": "pepperoni",
-              "label": "Pepperoni, 4 oz (Wednesday pizza bowls)"
+              "label": "Pepperoni, 4 oz (Tuesday pizza bowls)"
             },
             {
               "id": "bacon",
@@ -135,11 +135,11 @@
             },
             {
               "id": "mozzarella",
-              "label": "Mozzarella, 8 oz (Wednesday pizza bowls)"
+              "label": "Mozzarella, 8 oz (Tuesday pizza bowls)"
             },
             {
               "id": "parmesan",
-              "label": "Parmesan, 3/4 cup for Tuesday. Check what you already have."
+              "label": "Parmesan, 3/4 cup for Wednesday. Check what you already have."
             },
             {
               "id": "cream",
@@ -193,7 +193,7 @@
             },
             {
               "id": "salad-greens",
-              "label": "Salad greens, 2 bags (Tuesday dinner and Friday dinner). Check the bag size."
+              "label": "Salad greens, 2 bags (Wednesday dinner and Friday dinner). Check the bag size."
             },
             {
               "id": "avocados",
@@ -201,7 +201,7 @@
             },
             {
               "id": "pepper",
-              "label": "Green pepper, 1 (Wednesday pizza bowls)"
+              "label": "Green pepper, 1 (Tuesday pizza bowls)"
             },
             {
               "id": "berries",
@@ -216,7 +216,7 @@
           "items": [
             {
               "id": "marinara",
-              "label": "Low-sugar marinara, such as Rao's, 1 jar (24 oz). Wednesday bowls use about half the jar."
+              "label": "Low-sugar marinara, such as Rao's, 1 jar (24 oz). Tuesday bowls use about half the jar."
             },
             {
               "id": "ranch",
@@ -262,11 +262,11 @@
           "items": [
             {
               "id": "vital-pizza",
-              "label": "Vital frozen pizza \u2014 Sunday, already eaten"
+              "label": "Vital frozen pizza — Sunday, already eaten"
             },
             {
               "id": "kevins-teriyaki",
-              "label": "Kevin's Natural Foods frozen teriyaki \u2014 Monday night"
+              "label": "Kevin's Natural Foods frozen teriyaki — Monday night"
             }
           ]
         },
@@ -294,7 +294,7 @@
           "items": [
             {
               "id": "pizza",
-              "label": "Kids' pizza for Wednesday pizza night"
+              "label": "Kids' pizza for Tuesday pizza night"
             },
             {
               "id": "chips",

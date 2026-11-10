@@ -33,19 +33,19 @@
     "2026-11-08": {
       "note": "For the home dinners Tuesday to Friday, plus breakfasts, lunches, and snacks. Sunday's Vital pizza and Monday's Kevin's teriyaki are already covered. Saturday is out of town. Nothing here orders food.",
       "dinnerShort": {
-        "2026-11-10": "chicken",
-        "2026-11-11": "pizza night",
+        "2026-11-10": "pizza night",
+        "2026-11-11": "chicken",
         "2026-11-12": "ham bake",
         "2026-11-13": "steak bites"
       },
       "items": [
         { "key": "broccoli", "name": "Broccoli", "qty": "3 lb" },
         { "key": "cauliflower", "name": "Cauliflower", "qty": "2 heads", "note": "For the mash.", "for": ["2026-11-13"] },
-        { "key": "mushrooms", "name": "Mushrooms", "qty": "1 1/2 lb", "note": "8 oz for the pizza bowls, 1 lb for the steak bites.", "for": ["2026-11-11", "2026-11-13"] },
+        { "key": "mushrooms", "name": "Mushrooms", "qty": "1 1/2 lb", "note": "8 oz for the pizza bowls, 1 lb for the steak bites.", "for": ["2026-11-10", "2026-11-13"] },
         { "key": "garlic", "name": "Garlic", "qty": "2 heads" },
-        { "key": "salad-greens", "name": "Salad greens", "qty": "2 bags", "note": "Side salads. Check the bag size.", "for": ["2026-11-13"] },
+        { "key": "salad-greens", "name": "Salad greens", "qty": "2 bags", "note": "Side salads. Check the bag size.", "for": ["2026-11-11", "2026-11-13"] },
         { "key": "romaine", "name": "Romaine", "qty": "3 heads", "for": ["Lunches"] },
-        { "key": "green-pepper", "name": "Green pepper", "qty": "1", "for": ["2026-11-11"] },
+        { "key": "green-pepper", "name": "Green pepper", "qty": "1", "for": ["2026-11-10"] },
         { "key": "avocados", "name": "Avocados", "qty": "2", "for": ["2026-11-13 breakfast"] },
         { "key": "berries", "name": "Berries", "qty": "1 small pack", "for": ["Yogurt breakfast"] },
         { "key": "parsley", "name": "Fresh parsley", "qty": "1 small bunch", "note": "Optional garnish." },
@@ -87,7 +87,7 @@
         { "key": "crystal-light", "name": "Crystal Light" },
         { "key": "pork-rinds", "name": "Pork rinds" },
 
-        { "key": "kids-pizza", "name": "Kids' pizza", "for": ["2026-11-11"] },
+        { "key": "kids-pizza", "name": "Kids' pizza", "for": ["2026-11-10"] },
         { "key": "chips", "name": "Chips, individually packed variety pack" }
       ]
     }

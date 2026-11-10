@@ -26,8 +26,8 @@ test('this week matches the final dinner order and drops the removed dinners', (
   assert.deepEqual(week.days.map(day => day.recipeId), [
     null,
     null,
-    'garlic-parmesan-chicken',
     'keto-pizza-bowls',
+    'garlic-parmesan-chicken',
     'broccoli-ham-bake',
     'steak-bites',
     null
@@ -130,7 +130,8 @@ test('a later week can be added without code changes', () => {
   const doc = { weeks: weeksDoc.weeks.concat([next]) };
   assert.equal(K.recipeIdForDate('2026-11-16', schedule, doc), 'garlic-parmesan-chicken');
   assert.equal(K.recipeIdForDate('2026-11-09', schedule, doc), null);
-  assert.equal(K.recipeIdForDate('2026-11-11', schedule, doc), 'keto-pizza-bowls');
+  assert.equal(K.recipeIdForDate('2026-11-11', schedule, doc), 'garlic-parmesan-chicken');
+  assert.equal(K.recipeIdForDate('2026-11-10', schedule, doc), 'keto-pizza-bowls');
   assert.equal(K.recipeIdForDate('2026-11-15', schedule, doc), null);
   assert.equal(K.defaultWeekId(doc, '2026-11-18'), '2026-11-15');
   assert.equal(K.weekContaining('2026-11-08', doc).days[0].title, 'Vital frozen pizza');
