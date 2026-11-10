@@ -1,0 +1,84 @@
+{
+  "photos": [
+    {
+      "file": "recipes/assets/photos/salmon-lemon-bake.jpg",
+      "sourceTitle": "File:Salmon baked in an oven with lemons.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASalmon_baked_in_an_oven_with_lemons.jpg",
+      "author": "Gatorfan252525",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "changes": "Downloaded a 1600px-wide display version and saved as JPEG. Cropping was not applied."
+    },
+    {
+      "file": "recipes/assets/photos/pizza-night.jpg",
+      "sourceTitle": "File:Supreme pizza.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASupreme_pizza.jpg",
+      "author": "Scott Bauer",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "credit": "http://www.ars.usda.gov/is/graphics/photos/mar01/k7633-3.htm",
+      "changes": "Downloaded a 1600px-wide display version and saved as JPEG. Cropping was not applied."
+    },
+    {
+      "file": "recipes/assets/photos/carnitas-pork.jpg",
+      "sourceTitle": "File:Pile of Pulled Pork.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APile_of_Pulled_Pork.jpg",
+      "author": "Michael J. Bennett",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "credit": "Own work",
+      "changes": "Downloaded a 1600px-wide display version and saved as JPEG. Cropping was not applied."
+    },
+    {
+      "file": "recipes/assets/photos/steak-bites.jpg",
+      "sourceTitle": "Seared steak cubes in a skillet",
+      "sourceUrl": "",
+      "author": "Original image made for these kitchen apps",
+      "license": "Original work for this project",
+      "licenseUrl": "",
+      "credit": "Created for this app. Not a third-party stock photograph.",
+      "changes": ""
+    },
+    {
+      "file": "recipes/assets/photos/broccoli-ham-bake.jpg",
+      "sourceTitle": "Broccoli and ham casserole",
+      "sourceUrl": "",
+      "author": "Original image made for these kitchen apps",
+      "license": "Original work for this project",
+      "licenseUrl": "",
+      "credit": "Created for this app. Not a third-party stock photograph.",
+      "changes": ""
+    },
+    {
+      "file": "recipes/assets/photos/egg-roll-bowl.jpg",
+      "sourceTitle": "Pork and cabbage skillet",
+      "sourceUrl": "",
+      "author": "Original image made for these kitchen apps",
+      "license": "Original work for this project",
+      "licenseUrl": "",
+      "credit": "Created for this app. Not a third-party stock photograph.",
+      "changes": ""
+    },
+    {
+      "file": "recipes/assets/photos/tuscan-chicken.jpg",
+      "sourceTitle": "Chicken in a creamy spinach sauce",
+      "sourceUrl": "",
+      "author": "Original image made for these kitchen apps",
+      "license": "Original work for this project",
+      "licenseUrl": "",
+      "credit": "Created for this app. Not a third-party stock photograph.",
+      "changes": ""
+    },
+    {
+      "file": "recipes/assets/photos/garlic-parmesan-chicken.jpg",
+      "sourceTitle": "File:Chicken breast and salad - Massachusetts.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chicken_breast_and_salad_-_Massachusetts.jpg",
+      "author": "Daderot",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Own work",
+      "changes": "Saved a JPEG whose longest side is 1600 pixels."
+    }
+  ]
+}

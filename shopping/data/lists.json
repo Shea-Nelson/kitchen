@@ -1,0 +1,95 @@
+{
+  "schema": "kitchen.shopping",
+  "schemaVersion": 1,
+  "authoring": "Dinner items are read from the planner week and the cookbook. Each week below only sets the household amounts, adds breakfast, lunch, snack, and kid items, and hides what should not be bought. No nutrition figures.",
+  "sections": [
+    { "id": "produce", "title": "Produce" },
+    { "id": "meat", "title": "Meat and deli" },
+    { "id": "dairy", "title": "Dairy and eggs" },
+    { "id": "pantry", "title": "Pantry", "hint": "Check the shelf before buying." },
+    { "id": "spices", "title": "Spices and oils", "hint": "Usually on hand. Check before buying." },
+    { "id": "frozen", "title": "Frozen" },
+    { "id": "snacks", "title": "Snacks and drinks" },
+    { "id": "kids", "title": "For the kids" },
+    { "id": "other", "title": "Other" }
+  ],
+  "sectionOf": {
+    "broccoli": "produce", "garlic": "produce", "salad-greens": "produce", "parsley": "produce",
+    "cauliflower": "produce", "mushrooms": "produce", "romaine": "produce", "avocados": "produce",
+    "green-pepper": "produce", "berries": "produce", "baby-spinach": "produce", "lemons": "produce",
+    "sirloin": "meat", "ham": "meat", "italian-sausage": "meat", "pepperoni": "meat", "chicken-breasts": "meat",
+    "breakfast-sausage": "meat", "bacon": "meat", "deli-turkey": "meat",
+    "butter": "dairy", "parmesan": "dairy", "heavy-cream": "dairy", "cheddar": "dairy", "cream-cheese": "dairy",
+    "mozzarella": "dairy", "eggs": "dairy", "greek-yogurt": "dairy", "string-cheese": "dairy", "ratio-yogurt": "dairy",
+    "marinara": "pantry", "ranch": "pantry", "mustard": "pantry", "pickles": "pantry", "sugar-free-syrup": "pantry",
+    "almond-flour": "pantry", "walnuts": "pantry", "everything-seasoning": "pantry", "chicken-broth": "pantry",
+    "olive-oil": "spices", "salt": "spices", "black-pepper": "spices", "garlic-powder": "spices",
+    "smoked-paprika": "spices", "onion-powder": "spices", "dry-mustard": "spices", "italian-seasoning": "spices",
+    "oregano": "spices",
+    "quest": "snacks", "crystal-light": "snacks", "pork-rinds": "snacks",
+    "kids-pizza": "kids", "chips": "kids"
+  },
+  "weeks": {
+    "2026-11-08": {
+      "note": "For the home dinners Tuesday to Friday, plus breakfasts, lunches, and snacks. Sunday's Vital pizza and Monday's Kevin's teriyaki are already covered. Saturday is out of town. Nothing here orders food.",
+      "dinnerShort": {
+        "2026-11-10": "chicken",
+        "2026-11-11": "pizza night",
+        "2026-11-12": "ham bake",
+        "2026-11-13": "steak bites"
+      },
+      "items": [
+        { "key": "broccoli", "name": "Broccoli", "qty": "3 lb" },
+        { "key": "cauliflower", "name": "Cauliflower", "qty": "2 heads", "note": "For the mash.", "for": ["2026-11-13"] },
+        { "key": "mushrooms", "name": "Mushrooms", "qty": "1 1/2 lb", "note": "8 oz for the pizza bowls, 1 lb for the steak bites.", "for": ["2026-11-11", "2026-11-13"] },
+        { "key": "garlic", "name": "Garlic", "qty": "2 heads" },
+        { "key": "salad-greens", "name": "Salad greens", "qty": "2 bags", "note": "Side salads. Check the bag size.", "for": ["2026-11-13"] },
+        { "key": "romaine", "name": "Romaine", "qty": "3 heads", "for": ["Lunches"] },
+        { "key": "green-pepper", "name": "Green pepper", "qty": "1", "for": ["2026-11-11"] },
+        { "key": "avocados", "name": "Avocados", "qty": "2", "for": ["2026-11-13 breakfast"] },
+        { "key": "berries", "name": "Berries", "qty": "1 small pack", "for": ["Yogurt breakfast"] },
+        { "key": "parsley", "name": "Fresh parsley", "qty": "1 small bunch", "note": "Optional garnish." },
+
+        { "key": "sirloin", "name": "Sirloin steak", "qty": "about 4 lb" },
+        { "key": "ham", "name": "Cooked ham", "qty": "about 2 1/2–3 lb" },
+        { "key": "italian-sausage", "name": "Italian sausage, no added sugar", "qty": "1 lb" },
+        { "key": "pepperoni", "name": "Pepperoni", "qty": "4 oz" },
+        { "key": "breakfast-sausage", "name": "Breakfast sausage", "qty": "1 lb", "for": ["2026-11-11 breakfast"], "note": "Egg bake, which covers two mornings." },
+        { "key": "bacon", "name": "Bacon", "qty": "1 1/2 lb", "for": ["Breakfasts"] },
+        { "key": "deli-turkey", "name": "Deli turkey", "qty": "1 lb", "for": ["Lunch roll-ups"] },
+
+        { "key": "eggs", "name": "Eggs", "qty": "3 dozen", "for": ["2026-11-11 breakfast", "2026-11-13 breakfast"] },
+        { "key": "cheddar", "name": "Shredded cheddar", "qty": "2 lb", "for": ["2026-11-11 breakfast", "Lunch roll-ups"] },
+        { "key": "mozzarella", "name": "Mozzarella", "qty": "8 oz" },
+        { "key": "parmesan", "name": "Parmesan", "qty": "3/4 cup", "note": "Check what you already have." },
+        { "key": "heavy-cream", "name": "Heavy cream", "qty": "1 cup" },
+        { "key": "cream-cheese", "name": "Cream cheese", "qty": "8 oz", "note": "The ham bake uses 4 oz." },
+        { "key": "butter", "name": "Kerrygold butter", "qty": "1 lb" },
+        { "key": "greek-yogurt", "name": "Cabot 10% plain Greek yogurt", "for": ["Yogurt breakfast"] },
+        { "key": "string-cheese", "name": "String cheese", "for": ["2026-11-12 lunch"] },
+        { "key": "ratio-yogurt", "name": "Ratio yogurt cups", "for": ["Snacks"] },
+
+        { "key": "marinara", "name": "Low-sugar marinara, such as Rao's", "qty": "1 jar (24 oz)", "note": "The bowls use about half the jar." },
+        { "key": "ranch", "name": "Ranch", "for": ["Lunches"] },
+        { "key": "mustard", "name": "Mustard", "for": ["Lunch roll-ups"] },
+        { "key": "pickles", "name": "Pickles", "for": ["2026-11-12 lunch"] },
+        { "key": "sugar-free-syrup", "name": "Sugar-free syrup", "for": ["Pancake breakfast"] },
+        { "key": "almond-flour", "name": "Almond flour", "for": ["Pancake breakfast"] },
+        { "key": "walnuts", "name": "Walnuts", "for": ["Yogurt breakfast"] },
+        { "key": "everything-seasoning", "name": "Everything bagel seasoning", "for": ["2026-11-13 breakfast"] },
+
+        { "key": "olive-oil", "name": "Olive oil" },
+        { "key": "oregano", "name": "Dried oregano" },
+        { "key": "salt", "name": "Salt" },
+        { "key": "black-pepper", "name": "Black pepper" },
+
+        { "key": "quest", "name": "Quest donuts or bars", "for": ["2026-11-10 breakfast"] },
+        { "key": "crystal-light", "name": "Crystal Light" },
+        { "key": "pork-rinds", "name": "Pork rinds" },
+
+        { "key": "kids-pizza", "name": "Kids' pizza", "for": ["2026-11-11"] },
+        { "key": "chips", "name": "Chips, individually packed variety pack" }
+      ]
+    }
+  }
+}

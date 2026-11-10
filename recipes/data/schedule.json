@@ -1,0 +1,10 @@
+{
+  "schema": "kitchen.recipe-schedule",
+  "schemaVersion": 1,
+  "days": {
+    "2026-11-05": {
+      "recipeId": "garlic-butter-salmon",
+      "label": "Thursday, Nov 5"
+    }
+  }
+}

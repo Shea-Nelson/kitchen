@@ -1,0 +1,308 @@
+{
+  "schema": "kitchen.weeks",
+  "schemaVersion": 1,
+  "authoring": "Final Nov 9 evening dinners for Sun Nov 8 through Sat Nov 14, 2026. Sunday Vital frozen pizza (store-bought, already eaten). Monday Kevin's frozen teriyaki (store-bought). Tuesday garlic Parmesan chicken with side salad (chicken already on hand). Wednesday is pizza night (always). Thursday broccoli ham bake. Friday garlic butter steak bites. Saturday out of town (also away Sunday Nov 15). Egg roll in a bowl and pork carnitas dropped. No seafood. No nutrition figures.",
+  "household": "Family of five. Home-cooked dinners are written for about 6 adult portions. Adults eat keto or low-carb. Kid starches are optional and listed on their own. Store-bought nights and away nights have no invented recipes. Wednesday is always pizza night.",
+  "weeks": [
+    {
+      "id": "2026-11-08",
+      "startsOn": "2026-11-08",
+      "endsOn": "2026-11-14",
+      "title": "Sun Nov 8 \u2013 Sat Nov 14, 2026",
+      "groceryNote": "Written shopping list for the remaining home-cooked dinners this week (Tue chicken already on hand, Wed pizza bowls, Thu ham bake, Fri steak bites). It does not resize when you change one dinner's portions. Pantry staples, salt, and pepper: check the shelf before buying. Nothing here orders food. Do not buy more chicken. Items only needed for egg roll in a bowl or carnitas are removed. No seafood.",
+      "days": [
+        {
+          "date": "2026-11-08",
+          "weekday": "Sunday",
+          "title": "Vital frozen pizza",
+          "recipeId": null,
+          "servings": 6,
+          "breakfast": "Almond-flour pancakes with sugar-free syrup and bacon, for five",
+          "lunch": "Chef salads with ham, turkey, hard-boiled egg, cheddar, and ranch, for five",
+          "dinnerNote": "Store-bought Vital frozen pizza. Already eaten. No home recipe."
+        },
+        {
+          "date": "2026-11-09",
+          "weekday": "Monday",
+          "title": "Kevin's frozen teriyaki",
+          "recipeId": null,
+          "servings": 6,
+          "breakfast": "Cabot 10% milkfat plain Greek yogurt with a few berries and walnuts",
+          "lunch": "Turkey and cheese roll-ups",
+          "dinnerNote": "Store-bought Kevin's Natural Foods frozen teriyaki. Heat and serve. No home recipe."
+        },
+        {
+          "date": "2026-11-10",
+          "weekday": "Tuesday",
+          "title": "Garlic Parmesan chicken",
+          "recipeId": "garlic-parmesan-chicken",
+          "servings": 6,
+          "breakfast": "Two Quest donuts or a Quest bar with coffee",
+          "lunch": "Leftover Kevin's teriyaki if available; otherwise turkey and cheese roll-ups",
+          "dinnerNote": "Garlic Parmesan chicken breasts with a side salad. Use the chicken already on hand. Do not buy more."
+        },
+        {
+          "date": "2026-11-11",
+          "weekday": "Wednesday",
+          "title": "Pizza night",
+          "recipeId": "keto-pizza-bowls",
+          "servings": 6,
+          "breakfast": "Sausage and cheddar egg bake (makes two mornings)",
+          "lunch": "Leftover garlic Parmesan chicken over greens, if available; otherwise turkey and cheese roll-ups",
+          "dinnerNote": "Wednesday is always pizza night. Kids: takeout or kids' pizza. Adults: crustless keto pizza bowls."
+        },
+        {
+          "date": "2026-11-12",
+          "weekday": "Thursday",
+          "title": "Broccoli ham bake",
+          "recipeId": "broccoli-ham-bake",
+          "servings": 6,
+          "breakfast": "Leftover sausage and cheddar egg bake",
+          "lunch": "Deli turkey and cheese roll-ups with pickles and string cheese; leftover pizza bowls are an option if available",
+          "dinnerNote": "Cheesy broccoli ham bake."
+        },
+        {
+          "date": "2026-11-13",
+          "weekday": "Friday",
+          "title": "Garlic butter steak bites",
+          "recipeId": "steak-bites",
+          "servings": 6,
+          "breakfast": "Hard-boiled eggs with avocado and everything seasoning",
+          "lunch": "Leftover broccoli ham bake if available; otherwise deli turkey and cheese roll-ups",
+          "dinnerNote": "Garlic butter steak bites with mushrooms, cauliflower mash, and a side salad."
+        },
+        {
+          "date": "2026-11-14",
+          "weekday": "Saturday",
+          "title": "Out of town",
+          "recipeId": null,
+          "servings": 6,
+          "breakfast": "Out of town",
+          "lunch": "Out of town",
+          "dinnerNote": "Out of town. No dinner at home. Also away Sunday Nov 15."
+        }
+      ],
+      "grocery": [
+        {
+          "id": "meat",
+          "title": "Meat",
+          "items": [
+            {
+              "id": "sirloin",
+              "label": "Sirloin steak, about 4 lb (Friday steak bites)"
+            },
+            {
+              "id": "ham",
+              "label": "Cooked ham, about 2.5\u20133 lb (Thursday broccoli ham bake)"
+            },
+            {
+              "id": "chicken",
+              "label": "Boneless skinless chicken breasts, about 3 lb \u2014 already on hand for Tuesday. Check the amount and that it stays safe to cook. Do not buy more."
+            },
+            {
+              "id": "sausage",
+              "label": "Italian sausage, 1 lb, no added sugar (Wednesday pizza bowls)"
+            },
+            {
+              "id": "breakfast-sausage",
+              "label": "Breakfast sausage, 1 lb"
+            },
+            {
+              "id": "pepperoni",
+              "label": "Pepperoni, 4 oz (Wednesday pizza bowls)"
+            },
+            {
+              "id": "bacon",
+              "label": "Bacon, 1.5 lb"
+            },
+            {
+              "id": "turkey",
+              "label": "Deli turkey, 1 lb"
+            }
+          ]
+        },
+        {
+          "id": "dairy",
+          "title": "Dairy and eggs",
+          "items": [
+            {
+              "id": "eggs",
+              "label": "Eggs, 3 dozen"
+            },
+            {
+              "id": "cheddar",
+              "label": "Shredded cheddar, 2 lb (Thursday ham bake)"
+            },
+            {
+              "id": "mozzarella",
+              "label": "Mozzarella, 8 oz (Wednesday pizza bowls)"
+            },
+            {
+              "id": "parmesan",
+              "label": "Parmesan, 3/4 cup for Tuesday. Check what you already have."
+            },
+            {
+              "id": "cream",
+              "label": "Heavy cream, 1 cup for the Thursday ham bake. Check breakfast before buying more."
+            },
+            {
+              "id": "cream-cheese",
+              "label": "Cream cheese, 8 oz. The ham bake uses 4 oz."
+            },
+            {
+              "id": "butter",
+              "label": "Kerrygold butter, 1 lb"
+            },
+            {
+              "id": "yogurt",
+              "label": "Cabot 10% milkfat plain Greek yogurt"
+            },
+            {
+              "id": "string-cheese",
+              "label": "String cheese"
+            },
+            {
+              "id": "ratio",
+              "label": "Ratio yogurt cups"
+            }
+          ]
+        },
+        {
+          "id": "produce",
+          "title": "Produce",
+          "items": [
+            {
+              "id": "cauliflower",
+              "label": "Cauliflower, 2 heads (Friday mash)"
+            },
+            {
+              "id": "mushrooms",
+              "label": "Mushrooms, 1.5 lb (8 oz for pizza bowls, 1 lb for steak bites)"
+            },
+            {
+              "id": "broccoli",
+              "label": "Broccoli, 3 lb (Thursday ham bake)"
+            },
+            {
+              "id": "garlic",
+              "label": "Garlic, 2 heads"
+            },
+            {
+              "id": "romaine",
+              "label": "Romaine, 3 heads"
+            },
+            {
+              "id": "salad-greens",
+              "label": "Salad greens, 2 bags (Tuesday dinner and Friday dinner). Check the bag size."
+            },
+            {
+              "id": "avocados",
+              "label": "Avocados, 2 (Friday breakfast)"
+            },
+            {
+              "id": "pepper",
+              "label": "Green pepper, 1 (Wednesday pizza bowls)"
+            },
+            {
+              "id": "berries",
+              "label": "A small pack of berries"
+            }
+          ]
+        },
+        {
+          "id": "pantry",
+          "title": "Pantry",
+          "pantry": true,
+          "items": [
+            {
+              "id": "marinara",
+              "label": "Low-sugar marinara, such as Rao's, 1 jar (24 oz). Wednesday bowls use about half the jar."
+            },
+            {
+              "id": "ranch",
+              "label": "Ranch"
+            },
+            {
+              "id": "mustard",
+              "label": "Mustard"
+            },
+            {
+              "id": "pickles",
+              "label": "Pickles"
+            },
+            {
+              "id": "syrup",
+              "label": "Sugar-free syrup"
+            },
+            {
+              "id": "almond-flour",
+              "label": "Almond flour"
+            },
+            {
+              "id": "walnuts",
+              "label": "Walnuts"
+            },
+            {
+              "id": "everything",
+              "label": "Everything bagel seasoning"
+            },
+            {
+              "id": "oregano",
+              "label": "Oregano"
+            },
+            {
+              "id": "olive-oil",
+              "label": "Olive oil"
+            }
+          ]
+        },
+        {
+          "id": "frozen-store",
+          "title": "Store-bought dinners already covered",
+          "items": [
+            {
+              "id": "vital-pizza",
+              "label": "Vital frozen pizza \u2014 Sunday, already eaten"
+            },
+            {
+              "id": "kevins-teriyaki",
+              "label": "Kevin's Natural Foods frozen teriyaki \u2014 Monday night"
+            }
+          ]
+        },
+        {
+          "id": "snacks",
+          "title": "Snacks and drinks",
+          "items": [
+            {
+              "id": "quest",
+              "label": "Quest donuts or bars"
+            },
+            {
+              "id": "crystal-light",
+              "label": "Crystal Light"
+            },
+            {
+              "id": "pork-rinds",
+              "label": "Pork rinds"
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "title": "For the kids",
+          "items": [
+            {
+              "id": "pizza",
+              "label": "Kids' pizza for Wednesday pizza night"
+            },
+            {
+              "id": "chips",
+              "label": "Individually packed chips, variety pack"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
