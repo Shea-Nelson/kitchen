@@ -62,6 +62,22 @@ Do not put nutrition numbers, names, health notes, credentials, or private messa
 
 `id` values match `^[a-z0-9][a-z0-9-]{0,63}$`. Bump `version` when ingredients or steps change so a phone can keep old checks and show that the cookbook moved on.
 
+### Standing sections
+
+`sections` is optional on the cookbook. A recipe with `"section": "weekday-mornings"` is listed in that section on the recipes page every week. It is not a dinner slot. Adding a week does not remove it, and it does not move into "Also saved."
+
+```json
+"sections": [
+  {
+    "id": "weekday-mornings",
+    "title": "Weekday Mornings",
+    "note": "A short note shown with the recipe buttons."
+  }
+]
+```
+
+`tips` is optional on a recipe: `{ "title": "Tips", "items": ["One plain tip."] }`. Leave it off when a recipe has no tips.
+
 ### Ingredients
 
 ```json
@@ -191,10 +207,10 @@ Do not point `photo.src` at another website.
 
 ## Friday update
 
-1. Add any new recipes to `recipes/data/recipes.json`, including amounts that the plan actually states, numbered steps, timers on timed steps, and the safe internal temperature.
+1. Add any new recipes to `recipes/data/recipes.json`, including amounts that the plan actually states, numbered steps, timers on timed steps, and the safe internal temperature. Leave every standing section and its recipes in the file.
 2. Add the image files and a `credits.json` entry.
 3. Append the next week to `weeks` in `planner/data/weeks.json`, with seven days, breakfast, lunch, dinner, and a grocery list by store section.
-4. Leave every earlier week in the array.
+4. Leave every earlier week in the array. Do not drop weekday morning recipes, or any other recipe whose `section` is set, when the dinner list changes.
 5. Run `node --test tests/*.test.js`.
 
 The recipe page lists the days of the week you are viewing. The planner opens on today's date in Eastern time. A dinner link looks like `recipes/?date=2026-11-16&recipe=garlic-parmesan-chicken`.

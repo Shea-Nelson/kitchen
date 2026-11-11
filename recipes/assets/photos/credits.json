@@ -79,6 +79,26 @@
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
       "credit": "Own work",
       "changes": "Saved a JPEG whose longest side is 1600 pixels."
+    },
+    {
+      "file": "recipes/assets/photos/scrambled-eggs.jpg",
+      "sourceTitle": "File:Scrambled eggs with basil.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scrambled_eggs_with_basil.jpg",
+      "author": "OmegaFallon",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "credit": "Own work",
+      "changes": "Saved a JPEG whose longest side is 1600 pixels."
+    },
+    {
+      "file": "recipes/assets/photos/fried-eggs.jpg",
+      "sourceTitle": "File:Two fried eggs.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Two_fried_eggs.jpg",
+      "author": "Balise42",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "changes": "Saved a JPEG whose longest side is 1280 pixels."
     }
   ]
 }

@@ -162,3 +162,38 @@ test('pages share a kitchen nav and images are credited', () => {
   assert.equal(credited.has('recipes/assets/photos/shrimp-scampi.jpg'), false);
   assert.equal(credited.has('recipes/assets/photos/tuscan-chicken.jpg'), true);
 });
+
+test('weekday mornings stay in the cookbook and are not a dinner slot', () => {
+  const section = (recipesDoc.sections || []).find(item => item.id === 'weekday-mornings');
+  assert.ok(section);
+  assert.equal(section.title, 'Weekday Mornings');
+  assert.match(section.note, /Weekday morning game plan/);
+  assert.match(section.note, /400°F/);
+  assert.match(section.note, /bacon/i);
+  assert.match(section.note, /last/i);
+  ['scrambled-eggs', 'fried-eggs'].forEach(id => {
+    const recipe = catalog[id];
+    assert.ok(recipe, id);
+    assert.equal(recipe.section, 'weekday-mornings');
+    assert.equal(recipe.illustration, 'skillet');
+    assert.doesNotMatch(JSON.stringify(recipe), /toast|—|shrimp|seafood/i);
+    weeksDoc.weeks.forEach(weekItem => {
+      assert.equal(weekItem.days.some(day => day.recipeId === id), false, id);
+    });
+    assert.equal(Object.values(schedule.days || {}).some(day => day.recipeId === id), false);
+  });
+  const scrambled = catalog['scrambled-eggs'];
+  assert.equal(scrambled.servings, 4);
+  assert.equal(scrambled.ingredients.find(item => item.id === 'eggs').amount, 8);
+  assert.equal(scrambled.tips.title, 'Tips');
+  assert.ok(scrambled.tips.items.length >= 5);
+  const fried = catalog['fried-eggs'];
+  assert.match(fried.tips.title, /fall apart/);
+  assert.ok(fried.tips.items.some(item => /cup/i.test(item)));
+  assert.ok(fried.tips.items.some(item => /lid/i.test(item)));
+  assert.equal(fried.ingredients.find(item => item.id === 'fat').amount, 1);
+  const recipeApp = fs.readFileSync(path.join(root, 'recipes/app.js'), 'utf8');
+  assert.equal(recipeApp.includes('scrambled-eggs'), false);
+  assert.equal(recipeApp.includes('fried-eggs'), false);
+  assert.match(recipeApp, /standingHtml/);
+});

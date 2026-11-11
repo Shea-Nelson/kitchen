@@ -1,7 +1,14 @@
 {
   "schema": "kitchen.recipes",
   "schemaVersion": 1,
-  "authoring": "Garlic-butter salmon matches the Thu Nov 5, 2026 household card, including 145°F in the thickest part. Nov 10 afternoon swap for Nov 8–14: store-bought Vital pizza (Sun), Kevin's frozen teriyaki (Mon), pizza night (Tue, one-time swap), garlic Parmesan chicken (Wed, on hand), broccoli ham bake (Thu), garlic butter steak bites (Fri), out of town Sat. Standing rule remains Wednesday pizza night. Egg roll in a bowl and pork carnitas are dropped this week. No seafood. No nutrition figures.",
+  "authoring": "Garlic-butter salmon matches the Thu Nov 5, 2026 household card, including 145°F in the thickest part. Nov 10 afternoon swap for Nov 8–14: store-bought Vital pizza (Sun), Kevin's frozen teriyaki (Mon), pizza night (Tue, one-time swap), garlic Parmesan chicken (Wed, on hand), broccoli ham bake (Thu), garlic butter steak bites (Fri), out of town Sat. Standing rule remains Wednesday pizza night. Egg roll in a bowl and pork carnitas are dropped this week. No seafood. No nutrition figures. Weekday morning recipes stay in this cookbook and are not replaced when a dinner week is added.",
+  "sections": [
+    {
+      "id": "weekday-mornings",
+      "title": "Weekday Mornings",
+      "note": "Weekday morning game plan. On Sunday, bake a batch of bacon on a sheet pan with a rack at 400°F for about 15 to 20 minutes, then reheat it on weekdays. Eggs go in the pan last so they are hot when you sit down."
+    }
+  ],
   "recipes": [
     {
       "id": "garlic-butter-salmon",
@@ -1537,6 +1544,303 @@
         {
           "id": "chicken-salad",
           "label": "Rinse the salad greens"
+        }
+      ]
+    },
+    {
+      "id": "scrambled-eggs",
+      "version": 1,
+      "section": "weekday-mornings",
+      "title": "Scrambled eggs",
+      "summary": "Soft eggs for four, ready in about 8 minutes. Keep the heat low, and take them off while they still look a little glossy.",
+      "servings": 4,
+      "servingsNote": "About 4 portions from 8 large eggs.",
+      "style": "Skillet, about 8 minutes. Low-carb as written.",
+      "illustration": "skillet",
+      "authoring": "Household plan for weekday breakfast. Newly written as a standing card, not a dinner on the week.",
+      "photo": {
+        "src": "assets/photos/scrambled-eggs.jpg",
+        "alt": "Soft yellow scrambled eggs with a few basil leaves on a white plate.",
+        "caption": "Photograph by OmegaFallon, CC BY 4.0. It shows scrambled eggs with basil. This recipe uses optional chives or cheddar, not basil.",
+        "author": "OmegaFallon",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scrambled_eggs_with_basil.jpg",
+        "changes": "Saved a JPEG whose longest side is 1600 pixels."
+      },
+      "ingredients": [
+        {
+          "id": "eggs",
+          "name": "large eggs",
+          "amount": 8,
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "eggs",
+          "groceryName": "large eggs"
+        },
+        {
+          "id": "butter",
+          "name": "butter",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "butter"
+        },
+        {
+          "id": "cream",
+          "name": "heavy cream or milk",
+          "amount": 2,
+          "amountMax": 3,
+          "unit": "tbsp",
+          "note": "optional",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "heavy-cream",
+          "groceryName": "heavy cream"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "note": "a pinch",
+          "scalable": false,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "note": "to taste",
+          "scalable": false,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "cheddar",
+          "name": "shredded cheddar",
+          "note": "optional",
+          "scalable": false,
+          "group": "shop",
+          "groceryKey": "cheddar",
+          "groceryName": "shredded cheddar"
+        },
+        {
+          "id": "chives",
+          "name": "chives",
+          "note": "optional",
+          "scalable": false,
+          "group": "shop",
+          "groceryKey": "chives",
+          "groceryName": "chives"
+        }
+      ],
+      "steps": [
+        {
+          "id": "whisk",
+          "text": "Crack the eggs into a bowl. Add the cream, if you are using it, and a pinch of salt. Whisk until you see no streaks of white."
+        },
+        {
+          "id": "melt",
+          "text": "Melt the butter in a 10 to 12 inch nonstick pan over medium-low heat."
+        },
+        {
+          "id": "pour",
+          "text": "Pour in the eggs. Wait about 20 seconds, until the edges just begin to set.",
+          "timers": [
+            {
+              "id": "edges",
+              "label": "Edges start to set",
+              "seconds": 20,
+              "note": "Then start pushing the eggs into large soft curds."
+            }
+          ]
+        },
+        {
+          "id": "curds",
+          "text": "Push slowly with a silicone spatula from the edges toward the center, making large soft curds. Stir every few seconds. When the eggs are mostly set but still a little glossy and wet-looking, take the pan off the heat. They keep cooking in the hot pan."
+        },
+        {
+          "id": "serve",
+          "text": "Fold in the cheese if you are using it. Season with pepper and serve right away."
+        }
+      ],
+      "tips": {
+        "title": "Tips",
+        "items": [
+          "Low and slow beats high heat. High heat makes them rubbery and dry.",
+          "Pull them off while they are still slightly underdone. They keep cooking in the hot pan.",
+          "Use a nonstick pan and a silicone spatula.",
+          "Don't salt the eggs and then let them sit. Salting right before cooking is fine.",
+          "For 8 or more eggs, use the bigger pan, or cook two batches.",
+          "If you are cooking bacon too, eggs go in the pan last so they are hot."
+        ]
+      },
+      "tasks": [
+        {
+          "id": "eggs-crack",
+          "label": "Crack 8 eggs into a bowl"
+        },
+        {
+          "id": "eggs-pan",
+          "label": "Set a 10 to 12 inch nonstick pan on medium-low"
+        }
+      ]
+    },
+    {
+      "id": "fried-eggs",
+      "version": 1,
+      "section": "weekday-mornings",
+      "title": "Fried eggs",
+      "summary": "Sunny-side up, over easy, over medium, or over hard. About 5 minutes, and 1 to 4 eggs per batch.",
+      "servings": 2,
+      "servingsNote": "One batch, written for 2 eggs. Cook 1 to 4 eggs per batch. A 10 inch pan fits 2 or 3. The portion control scales from 2.",
+      "style": "Skillet, about 5 minutes. Low-carb as written.",
+      "illustration": "skillet",
+      "authoring": "Household plan for weekday breakfast. Newly written as a standing card, not a dinner on the week.",
+      "photo": {
+        "src": "assets/photos/fried-eggs.jpg",
+        "alt": "Two sunny-side up eggs with black pepper cooking in a black pan.",
+        "caption": "Photograph by Balise42, CC BY-SA 4.0. It shows two sunny-side up eggs in a pan. This recipe also covers over easy, over medium, and over hard.",
+        "author": "Balise42",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Two_fried_eggs.jpg",
+        "changes": "Saved a JPEG whose longest side is 1280 pixels."
+      },
+      "ingredients": [
+        {
+          "id": "eggs",
+          "name": "large eggs",
+          "amount": 2,
+          "note": "1 to 4 per batch",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "eggs",
+          "groceryName": "large eggs"
+        },
+        {
+          "id": "fat",
+          "name": "butter or bacon grease",
+          "amount": 1,
+          "unit": "tbsp",
+          "note": "about 1 tablespoon for every 2 to 3 eggs",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "butter"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "note": "to taste",
+          "scalable": false,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "note": "to taste",
+          "scalable": false,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        }
+      ],
+      "steps": [
+        {
+          "id": "heat",
+          "text": "Heat a nonstick pan over medium-low for about 1 minute. Add the butter and let it melt and foam. If the butter browns quickly, the heat is too high, so turn it down.",
+          "timers": [
+            {
+              "id": "warm-pan",
+              "label": "Warm the pan",
+              "seconds": 60,
+              "note": "Then add the butter. If it browns quickly, turn the heat down."
+            }
+          ]
+        },
+        {
+          "id": "crack",
+          "text": "Crack each egg into a small bowl or cup first. Then gently slide it into the pan from close to the surface."
+        },
+        {
+          "id": "wait",
+          "text": "Leave the eggs alone. Do not poke, stir, or move them. Give them 2 to 3 minutes, until the whites are fully set and opaque.",
+          "timers": [
+            {
+              "id": "whites",
+              "label": "Whites set",
+              "seconds": 120,
+              "note": "Start with 2 minutes. They may need 3, until the whites are fully set and opaque."
+            }
+          ]
+        },
+        {
+          "id": "sunny",
+          "text": "Sunny-side up: cover the pan with a lid for the last 30 to 60 seconds to set the top of the whites, then slide the eggs out.",
+          "timers": [
+            {
+              "id": "lid",
+              "label": "Sunny-side lid",
+              "seconds": 30,
+              "note": "30 to 60 seconds, just long enough to set the top of the whites."
+            }
+          ]
+        },
+        {
+          "id": "flip",
+          "text": "Over easy, over medium, or over hard: once the whites are mostly set, slide a thin wide spatula fully under one egg in one confident motion. Flip gently, close to the pan. Cook 15 to 30 seconds for over easy, about 1 minute for over medium, or 2 minutes for over hard. Then flip the egg back or slide it out.",
+          "timers": [
+            {
+              "id": "over-easy",
+              "label": "Over easy",
+              "seconds": 15,
+              "note": "15 to 30 seconds for a runny yolk."
+            },
+            {
+              "id": "over-medium",
+              "label": "Over medium",
+              "seconds": 60,
+              "note": "About 1 minute."
+            },
+            {
+              "id": "over-hard",
+              "label": "Over hard",
+              "seconds": 120,
+              "note": "About 2 minutes."
+            }
+          ]
+        }
+      ],
+      "tips": {
+        "title": "Why my fried eggs fall apart (and how to fix it)",
+        "items": [
+          "Don't crack an egg straight into the pan. Crack it into a cup first, so shell bits and a broken yolk stay out, and so you can lower it in gently.",
+          "Fresh eggs hold together better. Older eggs have runny whites that spread out.",
+          "Use medium-low heat, not high, so the bottom does not stick and crisp before the top sets.",
+          "Use plenty of fat and a good nonstick pan.",
+          "Give each egg room. Don't crowd the pan. Two or three eggs fit in a 10 inch pan.",
+          "Don't touch an egg until the white is set. Moving it early breaks it apart.",
+          "Use a thin, wide spatula, such as a fish spatula or a thin silicone turner. Get it all the way under the egg before you lift.",
+          "Flip low and gentle, close to the pan. A high toss is what breaks the yolk.",
+          "If a yolk breaks, call it over hard. It is still tasty.",
+          "Wiggle the pan. If the egg slides freely, it is ready to flip.",
+          "The lid trick sets the top of the whites, so you can skip flipping entirely."
+        ]
+      },
+      "tasks": [
+        {
+          "id": "fried-pan",
+          "label": "Set a nonstick pan on medium-low"
+        },
+        {
+          "id": "fried-spatula",
+          "label": "Have a thin wide spatula ready"
         }
       ]
     }

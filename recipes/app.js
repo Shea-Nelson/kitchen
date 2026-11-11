@@ -6,6 +6,7 @@
   const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
   let catalog = {};
   let order = [];
+  let sections = [];
   let schedule = { days: {} };
   let weeksDoc = { weeks: [] };
   let session = null;
@@ -238,6 +239,22 @@
       const dow = date === today ? 'Today' : K.weekdayName(date).slice(0, 3);
       return '<button type="button" role="tab" class="' + (date === today ? 'is-today' : '') + '" data-act="day" data-date="' + date + '" aria-selected="' + selected + '" aria-label="' + K.esc(K.formatLong(date) + '. ' + name) + '"><span class="dow">' + K.esc(dow) + '</span><span class="dom">' + Number(date.slice(8)) + '</span></button>';
     }).join('') + '</div>';
+    renderStandingNav();
+  }
+
+  function renderStandingNav() {
+    const slot = $('standing-nav');
+    if (!slot) return;
+    const html = sectionBlocks().map(function (section) {
+      const ids = order.filter(function (id) { return catalog[id].section === section.id; });
+      if (!ids.length) return '';
+      const buttons = ids.map(function (id) {
+        const current = id === activeId ? ' aria-current="true"' : '';
+        return '<button type="button" data-act="open" data-recipe="' + K.esc(id) + '"' + current + '>' + K.esc(catalog[id].title) + '</button>';
+      }).join('');
+      return '<a href="#' + K.esc(section.id) + '">' + K.esc(section.title) + '</a>' + buttons;
+    }).join('');
+    slot.innerHTML = html ? '<div class="standing-nav" role="navigation" aria-label="Standing recipes">' + html + '</div>' : '';
   }
 
   function mealStripHtml() {
@@ -252,13 +269,51 @@
     return '<div class="meal-strip"><div class="meal"><b>Breakfast</b><span>' + K.esc(day.breakfast || '') + '</span></div><div class="meal"><b>Lunch</b><span>' + K.esc(day.lunch || '') + '</span></div><div class="meal"><b>Dinner</b><span>' + K.esc(dinner) + '</span></div></div>';
   }
 
+  function sectionBlocks() {
+    const blocks = (sections || []).map(function (section) {
+      return { id: section.id, title: section.title || section.id, note: section.note || '' };
+    });
+    const known = {};
+    blocks.forEach(function (block) { known[block.id] = true; });
+    order.forEach(function (id) {
+      const key = catalog[id] && catalog[id].section;
+      if (key && !known[key]) {
+        known[key] = true;
+        blocks.push({ id: key, title: key, note: '' });
+      }
+    });
+    return blocks;
+  }
+
+  function standingHtml() {
+    return sectionBlocks().map(function (section) {
+      const ids = order.filter(function (id) { return catalog[id].section === section.id; });
+      if (!ids.length) return '';
+      const note = section.note ? '<p>' + K.esc(section.note) + '</p>' : '';
+      const buttons = ids.map(function (id) {
+        const current = id === activeId ? ' aria-current="true"' : '';
+        return '<button type="button" data-act="open" data-recipe="' + K.esc(id) + '"' + current + '>' + K.esc(catalog[id].title) + '</button>';
+      }).join('');
+      return '<section class="card standing" id="' + K.esc(section.id) + '"><h2>' + K.esc(section.title) + '</h2>' + note + '<div class="also" role="group" aria-label="' + K.esc(section.title) + '">' + buttons + '</div></section>';
+    }).join('');
+  }
+
+  function tipsHtml(rec) {
+    const tips = rec && rec.tips;
+    if (!tips || !Array.isArray(tips.items) || !tips.items.length) return '';
+    const title = tips.title || 'Tips';
+    return '<section class="card"><h2>' + K.esc(title) + '</h2><ul class="tips">' + tips.items.map(function (item) {
+      return '<li>' + K.esc(item) + '</li>';
+    }).join('') + '</ul></section>';
+  }
+
   function alsoHtml() {
     const listed = {};
     viewDates().forEach(function (date) {
       const id = K.recipeIdForDate(date, schedule, weeksDoc);
       if (id) listed[id] = true;
     });
-    const extras = order.filter(function (id) { return !listed[id]; });
+    const extras = order.filter(function (id) { return !listed[id] && !catalog[id].section; });
     if (!extras.length) return '';
     return '<section class="card also-saved"><h2>Also saved</h2><p class="meta">These recipes are not dinners on the days shown above.</p><div class="also">' + extras.map(function (id) {
       return '<button type="button" data-act="open" data-recipe="' + K.esc(id) + '"' + (id === activeId ? ' aria-current="true"' : '') + '>' + K.esc(catalog[id].title) + '</button>';
@@ -292,6 +347,7 @@
       '<p class="kicker" id="todayLine">' + K.esc(todayLine()) + '</p>' +
       '<section class="card"><h2>' + K.esc(dayName) + '</h2><p>No dinner is planned. This page does not fill the day with a guessed recipe.</p></section>' +
       mealStripHtml() +
+      standingHtml() +
       alsoHtml() +
       savePanel();
     paintDock();
@@ -347,7 +403,9 @@
       '<p id="progress" class="meta"></p>' +
       '<div class="cook-nav row"><button type="button" class="btn-quiet" data-act="prev">Previous step</button><button type="button" class="btn" data-act="next">Next step</button><button type="button" class="btn-quiet" data-act="cook">Exit</button></div>' +
       '<div class="layout"><section class="card" id="ingredients"><h2>Ingredients</h2><div class="row"><span class="stepper" role="group" aria-label="Portions"><button type="button" id="portions-dec" aria-label="Fewer portions">−</button><input id="portions" inputmode="numeric" aria-label="Number of portions" value="' + state.portions + '"><button type="button" id="portions-inc" aria-label="More portions">+</button></span><span class="meta">Scaled from ' + rec.servings + '.</span></div>' + ingredients + '</section><section class="card" id="steps"><h2>Steps</h2>' + steps + '</section></div>' +
+      tipsHtml(rec) +
       '<section class="card"><h2>Notes</h2><label class="field">Recipe notes<textarea id="notes" maxlength="' + K.NOTE_MAX + '"></textarea></label><p class="meta">Notes stay in the session file on this device.</p></section>' +
+      standingHtml() +
       alsoHtml() +
       savePanel();
     const notes = $('notes');
@@ -618,6 +676,7 @@
     order = recipesDoc.recipes.map(function (item) { return item.id; });
     catalog = {};
     recipesDoc.recipes.forEach(function (item) { catalog[item.id] = item; });
+    sections = Array.isArray(recipesDoc.sections) ? recipesDoc.sections : [];
     session = loadSession();
     order.forEach(function (id) { K.ensureRecipeState(session, catalog[id], new Date()); });
     const params = new URLSearchParams(location.search);
@@ -676,6 +735,8 @@
     const finished = syncAll();
     render();
     persist();
+    const hashId = (location.hash || '').replace(/^#/, '');
+    if (hashId) scrollToNode(document.getElementById(hashId));
     if (finished.length) {
       beep();
       announce(finished.join(', ') + ' finished while the page was closed');
