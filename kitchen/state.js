@@ -704,6 +704,12 @@
     return entry;
   }
 
+  function openingPortions(recipe) {
+    const chosen = recipe && recipe.defaultPortions;
+    if (Number.isInteger(chosen) && chosen >= 1 && chosen <= 24) return chosen;
+    return recipe.servings;
+  }
+
   function ensureRecipeState(session, recipe, now) {
     const stamp = now || new Date();
     if (!session.recipes[recipe.id]) {
@@ -716,7 +722,7 @@
       session.recipes[recipe.id] = {
         recipeId: recipe.id,
         recipeVersion: recipe.version,
-        portions: recipe.servings,
+        portions: openingPortions(recipe),
         phase: 'prep',
         cookingMode: false,
         cookingStepId: recipe.steps[0] ? recipe.steps[0].id : null,
@@ -800,6 +806,7 @@
     recipeIdForDate: recipeIdForDate,
     esc: esc,
     alignRecipeState: alignRecipeState,
+    openingPortions: openingPortions,
     ensureRecipeState: ensureRecipeState,
     ensurePlannerDay: ensurePlannerDay,
     effectiveRecipeId: effectiveRecipeId

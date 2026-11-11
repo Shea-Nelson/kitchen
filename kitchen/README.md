@@ -62,6 +62,8 @@ Do not put nutrition numbers, names, health notes, credentials, or private messa
 
 `id` values match `^[a-z0-9][a-z0-9-]{0,63}$`. Bump `version` when ingredients or steps change so a phone can keep old checks and show that the cookbook moved on.
 
+`defaultPortions` is optional. The recipes page opens the portion control on that number and scales the written amounts from `servings`. Leave it off for dinners so they still open at `servings` (usually 6). Weekday morning eggs set it to 3.
+
 ### Standing sections
 
 `sections` is optional on the cookbook. A recipe with `"section": "weekday-mornings"` is listed in that section on the recipes page every week. It is not a dinner slot. Adding a week does not remove it, and it does not move into "Also saved."
