@@ -1549,12 +1549,12 @@
     },
     {
       "id": "scrambled-eggs",
-      "version": 1,
+      "version": 2,
       "section": "weekday-mornings",
       "title": "Scrambled eggs",
-      "summary": "Soft eggs for four, ready in about 8 minutes. Keep the heat low, and take them off while they still look a little glossy.",
-      "servings": 4,
-      "servingsNote": "About 4 portions from 8 large eggs.",
+      "summary": "Soft eggs for 3 adults, ready in about 8 minutes. Keep the heat low, and take them off while they still look a little glossy.",
+      "servings": 3,
+      "servingsNote": "3 adults, 2 large eggs each.",
       "style": "Skillet, about 8 minutes. Low-carb as written.",
       "illustration": "skillet",
       "authoring": "Household plan for weekday breakfast. Newly written as a standing card, not a dinner on the week.",
@@ -1572,7 +1572,8 @@
         {
           "id": "eggs",
           "name": "large eggs",
-          "amount": 8,
+          "amount": 6,
+          "note": "2 per adult",
           "scalable": true,
           "group": "shop",
           "groceryKey": "eggs",
@@ -1581,8 +1582,9 @@
         {
           "id": "butter",
           "name": "butter",
-          "amount": 2,
+          "amount": 1.5,
           "unit": "tbsp",
+          "note": "about",
           "scalable": true,
           "group": "shop",
           "groceryKey": "butter",
@@ -1592,9 +1594,8 @@
           "id": "cream",
           "name": "heavy cream or milk",
           "amount": 2,
-          "amountMax": 3,
           "unit": "tbsp",
-          "note": "optional",
+          "note": "about, optional",
           "scalable": true,
           "group": "shop",
           "groceryKey": "heavy-cream",
@@ -1621,7 +1622,7 @@
         {
           "id": "cheddar",
           "name": "shredded cheddar",
-          "note": "optional",
+          "note": "optional, a light handful for these 3 adults",
           "scalable": false,
           "group": "shop",
           "groceryKey": "cheddar",
@@ -1644,7 +1645,7 @@
         },
         {
           "id": "melt",
-          "text": "Melt the butter in a 10 to 12 inch nonstick pan over medium-low heat."
+          "text": "Melt the butter in a 10 inch nonstick pan over medium-low heat. That pan works for these 6 eggs."
         },
         {
           "id": "pour",
@@ -1674,29 +1675,29 @@
           "Pull them off while they are still slightly underdone. They keep cooking in the hot pan.",
           "Use a nonstick pan and a silicone spatula.",
           "Don't salt the eggs and then let them sit. Salting right before cooking is fine.",
-          "For 8 or more eggs, use the bigger pan, or cook two batches.",
+          "A 10 inch nonstick pan works for these 6 eggs.",
           "If you are cooking bacon too, eggs go in the pan last so they are hot."
         ]
       },
       "tasks": [
         {
           "id": "eggs-crack",
-          "label": "Crack 8 eggs into a bowl"
+          "label": "Crack 6 eggs into a bowl"
         },
         {
           "id": "eggs-pan",
-          "label": "Set a 10 to 12 inch nonstick pan on medium-low"
+          "label": "Set a 10 inch nonstick pan on medium-low"
         }
       ]
     },
     {
       "id": "fried-eggs",
-      "version": 1,
+      "version": 2,
       "section": "weekday-mornings",
       "title": "Fried eggs",
-      "summary": "Sunny-side up, over easy, over medium, or over hard. About 5 minutes, and 1 to 4 eggs per batch.",
-      "servings": 2,
-      "servingsNote": "One batch, written for 2 eggs. Cook 1 to 4 eggs per batch. A 10 inch pan fits 2 or 3. The portion control scales from 2.",
+      "summary": "Sunny-side up, over easy, over medium, or over hard for 3 adults. About 5 minutes a batch: 2 batches of 3 eggs.",
+      "servings": 3,
+      "servingsNote": "3 adults, 2 eggs each. A 10 inch pan cooks them in 2 batches of 3. A larger pan uses the same 3 and 3. The portion control scales from 3.",
       "style": "Skillet, about 5 minutes. Low-carb as written.",
       "illustration": "skillet",
       "authoring": "Household plan for weekday breakfast. Newly written as a standing card, not a dinner on the week.",
@@ -1714,8 +1715,8 @@
         {
           "id": "eggs",
           "name": "large eggs",
-          "amount": 2,
-          "note": "1 to 4 per batch",
+          "amount": 6,
+          "note": "2 per adult, in 2 batches of 3",
           "scalable": true,
           "group": "shop",
           "groceryKey": "eggs",
@@ -1724,9 +1725,9 @@
         {
           "id": "fat",
           "name": "butter or bacon grease",
-          "amount": 1,
+          "amount": 2,
           "unit": "tbsp",
-          "note": "about 1 tablespoon for every 2 to 3 eggs",
+          "note": "1 tablespoon per batch",
           "scalable": true,
           "group": "shop",
           "groceryKey": "butter",
@@ -1754,7 +1755,7 @@
       "steps": [
         {
           "id": "heat",
-          "text": "Heat a nonstick pan over medium-low for about 1 minute. Add the butter and let it melt and foam. If the butter browns quickly, the heat is too high, so turn it down.",
+          "text": "Heat a 10 inch nonstick pan over medium-low for about 1 minute. Add 1 tablespoon of butter or bacon grease for this batch and let it melt and foam. If the butter browns quickly, the heat is too high, so turn it down. Cook 3 eggs now, then the other 3. A larger pan uses that same 3 and 3 split.",
           "timers": [
             {
               "id": "warm-pan",
@@ -1766,7 +1767,7 @@
         },
         {
           "id": "crack",
-          "text": "Crack each egg into a small bowl or cup first. Then gently slide it into the pan from close to the surface."
+          "text": "Crack each egg into a small bowl or cup first. Then gently slide 3 eggs into the pan from close to the surface."
         },
         {
           "id": "wait",
@@ -1815,6 +1816,10 @@
               "note": "About 2 minutes."
             }
           ]
+        },
+        {
+          "id": "second",
+          "text": "Repeat with the remaining 3 eggs and another tablespoon of butter or bacon grease."
         }
       ],
       "tips": {
@@ -1836,7 +1841,7 @@
       "tasks": [
         {
           "id": "fried-pan",
-          "label": "Set a nonstick pan on medium-low"
+          "label": "Set a 10 inch nonstick pan on medium-low for batches of 3"
         },
         {
           "id": "fried-spatula",
