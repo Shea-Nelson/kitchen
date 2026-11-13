@@ -99,6 +99,26 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "credit": "Own work",
       "changes": "Saved a JPEG whose longest side is 1280 pixels."
+    },
+    {
+      "file": "recipes/assets/photos/shredded-beef-taco-bowls.jpg",
+      "sourceTitle": "File:Barbacoa tacos from Actopan in Mexico City.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbacoa_tacos_from_Actopan_in_Mexico_City.jpg",
+      "author": "Jj saezdeo",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+    },
+    {
+      "file": "recipes/assets/photos/turkey-burger-lettuce-wraps.jpg",
+      "sourceTitle": "File:Liat Portal for Foodie Disorder - Hamburger lettuce wrap with ptitim.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Hamburger_lettuce_wrap_with_ptitim.jpg",
+      "author": "HaJunkiyada (photo by Liat Portal)",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
     }
   ]
 }
