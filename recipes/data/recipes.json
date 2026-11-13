@@ -1,7 +1,7 @@
 {
   "schema": "kitchen.recipes",
   "schemaVersion": 1,
-  "authoring": "Garlic-butter salmon matches the Thu Nov 5, 2026 household card, including 145°F in the thickest part. Nov 10 afternoon swap for Nov 8–14: store-bought Vital pizza (Sun), Kevin's frozen teriyaki (Mon), pizza night (Tue, one-time swap), garlic Parmesan chicken (Wed, on hand), broccoli ham bake (Thu), garlic butter steak bites (Fri), out of town Sat. Standing rule remains Wednesday pizza night. Egg roll in a bowl and pork carnitas are dropped this week. No seafood. No nutrition figures. Weekday morning recipes stay in this cookbook and are not replaced when a dinner week is added.",
+  "authoring": "Garlic-butter salmon matches the Thu Nov 5, 2026 household card, including 145°F in the thickest part. Nov 10 afternoon swap for Nov 8–14: store-bought Vital pizza (Sun), Kevin's frozen teriyaki (Mon), pizza night (Tue, one-time swap), garlic Parmesan chicken (Wed, on hand), broccoli ham bake (Thu), garlic butter steak bites (Fri), out of town Sat. Standing rule remains Wednesday pizza night. Egg roll in a bowl and pork carnitas are dropped this week. No seafood. No nutrition figures. Weekday morning recipes stay in this cookbook and are not replaced when a dinner week is added. Week of Nov 15–21, 2026: egg roll in a bowl (version 2, sized up), bacon ranch chicken bake, slow-cooker shredded beef taco bowls, pizza night, broccoli ham bake, turkey burger lettuce wraps, and garlic butter steak bites. Safe-temperature notes were added to reused recipes. No nutrition figures.",
   "sections": [
     {
       "id": "weekday-mornings",
@@ -375,7 +375,8 @@
           "id": "steak-starch",
           "label": "Start kid potatoes only if you are making them"
         }
-      ]
+      ],
+      "safety": "Whole-muscle beef is safe at 145°F after a 3-minute rest; cook it further to the doneness you want."
     },
     {
       "id": "broccoli-ham-bake",
@@ -567,15 +568,16 @@
           "id": "broccoli-cheese",
           "label": "Shred the cheddar if it is not already shredded"
         }
-      ]
+      ],
+      "safety": "The ham is already cooked. Heat the casserole until it is bubbling and about 165°F in the center."
     },
     {
       "id": "egg-roll-bowl",
-      "version": 1,
+      "version": 2,
       "title": "Egg roll in a bowl",
-      "summary": "Ground pork and cabbage in a skillet for Tuesday, Nov 10. Newly written for this app. No wrappers in the pan.",
+      "summary": "Ground pork and cabbage stir-fried with garlic, ginger, and coconut aminos. One skillet, about 20 minutes. Version 2 is sized for 6 adult portions with some left for lunch the next day.",
       "servings": 6,
-      "servingsNote": "About 6 adult portions.",
+      "servingsNote": "About 6 adult portions, with a little extra for the next day's lunch.",
       "style": "Skillet. Low-carb as written. Rice is an optional side for kids.",
       "illustration": "skillet",
       "authoring": "Confirmed dinner name. Amounts are newly written for this app, not a copy of an older plan.",
@@ -593,7 +595,7 @@
         {
           "id": "pork",
           "name": "ground pork",
-          "amount": 2,
+          "amount": 3,
           "unit": "lb",
           "scalable": true,
           "group": "shop",
@@ -603,9 +605,9 @@
         {
           "id": "slaw",
           "name": "coleslaw mix",
-          "amount": 1.5,
-          "unit": "lb",
-          "note": "cabbage and carrots",
+          "amount": 2,
+          "unit": "bags",
+          "note": "about 14 oz each",
           "scalable": true,
           "group": "shop",
           "groceryKey": "coleslaw-mix",
@@ -613,8 +615,8 @@
         },
         {
           "id": "garlic",
-          "name": "garlic",
-          "amount": 4,
+          "name": "garlic, minced",
+          "amount": 6,
           "unit": "cloves",
           "scalable": true,
           "group": "shop",
@@ -623,8 +625,8 @@
         },
         {
           "id": "ginger",
-          "name": "fresh ginger",
-          "amount": 1,
+          "name": "fresh ginger, grated",
+          "amount": 1.5,
           "unit": "tbsp",
           "scalable": true,
           "group": "shop",
@@ -634,7 +636,7 @@
         {
           "id": "aminos",
           "name": "coconut aminos or tamari",
-          "amount": 0.33,
+          "amount": 0.5,
           "unit": "cups",
           "scalable": true,
           "group": "shop",
@@ -644,7 +646,7 @@
         {
           "id": "vinegar",
           "name": "rice vinegar",
-          "amount": 1,
+          "amount": 1.5,
           "unit": "tbsp",
           "scalable": true,
           "group": "pantry",
@@ -654,22 +656,22 @@
         {
           "id": "sesame",
           "name": "sesame oil",
-          "amount": 2,
-          "unit": "tsp",
+          "amount": 1,
+          "unit": "tbsp",
           "scalable": true,
           "group": "pantry",
           "groceryKey": "sesame-oil",
           "groceryName": "sesame oil"
         },
         {
-          "id": "onions",
-          "name": "green onions",
-          "amount": 4,
+          "id": "green-onions",
+          "name": "green onions, sliced",
+          "amount": 6,
           "unit": "onions",
           "scalable": true,
           "group": "shop",
           "groceryKey": "green-onions",
-          "groceryName": "green onions"
+          "groceryName": "green onions, sliced"
         },
         {
           "id": "oil",
@@ -696,44 +698,56 @@
           "name": "dry long-grain rice, only if kids want starch",
           "amount": 1.5,
           "unit": "cups",
-          "note": "Optional. Cook it separately. The skillet has no rice.",
-          "scalable": true,
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
           "group": "kids-starch",
           "groceryKey": "rice",
-          "groceryName": "long-grain rice"
+          "groceryName": "dry long-grain rice, only if kids want starch"
         }
       ],
       "steps": [
         {
-          "id": "pork",
-          "text": "Brown the ground pork in the oil, breaking it up, until it is no longer pink.",
+          "id": "brown",
+          "text": "Heat the oil in a large skillet or Dutch oven over medium-high. Brown the ground pork, breaking it up, until no pink is left and it reaches 160°F. Drain extra fat if needed.",
           "timers": [
             {
               "id": "brown-pork",
               "label": "Brown pork",
               "seconds": 480,
-              "note": "Cook ground pork until it is no longer pink."
+              "note": "About 8 minutes. 160°F and no pink decide, not the timer."
             }
           ]
         },
         {
-          "id": "aroma",
-          "text": "Stir in the garlic and ginger for about a minute. Add the pepper."
+          "id": "aromatics",
+          "text": "Stir in the garlic and ginger for about a minute, until fragrant. Add the pepper.",
+          "timers": [
+            {
+              "id": "aromatics",
+              "label": "Garlic and ginger",
+              "seconds": 60
+            }
+          ]
         },
         {
           "id": "cabbage",
-          "text": "Add the coleslaw mix, coconut aminos or tamari, and vinegar. Cook until the cabbage wilts but still has some bite.",
+          "text": "Add the coleslaw mix, coconut aminos or tamari, and vinegar. Cook, stirring, until the cabbage wilts but still has some bite, 4 to 6 minutes.",
           "timers": [
             {
               "id": "wilt-cabbage",
               "label": "Wilt cabbage",
-              "seconds": 240
+              "seconds": 240,
+              "note": "Up to 6 minutes for softer cabbage."
             }
           ]
         },
         {
           "id": "finish",
           "text": "Take the pan off the heat. Stir in the sesame oil and green onions. Serve rice on the side only for kids who want it."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Eat them within 3 to 4 days, reheated until steaming hot (165°F)."
         }
       ],
       "tasks": [
@@ -749,7 +763,9 @@
           "id": "eggroll-onions",
           "label": "Slice the green onions"
         }
-      ]
+      ],
+      "safety": "Ground pork is done at 160°F, with no pink left.",
+      "kidSide": "Rice on the side for kids who want it."
     },
     {
       "id": "keto-pizza-bowls",
@@ -925,7 +941,8 @@
           "id": "pizza-kids",
           "label": "Set pitas aside only if kids want a crust"
         }
-      ]
+      ],
+      "safety": "Italian sausage or ground beef is done at 160°F, with no pink left."
     },
     {
       "id": "pork-carnitas",
@@ -1843,6 +1860,661 @@
         {
           "id": "fried-spatula",
           "label": "Have a thin wide spatula ready"
+        }
+      ]
+    },
+    {
+      "id": "bacon-ranch-chicken-bake",
+      "version": 1,
+      "title": "Bacon ranch chicken bake",
+      "summary": "Chicken breasts baked under a cream cheese and ranch layer, topped with cheddar and crumbled bacon. One pan, with a side salad.",
+      "servings": 6,
+      "servingsNote": "About 6 adult portions, with a little left over for lunch.",
+      "style": "Oven, 400°F. Low-carb as written. Side salad for the table.",
+      "illustration": "oven",
+      "authoring": "Household plan for the week of Nov 15, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Chicken is done at 165°F in the thickest part.",
+      "kidSide": "Dinner rolls on the side for kids who want them.",
+      "photo": {
+        "src": "assets/photos/garlic-parmesan-chicken.jpg",
+        "alt": "A seasoned baked chicken breast beside a green salad on a patterned plate.",
+        "caption": "Photograph by Daderot, CC0. It shows a baked chicken breast with a side salad from a different recipe. It is not this bacon ranch chicken bake; the bake is topped with a cream cheese ranch layer, cheddar, and bacon.",
+        "author": "Daderot",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chicken_breast_and_salad_-_Massachusetts.jpg",
+        "changes": "Saved a JPEG whose longest side is 1600 pixels."
+      },
+      "ingredients": [
+        {
+          "id": "chicken",
+          "name": "boneless skinless chicken breasts",
+          "amount": 3.5,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "chicken-breasts",
+          "groceryName": "boneless skinless chicken breasts"
+        },
+        {
+          "id": "bacon",
+          "name": "bacon",
+          "amount": 8,
+          "unit": "oz",
+          "note": "cooked and crumbled",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "bacon",
+          "groceryName": "bacon"
+        },
+        {
+          "id": "cream-cheese",
+          "name": "cream cheese, softened",
+          "amount": 4,
+          "unit": "oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cream-cheese",
+          "groceryName": "cream cheese, softened"
+        },
+        {
+          "id": "sour-cream",
+          "name": "sour cream",
+          "amount": 0.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "sour-cream",
+          "groceryName": "sour cream"
+        },
+        {
+          "id": "ranch-mix",
+          "name": "dry ranch seasoning mix",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "ranch-seasoning",
+          "groceryName": "dry ranch seasoning mix"
+        },
+        {
+          "id": "cheddar",
+          "name": "shredded cheddar",
+          "amount": 1.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cheddar",
+          "groceryName": "shredded cheddar"
+        },
+        {
+          "id": "green-onions",
+          "name": "green onions, sliced",
+          "amount": 2,
+          "unit": "onions",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "green-onions",
+          "groceryName": "green onions, sliced"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "greens",
+          "name": "salad greens",
+          "amount": 1,
+          "unit": "bag",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "salad-greens",
+          "groceryName": "salad greens"
+        },
+        {
+          "id": "ranch",
+          "name": "ranch dressing",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "ranch",
+          "groceryName": "ranch dressing"
+        },
+        {
+          "id": "rolls",
+          "name": "dinner rolls, only if kids want starch",
+          "amount": 6,
+          "unit": "rolls",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "dinner-rolls",
+          "groceryName": "dinner rolls, only if kids want starch"
+        }
+      ],
+      "steps": [
+        {
+          "id": "heat",
+          "text": "Heat the oven to 400°F. Cook the bacon until crisp (skillet or sheet pan), drain it on paper towels, and crumble it.",
+          "timers": [
+            {
+              "id": "bacon",
+              "label": "Crisp bacon",
+              "seconds": 600,
+              "note": "About 10 minutes in a skillet. Sheet-pan bacon at 400°F takes 15 to 20."
+            }
+          ]
+        },
+        {
+          "id": "pound",
+          "text": "Pound the chicken breasts to an even thickness, pat them dry, and season lightly with salt and pepper. Lay them in a greased 9-by-13-inch dish."
+        },
+        {
+          "id": "spread",
+          "text": "Stir the cream cheese, sour cream, and ranch seasoning until smooth. Spread it over the chicken. Top with the cheddar."
+        },
+        {
+          "id": "bake",
+          "text": "Bake at 400°F for 25 to 30 minutes, until the thickest part of the chicken is 165°F.",
+          "timers": [
+            {
+              "id": "bake-25",
+              "label": "Bake chicken",
+              "seconds": 1500,
+              "note": "Start with 25 minutes. It may need up to 30. 165°F decides, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "finish",
+          "text": "Scatter the bacon and green onions over the top. Serve with the salad greens and ranch. Rolls only for kids who want them."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "brc-bacon",
+          "label": "Cook and crumble the bacon"
+        },
+        {
+          "id": "brc-pound",
+          "label": "Pound the chicken to an even thickness"
+        },
+        {
+          "id": "brc-spread",
+          "label": "Mix the cream cheese, sour cream, and ranch"
+        },
+        {
+          "id": "brc-salad",
+          "label": "Set out the salad greens and ranch"
+        }
+      ]
+    },
+    {
+      "id": "slow-cooker-beef-taco-bowls",
+      "version": 1,
+      "title": "Slow-cooker shredded beef taco bowls",
+      "summary": "Chuck roast cooked all day with taco spices and salsa, then shredded and served over romaine with cheese, sour cream, and avocado. Start it in the morning for a busy night.",
+      "servings": 6,
+      "servingsNote": "About 6 adult portions, with some left for lunch the next day.",
+      "style": "Slow cooker, 8 hours on low. Low-carb as written. Tortillas are an optional side for kids.",
+      "illustration": "pot",
+      "authoring": "Household plan for the week of Nov 15, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Beef chuck is safe at 145°F, but it only shreds once it is fork-tender, around 200°F, after the full cook time.",
+      "kidSide": "Warm flour tortillas for kids who want tacos.",
+      "photo": {
+        "src": "assets/photos/shredded-beef-taco-bowls.jpg",
+        "alt": "Shredded beef tacos on a plate with cilantro and onion.",
+        "caption": "Barbacoa tacos photographed in Mexico City by Jj saezdeo, CC BY-SA 4.0. It is not this exact dish; ours is served over romaine without the tortillas for the adults.",
+        "author": "Jj saezdeo",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbacoa_tacos_from_Actopan_in_Mexico_City.jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "beef",
+          "name": "boneless beef chuck roast",
+          "amount": 3.5,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "chuck-roast",
+          "groceryName": "boneless beef chuck roast"
+        },
+        {
+          "id": "chili",
+          "name": "chili powder",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "chili-powder",
+          "groceryName": "chili powder"
+        },
+        {
+          "id": "cumin",
+          "name": "ground cumin",
+          "amount": 2,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "cumin",
+          "groceryName": "ground cumin"
+        },
+        {
+          "id": "oregano",
+          "name": "dried oregano",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "oregano",
+          "groceryName": "dried oregano"
+        },
+        {
+          "id": "garlic-powder",
+          "name": "garlic powder",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "garlic-powder",
+          "groceryName": "garlic powder"
+        },
+        {
+          "id": "onion-powder",
+          "name": "onion powder",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "onion-powder",
+          "groceryName": "onion powder"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 1.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "salsa",
+          "name": "salsa, no sugar added",
+          "amount": 1,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "salsa",
+          "groceryName": "salsa, no sugar added"
+        },
+        {
+          "id": "broth",
+          "name": "beef broth",
+          "amount": 0.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "beef-broth",
+          "groceryName": "beef broth"
+        },
+        {
+          "id": "lime",
+          "name": "lime",
+          "amount": 1,
+          "unit": "lime",
+          "note": "juiced, plus wedges to serve",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "limes",
+          "groceryName": "limes"
+        },
+        {
+          "id": "romaine",
+          "name": "romaine, chopped",
+          "amount": 2,
+          "unit": "heads",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "romaine",
+          "groceryName": "romaine, chopped"
+        },
+        {
+          "id": "cheddar",
+          "name": "shredded cheddar",
+          "amount": 1.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cheddar",
+          "groceryName": "shredded cheddar"
+        },
+        {
+          "id": "sour-cream",
+          "name": "sour cream",
+          "amount": 1,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "sour-cream",
+          "groceryName": "sour cream"
+        },
+        {
+          "id": "avocados",
+          "name": "avocados, sliced",
+          "amount": 2,
+          "unit": "avocados",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "avocados",
+          "groceryName": "avocados, sliced"
+        },
+        {
+          "id": "cilantro",
+          "name": "cilantro, chopped",
+          "amount": 0.25,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cilantro",
+          "groceryName": "cilantro, chopped"
+        },
+        {
+          "id": "tortillas",
+          "name": "flour tortillas, only if kids want tacos",
+          "amount": 10,
+          "unit": "tortillas",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "flour-tortillas",
+          "groceryName": "flour tortillas, only if kids want tacos"
+        }
+      ],
+      "steps": [
+        {
+          "id": "rub",
+          "text": "In the morning, mix the chili powder, cumin, oregano, garlic powder, onion powder, and salt. Rub it all over the chuck roast and set it in the slow cooker."
+        },
+        {
+          "id": "cook",
+          "text": "Pour the salsa, broth, and the juice of the lime over the beef. Cover and cook on low for 8 hours (or high for 4 to 5 hours), until the beef shreds easily with a fork.",
+          "timers": [
+            {
+              "id": "slow-cook",
+              "label": "Slow cook on low",
+              "seconds": 28800,
+              "note": "Low for 8 hours. On high, about 4 to 5 hours. Fork-tender decides."
+            }
+          ]
+        },
+        {
+          "id": "shred",
+          "text": "Shred the beef with two forks right in the cooker and stir it into the juices. Keep it on warm until dinner."
+        },
+        {
+          "id": "serve",
+          "text": "Build bowls: chopped romaine, a scoop of beef, cheddar, sour cream, avocado, cilantro, and lime wedges. Warm tortillas only for kids who want tacos."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Eat them within 3 to 4 days, reheated until steaming hot (165°F)."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "tb-rub",
+          "label": "Mix the spice rub and start the slow cooker in the morning"
+        },
+        {
+          "id": "tb-romaine",
+          "label": "Chop the romaine"
+        },
+        {
+          "id": "tb-toppings",
+          "label": "Set out cheese, sour cream, avocado, and cilantro"
+        }
+      ]
+    },
+    {
+      "id": "turkey-burger-lettuce-wraps",
+      "version": 1,
+      "title": "Turkey burger lettuce wraps",
+      "summary": "Seasoned ground turkey burgers with cheddar, wrapped in crisp lettuce with tomato, onion, and pickles. Quick skillet dinner.",
+      "servings": 6,
+      "servingsNote": "About 6 adult portions, 12 patties.",
+      "style": "Skillet. Low-carb as written. Buns are an optional side for kids.",
+      "illustration": "skillet",
+      "authoring": "Household plan for the week of Nov 15, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Ground turkey is done at 165°F in the center of the patty.",
+      "kidSide": "Hamburger buns for kids who want them.",
+      "photo": {
+        "src": "assets/photos/turkey-burger-lettuce-wraps.jpg",
+        "alt": "A burger patty wrapped in romaine lettuce with tomato and red onion.",
+        "caption": "Photograph by Liat Portal (uploaded by HaJunkiyada), CC BY-SA 4.0. It shows a beef burger lettuce wrap from a different recipe, not this exact turkey burger.",
+        "author": "HaJunkiyada (photo by Liat Portal)",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Hamburger_lettuce_wrap_with_ptitim.jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "turkey",
+          "name": "ground turkey (93% lean)",
+          "amount": 3,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "ground-turkey",
+          "groceryName": "ground turkey (93% lean)"
+        },
+        {
+          "id": "worcestershire",
+          "name": "Worcestershire sauce",
+          "amount": 1,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "worcestershire",
+          "groceryName": "Worcestershire sauce"
+        },
+        {
+          "id": "garlic-powder",
+          "name": "garlic powder",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "garlic-powder",
+          "groceryName": "garlic powder"
+        },
+        {
+          "id": "onion-powder",
+          "name": "onion powder",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "onion-powder",
+          "groceryName": "onion powder"
+        },
+        {
+          "id": "paprika",
+          "name": "smoked paprika",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "smoked-paprika",
+          "groceryName": "smoked paprika"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 1.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "amount": 0.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "oil",
+          "name": "olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "olive-oil",
+          "groceryName": "olive oil"
+        },
+        {
+          "id": "cheese",
+          "name": "cheddar cheese slices",
+          "amount": 12,
+          "unit": "slices",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cheddar-slices",
+          "groceryName": "cheddar cheese slices"
+        },
+        {
+          "id": "lettuce",
+          "name": "butter or iceberg lettuce",
+          "amount": 2,
+          "unit": "heads",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "lettuce-heads",
+          "groceryName": "butter or iceberg lettuce"
+        },
+        {
+          "id": "tomatoes",
+          "name": "tomatoes, sliced",
+          "amount": 2,
+          "unit": "tomatoes",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "tomatoes",
+          "groceryName": "tomatoes, sliced"
+        },
+        {
+          "id": "onion",
+          "name": "red onion, sliced",
+          "amount": 1,
+          "unit": "onion",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "red-onion",
+          "groceryName": "red onion, sliced"
+        },
+        {
+          "id": "pickles",
+          "name": "pickles",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "pickles",
+          "groceryName": "pickles"
+        },
+        {
+          "id": "mustard",
+          "name": "mustard",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "mustard",
+          "groceryName": "mustard"
+        },
+        {
+          "id": "mayo",
+          "name": "mayonnaise",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "mayo",
+          "groceryName": "mayonnaise"
+        },
+        {
+          "id": "buns",
+          "name": "hamburger buns, only if kids want them",
+          "amount": 8,
+          "unit": "buns",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "hamburger-buns",
+          "groceryName": "hamburger buns, only if kids want them"
+        }
+      ],
+      "steps": [
+        {
+          "id": "mix",
+          "text": "Gently mix the ground turkey with the Worcestershire, garlic powder, onion powder, smoked paprika, salt, and pepper. Shape 12 patties about 3/4 inch thick, with a small dent in the center."
+        },
+        {
+          "id": "sear",
+          "text": "Heat the oil in a large skillet over medium-high. Cook the patties in batches, 5 to 6 minutes per side, until the center reaches 165°F.",
+          "timers": [
+            {
+              "id": "turkey-side",
+              "label": "Cook one side",
+              "seconds": 300,
+              "note": "5 to 6 minutes a side. 165°F in the center decides, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "cheese",
+          "text": "Lay a cheese slice on each patty for the last minute and cover the pan to melt it.",
+          "timers": [
+            {
+              "id": "melt",
+              "label": "Melt cheese",
+              "seconds": 60
+            }
+          ]
+        },
+        {
+          "id": "wrap",
+          "text": "Wrap each patty in lettuce leaves with tomato, red onion, pickles, mustard, and mayo. Buns only for kids who want them."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "tbw-lettuce",
+          "label": "Wash and separate the lettuce leaves"
+        },
+        {
+          "id": "tbw-slice",
+          "label": "Slice the tomatoes and red onion"
+        },
+        {
+          "id": "tbw-patties",
+          "label": "Shape 12 turkey patties"
         }
       ]
     }

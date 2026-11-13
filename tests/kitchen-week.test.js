@@ -19,7 +19,8 @@ test('Eastern time decides today, including the evening before midnight', () => 
   assert.equal(K.easternISODate(new Date('2026-11-09T17:00:00.000Z')), '2026-11-09');
   assert.equal(K.defaultWeekId(weeksDoc, '2026-11-09'), '2026-11-08');
   assert.equal(K.weekContaining('2026-11-09', weeksDoc).id, '2026-11-08');
-  assert.equal(K.weekContaining('2026-11-15', weeksDoc), null);
+  assert.equal(K.weekContaining('2026-11-15', weeksDoc).id, '2026-11-15');
+  assert.equal(K.weekContaining('2026-11-22', weeksDoc), null);
 });
 
 test('this week matches the final dinner order and drops the removed dinners', () => {
@@ -118,23 +119,25 @@ test('the written grocery list is grouped and checkable', () => {
 
 test('a later week can be added without code changes', () => {
   const next = {
-    id: '2026-11-15',
-    startsOn: '2026-11-15',
-    endsOn: '2026-11-21',
-    title: 'Sun Nov 15 – Sat Nov 21, 2026',
+    id: '2026-11-22',
+    startsOn: '2026-11-22',
+    endsOn: '2026-11-28',
+    title: 'Sun Nov 22 – Sat Nov 28, 2026',
     days: [
-      { date: '2026-11-15', weekday: 'Sunday', title: 'No dinner', recipeId: null, servings: 6 },
-      { date: '2026-11-16', weekday: 'Monday', title: 'Garlic Parmesan chicken', recipeId: 'garlic-parmesan-chicken', servings: 6 }
+      { date: '2026-11-22', weekday: 'Sunday', title: 'No dinner', recipeId: null, servings: 6 },
+      { date: '2026-11-23', weekday: 'Monday', title: 'Garlic Parmesan chicken', recipeId: 'garlic-parmesan-chicken', servings: 6 }
     ]
   };
   const doc = { weeks: weeksDoc.weeks.concat([next]) };
-  assert.equal(K.recipeIdForDate('2026-11-16', schedule, doc), 'garlic-parmesan-chicken');
+  assert.equal(K.recipeIdForDate('2026-11-23', schedule, doc), 'garlic-parmesan-chicken');
   assert.equal(K.recipeIdForDate('2026-11-09', schedule, doc), null);
   assert.equal(K.recipeIdForDate('2026-11-11', schedule, doc), 'garlic-parmesan-chicken');
   assert.equal(K.recipeIdForDate('2026-11-10', schedule, doc), 'keto-pizza-bowls');
-  assert.equal(K.recipeIdForDate('2026-11-15', schedule, doc), null);
-  assert.equal(K.defaultWeekId(doc, '2026-11-18'), '2026-11-15');
+  assert.equal(K.recipeIdForDate('2026-11-22', schedule, doc), null);
+  assert.equal(K.defaultWeekId(doc, '2026-11-25'), '2026-11-22');
   assert.equal(K.weekContaining('2026-11-08', doc).days[0].title, 'Vital frozen pizza');
+  assert.equal(K.recipeIdForDate('2026-11-18', schedule, doc), 'keto-pizza-bowls');
+  assert.equal(K.defaultWeekId(doc, '2026-11-18'), '2026-11-15');
 });
 
 test('pages share a kitchen nav and images are credited', () => {
