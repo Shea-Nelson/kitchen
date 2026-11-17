@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --paper: #f4f2ee;
   --paper-2: #ebe8e2;
   --ink: #1c1916;
@@ -15,7 +16,7 @@
   --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
 body {
   margin: 0;
   color: var(--ink);
@@ -23,7 +24,7 @@ body {
   background:
     radial-gradient(880px 280px at 0% -8%, rgba(30, 77, 56, .06), transparent 62%),
     var(--paper);
-  min-height: 100vh;
+  min-height: 100dvh;
   padding-bottom: calc(40px + env(safe-area-inset-bottom));
 }
 body.has-dock { padding-bottom: calc(148px + env(safe-area-inset-bottom)); }
@@ -31,6 +32,7 @@ a { color: var(--accent); }
 button, input, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+main:focus-visible { outline-offset: -3px; }
 .skip {
   position: absolute; left: 16px; top: -48px; background: var(--card); color: var(--ink);
   padding: 8px 12px; z-index: 50; border-radius: 8px;
@@ -52,7 +54,9 @@ button { cursor: pointer; }
   letter-spacing: .16em; text-transform: uppercase; font-size: 11px; font-weight: 700; color: var(--accent);
 }
 .brand strong { font-family: var(--serif); font-size: 22px; font-weight: 700; line-height: 1.1; }
-.nav { display: flex; gap: 4px; flex-wrap: nowrap; align-items: center; }
+.nav { display: flex; align-items: center; }
+.nav ul { display: flex; gap: 4px; flex-wrap: nowrap; align-items: center; list-style: none; margin: 0; padding: 0; }
+.nav li { display: flex; }
 .nav a, .btn, .btn-quiet, .btn-danger, a.cook-launch {
   min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
   border-radius: 999px; padding: 0 12px; text-decoration: none; border: 0; font-weight: 700;
@@ -71,7 +75,7 @@ button { cursor: pointer; }
 .btn-danger { background: transparent; color: var(--danger); text-decoration: underline; text-underline-offset: 3px; }
 .hero { margin-top: 28px; display: grid; gap: 28px; }
 .frame { position: relative; border-radius: 18px; overflow: hidden; background: var(--paper-2); }
-.frame img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+.frame img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; }
 .caption, .credit { color: var(--muted); font-size: 14px; line-height: 1.45; }
 .credit a { font-weight: 700; }
 .title-block h1 {
@@ -94,9 +98,9 @@ button { cursor: pointer; }
 .banner p { margin: 4px 0 12px; color: var(--ink); line-height: 1.5; max-width: 68ch; }
 .layout { display: grid; gap: 36px; margin-top: 8px; }
 .card { background: var(--card); border-radius: 20px; padding: 28px 24px; margin: 20px 0; }
-.card h2 { font-family: var(--serif); font-size: 32px; line-height: 1.12; margin: 0 0 12px; font-weight: 700; }
-.card h2 a { color: inherit; text-decoration: none; }
-.card h2 a:hover { color: var(--accent); }
+.card h1, .card h2 { font-family: var(--serif); font-size: 32px; line-height: 1.12; margin: 0 0 12px; font-weight: 700; }
+.card h1 a, .card h2 a { color: inherit; text-decoration: none; }
+.card h1 a:hover, .card h2 a:hover { color: var(--accent); }
 .meta { color: var(--muted); font-size: 15px; line-height: 1.45; }
 .row { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
 .stepper { display: inline-flex; align-items: center; gap: 4px; background: var(--paper); border-radius: 999px; padding: 4px; }
@@ -145,21 +149,21 @@ button { cursor: pointer; }
 .day-tabs button.is-today .dow,
 .day-tabs button.is-today .dom { color: var(--accent); }
 .day-tabs button.is-today .dom { font-size: 22px; }
-.day-tabs button[aria-selected="true"] { background: var(--accent); color: #fff; }
-.day-tabs button[aria-selected="true"] .dow,
-.day-tabs button[aria-selected="true"] .dom { color: #fff; }
-.day-tabs button[aria-selected="true"] .dom { font-size: 22px; }
+.day-tabs button[aria-current="date"] { background: var(--accent); color: #fff; }
+.day-tabs button[aria-current="date"] .dow,
+.day-tabs button[aria-current="date"] .dom { color: #fff; }
+.day-tabs button[aria-current="date"] .dom { font-size: 22px; }
 .week-bar { margin: 26px 0 8px; }
-.week-bar strong { flex: 1 0 100%; font-family: var(--serif); font-size: 22px; font-weight: 650; line-height: 1.25; }
-.meal-strip { margin: 8px 0 20px; }
+.week-bar h1, .week-bar strong { flex: 1 0 100%; margin: 0; font-family: var(--serif); font-size: 22px; font-weight: 650; line-height: 1.25; }
+.meal-strip { margin: 8px 0 20px; padding: 0; }
 .meal {
   display: grid; grid-template-columns: 7.5rem 1fr; gap: 8px 16px;
   padding: 14px 0; border-top: 1px solid var(--line); align-items: baseline;
 }
-.meal b {
-  color: var(--accent); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700;
+.meal dt {
+  margin: 0; color: var(--accent); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700;
 }
-.meal span { font-size: 17px; line-height: 1.45; }
+.meal dd { margin: 0; font-size: 17px; line-height: 1.45; }
 .safety, .kid-side { padding: 12px 0 12px 14px; margin: 14px 0; line-height: 1.5; }
 .safety { border-left: 3px solid var(--accent); color: var(--ink); }
 .kid-side { border-left: 3px solid var(--line); color: var(--ink); }
@@ -256,7 +260,7 @@ body.cooking .cook-nav {
   scroll-snap-align: start; text-align: left; border: 0; background: var(--card);
   border-radius: 20px; padding: 0 0 14px; overflow: hidden; min-height: 44px; color: inherit;
 }
-.day img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; background: var(--paper-2); }
+.day img { width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; display: block; background: var(--paper-2); }
 .day div { padding: 12px 14px 0; }
 .day strong { display: block; font-family: var(--serif); font-size: 20px; margin-top: 2px; }
 .day .meta { display: block; margin-top: 4px; }
@@ -271,16 +275,15 @@ body.cooking .cook-nav {
 dialog { border: 0; border-radius: 20px; padding: 0; width: min(520px, calc(100% - 32px)); background: var(--card); color: var(--ink); }
 dialog::backdrop { background: rgba(28, 25, 22, .46); }
 dialog form { padding: 24px; }
-dialog h2 { font-family: var(--serif); margin: 0 0 8px; font-size: 28px; }
+dialog h1 { font-family: var(--serif); margin: 0 0 8px; font-size: 28px; font-weight: 700; }
 dialog p { line-height: 1.5; }
 #gateBody { white-space: pre-wrap; }
-.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
-.cook-steam { animation: rise 2.8s ease-in-out infinite; }
-.cook-bubble { animation: pop 1.8s ease-in-out infinite; transform-origin: center; }
-.cook-bubble.delay { animation-delay: .4s; }
-.cook-bubble.delay-2 { animation-delay: .8s; }
-.cook-glow { animation: glow 2.4s ease-in-out infinite; }
-.cook-leaf { animation: sway 3s ease-in-out infinite; transform-origin: 80% 80%; }
+.sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.cook-bubble { transform-origin: center; }
+.cook-leaf { transform-origin: 80% 80%; }
 @keyframes rise { 50% { transform: translateY(-6px); opacity: .45; } }
 @keyframes pop { 50% { transform: translateY(-5px) scale(1.15); } }
 @keyframes glow { 50% { opacity: .72; } }
@@ -321,9 +324,31 @@ dialog p { line-height: 1.5; }
   .intro-grid { grid-template-columns: 260px 1fr; gap: 32px; }
   .days { grid-auto-flow: unset; grid-template-columns: repeat(4, 1fr); overflow: visible; }
 }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .cook-steam { animation: rise 2.8s ease-in-out infinite; }
+  .cook-bubble { animation: pop 1.8s ease-in-out infinite; }
+  .cook-bubble.delay { animation-delay: .4s; }
+  .cook-bubble.delay-2 { animation-delay: .8s; }
+  .cook-glow { animation: glow 2.4s ease-in-out infinite; }
+  .cook-leaf { animation: sway 3s ease-in-out infinite; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .cook-steam, .cook-bubble, .cook-glow, .cook-leaf { animation: none; }
+}
+@media (forced-colors: active) {
+  :focus-visible { outline-color: Highlight; }
+  .nav a[aria-current="page"] { box-shadow: none; border-bottom: 2px solid LinkText; }
+  .day-tabs button[aria-current="date"],
+  .also button[aria-current="true"],
+  .standing-nav button[aria-current="true"],
+  .standing-nav a[aria-current="true"],
+  .catalog button[aria-current="true"],
+  .stars button[aria-pressed="true"],
+  .phase button[aria-pressed="true"],
+  .btn,
+  a.cook-launch { border: 2px solid ButtonText; }
+  .day[aria-pressed="true"] { box-shadow: none; outline: 2px solid Highlight; }
 }
 @media print {
   .top, .dock, .cook-nav, .save-panel, .nav, .week-bar, .no-print, #day-tabs { display: none !important; }

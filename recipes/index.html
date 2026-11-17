@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
 <meta name="theme-color" content="#f4f2ee">
 <meta name="description" content="This week's dinners and weekday morning eggs, with ingredient checks, cooking timers, and notes saved on this phone.">
 <title>Recipes · Family kitchen</title>
 <link rel="stylesheet" href="../kitchen/hearth.css">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
+<script src="../kitchen/state.js" defer fetchpriority="high"></script>
+<script src="../kitchen/illustrations.js" defer></script>
+<script src="app.js" defer fetchpriority="high"></script>
 </head>
 <body class="page-recipe">
 <a class="skip" href="#app">Skip to recipe</a>
@@ -15,21 +19,23 @@
   <div class="wrap top-row">
     <a class="brand" href="./"><small>Family kitchen</small><strong>Recipes</strong></a>
     <nav class="nav" aria-label="Kitchen">
-      <a href="../planner/">Plan</a>
-      <a href="./" aria-current="page">Recipes</a>
-      <a href="../shopping/">Shopping</a>
+      <ul>
+        <li><a href="../planner/">Plan</a></li>
+        <li><a href="./" aria-current="page">Recipes</a></li>
+        <li><a href="../shopping/">Shopping</a></li>
+      </ul>
     </nav>
   </div>
   <div class="wrap" id="day-tabs"></div>
   <div class="wrap" id="standing-nav"></div>
 </header>
-<main class="wrap" id="app">
+<main class="wrap" id="app" tabindex="-1">
   <p>Loading the cookbook…</p>
 </main>
-<div class="dock" id="dock" hidden aria-label="Active timers"></div>
+<aside class="dock" id="dock" hidden aria-label="Active timers"></aside>
 <dialog id="gate" aria-labelledby="gateTitle">
   <form method="dialog">
-    <h2 id="gateTitle"></h2>
+    <h1 id="gateTitle"></h1>
     <p id="gateBody"></p>
     <div class="row">
       <button class="btn-quiet" value="cancel" type="submit" id="gateCancel">Cancel</button>
@@ -38,9 +44,6 @@
   </form>
 </dialog>
 <p class="sr" id="live" aria-live="polite"></p>
-<input id="file" type="file" accept="application/json,.json" hidden>
-<script src="../kitchen/state.js"></script>
-<script src="../kitchen/illustrations.js"></script>
-<script src="app.js"></script>
+<input id="file" type="file" accept="application/json,.json" hidden aria-label="Load recipe session JSON">
 </body>
 </html>

@@ -13,6 +13,30 @@
 
   function announce(text) { $('live').textContent = ''; setTimeout(function () { $('live').textContent = text; }, 30); }
 
+  function captureFocus() {
+    const el = document.activeElement;
+    if (!el || el === document.body || typeof el.closest !== 'function') return null;
+    if (!el.closest('#app')) return null;
+    return {
+      id: el.id || '',
+      act: el.getAttribute('data-act') || '',
+      dataId: el.getAttribute('data-id') || ''
+    };
+  }
+
+  function restoreFocus(token) {
+    if (!token) return;
+    const esc = window.CSS && CSS.escape ? CSS.escape : function (value) { return String(value); };
+    let el = token.id ? document.getElementById(token.id) : null;
+    if (!el && token.act && token.dataId) el = document.querySelector('#app [data-act="' + esc(token.act) + '"][data-id="' + esc(token.dataId) + '"]');
+    if (!el && token.act) el = document.querySelector('#app [data-act="' + esc(token.act) + '"]');
+    if (!el && token.act === 'remove') el = document.getElementById('newItem');
+    if (!el || document.activeElement === el) return;
+    const box = el.getBoundingClientRect();
+    const inView = box.bottom > 0 && box.top < window.innerHeight && box.right > 0 && box.left < window.innerWidth;
+    el.focus(inView ? { preventScroll: true } : undefined);
+  }
+
   function bucket() {
     if (!store.weeks[weekId]) store.weeks[weekId] = { checked: {}, added: [] };
     return store.weeks[weekId];
@@ -78,6 +102,7 @@
   }
 
   function render() {
+    const focus = captureFocus();
     const b = bucket();
     const c = counts();
     const pct = c.total ? Math.round(100 * c.done / c.total) : 0;
@@ -110,6 +135,7 @@
       '<form class="add no-print" id="addForm"><label for="newItem" class="add-label">Add an item</label><div class="add-row"><input id="newItem" type="text" maxlength="120" autocomplete="off" placeholder="Paper towels, coffee…" enterkeyhint="done"><label class="sr" for="newSection">Store section</label><select id="newSection">' + sectionOptions() + '</select><button type="submit" class="btn">Add</button></div></form>' +
       '<div class="reset-row no-print"><button type="button" class="btn-danger" data-act="clear"' + (c.done ? '' : ' disabled') + '>Clear checked</button><span class="meta">Unchecks everything for this week. Added items stay.</span></div>' +
       '<details class="banner device-note no-print"><summary>Checks stay on this device</summary><p>Your checks and added items are saved in this browser for this week only. They do not sync to another phone. Use Copy list or Share to send the list to someone else.</p></details>';
+    restoreFocus(focus);
   }
 
   function updateCounts() {

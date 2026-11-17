@@ -57,7 +57,7 @@
 
   function illustration(kind) {
     const scene = scenes[kind] || scenes.skillet;
-    return '<svg class="illu" viewBox="0 0 240 160" role="img" aria-label="' + scene.label + '">' +
+    return '<svg class="illu" viewBox="0 0 240 160" width="240" height="160" role="img" aria-label="' + scene.label + '">' +
       '<rect width="240" height="160" rx="28" fill="#2a2118"/>' +
       scene.body +
       '</svg>';

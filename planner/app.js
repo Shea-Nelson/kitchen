@@ -10,6 +10,45 @@
 
   function announce(text) { $('live').textContent = text; }
 
+  function fieldId(prefix, value) {
+    return prefix + '-' + String(value).replace(/[^A-Za-z0-9_-]/g, '-');
+  }
+
+  function captureFocus() {
+    const el = document.activeElement;
+    if (!el || el === document.body || typeof el.closest !== 'function') return null;
+    if (!el.closest('#app, #day-tabs')) return null;
+    const zone = el.closest('#day-tabs') ? 'tabs' : el.closest('.week-bar') ? 'week' : 'app';
+    return {
+      id: el.id || '',
+      act: el.getAttribute('data-act') || '',
+      date: el.getAttribute('data-date') || '',
+      score: el.getAttribute('data-score') || '',
+      dataId: el.getAttribute('data-id') || '',
+      zone: zone
+    };
+  }
+
+  function restoreFocus(token) {
+    if (!token) return;
+    const esc = window.CSS && CSS.escape ? CSS.escape : function (value) { return String(value); };
+    const zone = token.zone === 'tabs' ? '#day-tabs' : token.zone === 'week' ? '.week-bar' : '#app';
+    let el = token.id ? document.getElementById(token.id) : null;
+    function pick(selector) { return document.querySelector(zone + ' ' + selector); }
+    if (!el && token.act && token.date) el = pick('[data-act="' + esc(token.act) + '"][data-date="' + esc(token.date) + '"]');
+    if (!el && token.act && token.score) el = pick('[data-act="' + esc(token.act) + '"][data-score="' + esc(token.score) + '"]');
+    if (!el && token.act && token.dataId) el = pick('[data-act="' + esc(token.act) + '"][data-id="' + esc(token.dataId) + '"]');
+    if (!el && token.act) el = pick('[data-act="' + esc(token.act) + '"]');
+    if (!el || document.activeElement === el) return;
+    const box = el.getBoundingClientRect();
+    const inView = box.bottom > 0 && box.top < window.innerHeight && box.right > 0 && box.left < window.innerWidth;
+    el.focus(inView ? { preventScroll: true } : undefined);
+  }
+
+  function photoTag(src, alt) {
+    return '<img src="' + K.esc(src) + '" alt="' + K.esc(alt || '') + '" width="1600" height="1000" fetchpriority="high">';
+  }
+
   function easternToday() { return K.easternISODate(new Date()); }
 
   function scrollToNode(node, immediate) {
@@ -123,16 +162,17 @@
     const slot = $('day-tabs');
     if (!slot) return;
     const today = easternToday();
-    slot.innerHTML = '<div class="day-tabs" role="tablist" aria-label="Days this week">' + dates.map(function (date) {
+    slot.innerHTML = '<div class="day-tabs" role="group" aria-label="Days this week">' + dates.map(function (date) {
       const record = dayRecord(week, date);
       const selected = session.selectedDate === date;
       const dow = date === today ? 'Today' : K.weekdayName(date).slice(0, 3);
       const name = record ? record.title : 'Nothing planned';
-      return '<button type="button" role="tab" class="' + (date === today ? 'is-today' : '') + '" data-act="select" data-date="' + date + '" aria-selected="' + selected + '" aria-label="' + K.esc(K.formatLong(date) + '. ' + name) + '"><span class="dow">' + K.esc(dow) + '</span><span class="dom">' + Number(date.slice(8)) + '</span></button>';
+      return '<button type="button" class="' + (date === today ? 'is-today' : '') + '" data-act="select" data-date="' + date + '"' + (selected ? ' aria-current="date"' : '') + ' aria-label="' + K.esc(K.formatLong(date) + '. ' + name) + '"><span class="dow">' + K.esc(dow) + '</span><span class="dom">' + Number(date.slice(8)) + '</span></button>';
     }).join('') + '</div>';
   }
 
   function render() {
+    const focus = captureFocus();
     const sunday = viewSunday();
     session.viewWeekId = sunday;
     const week = publishedWeek(sunday);
@@ -152,7 +192,7 @@
     $('app').innerHTML =
       (recovery ? '<div class="banner" role="alert">' + K.esc(recovery) + '</div>' : '') +
       '<details class="banner device-note"><summary>Saved on this phone only</summary><p>Download the planner JSON and share that file if Scorpy should read your checks, swaps, notes, or ratings. Keeping them here does not sync another device, and this public page cannot store them for you.</p></details>' +
-      '<div class="week-bar row"><button type="button" class="btn-quiet" data-act="prev-week">Previous week</button><strong>' + K.esc(K.formatLong(sunday)) + ' – ' + K.esc(K.formatLong(K.addDays(sunday, 6))) + '</strong><button type="button" class="btn-quiet" data-act="next-week">Next week</button><button type="button" class="btn herb" data-act="published">This week</button></div>' +
+      '<div class="week-bar row"><button type="button" class="btn-quiet" data-act="prev-week">Previous week</button><h1>' + K.esc(K.formatLong(sunday)) + ' – ' + K.esc(K.formatLong(K.addDays(sunday, 6))) + '</h1><button type="button" class="btn-quiet" data-act="next-week">Next week</button><button type="button" class="btn herb" data-act="published">This week</button></div>' +
       printRoster(dates, week) +
       detailHtml(sunday, week) +
       '<p class="intro">' + K.esc(intro) + '</p>' +
@@ -167,11 +207,12 @@
     if (preview) preview.value = JSON.stringify(session, null, 2);
     const stamp = $('savedAt');
     if (stamp) stamp.textContent = 'Saved on this device at ' + new Date(session.updatedAt).toLocaleString() + '. Not sent anywhere.';
+    restoreFocus(focus);
   }
 
   function mealBlock(record) {
     if (!record) return '';
-    return '<div class="meal-strip"><div class="meal"><b>Breakfast</b><span>' + K.esc(record.breakfast || 'Not listed') + '</span></div><div class="meal"><b>Lunch</b><span>' + K.esc(record.lunch || 'Not listed') + '</span></div><div class="meal"><b>Dinner</b><span>' + K.esc(record.dinnerNote || record.title || '') + '</span></div></div>';
+    return '<dl class="meal-strip"><div class="meal"><dt>Breakfast</dt><dd>' + K.esc(record.breakfast || 'Not listed') + '</dd></div><div class="meal"><dt>Lunch</dt><dd>' + K.esc(record.lunch || 'Not listed') + '</dd></div><div class="meal"><dt>Dinner</dt><dd>' + K.esc(record.dinnerNote || record.title || '') + '</dd></div></dl>';
   }
 
   function printRoster(dates, week) {
@@ -188,7 +229,7 @@
     const record = dayRecord(week, date);
     const state = stateFor(date, false);
     if (!record || !state) {
-      return '<section class="card day-detail' + (date === easternToday() ? ' is-today' : '') + '" id="day-detail"><h2>' + K.esc(K.formatLong(date)) + '</h2><p>Nothing is planned. The week file has no dinner for this date, so this page does not invent one.</p><label class="field">Note for this date<textarea id="day-notes" maxlength="' + K.NOTE_MAX + '"></textarea></label></section>';
+      return '<section class="card day-detail' + (date === easternToday() ? ' is-today' : '') + '" id="day-detail"><h2>' + K.esc(K.formatLong(date)) + '</h2><p>Nothing is planned. The week file has no dinner for this date, so this page does not invent one.</p><label class="field" for="day-notes">Note for this date<textarea id="day-notes" maxlength="' + K.NOTE_MAX + '"></textarea></label></section>';
     }
     const recipeId = K.effectiveRecipeId(record, state);
     const recipe = recipeId ? catalog[recipeId] : null;
@@ -201,16 +242,18 @@
     }).join('');
     const tasks = (recipe ? recipe.tasks : []).map(function (task) {
       const checked = state.tasks[task.id] && state.tasks[task.id].checked;
-      return '<label class="check' + (checked ? ' on' : '') + '"><input type="checkbox" data-kind="task" data-id="' + K.esc(task.id) + '"' + (checked ? ' checked' : '') + '><span>' + K.esc(task.label) + '</span></label>';
+      const field = fieldId('task', task.id);
+      return '<label class="check' + (checked ? ' on' : '') + '" for="' + field + '"><input id="' + field + '" type="checkbox" data-kind="task" data-id="' + K.esc(task.id) + '"' + (checked ? ' checked' : '') + '><span>' + K.esc(task.label) + '</span></label>';
     }).join('');
     const custom = state.customTasks.map(function (task) {
-      return '<label class="check' + (task.checked ? ' on' : '') + '"><input type="checkbox" data-kind="custom" data-id="' + K.esc(task.id) + '"' + (task.checked ? ' checked' : '') + '><span>' + K.esc(task.label) + '</span></label><button type="button" class="btn-quiet" data-act="remove-task" data-id="' + K.esc(task.id) + '">Remove</button>';
+      const field = fieldId('custom', task.id);
+      return '<label class="check' + (task.checked ? ' on' : '') + '" for="' + field + '"><input id="' + field + '" type="checkbox" data-kind="custom" data-id="' + K.esc(task.id) + '"' + (task.checked ? ' checked' : '') + '><span>' + K.esc(task.label) + '</span></label><button type="button" class="btn-quiet" data-act="remove-task" data-id="' + K.esc(task.id) + '">Remove</button>';
     }).join('');
     const stars = [1, 2, 3, 4, 5].map(function (score) {
       return '<button type="button" data-act="rate" data-score="' + score + '" aria-pressed="' + (state.rating === score) + '" aria-label="' + score + ' star' + (score > 1 ? 's' : '') + '">' + score + '</button>';
     }).join('');
     const swapNote = state.overrideRecipeId ? '<p class="meta">The published plan says ' + K.esc(record.title) + '.</p>' : '';
-    const swap = recipe ? '<label class="field">Dinner<select id="swap">' + options + '</select></label>' + swapNote + '<label class="field">Servings<input id="servings" inputmode="numeric" value="' + state.servings + '"></label>' : '';
+    const swap = recipe ? '<label class="field" for="swap">Dinner<select id="swap">' + options + '</select></label>' + swapNote + '<label class="field" for="servings">Servings<input id="servings" inputmode="numeric" value="' + state.servings + '"></label>' : '';
     const counts = recipe ? checkedCount(state, recipe) : { done: 0, total: 0 };
     const heading = recipe
       ? '<h2><a href="' + cookHref + '">' + K.esc(recipe.title) + '</a></h2>'
@@ -218,18 +261,19 @@
     return '<section class="card day-detail' + (date === easternToday() ? ' is-today' : '') + '" id="day-detail"><p class="kicker">' + K.esc(K.formatLong(date)) + (date === easternToday() ? ' · today' : '') + '</p>' + heading +
       cook + mealBlock(record) +
       (counts.total ? '<p class="meta">' + counts.done + ' of ' + counts.total + ' prep tasks</p>' : '') +
-      (recipe ? '<div class="frame"><img src="' + K.esc(photoSrc(recipe)) + '" alt="' + K.esc(recipe.photo.alt) + '"></div><p class="caption">' + K.esc(recipe.photo.caption) + '</p><p class="credit">Image: ' + creditHtml(recipe.photo) + '</p><p class="meta">' + K.esc(recipe.summary) + '</p>' + (recipe.safety ? '<p class="safety">' + K.esc(recipe.safety) + '</p>' : '') : '<p>' + K.esc(record.dinnerNote || 'No dinner is planned.') + '</p>') +
+      (recipe ? '<div class="frame">' + photoTag(photoSrc(recipe), recipe.photo.alt) + '</div><p class="caption">' + K.esc(recipe.photo.caption) + '</p><p class="credit">Image: ' + creditHtml(recipe.photo) + '</p><p class="meta">' + K.esc(recipe.summary) + '</p>' + (recipe.safety ? '<p class="safety">' + K.esc(recipe.safety) + '</p>' : '') : '<p>' + K.esc(record.dinnerNote || 'No dinner is planned.') + '</p>') +
       swap +
       '<div class="row"><button type="button" class="btn-quiet" data-act="favorite" aria-pressed="' + state.favorite + '">' + (state.favorite ? 'Favorited' : 'Favorite') + '</button><button type="button" class="btn" data-act="cooked">' + (state.cookedAt ? 'Clear cooked mark' : 'Mark cooked') + '</button></div>' +
       '<div class="stars row" role="group" aria-label="Rating">' + stars + '</div>' +
       (recipe ? '<h3 class="group-label">Prep tasks</h3>' + tasks : '') + custom +
-      '<div class="row"><input id="new-task" type="text" maxlength="160" placeholder="Add a prep task" aria-label="New prep task"><button type="button" class="btn-quiet" data-act="add-task">Add task</button></div>' +
-      '<label class="field">Notes for this dinner<textarea id="day-notes" maxlength="' + K.NOTE_MAX + '"></textarea></label></section>';
+      '<div class="row"><label class="sr" for="new-task">New prep task</label><input id="new-task" type="text" maxlength="160" placeholder="Add a prep task"><button type="button" class="btn-quiet" data-act="add-task">Add task</button></div>' +
+      '<label class="field" for="day-notes">Notes for this dinner<textarea id="day-notes" maxlength="' + K.NOTE_MAX + '"></textarea></label></section>';
   }
 
   function pantrySelect(key) {
     const value = session.pantry[key] || 'unsure';
-    return '<label class="meta">Pantry <select data-pantry="' + K.esc(key) + '"><option value="unsure"' + (value === 'unsure' ? ' selected' : '') + '>Not sure</option><option value="have"' + (value === 'have' ? ' selected' : '') + '>In the pantry</option><option value="need"' + (value === 'need' ? ' selected' : '') + '>Need to buy</option></select></label>';
+    const id = fieldId('pantry', key);
+    return '<label class="meta" for="' + id + '">Pantry <select id="' + id + '" data-pantry="' + K.esc(key) + '"><option value="unsure"' + (value === 'unsure' ? ' selected' : '') + '>Not sure</option><option value="have"' + (value === 'have' ? ' selected' : '') + '>In the pantry</option><option value="need"' + (value === 'need' ? ' selected' : '') + '>Need to buy</option></select></label>';
   }
 
   function curatedGrocery(sunday, week) {
@@ -244,14 +288,15 @@
       const rows = section.items.map(function (item) {
         const checked = !!checks[item.key];
         const pantry = item.pantry ? pantrySelect(item.key) : '';
-        return '<label class="check' + (checked ? ' on' : '') + '"><input type="checkbox" data-kind="grocery" data-key="' + K.esc(item.key) + '"' + (checked ? ' checked' : '') + '><span>' + K.esc(item.label) + '</span></label>' + pantry;
+        const field = fieldId('grocery', item.key);
+        return '<label class="check' + (checked ? ' on' : '') + '" for="' + field + '"><input id="' + field + '" type="checkbox" data-kind="grocery" data-key="' + K.esc(item.key) + '"' + (checked ? ' checked' : '') + '><span>' + K.esc(item.label) + '</span></label>' + pantry;
       }).join('');
       return '<h3 class="group-label">' + K.esc(section.title) + '</h3>' + rows;
     }).join('');
     return '<section class="card grocery-block" id="grocery"><div class="row"><h2>Grocery list</h2><button type="button" class="btn-quiet no-print" data-act="print">Print list</button></div><p class="meta">' + K.esc(week.groceryNote || 'Nothing here orders food.') + '</p>' +
       '<p class="no-print"><a href="../shopping/?week=' + encodeURIComponent(sunday) + '">Open the Shopping page</a> for big check boxes, items you add, and a copy to share.</p>' +
       (swapped ? '<p class="meta">A dinner on this phone is swapped. This is still the published list, not the swap. Open that recipe before you shop for it.</p>' : '') +
-      body + '<label class="field">Notes for the week<textarea id="week-notes" maxlength="' + K.NOTE_MAX + '"></textarea></label></section>';
+      body + '<label class="field" for="week-notes">Notes for the week<textarea id="week-notes" maxlength="' + K.NOTE_MAX + '"></textarea></label></section>';
   }
 
   function groceryHtml(sunday, week) {
@@ -268,17 +313,20 @@
     function rows(items, kind) {
       return items.map(function (item) {
         const checked = !!checks[item.key];
+        const pantryId = fieldId('pantry', item.groceryKey);
         const pantry = kind === 'pantry'
-          ? '<label class="meta">Pantry <select data-pantry="' + K.esc(item.groceryKey) + '"><option value="unsure"' + ((session.pantry[item.groceryKey] || 'unsure') === 'unsure' ? ' selected' : '') + '>Not sure</option><option value="have"' + (session.pantry[item.groceryKey] === 'have' ? ' selected' : '') + '>In the pantry</option><option value="need"' + (session.pantry[item.groceryKey] === 'need' ? ' selected' : '') + '>Need to buy</option></select></label>'
+          ? '<label class="meta" for="' + pantryId + '">Pantry <select id="' + pantryId + '" data-pantry="' + K.esc(item.groceryKey) + '"><option value="unsure"' + ((session.pantry[item.groceryKey] || 'unsure') === 'unsure' ? ' selected' : '') + '>Not sure</option><option value="have"' + (session.pantry[item.groceryKey] === 'have' ? ' selected' : '') + '>In the pantry</option><option value="need"' + (session.pantry[item.groceryKey] === 'need' ? ' selected' : '') + '>Need to buy</option></select></label>'
           : '';
-        return '<label class="check' + (checked ? ' on' : '') + '"><input type="checkbox" data-kind="grocery" data-key="' + K.esc(item.key) + '"' + (checked ? ' checked' : '') + '><span>' + K.esc(item.label) + '</span></label>' + pantry;
+        const field = fieldId('grocery', item.key);
+        return '<label class="check' + (checked ? ' on' : '') + '" for="' + field + '"><input id="' + field + '" type="checkbox" data-kind="grocery" data-key="' + K.esc(item.key) + '"' + (checked ? ' checked' : '') + '><span>' + K.esc(item.label) + '</span></label>' + pantry;
       }).join('');
     }
     const plain = list.unscaled.map(function (item) {
       const checked = !!checks[item.key];
-      return '<label class="check' + (checked ? ' on' : '') + '"><input type="checkbox" data-kind="grocery" data-key="' + K.esc(item.key) + '"' + (checked ? ' checked' : '') + '><span>' + K.esc(item.name) + (item.detail ? ' · ' + K.esc(item.detail) : '') + '</span></label>';
+      const field = fieldId('grocery', item.key);
+      return '<label class="check' + (checked ? ' on' : '') + '" for="' + field + '"><input id="' + field + '" type="checkbox" data-kind="grocery" data-key="' + K.esc(item.key) + '"' + (checked ? ' checked' : '') + '><span>' + K.esc(item.name) + (item.detail ? ' · ' + K.esc(item.detail) : '') + '</span></label>';
     }).join('');
-    return '<section class="card grocery-block" id="grocery"><h2>Grocery checklist</h2><p class="meta">Amounts add up only when the cookbook lists a number and the same unit. Optional kid starch stays in its own list. Nothing here orders food.</p><h3 class="group-label">Shop</h3>' + (rows(list.shop, 'shop') || '<p>No numbered shop items.</p>') + '<h3 class="group-label">Pantry</h3>' + (rows(list.pantry, 'pantry') || '<p>No pantry items.</p>') + '<h3 class="group-label">Optional starch for kids</h3>' + (rows(list.kidsStarch, 'kids') || '<p>No optional starch on this plan.</p>') + (plain ? '<h3 class="group-label">Listed without a sum</h3>' + plain : '') + '<label class="field">Notes for the week<textarea id="week-notes" maxlength="' + K.NOTE_MAX + '"></textarea></label></section>';
+    return '<section class="card grocery-block" id="grocery"><h2>Grocery checklist</h2><p class="meta">Amounts add up only when the cookbook lists a number and the same unit. Optional kid starch stays in its own list. Nothing here orders food.</p><h3 class="group-label">Shop</h3>' + (rows(list.shop, 'shop') || '<p>No numbered shop items.</p>') + '<h3 class="group-label">Pantry</h3>' + (rows(list.pantry, 'pantry') || '<p>No pantry items.</p>') + '<h3 class="group-label">Optional starch for kids</h3>' + (rows(list.kidsStarch, 'kids') || '<p>No optional starch on this plan.</p>') + (plain ? '<h3 class="group-label">Listed without a sum</h3>' + plain : '') + '<label class="field" for="week-notes">Notes for the week<textarea id="week-notes" maxlength="' + K.NOTE_MAX + '"></textarea></label></section>';
   }
 
   function historyHtml() {

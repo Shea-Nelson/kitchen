@@ -21,6 +21,55 @@
     $('live').textContent = text;
   }
 
+  function captureFocus() {
+    const el = document.activeElement;
+    if (!el || el === document.body || typeof el.closest !== 'function') return null;
+    if (!el.closest('#app, #day-tabs, #standing-nav, #dock')) return null;
+    const zone = el.closest('#day-tabs') ? 'tabs'
+      : el.closest('#standing-nav') ? 'standing'
+      : el.closest('#dock') ? 'dock'
+      : el.closest('.week-bar') ? 'week'
+      : el.closest('.phase') ? 'phase'
+      : 'app';
+    return {
+      id: el.id || '',
+      act: el.getAttribute('data-act') || '',
+      date: el.getAttribute('data-date') || '',
+      recipe: el.getAttribute('data-recipe') || '',
+      phase: el.getAttribute('data-phase') || '',
+      score: el.getAttribute('data-score') || '',
+      dataId: el.getAttribute('data-id') || '',
+      zone: zone
+    };
+  }
+
+  function restoreFocus(token) {
+    if (!token) return;
+    const esc = window.CSS && CSS.escape ? CSS.escape : function (value) { return String(value); };
+    const zone = token.zone === 'tabs' ? '#day-tabs'
+      : token.zone === 'standing' ? '#standing-nav'
+      : token.zone === 'dock' ? '#dock'
+      : token.zone === 'week' ? '.week-bar'
+      : token.zone === 'phase' ? '.phase'
+      : '#app';
+    let el = token.id ? document.getElementById(token.id) : null;
+    function pick(selector) { return document.querySelector(zone + ' ' + selector); }
+    if (!el && token.act && token.date) el = pick('[data-act="' + esc(token.act) + '"][data-date="' + esc(token.date) + '"]');
+    if (!el && token.act && token.recipe) el = pick('[data-act="' + esc(token.act) + '"][data-recipe="' + esc(token.recipe) + '"]');
+    if (!el && token.phase) el = document.querySelector('.phase [data-phase="' + esc(token.phase) + '"]');
+    if (!el && token.act && token.score) el = pick('[data-act="' + esc(token.act) + '"][data-score="' + esc(token.score) + '"]');
+    if (!el && token.act && token.dataId) el = pick('[data-act="' + esc(token.act) + '"][data-id="' + esc(token.dataId) + '"]');
+    if (!el && token.act) el = pick('[data-act="' + esc(token.act) + '"]');
+    if (!el || document.activeElement === el) return;
+    const box = el.getBoundingClientRect();
+    const inView = box.bottom > 0 && box.top < window.innerHeight && box.right > 0 && box.left < window.innerWidth;
+    el.focus(inView ? { preventScroll: true } : undefined);
+  }
+
+  function photoTag(src, alt) {
+    return '<img src="' + K.esc(src) + '" alt="' + K.esc(alt || '') + '" width="1600" height="1000" fetchpriority="high">';
+  }
+
   function easternToday() {
     return K.easternISODate(new Date());
   }
@@ -232,12 +281,12 @@
     if (!slot) return;
     const today = easternToday();
     const dates = viewDates();
-    slot.innerHTML = '<div class="day-tabs" role="tablist" aria-label="Days this week">' + dates.map(function (date) {
+    slot.innerHTML = '<div class="day-tabs" role="group" aria-label="Days this week">' + dates.map(function (date) {
       const id = K.recipeIdForDate(date, schedule, weeksDoc);
       const name = id && catalog[id] ? catalog[id].title : 'No dinner';
       const selected = date === activeDate;
       const dow = date === today ? 'Today' : K.weekdayName(date).slice(0, 3);
-      return '<button type="button" role="tab" class="' + (date === today ? 'is-today' : '') + '" data-act="day" data-date="' + date + '" aria-selected="' + selected + '" aria-label="' + K.esc(K.formatLong(date) + '. ' + name) + '"><span class="dow">' + K.esc(dow) + '</span><span class="dom">' + Number(date.slice(8)) + '</span></button>';
+      return '<button type="button" class="' + (date === today ? 'is-today' : '') + '" data-act="day" data-date="' + date + '"' + (selected ? ' aria-current="date"' : '') + ' aria-label="' + K.esc(K.formatLong(date) + '. ' + name) + '"><span class="dow">' + K.esc(dow) + '</span><span class="dom">' + Number(date.slice(8)) + '</span></button>';
     }).join('') + '</div>';
     renderStandingNav();
   }
@@ -254,7 +303,7 @@
       }).join('');
       return '<a href="#' + K.esc(section.id) + '">' + K.esc(section.title) + '</a>' + buttons;
     }).join('');
-    slot.innerHTML = html ? '<div class="standing-nav" role="navigation" aria-label="Standing recipes">' + html + '</div>' : '';
+    slot.innerHTML = html ? '<nav class="standing-nav" aria-label="Standing recipes">' + html + '</nav>' : '';
   }
 
   function mealStripHtml() {
@@ -266,7 +315,7 @@
     });
     if (!day || (!day.breakfast && !day.lunch)) return '';
     const dinner = day.dinnerNote || day.title || '';
-    return '<div class="meal-strip"><div class="meal"><b>Breakfast</b><span>' + K.esc(day.breakfast || '') + '</span></div><div class="meal"><b>Lunch</b><span>' + K.esc(day.lunch || '') + '</span></div><div class="meal"><b>Dinner</b><span>' + K.esc(dinner) + '</span></div></div>';
+    return '<dl class="meal-strip"><div class="meal"><dt>Breakfast</dt><dd>' + K.esc(day.breakfast || '') + '</dd></div><div class="meal"><dt>Lunch</dt><dd>' + K.esc(day.lunch || '') + '</dd></div><div class="meal"><dt>Dinner</dt><dd>' + K.esc(dinner) + '</dd></div></dl>';
   }
 
   function sectionBlocks() {
@@ -345,7 +394,7 @@
       deviceNote() +
       weekBarHtml() +
       '<p class="kicker" id="todayLine">' + K.esc(todayLine()) + '</p>' +
-      '<section class="card"><h2>' + K.esc(dayName) + '</h2><p>No dinner is planned. This page does not fill the day with a guessed recipe.</p></section>' +
+      '<section class="card"><h1>' + K.esc(dayName) + '</h1><p>No dinner is planned. This page does not fill the day with a guessed recipe.</p></section>' +
       mealStripHtml() +
       standingHtml() +
       alsoHtml() +
@@ -354,11 +403,13 @@
   }
 
   function render() {
+    const focus = captureFocus();
     renderTabs();
     const rec = recipe();
     const state = entry();
     if (!rec || !state) {
       renderRest();
+      restoreFocus(focus);
       return;
     }
     document.body.classList.toggle('cooking', !!state.cookingMode);
@@ -374,7 +425,8 @@
       if (ing.group === 'kids') extra = ' For the kids.';
       const noteText = (line.note || '') + extra;
       const note = noteText ? '<span class="note">' + K.esc(noteText) + '</span>' : '';
-      return '<label class="check' + (checked ? ' on' : '') + '"><input type="checkbox" data-kind="ingredient" data-id="' + K.esc(ing.id) + '"' + (checked ? ' checked' : '') + '><span><span class="qty" data-qty="' + K.esc(ing.id) + '">' + K.esc(line.qty) + '</span> ' + K.esc(ing.name) + note + '</span></label>';
+      const field = 'ing-' + ing.id;
+      return '<label class="check' + (checked ? ' on' : '') + '" for="' + field + '"><input id="' + field + '" type="checkbox" data-kind="ingredient" data-id="' + K.esc(ing.id) + '"' + (checked ? ' checked' : '') + '><span><span class="qty" data-qty="' + K.esc(ing.id) + '">' + K.esc(line.qty) + '</span> ' + K.esc(ing.name) + note + '</span></label>';
     }).join('');
     const steps = rec.steps.map(function (step, index) {
       const checked = state.steps[step.id] && state.steps[step.id].checked;
@@ -384,7 +436,8 @@
         const label = timer.status === 'running' ? 'Pause' : (timer.status === 'paused' ? 'Resume' : 'Start');
         return '<div class="timerbox" data-timer="' + K.esc(def.id) + '"><div class="readout" data-readout role="timer">' + clock + '</div><p class="meta">' + K.esc(def.label) + (def.note ? ' · ' + K.esc(def.note) : '') + '</p><div class="row"><button type="button" class="btn" data-act="toggle" data-id="' + K.esc(def.id) + '" aria-label="' + K.esc(label + ' ' + def.label + ' timer') + '">' + label + '</button><button type="button" class="btn-quiet" data-act="timer-reset" data-id="' + K.esc(def.id) + '">Reset</button></div></div>';
       }).join('');
-      return '<article class="step' + (state.cookingStepId === step.id ? ' on' : '') + '" data-step="' + K.esc(step.id) + '" id="step-' + K.esc(step.id) + '"><label class="check' + (checked ? ' on' : '') + '"><input type="checkbox" data-kind="step" data-id="' + K.esc(step.id) + '"' + (checked ? ' checked' : '') + '><span><span class="step-no">Step ' + (index + 1) + '.</span> ' + K.esc(step.text) + '</span></label>' + timers + '</article>';
+      const field = 'check-' + step.id;
+      return '<article class="step' + (state.cookingStepId === step.id ? ' on' : '') + '" data-step="' + K.esc(step.id) + '" id="step-' + K.esc(step.id) + '"><label class="check' + (checked ? ' on' : '') + '" for="' + field + '"><input id="' + field + '" type="checkbox" data-kind="step" data-id="' + K.esc(step.id) + '"' + (checked ? ' checked' : '') + '><span><span class="step-no">Step ' + (index + 1) + '.</span> ' + K.esc(step.text) + '</span></label>' + timers + '</article>';
     }).join('');
     $('app').innerHTML =
       (recovery ? '<div class="banner" role="alert">' + K.esc(recovery) + '</div>' : '') +
@@ -392,7 +445,7 @@
       deviceNote() +
       weekBarHtml() +
       '<p class="kicker" id="todayLine">' + K.esc(todayLine()) + '</p>' +
-      '<section class="hero"><div class="frame"><img src="' + K.esc(rec.photo.src) + '" alt="' + K.esc(rec.photo.alt) + '"></div><div class="title-block"><h1>' + K.esc(rec.title) + '</h1><p class="lede">' + K.esc(rec.summary) + '</p>' +
+      '<section class="hero"><div class="frame">' + photoTag(rec.photo.src, rec.photo.alt) + '</div><div class="title-block"><h1>' + K.esc(rec.title) + '</h1><p class="lede">' + K.esc(rec.summary) + '</p>' +
       (rec.safety ? '<p class="safety">' + K.esc(rec.safety) + '</p>' : '') +
       (rec.kidSide ? '<p class="kid-side">' + K.esc(rec.kidSide) + '</p>' : '') +
       '<p class="tag">' + K.esc(rec.style) + '</p></div></section>' +
@@ -402,9 +455,9 @@
       '<div class="row phase" role="group" aria-label="Cooking progress"><button type="button" class="btn-quiet" data-phase="prep" aria-pressed="' + (state.phase === 'prep') + '">Prep</button><button type="button" class="btn-quiet" data-phase="cooking" aria-pressed="' + (state.phase === 'cooking') + '">Cooking</button><button type="button" class="btn-quiet" data-phase="done" aria-pressed="' + (state.phase === 'done') + '">Done</button><button type="button" class="btn herb" data-act="cook" aria-pressed="' + state.cookingMode + '">' + (state.cookingMode ? 'Exit cooking mode' : 'Cooking mode') + '</button><button type="button" class="btn-quiet" data-act="today">Today</button></div>' +
       '<p id="progress" class="meta"></p>' +
       '<div class="cook-nav row"><button type="button" class="btn-quiet" data-act="prev">Previous step</button><button type="button" class="btn" data-act="next">Next step</button><button type="button" class="btn-quiet" data-act="cook">Exit</button></div>' +
-      '<div class="layout"><section class="card" id="ingredients"><h2>Ingredients</h2><div class="row"><span class="stepper" role="group" aria-label="Portions"><button type="button" id="portions-dec" aria-label="Fewer portions">−</button><input id="portions" inputmode="numeric" aria-label="Number of portions" value="' + state.portions + '"><button type="button" id="portions-inc" aria-label="More portions">+</button></span><span class="meta">Scaled from ' + rec.servings + '.</span></div>' + ingredients + '</section><section class="card" id="steps"><h2>Steps</h2>' + steps + '</section></div>' +
+      '<div class="layout"><section class="card" id="ingredients"><h2>Ingredients</h2><div class="row"><span class="stepper" role="group" aria-label="Portions"><button type="button" id="portions-dec" aria-label="Fewer portions">−</button><label class="sr" for="portions">Number of portions</label><input id="portions" inputmode="numeric" value="' + state.portions + '"><button type="button" id="portions-inc" aria-label="More portions">+</button></span><span class="meta">Scaled from ' + rec.servings + '.</span></div>' + ingredients + '</section><section class="card" id="steps"><h2>Steps</h2>' + steps + '</section></div>' +
       tipsHtml(rec) +
-      '<section class="card"><h2>Notes</h2><label class="field">Recipe notes<textarea id="notes" maxlength="' + K.NOTE_MAX + '"></textarea></label><p class="meta">Notes stay in the session file on this device.</p></section>' +
+      '<section class="card"><h2>Notes</h2><label class="field" for="notes">Recipe notes<textarea id="notes" maxlength="' + K.NOTE_MAX + '"></textarea></label><p class="meta">Notes stay in the session file on this device.</p></section>' +
       standingHtml() +
       alsoHtml() +
       savePanel();
@@ -413,6 +466,7 @@
     paintProgress();
     paintDock();
     if (state.cookingMode) requestWake();
+    restoreFocus(focus);
   }
 
   function savePanel() {
