@@ -17,8 +17,8 @@
 .progress { margin: 22px 0 12px; }
 .progress .count-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .btn-ghost.toggle { min-height: 44px; padding: 0 14px 0 10px; gap: 8px; font-size: 15px; background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
-.btn-ghost.toggle .dot { width: 30px; height: 18px; border-radius: 999px; background: var(--paper-2); box-shadow: inset 0 0 0 1px #b9b1a5; position: relative; transition: background .15s ease; }
-.btn-ghost.toggle .dot::after { content: ""; position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px #b9b1a5; transition: transform .15s ease; }
+.btn-ghost.toggle .dot { width: 30px; height: 18px; border-radius: 999px; background: var(--paper-2); box-shadow: inset 0 0 0 1px #b9b1a5; position: relative; }
+.btn-ghost.toggle .dot::after { content: ""; position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px #b9b1a5; }
 .btn-ghost.toggle[aria-pressed="true"] { background: transparent; color: var(--accent-deep); }
 .btn-ghost.toggle[aria-pressed="true"] .dot { background: var(--accent); box-shadow: none; }
 .btn-ghost.toggle[aria-pressed="true"] .dot::after { transform: translateX(12px); box-shadow: none; }
@@ -29,7 +29,7 @@
 .progress .count { font-size: 15px; color: var(--muted); }
 .progress .count strong { font-family: var(--serif); font-size: 30px; color: var(--ink); font-variant-numeric: tabular-nums; margin-right: 2px; }
 .progress .bar { height: 6px; border-radius: 999px; background: var(--paper-2); overflow: hidden; margin-top: 6px; }
-.progress .bar span { display: block; height: 100%; background: var(--accent); border-radius: inherit; transition: width .25s ease; }
+.progress .bar span { display: block; height: 100%; background: var(--accent); border-radius: inherit; }
 
 .aisles + .add { border-top: 1px solid var(--line); padding-top: 22px; margin-top: 32px; }
 .tools { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
@@ -69,12 +69,11 @@
 .item .box {
   flex: 0 0 auto; width: 30px; height: 30px; border-radius: 9px; margin-top: -2px;
   background: var(--card); box-shadow: inset 0 0 0 2px #8b8378;
-  display: grid; place-items: center; transition: background .15s ease, box-shadow .15s ease;
+  display: grid; place-items: center;
 }
 .item .box::after {
   content: ""; width: 14px; height: 8px; margin-top: -3px;
   border-left: 3px solid #fff; border-bottom: 3px solid #fff; transform: rotate(-45deg) scale(.4); opacity: 0;
-  transition: transform .15s ease, opacity .15s ease;
 }
 .item input:checked + label .box { background: var(--accent); box-shadow: none; }
 .item input:checked + label .box::after { opacity: 1; transform: rotate(-45deg) scale(1); }
@@ -105,8 +104,17 @@
   .aisles { columns: 2; column-gap: 56px; }
   .aisle { break-inside: avoid; margin-top: 0; padding-top: 30px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .progress .bar span, .item .box, .item .box::after, .btn-ghost.toggle .dot, .btn-ghost.toggle .dot::after { transition: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .progress .bar span { transition: width .25s ease; }
+  .item .box { transition: background .15s ease, box-shadow .15s ease; }
+  .item .box::after { transition: transform .15s ease, opacity .15s ease; }
+  .btn-ghost.toggle .dot { transition: background .15s ease; }
+  .btn-ghost.toggle .dot::after { transition: transform .15s ease; }
+}
+@media (forced-colors: active) {
+  .item .box { border: 2px solid ButtonText; box-shadow: none; }
+  .btn-ghost.toggle { border: 1px solid ButtonText; }
+  .item input:focus-visible + label { outline-color: Highlight; }
 }
 @media print {
   .shop-head .progress, .on-hand, .dinners, .item .rm, .aisle .left { display: none !important; }

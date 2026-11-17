@@ -92,7 +92,7 @@
         name: item.name.charAt(0).toUpperCase() + item.name.slice(1),
         qty: item.qty || sumQty(item.parts),
         note: item.note,
-        for: item.tags.slice().sort().map(function (tag) { return forLabel(tag, week, short); }),
+        for: item.tags.toSorted().map(function (tag) { return forLabel(tag, week, short); }),
         checkKey: 'item|' + item.key
       };
       let section = sections.find(function (s) { return s.id === item.section; });
