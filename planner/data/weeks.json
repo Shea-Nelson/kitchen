@@ -1,7 +1,7 @@
 {
   "schema": "kitchen.weeks",
   "schemaVersion": 1,
-  "authoring": "Nov 10 afternoon swap for Sun Nov 8 through Sat Nov 14, 2026. Sunday Vital frozen pizza (store-bought, already eaten). Monday Kevin's frozen teriyaki (store-bought). Tuesday pizza night (one-time swap: Finn has friends over; no church Wednesday, Veterans Day). Wednesday garlic Parmesan chicken with side salad (chicken already on hand; moved from Tuesday this week only). Thursday broccoli ham bake. Friday garlic butter steak bites. Saturday out of town (also away Sunday Nov 15). Standing rule remains Wednesday is pizza night. Egg roll in a bowl and pork carnitas dropped. No seafood. No nutrition figures. Week of Nov 15–21, 2026 added Fri Nov 13 as the plan for review; swaps can still change it. Week of Nov 22–28, 2026 added Fri Nov 20 as the plan for review (Thanksgiving week; grandparents visiting); swaps can still change it.",
+  "authoring": "Nov 10 afternoon swap for Sun Nov 8 through Sat Nov 14, 2026. Sunday Vital frozen pizza (store-bought, already eaten). Monday Kevin's frozen teriyaki (store-bought). Tuesday pizza night (one-time swap: Finn has friends over; no church Wednesday, Veterans Day). Wednesday garlic Parmesan chicken with side salad (chicken already on hand; moved from Tuesday this week only). Thursday broccoli ham bake. Friday garlic butter steak bites. Saturday out of town (also away Sunday Nov 15). Standing rule remains Wednesday is pizza night. Egg roll in a bowl and pork carnitas dropped. No seafood. No nutrition figures. Week of Nov 15–21, 2026 added Fri Nov 13 as the plan for review; swaps can still change it. Week of Nov 22–28, 2026 added Fri Nov 20 as the plan for review (Thanksgiving week; grandparents visiting); swaps can still change it. Updated later Fri Nov 20: Thursday dinner is at Dawn's in Cocoa Beach, not at home; leftover-turkey lunches were replaced.",
   "household": "Family of five. Home-cooked dinners are written for about 6 adult portions. Adults eat keto or low-carb. Kid starches are optional and listed on their own. Store-bought nights and away nights have no invented recipes. Wednesday is always pizza night.",
   "weeks": [
     {
@@ -746,7 +746,7 @@
       "startsOn": "2026-11-22",
       "endsOn": "2026-11-28",
       "title": "Sun Nov 22 – Sat Nov 28, 2026",
-      "groceryNote": "Plan for review, posted Fri Nov 20. One combined list for all seven dinners plus breakfasts, lunches, snacks, and kid sides, scaled once. Dinners Sun to Fri are sized for about 8 because the grandparents are visiting through Fri Nov 27; Wed pizza bowls and Sat are about 6. Items marked 'check first' are staples or things likely left from the Nov 16 pickup. Quest amounts still need confirming. Not added (ask first): Rachael Ray dog food (added to the Nov 15 order). OPTI-FREE stays off. Nothing here orders food. No seafood.",
+      "groceryNote": "Updated Fri Nov 20: Thanksgiving dinner is at Dawn's in Cocoa Beach. One combined list for the week's home meals, breakfasts, lunches, snacks, and kid sides, scaled once. No home Thanksgiving dinner, so turkey breasts, cauliflower mash, Brussels sprouts, cranberry sauce, and related items are off the list. Dinners Sun to Wed and Fri are sized for about 8 because the grandparents are visiting through Fri Nov 27; Wed pizza bowls and Sat are about 6. Thursday is breakfast and a light lunch only. Items marked 'check first' are staples or things likely left from the Nov 16 pickup. Quest amounts still need confirming. Not added (ask first): Rachael Ray dog food (added to the Nov 15 order). OPTI-FREE stays off. Nothing here orders food. No seafood.",
       "days": [
         {
           "date": "2026-11-22",
@@ -766,7 +766,7 @@
           "servings": 8,
           "breakfast": "Cabot plain Greek yogurt with strawberries and walnuts; Ratio yogurt cups for the kids; eggs for anyone who wants them",
           "lunch": "Leftover Mississippi pot roast (if any); backup: deli turkey and cheese roll-ups with pickles and string cheese",
-          "dinnerNote": "Sheet-pan dinner: 5 lb bone-in thighs with lemon, garlic, and oregano at 425°F to at least 165°F, plus Parmesan roasted broccoli. Rice for the kids. If the turkey breasts are frozen, move them to the fridge tonight to thaw for Thursday."
+          "dinnerNote": "Sheet-pan dinner: 5 lb bone-in thighs with lemon, garlic, and oregano at 425°F to at least 165°F, plus Parmesan roasted broccoli. Rice for the kids."
         },
         {
           "date": "2026-11-24",
@@ -786,17 +786,17 @@
           "servings": 6,
           "breakfast": "Sausage and cheddar egg bake for about 8 (a day off; extra for Thursday morning)",
           "lunch": "Leftover bacon cheeseburger casserole (if any); backup: turkey and cheese roll-ups with pickles and string cheese",
-          "dinnerNote": "Wednesday is pizza night: kids' pizza, crustless keto pizza bowls for the grown-ups (ground beef works if no-sugar Italian sausage isn't available). Eat early; Route 56 is at 6 PM. Make Thursday's cranberry sauce and check that the turkey is thawing."
+          "dinnerNote": "Wednesday is pizza night: kids' pizza, crustless keto pizza bowls for the grown-ups (ground beef works if no-sugar Italian sausage isn't available). Eat early; Route 56 is at 6 PM."
         },
         {
           "date": "2026-11-26",
           "weekday": "Thursday",
-          "title": "Thanksgiving turkey dinner",
-          "recipeId": "thanksgiving-turkey-breast",
-          "servings": 8,
+          "title": "Thanksgiving at Dawn's in Cocoa Beach",
+          "recipeId": null,
+          "servings": 0,
           "breakfast": "Leftover sausage and cheddar egg bake (if any); backup: Cabot yogurt or a Quest bar",
-          "lunch": "Light snack board to keep the oven free: cheese and string cheese, sliced ham, pickles, olives, cucumber and celery with ranch, pork rinds",
-          "dinnerNote": "Happy Thanksgiving! Planned as dinner at home for 7 (please confirm). Two bone-in turkey breasts with herb butter at 350°F to 165°F, pan gravy, garlic cauliflower mash, roasted Brussels sprouts with bacon, and sugar-free cranberry sauce. Rolls and an optional store-bought pumpkin pie for the kids and grandparents. Leftovers planned for Friday and Saturday lunches."
+          "lunch": "Light snack board before heading to Dawn's: cheese and string cheese, sliced ham, pickles, olives, cucumber and celery with ranch, pork rinds",
+          "dinnerNote": "Thanksgiving dinner is at Dawn's house in Cocoa Beach. No dinner at home."
         },
         {
           "date": "2026-11-27",
@@ -805,7 +805,7 @@
           "recipeId": "garlic-butter-pork-chops",
           "servings": 8,
           "breakfast": "Bacon, spinach, and cheddar frittata for about 8",
-          "lunch": "Leftover Thanksgiving turkey and sides; backup: deli turkey and cheese roll-ups",
+          "lunch": "Deli turkey and cheese roll-ups with pickles and string cheese",
           "dinnerNote": "Boneless chops seared to 145°F with a 3-minute rest and basted with garlic butter, plus a crouton-free Caesar salad. Leftover rolls or rice for the kids. The grandparents' last night on the calendar."
         },
         {
@@ -815,8 +815,8 @@
           "recipeId": "sheet-pan-chicken-fajitas",
           "servings": 6,
           "breakfast": "Fried eggs and sheet-pan bacon with strawberries, for about 6",
-          "lunch": "Leftover turkey Cobb salads (if any): Thanksgiving turkey, hard-boiled egg, bacon, avocado, grape tomatoes, cheddar, ranch; backup: bunless all-beef hot dogs with sauerkraut and pork rinds (buns for the kids)",
-          "dinnerNote": "Gingerbread house day, back to the family of five. Chicken, peppers, and onions roasted at 425°F to 165°F; lettuce wraps or bowls with sour cream, cheese, avocado, and salsa. Flour tortillas for the kids. Finish or freeze leftover turkey by Sunday or Monday."
+          "lunch": "Bunless all-beef hot dogs with sauerkraut and pork rinds (buns for the kids)",
+          "dinnerNote": "Gingerbread house day, back to the family of five. Chicken, peppers, and onions roasted at 425°F to 165°F; lettuce wraps or bowls with sour cream, cheese, avocado, and salsa. Flour tortillas for the kids."
         }
       ],
       "grocery": [
@@ -826,7 +826,7 @@
           "items": [
             {
               "id": "garlic",
-              "label": "Garlic, 2 heads — About 21 cloves this week. Check supply first."
+              "label": "Garlic, 2 heads — About 13 cloves this week. Check supply first."
             },
             {
               "id": "lemons",
@@ -841,32 +841,12 @@
               "label": "Fresh green beans, 2 lb"
             },
             {
-              "id": "cauliflower",
-              "label": "Cauliflower, 3 large heads"
-            },
-            {
-              "id": "brussels-sprouts",
-              "label": "Brussels sprouts, 2 1/2 lb"
-            },
-            {
-              "id": "cranberries",
-              "label": "Fresh cranberries, 1 bag (12 oz)"
-            },
-            {
-              "id": "orange",
-              "label": "Orange, 1 — For the cranberry sauce zest."
-            },
-            {
-              "id": "poultry-herbs",
-              "label": "Fresh poultry herbs (rosemary, thyme, sage), 1 package (about 3/4 oz)"
-            },
-            {
               "id": "yellow-onion",
-              "label": "Yellow onions, 4 — 1 Tue, 1 Thu, 2 Sat."
+              "label": "Yellow onions, 3 — 1 Tue, 2 Sat."
             },
             {
               "id": "celery",
-              "label": "Celery, 1 bunch"
+              "label": "Celery, 1 bunch — For Thursday's snack board."
             },
             {
               "id": "bell-peppers",
@@ -874,7 +854,7 @@
             },
             {
               "id": "romaine",
-              "label": "Romaine hearts, 5 three-packs — 2 for Sun chef salads, 2 for Fri Caesar, 1 for Sat Cobb salads."
+              "label": "Romaine hearts, 4 three-packs — 2 for Sun chef salads, 2 for Fri Caesar."
             },
             {
               "id": "salad-greens",
@@ -886,7 +866,7 @@
             },
             {
               "id": "avocados",
-              "label": "Avocados, 3"
+              "label": "Avocados, 2"
             },
             {
               "id": "limes",
@@ -935,10 +915,6 @@
               "label": "Pepperoni, 1 pack (Hormel 3.5 oz is fine)"
             },
             {
-              "id": "turkey-breast",
-              "label": "Bone-in, skin-on turkey breasts, 2 (about 5 to 6 lb each) — If frozen, buy by Monday and thaw in the fridge (about 1 day per 4 to 5 lb)."
-            },
-            {
               "id": "pork-chops",
               "label": "Boneless pork chops, about 1 inch thick, 8 (about 4 lb)"
             },
@@ -952,11 +928,11 @@
             },
             {
               "id": "bacon",
-              "label": "Bacon, about 4 1/2 lb — 1 1/2 lb Sun breakfast, 12 oz Tue casserole, 8 oz Thu sprouts, 12 oz Fri frittata, 1 lb Sat breakfast and Cobb salads."
+              "label": "Bacon, about 4 lb — 1 1/2 lb Sun breakfast, 12 oz Tue casserole, 12 oz Fri frittata, 12 oz Sat breakfast."
             },
             {
               "id": "deli-turkey",
-              "label": "Deli turkey, 2 lb"
+              "label": "Deli turkey, 3 lb — Sunday chef salads and Friday roll-ups."
             },
             {
               "id": "deli-ham",
@@ -964,7 +940,7 @@
             },
             {
               "id": "hot-dogs",
-              "label": "All-beef hot dogs, 1 pack (8) — Backup lunch only. Skip if the turkey leftovers will cover Saturday."
+              "label": "All-beef hot dogs, 1 pack (8) — Saturday lunch."
             }
           ]
         },
@@ -974,7 +950,7 @@
           "items": [
             {
               "id": "eggs",
-              "label": "Eggs, 8 dozen — About 92: 16 Sun, 6 Tue casserole, 18 Wed egg bake, 14 Fri frittata, 12 Sat, 14 hard-boiled for salads, plus weekday eggs. Count what is left first."
+              "label": "Eggs, 8 dozen — About 86: 16 Sun, 6 Tue casserole, 18 Wed egg bake, 14 Fri frittata, 12 Sat, 8 hard-boiled for Sunday salads, plus weekday eggs. Count what is left first."
             },
             {
               "id": "cheddar",
@@ -986,15 +962,11 @@
             },
             {
               "id": "parmesan",
-              "label": "Grated Parmesan, 1 container (8 oz; uses 1 1/2 cups)"
+              "label": "Grated Parmesan, 1 container (8 oz; uses 1 cup)"
             },
             {
               "id": "heavy-cream",
               "label": "Heavy cream, 1 quart"
-            },
-            {
-              "id": "cream-cheese",
-              "label": "Cream cheese, 1 block (8 oz; uses 4 oz)"
             },
             {
               "id": "sour-cream",
@@ -1002,7 +974,7 @@
             },
             {
               "id": "butter",
-              "label": "Kerrygold butter, 1 lb, plus what is on hand — The week uses about 3 1/2 sticks. Check supply."
+              "label": "Kerrygold butter, 1/2 lb (2 sticks), plus what is on hand — The week uses about 2 sticks. Check supply."
             },
             {
               "id": "string-cheese",
@@ -1033,10 +1005,6 @@
             {
               "id": "beef-broth",
               "label": "Beef broth, 1 carton (32 oz; uses 1/2 cup)"
-            },
-            {
-              "id": "chicken-broth",
-              "label": "Chicken broth, 1 carton (32 oz)"
             },
             {
               "id": "tomato-paste",
@@ -1075,20 +1043,12 @@
               "label": "Ranch dressing, 16 oz — Some may be left from the Nov 16 pickup. Check first."
             },
             {
-              "id": "sweetener",
-              "label": "Lakanto monk fruit with allulose — Likely on hand from the Nov 16 pickup; the cranberry sauce uses 1/2 cup."
-            },
-            {
               "id": "walnuts",
               "label": "Chopped walnuts — Likely on hand from the Nov 16 pickup."
             },
             {
               "id": "sauerkraut",
-              "label": "Sauerkraut — Likely on hand from the Nov 16 pickup (backup lunch only)."
-            },
-            {
-              "id": "xanthan",
-              "label": "Xanthan gum (optional, for gravy) — Check the shelf; the gravy can also just simmer down."
+              "label": "Sauerkraut — Likely on hand from the Nov 16 pickup. Saturday lunch."
             },
             {
               "id": "coffee",
@@ -1168,7 +1128,7 @@
           "items": [
             {
               "id": "dinner-rolls",
-              "label": "Dinner rolls, 2 packs (12 each) — Extras go with Friday dinner."
+              "label": "Dinner rolls, 1 pack (12) — Extras go with Friday dinner."
             },
             {
               "id": "rice",
@@ -1183,16 +1143,12 @@
               "label": "Kids' pizza (takeout or frozen)"
             },
             {
-              "id": "pumpkin-pie",
-              "label": "Pumpkin pie, store-bought (optional), 1 — For the kids and grandparents."
-            },
-            {
               "id": "flour-tortillas",
               "label": "Flour tortillas, 1 pack (10)"
             },
             {
               "id": "hot-dog-buns",
-              "label": "Hot dog buns, 1 pack — Only with the backup hot dog lunch."
+              "label": "Hot dog buns, 1 pack — Saturday lunch."
             },
             {
               "id": "chips",

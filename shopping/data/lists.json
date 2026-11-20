@@ -1051,13 +1051,13 @@
       ]
     },
     "2026-11-22": {
-      "note": "Plan for review, posted Fri Nov 20. One combined list for all seven dinners plus breakfasts, lunches, snacks, and kid sides, scaled once. Dinners Sun to Fri are sized for about 8 because the grandparents are visiting through Fri Nov 27; Wed pizza bowls and Sat are about 6. Items marked 'check first' are staples or things likely left from the Nov 16 pickup. Quest amounts still need confirming. Not added (ask first): Rachael Ray dog food (added to the Nov 15 order). OPTI-FREE stays off. Nothing here orders food. No seafood.",
+      "note": "Updated Fri Nov 20: Thanksgiving dinner is at Dawn's in Cocoa Beach. One combined list for the week's home meals, breakfasts, lunches, snacks, and kid sides, scaled once. No home Thanksgiving dinner, so turkey breasts, cauliflower mash, Brussels sprouts, cranberry sauce, and related items are off the list. Dinners Sun to Wed and Fri are sized for about 8 because the grandparents are visiting through Fri Nov 27; Wed pizza bowls and Sat are about 6. Thursday is breakfast and a light lunch only. Items marked 'check first' are staples or things likely left from the Nov 16 pickup. Quest amounts still need confirming. Not added (ask first): Rachael Ray dog food (added to the Nov 15 order). OPTI-FREE stays off. Nothing here orders food. No seafood.",
       "dinnerShort": {
         "2026-11-22": "pot roast",
         "2026-11-23": "chicken thighs",
         "2026-11-24": "cheeseburger casserole",
         "2026-11-25": "pizza night",
-        "2026-11-26": "Thanksgiving",
+        "2026-11-26": "at Dawn's",
         "2026-11-27": "pork chops",
         "2026-11-28": "fajitas"
       },
@@ -1067,11 +1067,10 @@
           "name": "Garlic",
           "section": "produce",
           "qty": "2 heads",
-          "note": "About 21 cloves this week. Check supply first.",
+          "note": "About 13 cloves this week. Check supply first.",
           "for": [
             "2026-11-23",
             "2026-11-24",
-            "2026-11-26",
             "2026-11-27"
           ]
         },
@@ -1103,60 +1102,13 @@
           ]
         },
         {
-          "key": "cauliflower",
-          "name": "Cauliflower",
-          "section": "produce",
-          "qty": "3 large heads",
-          "for": [
-            "2026-11-26"
-          ]
-        },
-        {
-          "key": "brussels-sprouts",
-          "name": "Brussels sprouts",
-          "section": "produce",
-          "qty": "2 1/2 lb",
-          "for": [
-            "2026-11-26"
-          ]
-        },
-        {
-          "key": "cranberries",
-          "name": "Fresh cranberries",
-          "section": "produce",
-          "qty": "1 bag (12 oz)",
-          "for": [
-            "2026-11-26"
-          ]
-        },
-        {
-          "key": "orange",
-          "name": "Orange",
-          "section": "produce",
-          "qty": "1",
-          "note": "For the cranberry sauce zest.",
-          "for": [
-            "2026-11-26"
-          ]
-        },
-        {
-          "key": "poultry-herbs",
-          "name": "Fresh poultry herbs (rosemary, thyme, sage)",
-          "section": "produce",
-          "qty": "1 package (about 3/4 oz)",
-          "for": [
-            "2026-11-26"
-          ]
-        },
-        {
           "key": "yellow-onion",
           "name": "Yellow onions",
           "section": "produce",
-          "qty": "4",
-          "note": "1 Tue, 1 Thu, 2 Sat.",
+          "qty": "3",
+          "note": "1 Tue, 2 Sat.",
           "for": [
             "2026-11-24",
-            "2026-11-26",
             "2026-11-28"
           ]
         },
@@ -1165,8 +1117,8 @@
           "name": "Celery",
           "section": "produce",
           "qty": "1 bunch",
+          "note": "For Thursday's snack board.",
           "for": [
-            "2026-11-26",
             "2026-11-26 lunch"
           ]
         },
@@ -1183,12 +1135,11 @@
           "key": "romaine",
           "name": "Romaine hearts",
           "section": "produce",
-          "qty": "5 three-packs",
-          "note": "2 for Sun chef salads, 2 for Fri Caesar, 1 for Sat Cobb salads.",
+          "qty": "4 three-packs",
+          "note": "2 for Sun chef salads, 2 for Fri Caesar.",
           "for": [
             "2026-11-22 lunch",
-            "2026-11-27",
-            "2026-11-28 lunch"
+            "2026-11-27"
           ]
         },
         {
@@ -1213,10 +1164,9 @@
           "key": "avocados",
           "name": "Avocados",
           "section": "produce",
-          "qty": "3",
+          "qty": "2",
           "for": [
-            "2026-11-28",
-            "2026-11-28 lunch"
+            "2026-11-28"
           ]
         },
         {
@@ -1263,8 +1213,7 @@
           "section": "produce",
           "qty": "2 pints",
           "for": [
-            "2026-11-22 lunch",
-            "2026-11-28 lunch"
+            "2026-11-22 lunch"
           ]
         },
         {
@@ -1316,16 +1265,6 @@
           ]
         },
         {
-          "key": "turkey-breast",
-          "name": "Bone-in, skin-on turkey breasts",
-          "section": "meat",
-          "qty": "2 (about 5 to 6 lb each)",
-          "note": "If frozen, buy by Monday and thaw in the fridge (about 1 day per 4 to 5 lb).",
-          "for": [
-            "2026-11-26"
-          ]
-        },
-        {
           "key": "pork-chops",
           "name": "Boneless pork chops, about 1 inch thick",
           "section": "meat",
@@ -1357,24 +1296,24 @@
           "key": "bacon",
           "name": "Bacon",
           "section": "meat",
-          "qty": "about 4 1/2 lb",
-          "note": "1 1/2 lb Sun breakfast, 12 oz Tue casserole, 8 oz Thu sprouts, 12 oz Fri frittata, 1 lb Sat breakfast and Cobb salads.",
+          "qty": "about 4 lb",
+          "note": "1 1/2 lb Sun breakfast, 12 oz Tue casserole, 12 oz Fri frittata, 12 oz Sat breakfast.",
           "for": [
             "2026-11-22 breakfast",
             "2026-11-24",
-            "2026-11-26",
             "2026-11-27 breakfast",
-            "2026-11-28 breakfast",
-            "2026-11-28 lunch"
+            "2026-11-28 breakfast"
           ]
         },
         {
           "key": "deli-turkey",
           "name": "Deli turkey",
           "section": "meat",
-          "qty": "2 lb",
+          "qty": "3 lb",
+          "note": "Sunday chef salads and Friday roll-ups.",
           "for": [
             "2026-11-22 lunch",
+            "2026-11-27 lunch",
             "backup lunches"
           ]
         },
@@ -1393,7 +1332,7 @@
           "name": "All-beef hot dogs",
           "section": "meat",
           "qty": "1 pack (8)",
-          "note": "Backup lunch only. Skip if the turkey leftovers will cover Saturday.",
+          "note": "Saturday lunch.",
           "for": [
             "2026-11-28 lunch"
           ]
@@ -1403,15 +1342,14 @@
           "name": "Eggs",
           "section": "dairy",
           "qty": "8 dozen",
-          "note": "About 92: 16 Sun, 6 Tue casserole, 18 Wed egg bake, 14 Fri frittata, 12 Sat, 14 hard-boiled for salads, plus weekday eggs. Count what is left first.",
+          "note": "About 86: 16 Sun, 6 Tue casserole, 18 Wed egg bake, 14 Fri frittata, 12 Sat, 8 hard-boiled for Sunday salads, plus weekday eggs. Count what is left first.",
           "for": [
             "2026-11-22 breakfast",
             "2026-11-24",
             "2026-11-25 breakfast",
             "2026-11-27 breakfast",
             "2026-11-28 breakfast",
-            "2026-11-22 lunch",
-            "2026-11-28 lunch"
+            "2026-11-22 lunch"
           ]
         },
         {
@@ -1424,8 +1362,7 @@
             "2026-11-28",
             "2026-11-25 breakfast",
             "2026-11-27 breakfast",
-            "2026-11-22 lunch",
-            "2026-11-28 lunch"
+            "2026-11-22 lunch"
           ]
         },
         {
@@ -1441,10 +1378,9 @@
           "key": "parmesan",
           "name": "Grated Parmesan",
           "section": "dairy",
-          "qty": "1 container (8 oz; uses 1 1/2 cups)",
+          "qty": "1 container (8 oz; uses 1 cup)",
           "for": [
             "2026-11-23",
-            "2026-11-26",
             "2026-11-27"
           ]
         },
@@ -1455,18 +1391,8 @@
           "qty": "1 quart",
           "for": [
             "2026-11-24",
-            "2026-11-26",
             "2026-11-25 breakfast",
             "2026-11-27 breakfast"
-          ]
-        },
-        {
-          "key": "cream-cheese",
-          "name": "Cream cheese",
-          "section": "dairy",
-          "qty": "1 block (8 oz; uses 4 oz)",
-          "for": [
-            "2026-11-26"
           ]
         },
         {
@@ -1482,11 +1408,10 @@
           "key": "butter",
           "name": "Kerrygold butter",
           "section": "dairy",
-          "qty": "1 lb, plus what is on hand",
-          "note": "The week uses about 3 1/2 sticks. Check supply.",
+          "qty": "1/2 lb (2 sticks), plus what is on hand",
+          "note": "The week uses about 2 sticks. Check supply.",
           "for": [
             "2026-11-22",
-            "2026-11-26",
             "2026-11-27"
           ]
         },
@@ -1545,15 +1470,6 @@
           "qty": "1 carton (32 oz; uses 1/2 cup)",
           "for": [
             "2026-11-22"
-          ]
-        },
-        {
-          "key": "chicken-broth",
-          "name": "Chicken broth",
-          "section": "pantry",
-          "qty": "1 carton (32 oz)",
-          "for": [
-            "2026-11-26"
           ]
         },
         {
@@ -1647,15 +1563,6 @@
           ]
         },
         {
-          "key": "sweetener",
-          "name": "Lakanto monk fruit with allulose",
-          "section": "pantry",
-          "note": "Likely on hand from the Nov 16 pickup; the cranberry sauce uses 1/2 cup.",
-          "for": [
-            "2026-11-26"
-          ]
-        },
-        {
           "key": "walnuts",
           "name": "Chopped walnuts",
           "section": "pantry",
@@ -1668,18 +1575,9 @@
           "key": "sauerkraut",
           "name": "Sauerkraut",
           "section": "pantry",
-          "note": "Likely on hand from the Nov 16 pickup (backup lunch only).",
+          "note": "Likely on hand from the Nov 16 pickup. Saturday lunch.",
           "for": [
             "2026-11-28 lunch"
-          ]
-        },
-        {
-          "key": "xanthan",
-          "name": "Xanthan gum (optional, for gravy)",
-          "section": "pantry",
-          "note": "Check the shelf; the gravy can also just simmer down.",
-          "for": [
-            "2026-11-26"
           ]
         },
         {
@@ -1790,11 +1688,10 @@
           "key": "dinner-rolls",
           "name": "Dinner rolls",
           "section": "kids",
-          "qty": "2 packs (12 each)",
+          "qty": "1 pack (12)",
           "note": "Extras go with Friday dinner.",
           "for": [
-            "2026-11-22",
-            "2026-11-26"
+            "2026-11-22"
           ]
         },
         {
@@ -1825,16 +1722,6 @@
           ]
         },
         {
-          "key": "pumpkin-pie",
-          "name": "Pumpkin pie, store-bought (optional)",
-          "section": "kids",
-          "qty": "1",
-          "note": "For the kids and grandparents.",
-          "for": [
-            "2026-11-26"
-          ]
-        },
-        {
           "key": "flour-tortillas",
           "name": "Flour tortillas",
           "section": "kids",
@@ -1848,7 +1735,7 @@
           "name": "Hot dog buns",
           "section": "kids",
           "qty": "1 pack",
-          "note": "Only with the backup hot dog lunch.",
+          "note": "Saturday lunch.",
           "for": [
             "2026-11-28 lunch"
           ]
