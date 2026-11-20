@@ -219,24 +219,42 @@ test('weekday mornings stay in the cookbook and are not a dinner slot', () => {
   assert.match(recipeApp, /standingHtml/);
 });
 
-test('the week of Nov 22 has seven planned days, full dinner recipes, and the regular yogurts', () => {
+test('the week of Nov 22 has seven planned days, dinners except Thanksgiving at Dawn\'s, and the regular yogurts', () => {
   const nov22 = weeksDoc.weeks.find(w => w.id === '2026-11-22');
   assert.ok(nov22);
   assert.equal(nov22.days.length, 7);
   nov22.days.forEach(day => {
     assert.equal(K.weekdayName(day.date), day.weekday);
     assert.ok(day.breakfast && day.lunch && day.dinnerNote);
+    assert.doesNotMatch(JSON.stringify(day), /shrimp|salmon|scampi|fish|seafood/i);
+    if (!day.recipeId) return;
     assert.ok(catalog[day.recipeId], day.recipeId);
     const recipe = catalog[day.recipeId];
     assert.match(JSON.stringify(recipe), /°F/);
     assert.ok(recipe.steps.length >= 4);
-    assert.doesNotMatch(JSON.stringify(recipe) + JSON.stringify(day), /shrimp|salmon|scampi|fish|seafood/i);
+    assert.doesNotMatch(JSON.stringify(recipe), /shrimp|salmon|scampi|fish|seafood/i);
   });
-  assert.equal(nov22.days[4].recipeId, 'thanksgiving-turkey-breast');
+  const thu = nov22.days[4];
+  assert.equal(thu.date, '2026-11-26');
+  assert.equal(thu.recipeId, null);
+  assert.match(thu.title, /Dawn/);
+  assert.match(thu.dinnerNote, /Cocoa Beach/);
+  assert.match(thu.dinnerNote, /No dinner at home/);
+  assert.match(nov22.days[5].lunch, /Deli turkey and cheese roll-ups/);
+  assert.match(nov22.days[6].lunch, /hot dogs/i);
+  assert.doesNotMatch(nov22.days[5].lunch + nov22.days[6].lunch, /Leftover Thanksgiving|turkey Cobb/i);
   assert.match(catalog['thanksgiving-turkey-breast'].safety, /165°F/);
   assert.match(catalog['garlic-butter-pork-chops'].safety, /145°F/);
   const labels = nov22.grocery.flatMap(s => s.items.map(i => i.label)).join('\n');
   assert.match(labels, /Cabot/);
   assert.match(labels, /Ratio/);
+  assert.match(labels, /Deli turkey, 3 lb/);
   assert.doesNotMatch(labels, /OPTI-FREE/i);
+  assert.doesNotMatch(labels, /turkey breasts/i);
+  assert.doesNotMatch(labels, /Cauliflower/);
+  assert.doesNotMatch(labels, /Brussels/);
+  assert.doesNotMatch(labels, /cranberr/i);
+  assert.doesNotMatch(labels, /Pumpkin pie/i);
+  assert.doesNotMatch(labels, /Chicken broth/);
+  assert.doesNotMatch(labels, /Cream cheese/);
 });
