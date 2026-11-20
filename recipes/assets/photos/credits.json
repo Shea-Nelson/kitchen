@@ -119,6 +119,66 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "credit": "Own work",
       "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+    },
+    {
+      "file": "recipes/assets/photos/mississippi-pot-roast.jpg",
+      "sourceTitle": "File:Pot roast, green beans, and mashed potatoes - Massachusetts.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pot_roast,_green_beans,_and_mashed_potatoes_-_Massachusetts.jpg",
+      "author": "Daderot",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Own work",
+      "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+    },
+    {
+      "file": "recipes/assets/photos/lemon-garlic-chicken-thighs.jpg",
+      "sourceTitle": "File:Roast Chicken Legs and Thighs (31196736704).jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roast_Chicken_Legs_and_Thighs_(31196736704).jpg",
+      "author": "Willis Lam",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "credit": "Roast Chicken Legs and Thighs",
+      "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+    },
+    {
+      "file": "recipes/assets/photos/bacon-cheeseburger-casserole.jpg",
+      "sourceTitle": "File:Hamburger Casserole (35120290724).jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hamburger_Casserole_(35120290724).jpg",
+      "author": "Meg H",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "Hamburger Casserole",
+      "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+    },
+    {
+      "file": "recipes/assets/photos/thanksgiving-turkey-breast.jpg",
+      "sourceTitle": "File:Turkey breast - December 2025 - Sarah Stierch.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Turkey_breast_-_December_2025_-_Sarah_Stierch.jpg",
+      "author": "Missvain (Sarah Stierch)",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Own work",
+      "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+    },
+    {
+      "file": "recipes/assets/photos/garlic-butter-pork-chops.jpg",
+      "sourceTitle": "File:Pork chops served.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pork_chops_served.jpg",
+      "author": "Stu Spivack",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "credit": "See source",
+      "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+    },
+    {
+      "file": "recipes/assets/photos/sheet-pan-chicken-fajitas.jpg",
+      "sourceTitle": "File:Chicken fajitas.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chicken_fajitas.jpg",
+      "author": "jeffreyw",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "Mmm...chicken fajitas",
+      "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
     }
   ]
 }

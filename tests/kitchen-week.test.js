@@ -20,7 +20,8 @@ test('Eastern time decides today, including the evening before midnight', () => 
   assert.equal(K.defaultWeekId(weeksDoc, '2026-11-09'), '2026-11-08');
   assert.equal(K.weekContaining('2026-11-09', weeksDoc).id, '2026-11-08');
   assert.equal(K.weekContaining('2026-11-15', weeksDoc).id, '2026-11-15');
-  assert.equal(K.weekContaining('2026-11-22', weeksDoc), null);
+  assert.equal(K.weekContaining('2026-11-22', weeksDoc).id, '2026-11-22');
+  assert.equal(K.weekContaining('2026-11-29', weeksDoc), null);
 });
 
 test('this week matches the final dinner order and drops the removed dinners', () => {
@@ -119,22 +120,22 @@ test('the written grocery list is grouped and checkable', () => {
 
 test('a later week can be added without code changes', () => {
   const next = {
-    id: '2026-11-22',
-    startsOn: '2026-11-22',
-    endsOn: '2026-11-28',
-    title: 'Sun Nov 22 – Sat Nov 28, 2026',
+    id: '2026-11-29',
+    startsOn: '2026-11-29',
+    endsOn: '2026-12-05',
+    title: 'Sun Nov 29 – Sat Dec 5, 2026',
     days: [
-      { date: '2026-11-22', weekday: 'Sunday', title: 'No dinner', recipeId: null, servings: 6 },
-      { date: '2026-11-23', weekday: 'Monday', title: 'Garlic Parmesan chicken', recipeId: 'garlic-parmesan-chicken', servings: 6 }
+      { date: '2026-11-29', weekday: 'Sunday', title: 'No dinner', recipeId: null, servings: 6 },
+      { date: '2026-11-30', weekday: 'Monday', title: 'Garlic Parmesan chicken', recipeId: 'garlic-parmesan-chicken', servings: 6 }
     ]
   };
   const doc = { weeks: weeksDoc.weeks.concat([next]) };
-  assert.equal(K.recipeIdForDate('2026-11-23', schedule, doc), 'garlic-parmesan-chicken');
+  assert.equal(K.recipeIdForDate('2026-11-30', schedule, doc), 'garlic-parmesan-chicken');
   assert.equal(K.recipeIdForDate('2026-11-09', schedule, doc), null);
   assert.equal(K.recipeIdForDate('2026-11-11', schedule, doc), 'garlic-parmesan-chicken');
   assert.equal(K.recipeIdForDate('2026-11-10', schedule, doc), 'keto-pizza-bowls');
-  assert.equal(K.recipeIdForDate('2026-11-22', schedule, doc), null);
-  assert.equal(K.defaultWeekId(doc, '2026-11-25'), '2026-11-22');
+  assert.equal(K.recipeIdForDate('2026-11-29', schedule, doc), null);
+  assert.equal(K.defaultWeekId(doc, '2026-12-02'), '2026-11-29');
   assert.equal(K.weekContaining('2026-11-08', doc).days[0].title, 'Vital frozen pizza');
   assert.equal(K.recipeIdForDate('2026-11-18', schedule, doc), 'keto-pizza-bowls');
   assert.equal(K.defaultWeekId(doc, '2026-11-18'), '2026-11-15');
@@ -216,4 +217,26 @@ test('weekday mornings stay in the cookbook and are not a dinner slot', () => {
   assert.equal(recipeApp.includes('scrambled-eggs'), false);
   assert.equal(recipeApp.includes('fried-eggs'), false);
   assert.match(recipeApp, /standingHtml/);
+});
+
+test('the week of Nov 22 has seven planned days, full dinner recipes, and the regular yogurts', () => {
+  const nov22 = weeksDoc.weeks.find(w => w.id === '2026-11-22');
+  assert.ok(nov22);
+  assert.equal(nov22.days.length, 7);
+  nov22.days.forEach(day => {
+    assert.equal(K.weekdayName(day.date), day.weekday);
+    assert.ok(day.breakfast && day.lunch && day.dinnerNote);
+    assert.ok(catalog[day.recipeId], day.recipeId);
+    const recipe = catalog[day.recipeId];
+    assert.match(JSON.stringify(recipe), /°F/);
+    assert.ok(recipe.steps.length >= 4);
+    assert.doesNotMatch(JSON.stringify(recipe) + JSON.stringify(day), /shrimp|salmon|scampi|fish|seafood/i);
+  });
+  assert.equal(nov22.days[4].recipeId, 'thanksgiving-turkey-breast');
+  assert.match(catalog['thanksgiving-turkey-breast'].safety, /165°F/);
+  assert.match(catalog['garlic-butter-pork-chops'].safety, /145°F/);
+  const labels = nov22.grocery.flatMap(s => s.items.map(i => i.label)).join('\n');
+  assert.match(labels, /Cabot/);
+  assert.match(labels, /Ratio/);
+  assert.doesNotMatch(labels, /OPTI-FREE/i);
 });

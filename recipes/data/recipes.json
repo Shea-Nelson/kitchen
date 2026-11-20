@@ -1,7 +1,7 @@
 {
   "schema": "kitchen.recipes",
   "schemaVersion": 1,
-  "authoring": "Garlic-butter salmon matches the Thu Nov 5, 2026 household card, including 145°F in the thickest part. Nov 10 afternoon swap for Nov 8–14: store-bought Vital pizza (Sun), Kevin's frozen teriyaki (Mon), pizza night (Tue, one-time swap), garlic Parmesan chicken (Wed, on hand), broccoli ham bake (Thu), garlic butter steak bites (Fri), out of town Sat. Standing rule remains Wednesday pizza night. Egg roll in a bowl and pork carnitas are dropped this week. No seafood. No nutrition figures. Weekday morning recipes stay in this cookbook and are not replaced when a dinner week is added. Week of Nov 15–21, 2026: egg roll in a bowl (version 2, sized up), bacon ranch chicken bake, slow-cooker shredded beef taco bowls, pizza night, broccoli ham bake, turkey burger lettuce wraps, and garlic butter steak bites. Safe-temperature notes were added to reused recipes. No nutrition figures.",
+  "authoring": "Garlic-butter salmon matches the Thu Nov 5, 2026 household card, including 145°F in the thickest part. Nov 10 afternoon swap for Nov 8–14: store-bought Vital pizza (Sun), Kevin's frozen teriyaki (Mon), pizza night (Tue, one-time swap), garlic Parmesan chicken (Wed, on hand), broccoli ham bake (Thu), garlic butter steak bites (Fri), out of town Sat. Standing rule remains Wednesday pizza night. Egg roll in a bowl and pork carnitas are dropped this week. No seafood. No nutrition figures. Weekday morning recipes stay in this cookbook and are not replaced when a dinner week is added. Week of Nov 15–21, 2026: egg roll in a bowl (version 2, sized up), bacon ranch chicken bake, slow-cooker shredded beef taco bowls, pizza night, broccoli ham bake, turkey burger lettuce wraps, and garlic butter steak bites. Safe-temperature notes were added to reused recipes. No nutrition figures. Week of Nov 22–28, 2026: Mississippi pot roast, lemon garlic chicken thighs, bacon cheeseburger casserole, pizza night, a Thanksgiving herb-butter turkey breast dinner, garlic butter pork chops, and sheet-pan chicken fajitas. No nutrition figures.",
   "sections": [
     {
       "id": "weekday-mornings",
@@ -2515,6 +2515,1508 @@
         {
           "id": "tbw-patties",
           "label": "Shape 12 turkey patties"
+        }
+      ]
+    },
+    {
+      "id": "mississippi-pot-roast",
+      "version": 1,
+      "title": "Mississippi pot roast",
+      "summary": "Chuck roast slow-cooked all day with butter, ranch seasoning, and pepperoncini, then shredded into its juices. Buttered green beans on the side.",
+      "servings": 8,
+      "servingsNote": "About 8 adult portions: the family of five plus the grandparents, with a little left for lunch.",
+      "style": "Slow cooker, low, about 8 hours. Low-carb as written.",
+      "illustration": "pot",
+      "authoring": "Household plan for the week of Nov 22, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Beef is safe at 145°F, but a pot roast needs to cook far past that (about 195°F to 205°F) to turn fork-tender.",
+      "kidSide": "Dinner rolls on the side for kids who want them.",
+      "photo": {
+        "src": "assets/photos/mississippi-pot-roast.jpg",
+        "alt": "Sliced pot roast with gravy, green beans, and mashed potatoes on a white plate.",
+        "caption": "Photograph by Daderot, CC0. It shows a restaurant pot roast plate with mashed potatoes, not this exact recipe; here the side is buttered green beans.",
+        "author": "Daderot",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pot_roast,_green_beans,_and_mashed_potatoes_-_Massachusetts.jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "roast",
+          "name": "boneless beef chuck roast",
+          "amount": 5,
+          "unit": "lb",
+          "note": "one large or two smaller roasts",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "chuck-roast",
+          "groceryName": "boneless beef chuck roast"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "amount": 0.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "ranch",
+          "name": "dry ranch seasoning mix",
+          "amount": 1,
+          "unit": "packet",
+          "note": "about 1 oz",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "ranch-seasoning",
+          "groceryName": "dry ranch seasoning mix"
+        },
+        {
+          "id": "broth",
+          "name": "beef broth",
+          "amount": 0.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "beef-broth",
+          "groceryName": "beef broth"
+        },
+        {
+          "id": "butter",
+          "name": "salted butter",
+          "amount": 0.5,
+          "unit": "cups",
+          "note": "1 stick",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "salted butter"
+        },
+        {
+          "id": "pepperoncini",
+          "name": "pepperoncini peppers",
+          "amount": 10,
+          "unit": "peppers",
+          "note": "plus 1/4 cup of the jar brine",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "pepperoncini",
+          "groceryName": "pepperoncini peppers"
+        },
+        {
+          "id": "beans",
+          "name": "fresh green beans, trimmed",
+          "amount": 2,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "green-beans",
+          "groceryName": "fresh green beans, trimmed"
+        },
+        {
+          "id": "bean-butter",
+          "name": "butter for the green beans",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "salted butter"
+        },
+        {
+          "id": "rolls",
+          "name": "dinner rolls, only if kids want them",
+          "amount": 12,
+          "unit": "rolls",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "dinner-rolls",
+          "groceryName": "dinner rolls, only if kids want them"
+        }
+      ],
+      "steps": [
+        {
+          "id": "season",
+          "text": "Pat the roast dry and season all over with the salt and pepper. Set it in the slow cooker."
+        },
+        {
+          "id": "layer",
+          "text": "Sprinkle the ranch seasoning over the top. Pour the beef broth around the roast. Set the stick of butter on top and tuck the pepperoncini and 1/4 cup of their brine around it."
+        },
+        {
+          "id": "cook",
+          "text": "Cover and cook on low about 8 hours, until the beef pulls apart easily with two forks (well past 145°F, about 195°F to 205°F).",
+          "timers": [
+            {
+              "id": "low-8h",
+              "label": "Slow cook on low",
+              "seconds": 28800,
+              "note": "About 8 hours. It can go up to 9. Fork-tender decides, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "shred",
+          "text": "Shred the beef right in the pot and stir it into the juices. Taste and add salt if needed."
+        },
+        {
+          "id": "beans",
+          "text": "About 15 minutes before dinner, steam or simmer the green beans until crisp-tender, 6 to 8 minutes. Drain and toss with the butter and a pinch of salt.",
+          "timers": [
+            {
+              "id": "beans-6",
+              "label": "Cook green beans",
+              "seconds": 360,
+              "note": "6 to 8 minutes."
+            }
+          ]
+        },
+        {
+          "id": "serve",
+          "text": "Serve the beef with its juices and the green beans. Rolls only for kids who want them."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Eat them within 3 to 4 days, reheated until steaming hot (165°F)."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "mpr-start",
+          "label": "Start the slow cooker before church"
+        },
+        {
+          "id": "mpr-beans",
+          "label": "Trim the green beans"
+        }
+      ]
+    },
+    {
+      "id": "lemon-garlic-chicken-thighs",
+      "version": 1,
+      "title": "Lemon garlic chicken thighs",
+      "summary": "Bone-in chicken thighs roasted with lemon, garlic, and oregano until the skin is crisp, with Parmesan roasted broccoli on a second pan.",
+      "servings": 8,
+      "servingsNote": "About 8 adult portions: the family of five plus the grandparents, with a little left for lunch.",
+      "style": "Oven, 425°F, two sheet pans. Low-carb as written.",
+      "illustration": "oven",
+      "authoring": "Household plan for the week of Nov 22, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Chicken is done at 165°F in the thickest part, not touching the bone. Thighs are juicier at 175°F.",
+      "kidSide": "Rice on the side for kids who want it.",
+      "photo": {
+        "src": "assets/photos/lemon-garlic-chicken-thighs.jpg",
+        "alt": "Golden roast chicken legs and thighs in a takeout box.",
+        "caption": "Photograph by Willis Lam, CC BY-SA 2.0. It shows roast chicken legs and thighs from a different recipe, not this exact lemon garlic dish.",
+        "author": "Willis Lam",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roast_Chicken_Legs_and_Thighs_(31196736704).jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "thighs",
+          "name": "bone-in, skin-on chicken thighs",
+          "amount": 5,
+          "unit": "lb",
+          "note": "12 to 14 thighs",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "chicken-thighs",
+          "groceryName": "bone-in, skin-on chicken thighs"
+        },
+        {
+          "id": "oil",
+          "name": "olive oil",
+          "amount": 3,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "olive-oil",
+          "groceryName": "olive oil"
+        },
+        {
+          "id": "garlic",
+          "name": "garlic, minced",
+          "amount": 6,
+          "unit": "cloves",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "garlic",
+          "groceryName": "garlic"
+        },
+        {
+          "id": "lemons",
+          "name": "lemons, zested and juiced",
+          "amount": 2,
+          "unit": "lemons",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "lemons",
+          "groceryName": "lemons, zested and juiced"
+        },
+        {
+          "id": "oregano",
+          "name": "dried oregano",
+          "amount": 2,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "oregano",
+          "groceryName": "dried oregano"
+        },
+        {
+          "id": "paprika",
+          "name": "smoked paprika",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "smoked-paprika",
+          "groceryName": "smoked paprika"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 2,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "broccoli",
+          "name": "broccoli crowns, cut into florets",
+          "amount": 3,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "broccoli",
+          "groceryName": "broccoli crowns, cut into florets"
+        },
+        {
+          "id": "broccoli-oil",
+          "name": "olive oil for the broccoli",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "olive-oil",
+          "groceryName": "olive oil for the broccoli"
+        },
+        {
+          "id": "parmesan",
+          "name": "grated Parmesan",
+          "amount": 0.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "parmesan",
+          "groceryName": "grated Parmesan"
+        },
+        {
+          "id": "rice",
+          "name": "dry long-grain rice, only if kids want starch",
+          "amount": 2,
+          "unit": "cups",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "rice",
+          "groceryName": "dry long-grain rice, only if kids want starch"
+        }
+      ],
+      "steps": [
+        {
+          "id": "heat",
+          "text": "Heat the oven to 425°F. Pat the chicken thighs dry."
+        },
+        {
+          "id": "season",
+          "text": "Stir together the olive oil, garlic, lemon zest, juice of 1 lemon, oregano, smoked paprika, salt, and pepper. Rub it all over the thighs and lay them skin side up on a large rimmed sheet pan."
+        },
+        {
+          "id": "roast",
+          "text": "Roast 35 to 45 minutes, until the skin is browned and the thickest thigh reads at least 165°F away from the bone (175°F is even better for thighs).",
+          "timers": [
+            {
+              "id": "roast-35",
+              "label": "Roast chicken",
+              "seconds": 2100,
+              "note": "Start with 35 minutes. It may need up to 45. 165°F decides, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "broccoli",
+          "text": "While the chicken roasts, toss the broccoli with the oil and a pinch of salt on a second sheet pan. Roast it on the lower rack for the last 18 to 22 minutes, until the edges brown. Sprinkle with the Parmesan.",
+          "timers": [
+            {
+              "id": "broccoli-18",
+              "label": "Roast broccoli",
+              "seconds": 1080,
+              "note": "18 to 22 minutes."
+            }
+          ]
+        },
+        {
+          "id": "finish",
+          "text": "Squeeze the second lemon over the chicken. Serve with the broccoli. Rice only for kids who want it."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Eat them within 3 to 4 days, reheated until steaming hot (165°F)."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "lgc-marinade",
+          "label": "Mix the lemon garlic rub"
+        },
+        {
+          "id": "lgc-broccoli",
+          "label": "Cut the broccoli into florets"
+        }
+      ]
+    },
+    {
+      "id": "bacon-cheeseburger-casserole",
+      "version": 1,
+      "title": "Bacon cheeseburger casserole",
+      "summary": "Seasoned ground beef and bacon under an egg-and-cream custard and plenty of cheddar, baked until set and topped with chopped pickles. Side salad.",
+      "servings": 8,
+      "servingsNote": "About 8 adult portions: the family of five plus the grandparents, with a little left for lunch.",
+      "style": "Oven, 350°F, one 9-by-13-inch dish. Low-carb as written.",
+      "illustration": "oven",
+      "authoring": "Household plan for the week of Nov 22, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Ground beef is done at 160°F, with no pink left. The egg custard is set when the center reaches 160°F.",
+      "kidSide": "Tater tots on the side for kids who want them.",
+      "photo": {
+        "src": "assets/photos/bacon-cheeseburger-casserole.jpg",
+        "alt": "A hamburger casserole topped with tater tots in a baking pan.",
+        "caption": "Photograph by Meg H, CC BY 2.0. It shows a tater-tot hamburger casserole from a different recipe, not this one; this version has a cheddar and egg topping, and tots are only a kids' side.",
+        "author": "Meg H",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hamburger_Casserole_(35120290724).jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "bacon",
+          "name": "bacon",
+          "amount": 12,
+          "unit": "oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "bacon",
+          "groceryName": "bacon"
+        },
+        {
+          "id": "beef",
+          "name": "ground beef",
+          "amount": 3,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "ground-beef",
+          "groceryName": "ground beef"
+        },
+        {
+          "id": "onion",
+          "name": "yellow onion, diced",
+          "amount": 1,
+          "unit": "onion",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "yellow-onion",
+          "groceryName": "yellow onions"
+        },
+        {
+          "id": "garlic",
+          "name": "garlic, minced",
+          "amount": 3,
+          "unit": "cloves",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "garlic",
+          "groceryName": "garlic"
+        },
+        {
+          "id": "paste",
+          "name": "tomato paste",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "tomato-paste",
+          "groceryName": "tomato paste"
+        },
+        {
+          "id": "mustard",
+          "name": "yellow mustard",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "mustard",
+          "groceryName": "yellow mustard"
+        },
+        {
+          "id": "worcestershire",
+          "name": "Worcestershire sauce",
+          "amount": 1,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "worcestershire",
+          "groceryName": "Worcestershire sauce"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 1.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "amount": 0.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "cheddar",
+          "name": "shredded cheddar",
+          "amount": 3,
+          "unit": "cups",
+          "note": "divided",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cheddar",
+          "groceryName": "shredded cheddar"
+        },
+        {
+          "id": "eggs",
+          "name": "eggs",
+          "amount": 6,
+          "unit": "eggs",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "eggs",
+          "groceryName": "eggs"
+        },
+        {
+          "id": "cream",
+          "name": "heavy cream",
+          "amount": 0.75,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "heavy-cream",
+          "groceryName": "heavy cream"
+        },
+        {
+          "id": "pickles",
+          "name": "dill pickles, chopped",
+          "amount": 0.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "pickles",
+          "groceryName": "dill pickles, chopped"
+        },
+        {
+          "id": "greens",
+          "name": "salad greens",
+          "amount": 2,
+          "unit": "containers",
+          "note": "about 5 oz each",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "salad-greens",
+          "groceryName": "salad greens"
+        },
+        {
+          "id": "ranch",
+          "name": "ranch dressing",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "ranch",
+          "groceryName": "ranch dressing"
+        },
+        {
+          "id": "tots",
+          "name": "frozen tater tots, only if kids want them",
+          "amount": 32,
+          "unit": "oz",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "tater-tots",
+          "groceryName": "frozen tater tots, only if kids want them"
+        }
+      ],
+      "steps": [
+        {
+          "id": "bacon",
+          "text": "Heat the oven to 350°F. Cook the bacon in a large skillet until crisp, drain it on paper towels, and crumble it. Pour off all but 1 tablespoon of the fat.",
+          "timers": [
+            {
+              "id": "bacon-10",
+              "label": "Crisp bacon",
+              "seconds": 600,
+              "note": "About 10 minutes."
+            }
+          ]
+        },
+        {
+          "id": "brown",
+          "text": "Brown the ground beef and onion in the same skillet, breaking up the meat, until no pink is left and it reaches 160°F. Drain the fat.",
+          "timers": [
+            {
+              "id": "brown-beef",
+              "label": "Brown beef",
+              "seconds": 600,
+              "note": "About 10 minutes. 160°F and no pink decide, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "season",
+          "text": "Stir in the garlic, tomato paste, mustard, Worcestershire, salt, and pepper and cook 1 minute. Spread the beef in a greased 9-by-13-inch dish and scatter 2 cups of the cheddar over it.",
+          "timers": [
+            {
+              "id": "season-1",
+              "label": "Season beef",
+              "seconds": 60
+            }
+          ]
+        },
+        {
+          "id": "custard",
+          "text": "Whisk the eggs and cream together and pour it evenly over the beef. Top with the bacon and the last cup of cheddar."
+        },
+        {
+          "id": "bake",
+          "text": "Bake 30 to 35 minutes, until the center is set (160°F) and the cheese is bubbly. Rest 5 minutes.",
+          "timers": [
+            {
+              "id": "bake-30",
+              "label": "Bake casserole",
+              "seconds": 1800,
+              "note": "30 to 35 minutes. A set center decides, not the timer."
+            },
+            {
+              "id": "rest-5",
+              "label": "Rest",
+              "seconds": 300
+            }
+          ]
+        },
+        {
+          "id": "serve",
+          "text": "Top with the chopped pickles. Serve with the salad greens and ranch. Tater tots only for kids who want them (bake them alongside at the package temperature)."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Eat them within 3 to 4 days, reheated until steaming hot (165°F)."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "bcc-bacon",
+          "label": "Cook and crumble the bacon"
+        },
+        {
+          "id": "bcc-onion",
+          "label": "Dice the onion"
+        },
+        {
+          "id": "bcc-pickles",
+          "label": "Chop the pickles"
+        }
+      ]
+    },
+    {
+      "id": "thanksgiving-turkey-breast",
+      "version": 1,
+      "title": "Thanksgiving herb-butter turkey breast",
+      "summary": "Two bone-in turkey breasts roasted under herb butter, with pan gravy, garlic cauliflower mash, roasted Brussels sprouts with bacon, and sugar-free cranberry sauce. Plenty left for Friday and Saturday lunches.",
+      "servings": 8,
+      "servingsNote": "About 8 adult portions for Thanksgiving dinner, plus planned turkey leftovers for Friday and Saturday lunches.",
+      "style": "Oven, 350°F for the turkey, then 425°F for the sprouts. Low-carb as written.",
+      "illustration": "oven",
+      "authoring": "Household plan for the week of Nov 22, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Turkey is done at 165°F in the thickest part of the breast, not touching the bone. Refrigerate leftovers within 2 hours.",
+      "kidSide": "Dinner rolls for the kids, and an optional store-bought pumpkin pie for the kids and grandparents.",
+      "photo": {
+        "src": "assets/photos/thanksgiving-turkey-breast.jpg",
+        "alt": "Sliced herb-seasoned turkey breast on an oval floral platter.",
+        "caption": "Photograph by Missvain, CC0. It shows a sliced roast turkey breast from a different meal, not this exact herb-butter recipe.",
+        "author": "Missvain (Sarah Stierch)",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Turkey_breast_-_December_2025_-_Sarah_Stierch.jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "turkey",
+          "name": "bone-in, skin-on turkey breasts",
+          "amount": 2,
+          "unit": "breasts",
+          "note": "about 5 to 6 lb each; thaw in the fridge first if frozen",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "turkey-breast",
+          "groceryName": "bone-in, skin-on turkey breasts"
+        },
+        {
+          "id": "butter",
+          "name": "salted butter, softened",
+          "amount": 0.5,
+          "unit": "cups",
+          "note": "1 stick",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "salted butter"
+        },
+        {
+          "id": "garlic",
+          "name": "garlic, minced",
+          "amount": 6,
+          "unit": "cloves",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "garlic",
+          "groceryName": "garlic"
+        },
+        {
+          "id": "herbs",
+          "name": "fresh poultry herbs (rosemary, thyme, sage), chopped",
+          "amount": 1,
+          "unit": "package",
+          "note": "about 3/4 oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "poultry-herbs",
+          "groceryName": "fresh poultry herbs (rosemary, thyme, sage), chopped"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 1,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "onion",
+          "name": "yellow onion, quartered",
+          "amount": 1,
+          "unit": "onion",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "yellow-onion",
+          "groceryName": "yellow onions"
+        },
+        {
+          "id": "celery",
+          "name": "celery ribs, cut in chunks",
+          "amount": 2,
+          "unit": "ribs",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "celery",
+          "groceryName": "celery ribs, cut in chunks"
+        },
+        {
+          "id": "broth",
+          "name": "chicken broth, divided",
+          "amount": 4,
+          "unit": "cups",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "chicken-broth",
+          "groceryName": "chicken broth, divided"
+        },
+        {
+          "id": "cream",
+          "name": "heavy cream",
+          "amount": 0.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "heavy-cream",
+          "groceryName": "heavy cream"
+        },
+        {
+          "id": "xanthan",
+          "name": "xanthan gum, optional, to thicken the gravy",
+          "amount": 0.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "xanthan",
+          "groceryName": "xanthan gum, optional, to thicken the gravy"
+        },
+        {
+          "id": "cauliflower",
+          "name": "cauliflower, cut into florets",
+          "amount": 3,
+          "unit": "heads",
+          "note": "large heads",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cauliflower",
+          "groceryName": "cauliflower, cut into florets"
+        },
+        {
+          "id": "mash-butter",
+          "name": "butter for the mash",
+          "amount": 4,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "salted butter"
+        },
+        {
+          "id": "cream-cheese",
+          "name": "cream cheese",
+          "amount": 4,
+          "unit": "oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cream-cheese",
+          "groceryName": "cream cheese"
+        },
+        {
+          "id": "parmesan",
+          "name": "grated Parmesan",
+          "amount": 0.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "parmesan",
+          "groceryName": "grated Parmesan"
+        },
+        {
+          "id": "mash-garlic",
+          "name": "garlic for the mash, minced",
+          "amount": 2,
+          "unit": "cloves",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "garlic",
+          "groceryName": "garlic"
+        },
+        {
+          "id": "sprouts",
+          "name": "Brussels sprouts, halved",
+          "amount": 2.5,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "brussels-sprouts",
+          "groceryName": "Brussels sprouts, halved"
+        },
+        {
+          "id": "sprout-bacon",
+          "name": "bacon, chopped",
+          "amount": 8,
+          "unit": "oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "bacon",
+          "groceryName": "bacon, chopped"
+        },
+        {
+          "id": "sprout-oil",
+          "name": "olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "olive-oil",
+          "groceryName": "olive oil"
+        },
+        {
+          "id": "cranberries",
+          "name": "fresh cranberries",
+          "amount": 12,
+          "unit": "oz",
+          "note": "one bag",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cranberries",
+          "groceryName": "fresh cranberries"
+        },
+        {
+          "id": "sweetener",
+          "name": "monk fruit and allulose sweetener",
+          "amount": 0.5,
+          "unit": "cups",
+          "note": "Lakanto from the Nov 16 pickup is fine",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "sweetener",
+          "groceryName": "monk fruit and allulose sweetener"
+        },
+        {
+          "id": "water",
+          "name": "water",
+          "amount": 0.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "water",
+          "groceryName": "water"
+        },
+        {
+          "id": "orange",
+          "name": "orange, zested",
+          "amount": 1,
+          "unit": "orange",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "orange",
+          "groceryName": "orange, zested"
+        },
+        {
+          "id": "rolls",
+          "name": "dinner rolls, only for kids who want them",
+          "amount": 12,
+          "unit": "rolls",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "dinner-rolls",
+          "groceryName": "dinner rolls, only for kids who want them"
+        },
+        {
+          "id": "pie",
+          "name": "store-bought pumpkin pie, optional",
+          "amount": 1,
+          "unit": "pie",
+          "note": "For the kids and grandparents. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids",
+          "groceryKey": "pumpkin-pie",
+          "groceryName": "store-bought pumpkin pie, optional"
+        }
+      ],
+      "steps": [
+        {
+          "id": "thaw",
+          "text": "Ahead: if the breasts are frozen, thaw them in the refrigerator, about 1 day for every 4 to 5 lb (start by Monday night). Make the cranberry sauce up to 2 days ahead: simmer the cranberries, sweetener, and water over medium until most berries pop, 10 to 12 minutes. Stir in the orange zest and chill.",
+          "timers": [
+            {
+              "id": "cranberry-10",
+              "label": "Simmer cranberries",
+              "seconds": 600,
+              "note": "10 to 12 minutes."
+            }
+          ]
+        },
+        {
+          "id": "butter",
+          "text": "Heat the oven to 350°F. Pat the turkey dry. Mash the softened butter with the garlic, herbs, salt, and pepper. Loosen the skin and rub half the butter underneath, then the rest over the skin."
+        },
+        {
+          "id": "pan",
+          "text": "Scatter the onion and celery in a roasting pan, pour in 2 cups of the broth, and set the breasts on top, skin side up."
+        },
+        {
+          "id": "roast",
+          "text": "Roast 1 3/4 to 2 1/2 hours, until the thickest part of each breast reads 165°F, not touching the bone. Tent loosely with foil if the skin browns too fast.",
+          "timers": [
+            {
+              "id": "roast-turkey",
+              "label": "Roast turkey",
+              "seconds": 6300,
+              "note": "Start with 1 hour 45 minutes. It may need up to 2 1/2 hours. 165°F decides, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "rest",
+          "text": "Move the turkey to a board, tent with foil, and rest 20 minutes. Raise the oven to 425°F.",
+          "timers": [
+            {
+              "id": "rest-turkey",
+              "label": "Rest turkey",
+              "seconds": 1200
+            }
+          ]
+        },
+        {
+          "id": "sprouts",
+          "text": "Toss the Brussels sprouts and chopped bacon with the olive oil and a pinch of salt on a sheet pan. Roast at 425°F for 20 to 25 minutes, until browned and the bacon is crisp.",
+          "timers": [
+            {
+              "id": "sprouts-20",
+              "label": "Roast sprouts",
+              "seconds": 1200,
+              "note": "20 to 25 minutes."
+            }
+          ]
+        },
+        {
+          "id": "mash",
+          "text": "Meanwhile steam the cauliflower until very tender, 12 to 15 minutes. Drain it very well, then blend or mash with the butter, cream cheese, Parmesan, garlic, and salt to taste.",
+          "timers": [
+            {
+              "id": "steam-12",
+              "label": "Steam cauliflower",
+              "seconds": 720,
+              "note": "12 to 15 minutes."
+            }
+          ]
+        },
+        {
+          "id": "gravy",
+          "text": "Strain the pan drippings into a saucepan, add the remaining 2 cups of broth, and simmer 5 minutes. Whisk in the cream. To thicken, sprinkle in the xanthan gum 1/4 teaspoon at a time while whisking. Season to taste.",
+          "timers": [
+            {
+              "id": "gravy-5",
+              "label": "Simmer gravy",
+              "seconds": 300
+            }
+          ]
+        },
+        {
+          "id": "serve",
+          "text": "Carve the turkey off the bone and serve with the gravy, mash, sprouts, and cranberry sauce. Rolls and pie only for those who want them."
+        },
+        {
+          "id": "store",
+          "text": "Refrigerate leftovers within 2 hours, in shallow containers. Eat leftover turkey within 3 to 4 days (by Sunday or Monday) or freeze it. Reheat to 165°F."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "tg-thaw",
+          "label": "Thaw the turkey breasts in the fridge (if frozen) by Monday night"
+        },
+        {
+          "id": "tg-cranberry",
+          "label": "Make the cranberry sauce on Wednesday"
+        },
+        {
+          "id": "tg-herb-butter",
+          "label": "Mix the herb butter"
+        },
+        {
+          "id": "tg-veg",
+          "label": "Halve the sprouts and cut the cauliflower"
+        }
+      ]
+    },
+    {
+      "id": "garlic-butter-pork-chops",
+      "version": 1,
+      "title": "Garlic butter pork chops",
+      "summary": "Boneless pork chops seared in a hot skillet and basted with garlic butter, with a crouton-free Caesar salad.",
+      "servings": 8,
+      "servingsNote": "About 8 adult portions: one chop each for the family of five plus the grandparents, with one spare.",
+      "style": "Skillet, medium-high, in batches. Low-carb as written.",
+      "illustration": "skillet",
+      "authoring": "Household plan for the week of Nov 22, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Pork chops are safe at 145°F after a 3-minute rest.",
+      "kidSide": "Leftover Thanksgiving rolls or rice for kids who want them.",
+      "photo": {
+        "src": "assets/photos/garlic-butter-pork-chops.jpg",
+        "alt": "Two seared bone-in pork chops with green beans and broccoli rabe on a white plate.",
+        "caption": "Photograph by Stu Spivack, CC BY-SA 2.0. It shows bone-in pork chops from a different recipe; this plan uses boneless chops with a Caesar salad.",
+        "author": "Stu Spivack",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pork_chops_served.jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "chops",
+          "name": "boneless pork chops, about 1 inch thick",
+          "amount": 8,
+          "unit": "chops",
+          "note": "about 4 lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "pork-chops",
+          "groceryName": "boneless pork chops, about 1 inch thick"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 2,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "garlic-powder",
+          "name": "garlic powder",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "garlic-powder",
+          "groceryName": "garlic powder"
+        },
+        {
+          "id": "paprika",
+          "name": "smoked paprika",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "smoked-paprika",
+          "groceryName": "smoked paprika"
+        },
+        {
+          "id": "oil",
+          "name": "olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "olive-oil",
+          "groceryName": "olive oil"
+        },
+        {
+          "id": "butter",
+          "name": "salted butter",
+          "amount": 4,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "salted butter"
+        },
+        {
+          "id": "garlic",
+          "name": "garlic, smashed",
+          "amount": 4,
+          "unit": "cloves",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "garlic",
+          "groceryName": "garlic"
+        },
+        {
+          "id": "romaine",
+          "name": "romaine hearts, chopped",
+          "amount": 6,
+          "unit": "hearts",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "romaine",
+          "groceryName": "romaine hearts, chopped"
+        },
+        {
+          "id": "caesar",
+          "name": "Caesar dressing",
+          "amount": 0.75,
+          "unit": "cups",
+          "note": "check the label for added sugar",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "caesar-dressing",
+          "groceryName": "Caesar dressing"
+        },
+        {
+          "id": "parmesan",
+          "name": "grated Parmesan",
+          "amount": 0.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "parmesan",
+          "groceryName": "grated Parmesan"
+        },
+        {
+          "id": "rice",
+          "name": "dry long-grain rice, only if kids want starch",
+          "amount": 1.5,
+          "unit": "cups",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "rice",
+          "groceryName": "dry long-grain rice, only if kids want starch"
+        }
+      ],
+      "steps": [
+        {
+          "id": "season",
+          "text": "Pat the chops dry. Mix the salt, pepper, garlic powder, and smoked paprika and season both sides. Let them sit 15 minutes while the pan heats.",
+          "timers": [
+            {
+              "id": "sit-15",
+              "label": "Season and rest",
+              "seconds": 900
+            }
+          ]
+        },
+        {
+          "id": "sear",
+          "text": "Heat the oil in a large skillet over medium-high. Sear the chops in batches without crowding, 4 to 5 minutes per side, until the center reaches 145°F.",
+          "timers": [
+            {
+              "id": "sear-side",
+              "label": "Sear one side",
+              "seconds": 240,
+              "note": "4 to 5 minutes a side. 145°F decides, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "baste",
+          "text": "For the last minute of each batch, add a tablespoon of butter and a garlic clove and spoon the foaming butter over the chops.",
+          "timers": [
+            {
+              "id": "baste-1",
+              "label": "Baste with butter",
+              "seconds": 60
+            }
+          ]
+        },
+        {
+          "id": "rest",
+          "text": "Rest the chops 3 minutes before cutting.",
+          "timers": [
+            {
+              "id": "rest-3",
+              "label": "Rest chops",
+              "seconds": 180
+            }
+          ]
+        },
+        {
+          "id": "salad",
+          "text": "Toss the romaine with the Caesar dressing and Parmesan. Serve with the chops. Rolls or rice only for kids who want them."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Eat them within 3 to 4 days, reheated until steaming hot (165°F)."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "gpc-season",
+          "label": "Season the chops"
+        },
+        {
+          "id": "gpc-romaine",
+          "label": "Chop the romaine"
+        }
+      ]
+    },
+    {
+      "id": "sheet-pan-chicken-fajitas",
+      "version": 1,
+      "title": "Sheet-pan chicken fajitas",
+      "summary": "Sliced chicken, peppers, and onions roasted with fajita spices, served in lettuce wraps or bowls with sour cream, cheese, avocado, and salsa.",
+      "servings": 6,
+      "servingsNote": "About 6 adult portions for the family of five.",
+      "style": "Oven, 425°F, two sheet pans. Low-carb as written.",
+      "illustration": "oven",
+      "authoring": "Household plan for the week of Nov 22, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Chicken is done at 165°F in the thickest piece.",
+      "kidSide": "Flour tortillas for kids who want them.",
+      "photo": {
+        "src": "assets/photos/sheet-pan-chicken-fajitas.jpg",
+        "alt": "A flour tortilla topped with chicken, peppers, sour cream, and salsa.",
+        "caption": "Photograph by jeffreyw, CC BY 2.0. It shows chicken fajitas on a tortilla from a different recipe; adults here use lettuce wraps or bowls.",
+        "author": "jeffreyw",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chicken_fajitas.jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "chicken",
+          "name": "boneless skinless chicken breasts, sliced into strips",
+          "amount": 3,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "chicken-breasts",
+          "groceryName": "boneless skinless chicken breasts, sliced into strips"
+        },
+        {
+          "id": "peppers",
+          "name": "bell peppers, sliced",
+          "amount": 4,
+          "unit": "peppers",
+          "note": "mixed colors",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "bell-peppers",
+          "groceryName": "bell peppers, sliced"
+        },
+        {
+          "id": "onions",
+          "name": "yellow onions, sliced",
+          "amount": 2,
+          "unit": "onions",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "yellow-onion",
+          "groceryName": "yellow onions"
+        },
+        {
+          "id": "oil",
+          "name": "olive oil",
+          "amount": 3,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "olive-oil",
+          "groceryName": "olive oil"
+        },
+        {
+          "id": "chili",
+          "name": "chili powder",
+          "amount": 1,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "chili-powder",
+          "groceryName": "chili powder"
+        },
+        {
+          "id": "cumin",
+          "name": "ground cumin",
+          "amount": 2,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "cumin",
+          "groceryName": "ground cumin"
+        },
+        {
+          "id": "paprika",
+          "name": "smoked paprika",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "smoked-paprika",
+          "groceryName": "smoked paprika"
+        },
+        {
+          "id": "garlic-powder",
+          "name": "garlic powder",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "garlic-powder",
+          "groceryName": "garlic powder"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 1.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "amount": 0.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "limes",
+          "name": "limes",
+          "amount": 2,
+          "unit": "limes",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "limes",
+          "groceryName": "limes"
+        },
+        {
+          "id": "lettuce",
+          "name": "butter lettuce leaves for wraps",
+          "amount": 1,
+          "unit": "head",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter-lettuce",
+          "groceryName": "butter lettuce leaves for wraps"
+        },
+        {
+          "id": "sour-cream",
+          "name": "sour cream",
+          "amount": 1,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "sour-cream",
+          "groceryName": "sour cream"
+        },
+        {
+          "id": "cheddar",
+          "name": "shredded cheddar",
+          "amount": 1.5,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cheddar",
+          "groceryName": "shredded cheddar"
+        },
+        {
+          "id": "avocados",
+          "name": "avocados, sliced",
+          "amount": 2,
+          "unit": "avocados",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "avocados",
+          "groceryName": "avocados, sliced"
+        },
+        {
+          "id": "salsa",
+          "name": "salsa, no sugar added",
+          "amount": 1,
+          "unit": "cups",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salsa",
+          "groceryName": "salsa, no sugar added"
+        },
+        {
+          "id": "cilantro",
+          "name": "cilantro, optional",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cilantro",
+          "groceryName": "cilantro, optional"
+        },
+        {
+          "id": "tortillas",
+          "name": "flour tortillas, only if kids want them",
+          "amount": 10,
+          "unit": "tortillas",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "flour-tortillas",
+          "groceryName": "flour tortillas, only if kids want them"
+        }
+      ],
+      "steps": [
+        {
+          "id": "heat",
+          "text": "Heat the oven to 425°F with racks in the upper and lower thirds."
+        },
+        {
+          "id": "toss",
+          "text": "Toss the chicken, peppers, and onions with the oil, chili powder, cumin, smoked paprika, garlic powder, salt, and pepper. Spread in a single layer on two sheet pans."
+        },
+        {
+          "id": "roast",
+          "text": "Roast 20 to 25 minutes, switching the pans halfway, until the chicken reaches 165°F and the vegetables are tender and browned at the edges.",
+          "timers": [
+            {
+              "id": "roast-20",
+              "label": "Roast fajitas",
+              "seconds": 1200,
+              "note": "20 to 25 minutes. 165°F decides, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "finish",
+          "text": "Squeeze the juice of 1 lime over the pans. Cut the other lime into wedges."
+        },
+        {
+          "id": "serve",
+          "text": "Serve in lettuce leaves or as bowls with sour cream, cheddar, avocado, salsa, and cilantro. Tortillas only for kids who want them."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Eat them within 3 to 4 days, reheated until steaming hot (165°F)."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "spf-slice",
+          "label": "Slice the chicken, peppers, and onions"
+        },
+        {
+          "id": "spf-toppings",
+          "label": "Set out the toppings and lettuce"
         }
       ]
     }
