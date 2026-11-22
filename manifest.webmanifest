@@ -1,0 +1,36 @@
+{
+  "name": "The family kitchen",
+  "short_name": "Kitchen",
+  "id": "/kitchen/",
+  "start_url": "/kitchen/",
+  "scope": "/kitchen/",
+  "display": "standalone",
+  "background_color": "#f4f2ee",
+  "theme_color": "#1e4d38",
+  "icons": [
+    {
+      "src": "/kitchen/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/kitchen/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/kitchen/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/kitchen/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
