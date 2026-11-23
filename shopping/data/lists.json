@@ -1051,10 +1051,10 @@
       ]
     },
     "2026-11-22": {
-      "note": "Updated Fri Nov 20: Thanksgiving dinner is at Dawn's in Cocoa Beach. One combined list for the week's home meals, breakfasts, lunches, snacks, and kid sides, scaled once. No home Thanksgiving dinner, so turkey breasts, cauliflower mash, Brussels sprouts, cranberry sauce, and related items are off the list. Dinners Sun to Wed and Fri are sized for about 8 because the grandparents are visiting through Fri Nov 27; Wed pizza bowls and Sat are about 6. Thursday is breakfast and a light lunch only. Items marked 'check first' are staples or things likely left from the Nov 16 pickup. Quest amounts still need confirming. Not added (ask first): Rachael Ray dog food (added to the Nov 15 order). OPTI-FREE stays off. Nothing here orders food. No seafood.",
+      "note": "Updated Fri Nov 20: Thanksgiving dinner is at Dawn's in Cocoa Beach. One combined list for the week's home meals, breakfasts, lunches, snacks, and kid sides, scaled once. No home Thanksgiving dinner, so turkey breasts, cauliflower mash, Brussels sprouts, cranberry sauce, and related items are off the list. Dinners Sun to Wed and Fri are sized for about 8 because the grandparents are visiting through Fri Nov 27; Wed pizza bowls and Sat are about 6. Thursday is breakfast and a light lunch only. Items marked 'check first' are staples or things likely left from the Nov 16 pickup. Quest amounts still need confirming. Not added (ask first): Rachael Ray dog food (added to the Nov 15 order). OPTI-FREE stays off. Nothing here orders food. No seafood. Updated Mon Nov 23: Monday dinner is grilled burgers with Pop Pop (keto-friendly lettuce wraps or bunless, with the usual toppings; no written recipe). Lemon garlic chicken thighs stays in the cookbook, unassigned, not rescheduled, so chicken thighs, broccoli, and lemons stay on the list for that meal. The week may change because plans are chaotic.",
       "dinnerShort": {
         "2026-11-22": "pot roast",
-        "2026-11-23": "chicken thighs",
+        "2026-11-23": "grilled burgers",
         "2026-11-24": "cheeseburger casserole",
         "2026-11-25": "pizza night",
         "2026-11-26": "at Dawn's",
@@ -1069,7 +1069,7 @@
           "qty": "2 heads",
           "note": "About 13 cloves this week. Check supply first.",
           "for": [
-            "2026-11-23",
+            "unassigned lemon garlic chicken thighs",
             "2026-11-24",
             "2026-11-27"
           ]
@@ -1079,8 +1079,9 @@
           "name": "Lemons",
           "section": "produce",
           "qty": "2",
+          "note": "Unassigned lemon garlic chicken thighs; not rescheduled.",
           "for": [
-            "2026-11-23"
+            "unassigned lemon garlic chicken thighs"
           ]
         },
         {
@@ -1088,8 +1089,9 @@
           "name": "Broccoli crowns",
           "section": "produce",
           "qty": "3 lb",
+          "note": "Unassigned lemon garlic chicken thighs; not rescheduled.",
           "for": [
-            "2026-11-23"
+            "unassigned lemon garlic chicken thighs"
           ]
         },
         {
@@ -1240,8 +1242,9 @@
           "name": "Bone-in, skin-on chicken thighs",
           "section": "meat",
           "qty": "about 5 lb (12 to 14)",
+          "note": "Unassigned lemon garlic chicken thighs; not rescheduled.",
           "for": [
-            "2026-11-23"
+            "unassigned lemon garlic chicken thighs"
           ]
         },
         {
@@ -1380,7 +1383,7 @@
           "section": "dairy",
           "qty": "1 container (8 oz; uses 1 cup)",
           "for": [
-            "2026-11-23",
+            "unassigned lemon garlic chicken thighs",
             "2026-11-27"
           ]
         },
@@ -1700,7 +1703,7 @@
           "section": "kids",
           "note": "Check the pantry.",
           "for": [
-            "2026-11-23",
+            "unassigned lemon garlic chicken thighs",
             "2026-11-27"
           ]
         },

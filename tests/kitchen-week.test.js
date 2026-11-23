@@ -234,6 +234,34 @@ test('the week of Nov 22 has seven planned days, dinners except Thanksgiving at 
     assert.ok(recipe.steps.length >= 4);
     assert.doesNotMatch(JSON.stringify(recipe), /shrimp|salmon|scampi|fish|seafood/i);
   });
+  const dinners = {
+    '2026-11-22': { title: 'Mississippi pot roast', recipeId: 'mississippi-pot-roast' },
+    '2026-11-23': { title: 'Grilled burgers with Pop Pop', recipeId: null },
+    '2026-11-24': { title: 'Bacon cheeseburger casserole', recipeId: 'bacon-cheeseburger-casserole' },
+    '2026-11-25': { title: 'Pizza night', recipeId: 'keto-pizza-bowls' },
+    '2026-11-26': { title: 'Thanksgiving at Dawn\'s in Cocoa Beach', recipeId: null },
+    '2026-11-27': { title: 'Garlic butter pork chops', recipeId: 'garlic-butter-pork-chops' },
+    '2026-11-28': { title: 'Sheet-pan chicken fajitas', recipeId: 'sheet-pan-chicken-fajitas' }
+  };
+  nov22.days.forEach(day => {
+    assert.equal(day.title, dinners[day.date].title, day.date);
+    assert.equal(day.recipeId, dinners[day.date].recipeId, day.date);
+    assert.notEqual(day.recipeId, 'lemon-garlic-chicken-thighs', day.date);
+  });
+  const mon = nov22.days[1];
+  assert.equal(mon.date, '2026-11-23');
+  assert.equal(mon.recipeId, null);
+  assert.match(mon.title, /Grilled burgers with Pop Pop/);
+  assert.match(mon.dinnerNote, /lettuce wraps or bunless/i);
+  assert.match(mon.dinnerNote, /No written recipe from Pop Pop/);
+  assert.match(mon.breakfast, /Cabot plain Greek yogurt/);
+  assert.match(mon.lunch, /Leftover Mississippi pot roast/);
+  assert.match(nov22.days[2].lunch, /Leftover grilled burgers \(if any\)/);
+  assert.equal(nov22.days.some(day => day.recipeId === 'lemon-garlic-chicken-thighs'), false);
+  assert.ok(catalog['lemon-garlic-chicken-thighs']);
+  assert.match(nov22.groceryNote, /unassigned/i);
+  assert.match(nov22.groceryNote, /not rescheduled/i);
+  assert.match(weeksDoc.authoring, /unassigned, not rescheduled/);
   const thu = nov22.days[4];
   assert.equal(thu.date, '2026-11-26');
   assert.equal(thu.recipeId, null);
