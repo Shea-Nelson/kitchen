@@ -1,7 +1,7 @@
 {
   "schema": "kitchen.weeks",
   "schemaVersion": 1,
-  "authoring": "Nov 10 afternoon swap for Sun Nov 8 through Sat Nov 14, 2026. Sunday Vital frozen pizza (store-bought, already eaten). Monday Kevin's frozen teriyaki (store-bought). Tuesday pizza night (one-time swap: Finn has friends over; no church Wednesday, Veterans Day). Wednesday garlic Parmesan chicken with side salad (chicken already on hand; moved from Tuesday this week only). Thursday broccoli ham bake. Friday garlic butter steak bites. Saturday out of town (also away Sunday Nov 15). Standing rule remains Wednesday is pizza night. Egg roll in a bowl and pork carnitas dropped. No seafood. No nutrition figures. Week of Nov 15–21, 2026 added Fri Nov 13 as the plan for review; swaps can still change it. Week of Nov 22–28, 2026 added Fri Nov 20 as the plan for review (Thanksgiving week; grandparents visiting); swaps can still change it. Updated later Fri Nov 20: Thursday dinner is at Dawn's in Cocoa Beach, not at home; leftover-turkey lunches were replaced.",
+  "authoring": "Nov 10 afternoon swap for Sun Nov 8 through Sat Nov 14, 2026. Sunday Vital frozen pizza (store-bought, already eaten). Monday Kevin's frozen teriyaki (store-bought). Tuesday pizza night (one-time swap: Finn has friends over; no church Wednesday, Veterans Day). Wednesday garlic Parmesan chicken with side salad (chicken already on hand; moved from Tuesday this week only). Thursday broccoli ham bake. Friday garlic butter steak bites. Saturday out of town (also away Sunday Nov 15). Standing rule remains Wednesday is pizza night. Egg roll in a bowl and pork carnitas dropped. No seafood. No nutrition figures. Week of Nov 15–21, 2026 added Fri Nov 13 as the plan for review; swaps can still change it. Week of Nov 22–28, 2026 added Fri Nov 20 as the plan for review (Thanksgiving week; grandparents visiting); swaps can still change it. Updated later Fri Nov 20: Thursday dinner is at Dawn's in Cocoa Beach, not at home; leftover-turkey lunches were replaced. Updated Mon Nov 23: Monday dinner is grilled burgers with Pop Pop (no written recipe). Lemon garlic chicken thighs is unassigned, not rescheduled. The week may change because plans are chaotic.",
   "household": "Family of five. Home-cooked dinners are written for about 6 adult portions. Adults eat keto or low-carb. Kid starches are optional and listed on their own. Store-bought nights and away nights have no invented recipes. Wednesday is always pizza night.",
   "weeks": [
     {
@@ -746,7 +746,7 @@
       "startsOn": "2026-11-22",
       "endsOn": "2026-11-28",
       "title": "Sun Nov 22 – Sat Nov 28, 2026",
-      "groceryNote": "Updated Fri Nov 20: Thanksgiving dinner is at Dawn's in Cocoa Beach. One combined list for the week's home meals, breakfasts, lunches, snacks, and kid sides, scaled once. No home Thanksgiving dinner, so turkey breasts, cauliflower mash, Brussels sprouts, cranberry sauce, and related items are off the list. Dinners Sun to Wed and Fri are sized for about 8 because the grandparents are visiting through Fri Nov 27; Wed pizza bowls and Sat are about 6. Thursday is breakfast and a light lunch only. Items marked 'check first' are staples or things likely left from the Nov 16 pickup. Quest amounts still need confirming. Not added (ask first): Rachael Ray dog food (added to the Nov 15 order). OPTI-FREE stays off. Nothing here orders food. No seafood.",
+      "groceryNote": "Updated Fri Nov 20: Thanksgiving dinner is at Dawn's in Cocoa Beach. One combined list for the week's home meals, breakfasts, lunches, snacks, and kid sides, scaled once. No home Thanksgiving dinner, so turkey breasts, cauliflower mash, Brussels sprouts, cranberry sauce, and related items are off the list. Dinners Sun to Wed and Fri are sized for about 8 because the grandparents are visiting through Fri Nov 27; Wed pizza bowls and Sat are about 6. Thursday is breakfast and a light lunch only. Items marked 'check first' are staples or things likely left from the Nov 16 pickup. Quest amounts still need confirming. Not added (ask first): Rachael Ray dog food (added to the Nov 15 order). OPTI-FREE stays off. Nothing here orders food. No seafood. Updated Mon Nov 23: Monday dinner is grilled burgers with Pop Pop (keto-friendly lettuce wraps or bunless, with the usual toppings; no written recipe). Lemon garlic chicken thighs stays in the cookbook, unassigned, not rescheduled, so chicken thighs, broccoli, and lemons stay on the list for that meal. The week may change because plans are chaotic.",
       "days": [
         {
           "date": "2026-11-22",
@@ -761,12 +761,12 @@
         {
           "date": "2026-11-23",
           "weekday": "Monday",
-          "title": "Lemon garlic chicken thighs",
-          "recipeId": "lemon-garlic-chicken-thighs",
+          "title": "Grilled burgers with Pop Pop",
+          "recipeId": null,
           "servings": 8,
           "breakfast": "Cabot plain Greek yogurt with strawberries and walnuts; Ratio yogurt cups for the kids; eggs for anyone who wants them",
           "lunch": "Leftover Mississippi pot roast (if any); backup: deli turkey and cheese roll-ups with pickles and string cheese",
-          "dinnerNote": "Sheet-pan dinner: 5 lb bone-in thighs with lemon, garlic, and oregano at 425°F to at least 165°F, plus Parmesan roasted broccoli. Rice for the kids."
+          "dinnerNote": "Keto-friendly lettuce wraps or bunless, with the usual toppings. No written recipe from Pop Pop."
         },
         {
           "date": "2026-11-24",
@@ -775,7 +775,7 @@
           "recipeId": "bacon-cheeseburger-casserole",
           "servings": 8,
           "breakfast": "Two Quest donuts or a Quest bar with coffee; weekday scrambled eggs for everyone else",
-          "lunch": "Leftover lemon garlic chicken thighs (if any); backup: chef salads with deli turkey and ham",
+          "lunch": "Leftover grilled burgers (if any)",
           "dinnerNote": "Ground beef, bacon, and cheddar under an egg-and-cream topping, baked at 350°F for 30 to 35 minutes; chopped pickles on top and a side salad. Tater tots for the kids."
         },
         {
@@ -830,11 +830,11 @@
             },
             {
               "id": "lemons",
-              "label": "Lemons, 2"
+              "label": "Lemons, 2 — Unassigned lemon garlic chicken thighs; not rescheduled."
             },
             {
               "id": "broccoli",
-              "label": "Broccoli crowns, 3 lb"
+              "label": "Broccoli crowns, 3 lb — Unassigned lemon garlic chicken thighs; not rescheduled."
             },
             {
               "id": "green-beans",
@@ -904,7 +904,7 @@
             },
             {
               "id": "chicken-thighs",
-              "label": "Bone-in, skin-on chicken thighs, about 5 lb (12 to 14)"
+              "label": "Bone-in, skin-on chicken thighs, about 5 lb (12 to 14) — Unassigned lemon garlic chicken thighs; not rescheduled."
             },
             {
               "id": "ground-beef",
