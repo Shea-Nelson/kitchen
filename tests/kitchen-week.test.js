@@ -21,7 +21,8 @@ test('Eastern time decides today, including the evening before midnight', () => 
   assert.equal(K.weekContaining('2026-11-09', weeksDoc).id, '2026-11-08');
   assert.equal(K.weekContaining('2026-11-15', weeksDoc).id, '2026-11-15');
   assert.equal(K.weekContaining('2026-11-22', weeksDoc).id, '2026-11-22');
-  assert.equal(K.weekContaining('2026-11-29', weeksDoc), null);
+  assert.equal(K.weekContaining('2026-11-29', weeksDoc).id, '2026-11-29');
+  assert.equal(K.weekContaining('2026-12-06', weeksDoc), null);
 });
 
 test('this week matches the final dinner order and drops the removed dinners', () => {
@@ -120,25 +121,27 @@ test('the written grocery list is grouped and checkable', () => {
 
 test('a later week can be added without code changes', () => {
   const next = {
-    id: '2026-11-29',
-    startsOn: '2026-11-29',
-    endsOn: '2026-12-05',
-    title: 'Sun Nov 29 – Sat Dec 5, 2026',
+    id: '2026-12-06',
+    startsOn: '2026-12-06',
+    endsOn: '2026-12-12',
+    title: 'Sun Dec 6 – Sat Dec 12, 2026',
     days: [
-      { date: '2026-11-29', weekday: 'Sunday', title: 'No dinner', recipeId: null, servings: 6 },
-      { date: '2026-11-30', weekday: 'Monday', title: 'Garlic Parmesan chicken', recipeId: 'garlic-parmesan-chicken', servings: 6 }
+      { date: '2026-12-06', weekday: 'Sunday', title: 'No dinner', recipeId: null, servings: 6 },
+      { date: '2026-12-07', weekday: 'Monday', title: 'Garlic Parmesan chicken', recipeId: 'garlic-parmesan-chicken', servings: 6 }
     ]
   };
   const doc = { weeks: weeksDoc.weeks.concat([next]) };
-  assert.equal(K.recipeIdForDate('2026-11-30', schedule, doc), 'garlic-parmesan-chicken');
+  assert.equal(K.recipeIdForDate('2026-12-07', schedule, doc), 'garlic-parmesan-chicken');
   assert.equal(K.recipeIdForDate('2026-11-09', schedule, doc), null);
   assert.equal(K.recipeIdForDate('2026-11-11', schedule, doc), 'garlic-parmesan-chicken');
   assert.equal(K.recipeIdForDate('2026-11-10', schedule, doc), 'keto-pizza-bowls');
-  assert.equal(K.recipeIdForDate('2026-11-29', schedule, doc), null);
-  assert.equal(K.defaultWeekId(doc, '2026-12-02'), '2026-11-29');
+  assert.equal(K.recipeIdForDate('2026-12-06', schedule, doc), null);
+  assert.equal(K.defaultWeekId(doc, '2026-12-09'), '2026-12-06');
   assert.equal(K.weekContaining('2026-11-08', doc).days[0].title, 'Vital frozen pizza');
   assert.equal(K.recipeIdForDate('2026-11-18', schedule, doc), 'keto-pizza-bowls');
   assert.equal(K.defaultWeekId(doc, '2026-11-18'), '2026-11-15');
+  assert.equal(K.recipeIdForDate('2026-11-30', schedule, doc), 'chicken-cordon-bleu-bake');
+  assert.equal(K.defaultWeekId(doc, '2026-12-02'), '2026-11-29');
 });
 
 test('pages share a kitchen nav and images are credited', () => {
@@ -285,4 +288,91 @@ test('the week of Nov 22 has seven planned days, dinners except Thanksgiving at 
   assert.doesNotMatch(labels, /Pumpkin pie/i);
   assert.doesNotMatch(labels, /Chicken broth/);
   assert.doesNotMatch(labels, /Cream cheese/);
+});
+
+test('the week of Nov 29 has seven days, real recipes, and leftover lunches', () => {
+  const S = require('../shopping/list.js');
+  const listDoc = JSON.parse(fs.readFileSync(path.join(root, 'shopping/data/lists.json'), 'utf8'));
+  const nov29 = weeksDoc.weeks.find(w => w.id === '2026-11-29');
+  assert.ok(nov29);
+  assert.equal(nov29.startsOn, '2026-11-29');
+  assert.equal(nov29.endsOn, '2026-12-05');
+  assert.equal(nov29.title, 'Sun Nov 29 – Sat Dec 5, 2026');
+  assert.equal(nov29.days.length, 7);
+  assert.deepEqual(weeksDoc.weeks.map(w => w.id), ['2026-11-08', '2026-11-15', '2026-11-22', '2026-11-29']);
+  const dinners = {
+    '2026-11-29': { title: 'Slow-cooker beef chili', recipeId: 'slow-cooker-beef-chili', servings: 8 },
+    '2026-11-30': { title: 'Chicken cordon bleu bake', recipeId: 'chicken-cordon-bleu-bake', servings: 6 },
+    '2026-12-01': { title: 'Sheet-pan Italian sausage with peppers and onions', recipeId: 'sheet-pan-italian-sausage-peppers', servings: 6 },
+    '2026-12-02': { title: 'Pizza night', recipeId: 'keto-pizza-bowls', servings: 6 },
+    '2026-12-03': { title: 'Garlic butter steak bites', recipeId: 'garlic-butter-steak-bites', servings: 6 },
+    '2026-12-04': { title: 'Slow-cooker crack chicken', recipeId: 'slow-cooker-crack-chicken', servings: 8 },
+    '2026-12-05': { title: "Jacob's wedding reception", recipeId: null, servings: 6 }
+  };
+  const lunches = [
+    'After church: chef salads with deli turkey, ham, hard-boiled eggs, cheddar, grape tomatoes, cucumber, and ranch (before gingerbread houses at 1)',
+    'Leftover beef chili (if any); backup: deli turkey and cheese roll-ups with pickles and string cheese',
+    'Leftover chicken cordon bleu bake (if any); backup: chef salads with deli turkey and ham',
+    'Leftover sheet-pan sausage and peppers (if any); backup: turkey and cheese roll-ups with pickles and string cheese',
+    'Leftover pizza bowls (if any); backup: chef salads with deli turkey and ham',
+    'Leftover steak bites (if any); backup: deli turkey and cheese roll-ups with pickles and string cheese',
+    'Leftover crack chicken lettuce wraps (if any), early before the 1 PM wedding; backup: deli turkey and cheese roll-ups'
+  ];
+  nov29.days.forEach((day, index) => {
+    assert.equal(K.weekdayName(day.date), day.weekday);
+    assert.equal(day.title, dinners[day.date].title, day.date);
+    assert.equal(day.recipeId, dinners[day.date].recipeId, day.date);
+    assert.equal(day.servings, dinners[day.date].servings, day.date);
+    assert.equal(day.lunch, lunches[index], day.date);
+    assert.ok(day.breakfast && day.dinnerNote);
+    assert.doesNotMatch(JSON.stringify(day), /shrimp|salmon|scampi|seafood/i);
+    if (index > 0) assert.match(day.lunch, /^Leftover /);
+    if (!day.recipeId) return;
+    const recipe = catalog[day.recipeId];
+    assert.ok(recipe, day.recipeId);
+    assert.equal(recipe.servings, day.servings);
+    assert.match(JSON.stringify(recipe), /°F/);
+    assert.ok(recipe.steps.length >= 4);
+    const kidSide = recipe.kidSide || recipe.ingredients.some(item => item.group === 'kids-starch' || item.group === 'kids');
+    assert.ok(kidSide);
+    assert.equal(recipe.photo.src.startsWith('http'), false);
+    assert.doesNotMatch(JSON.stringify(recipe), /shrimp|salmon|scampi|seafood/i);
+  });
+  assert.match(catalog['slow-cooker-beef-chili'].safety, /160°F/);
+  assert.match(JSON.stringify(catalog['slow-cooker-beef-chili']), /165°F/);
+  assert.equal(catalog['slow-cooker-beef-chili'].ingredients.find(item => item.id === 'beef').amount, 4);
+  assert.match(catalog['chicken-cordon-bleu-bake'].safety, /165°F/);
+  assert.match(catalog['sheet-pan-italian-sausage-peppers'].safety, /160°F/);
+  assert.equal(catalog['sheet-pan-italian-sausage-peppers'].ingredients.find(item => item.id === 'sausage').amount, 3.5);
+  assert.match(catalog['garlic-butter-steak-bites'].safety, /145°F/);
+  assert.match(JSON.stringify(catalog['garlic-butter-steak-bites']), /3 minutes/);
+  assert.equal(catalog['garlic-butter-steak-bites'].ingredients.find(item => item.id === 'sirloin').amount, 4);
+  assert.match(catalog['slow-cooker-crack-chicken'].safety, /165°F/);
+  assert.match(JSON.stringify(catalog['slow-cooker-crack-chicken']), /within 2 hours/);
+  assert.equal(catalog['keto-pizza-bowls'].ingredients.find(item => item.id === 'sausage').amount, 1.5);
+  assert.equal(catalog['keto-pizza-bowls'].ingredients.find(item => item.id === 'sauce').amount, 1.5);
+  assert.equal(catalog['keto-pizza-bowls'].ingredients.find(item => item.id === 'cheese').amount, 3);
+  assert.equal(catalog['steak-bites'].ingredients.find(item => item.id === 'sirloin').amount, 2.5);
+  assert.equal(schedule.days['2026-11-29'], undefined);
+  assert.equal(K.recipeIdForDate('2026-11-29', schedule, weeksDoc), 'slow-cooker-beef-chili');
+  assert.equal(K.recipeIdForDate('2026-12-05', schedule, weeksDoc), null);
+  assert.deepEqual(nov29.grocery.map(section => section.id), ['produce', 'meat', 'dairy', 'pantry', 'spices', 'snacks', 'kids']);
+  const labels = nov29.grocery.flatMap(section => section.items.map(item => item.label)).join('\n');
+  assert.match(labels, /5 1\/2 lb/);
+  assert.match(labels, /7 lb/);
+  assert.match(labels, /3 1\/2 lb/);
+  assert.match(nov29.groceryNote, /Jacob's reception/);
+  assert.doesNotMatch(labels, /shrimp|salmon|seafood/i);
+  assert.match(nov29.groceryNote, /Fresh plan for review/);
+  assert.ok(listDoc.weeks['2026-11-29']);
+  const built = S.buildList(nov29, catalog, listDoc);
+  const by = key => built.sections.flatMap(section => section.items).find(item => item.key === key);
+  assert.equal(by('ground-beef').qty, '5 1/2 lb');
+  assert.equal(by('chicken-breasts').qty, '7 lb');
+  assert.equal(by('italian-sausage-links').qty, '3 1/2 lb');
+  assert.equal(by('sirloin').qty, '4 lb');
+  assert.equal(by('italian-sausage'), undefined);
+  assert.equal(by('pita'), undefined);
+  assert.doesNotMatch(JSON.stringify(built), /shrimp|salmon|seafood/i);
+  assert.deepEqual(built.sections.map(section => section.id), ['produce', 'meat', 'dairy', 'pantry', 'spices', 'snacks', 'kids']);
 });

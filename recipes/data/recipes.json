@@ -1,7 +1,7 @@
 {
   "schema": "kitchen.recipes",
   "schemaVersion": 1,
-  "authoring": "Garlic-butter salmon matches the Thu Nov 5, 2026 household card, including 145°F in the thickest part. Nov 10 afternoon swap for Nov 8–14: store-bought Vital pizza (Sun), Kevin's frozen teriyaki (Mon), pizza night (Tue, one-time swap), garlic Parmesan chicken (Wed, on hand), broccoli ham bake (Thu), garlic butter steak bites (Fri), out of town Sat. Standing rule remains Wednesday pizza night. Egg roll in a bowl and pork carnitas are dropped this week. No seafood. No nutrition figures. Weekday morning recipes stay in this cookbook and are not replaced when a dinner week is added. Week of Nov 15–21, 2026: egg roll in a bowl (version 2, sized up), bacon ranch chicken bake, slow-cooker shredded beef taco bowls, pizza night, broccoli ham bake, turkey burger lettuce wraps, and garlic butter steak bites. Safe-temperature notes were added to reused recipes. No nutrition figures. Week of Nov 22–28, 2026: Mississippi pot roast, lemon garlic chicken thighs, bacon cheeseburger casserole, pizza night, a Thanksgiving herb-butter turkey breast dinner, garlic butter pork chops, and sheet-pan chicken fajitas. No nutrition figures.",
+  "authoring": "Garlic-butter salmon matches the Thu Nov 5, 2026 household card, including 145°F in the thickest part. Nov 10 afternoon swap for Nov 8–14: store-bought Vital pizza (Sun), Kevin's frozen teriyaki (Mon), pizza night (Tue, one-time swap), garlic Parmesan chicken (Wed, on hand), broccoli ham bake (Thu), garlic butter steak bites (Fri), out of town Sat. Standing rule remains Wednesday pizza night. Egg roll in a bowl and pork carnitas are dropped this week. No seafood. No nutrition figures. Weekday morning recipes stay in this cookbook and are not replaced when a dinner week is added. Week of Nov 15–21, 2026: egg roll in a bowl (version 2, sized up), bacon ranch chicken bake, slow-cooker shredded beef taco bowls, pizza night, broccoli ham bake, turkey burger lettuce wraps, and garlic butter steak bites. Safe-temperature notes were added to reused recipes. No nutrition figures. Week of Nov 22–28, 2026: Mississippi pot roast, lemon garlic chicken thighs, bacon cheeseburger casserole, pizza night, a Thanksgiving herb-butter turkey breast dinner, garlic butter pork chops, and sheet-pan chicken fajitas. No nutrition figures. Week of Nov 29–Dec 5, 2026: slow-cooker beef chili, chicken cordon bleu bake, sheet-pan Italian sausage with peppers and onions, pizza night, garlic butter steak bites with cauliflower mash, and slow-cooker crack chicken. No nutrition figures.",
   "sections": [
     {
       "id": "weekday-mornings",
@@ -4017,6 +4017,1096 @@
         {
           "id": "spf-toppings",
           "label": "Set out the toppings and lettuce"
+        }
+      ]
+    },
+    {
+      "id": "slow-cooker-beef-chili",
+      "version": 1,
+      "title": "Slow-cooker beef chili",
+      "summary": "Ground beef chili with no beans, cooked in the slow cooker and finished with cheddar, sour cream, and green onions.",
+      "servings": 8,
+      "servingsNote": "About 8 adult portions, so there is some left for lunch.",
+      "style": "Slow cooker, low 6 to 8 hours, or high 3 to 4 hours. Low-carb as written. No beans.",
+      "illustration": "pot",
+      "authoring": "Household plan for the week of Nov 29, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Ground beef is done at 160°F. Reheat leftovers to 165°F.",
+      "kidSide": "Tortilla chips for kids who want them.",
+      "photo": {
+        "src": "assets/photos/shredded-beef-taco-bowls.jpg",
+        "alt": "Shredded beef tacos on a plate with cilantro and onion.",
+        "caption": "Barbacoa tacos photographed in Mexico City by Jj saezdeo, CC BY-SA 4.0. It is not this chili. This dinner is ground-beef chili with no beans.",
+        "author": "Jj saezdeo",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbacoa_tacos_from_Actopan_in_Mexico_City.jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "beef",
+          "name": "80/20 ground beef",
+          "amount": 4,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "ground-beef",
+          "groceryName": "80/20 ground beef"
+        },
+        {
+          "id": "onion",
+          "name": "yellow onion, chopped",
+          "amount": 1,
+          "unit": "onion",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "yellow-onion",
+          "groceryName": "yellow onion"
+        },
+        {
+          "id": "pepper",
+          "name": "green bell pepper, chopped",
+          "amount": 1,
+          "unit": "pepper",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "bell-peppers",
+          "groceryName": "green bell pepper"
+        },
+        {
+          "id": "garlic",
+          "name": "garlic, minced",
+          "amount": 4,
+          "unit": "cloves",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "garlic",
+          "groceryName": "garlic"
+        },
+        {
+          "id": "tomatoes",
+          "name": "diced tomatoes",
+          "amount": 2,
+          "unit": "cans",
+          "note": "14.5 oz cans",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "diced-tomatoes",
+          "groceryName": "diced tomatoes"
+        },
+        {
+          "id": "sauce",
+          "name": "tomato sauce",
+          "amount": 1,
+          "unit": "can",
+          "note": "15 oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "tomato-sauce",
+          "groceryName": "tomato sauce"
+        },
+        {
+          "id": "paste",
+          "name": "tomato paste",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "tomato-paste",
+          "groceryName": "tomato paste"
+        },
+        {
+          "id": "chili-powder",
+          "name": "chili powder",
+          "amount": 3,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "chili-powder",
+          "groceryName": "chili powder"
+        },
+        {
+          "id": "cumin",
+          "name": "ground cumin",
+          "amount": 1,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "cumin",
+          "groceryName": "ground cumin"
+        },
+        {
+          "id": "oregano",
+          "name": "dried oregano",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "oregano",
+          "groceryName": "dried oregano"
+        },
+        {
+          "id": "paprika",
+          "name": "smoked paprika",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "smoked-paprika",
+          "groceryName": "smoked paprika"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 2,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper-spice",
+          "name": "black pepper",
+          "amount": 0.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "cheddar",
+          "name": "shredded cheddar, for topping",
+          "amount": 2,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cheddar",
+          "groceryName": "shredded cheddar"
+        },
+        {
+          "id": "sour-cream",
+          "name": "sour cream, for topping",
+          "amount": 1,
+          "unit": "cup",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "sour-cream",
+          "groceryName": "sour cream"
+        },
+        {
+          "id": "green-onions",
+          "name": "green onions, for topping",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "green-onions",
+          "groceryName": "green onions"
+        },
+        {
+          "id": "chips",
+          "name": "tortilla chips, only if kids want them",
+          "amount": 1,
+          "unit": "bag",
+          "note": "Optional. Not part of the low-carb bowls.",
+          "scalable": false,
+          "group": "kids",
+          "groceryKey": "tortilla-chips",
+          "groceryName": "tortilla chips"
+        }
+      ],
+      "steps": [
+        {
+          "id": "brown",
+          "text": "Brown the ground beef with the onion and bell pepper until the beef reaches 160°F. Drain the fat."
+        },
+        {
+          "id": "season",
+          "text": "Stir in the garlic, diced tomatoes, tomato sauce, tomato paste, chili powder, cumin, oregano, smoked paprika, salt, and pepper."
+        },
+        {
+          "id": "cook",
+          "text": "Cover and cook on low for 6 to 8 hours, or on high for 3 to 4 hours.",
+          "timers": [
+            {
+              "id": "low-6h",
+              "label": "Slow cook on low",
+              "seconds": 21600,
+              "note": "6 to 8 hours on low. High is 3 to 4 hours if you need it sooner."
+            }
+          ]
+        },
+        {
+          "id": "serve",
+          "text": "Top with the cheddar, sour cream, and green onions. Tortilla chips only for kids who want them."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Reheat leftovers to 165°F."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "chili-start",
+          "label": "Start the slow cooker before church"
+        },
+        {
+          "id": "chili-chop",
+          "label": "Chop the onion and green bell pepper"
+        }
+      ]
+    },
+    {
+      "id": "chicken-cordon-bleu-bake",
+      "version": 1,
+      "title": "Chicken cordon bleu bake",
+      "summary": "Cubed chicken baked with ham, Swiss, and a cream cheese Dijon sauce under a pork-rind crust, with garlic butter green beans.",
+      "servings": 6,
+      "servingsNote": "About 6 adult portions.",
+      "style": "Oven, 375°F. Low-carb as written.",
+      "illustration": "oven",
+      "authoring": "Household plan for the week of Nov 29, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Chicken is done at 165°F in the thickest piece. Reheat leftovers to 165°F.",
+      "kidSide": "Dinner rolls for kids who want them.",
+      "photo": {
+        "src": "assets/photos/garlic-parmesan-chicken.jpg",
+        "alt": "A seasoned baked chicken breast beside a green salad on a patterned plate.",
+        "caption": "Photograph by Daderot, CC0. It shows a baked chicken breast with a side salad from a different recipe. It is not this cordon bleu bake, which is cubed chicken with ham, Swiss, and a pork-rind topping, plus garlic butter green beans.",
+        "author": "Daderot",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chicken_breast_and_salad_-_Massachusetts.jpg",
+        "changes": "Saved a JPEG whose longest side is 1600 pixels."
+      },
+      "ingredients": [
+        {
+          "id": "chicken",
+          "name": "boneless skinless chicken breasts, cut into 1-inch cubes",
+          "amount": 3,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "chicken-breasts",
+          "groceryName": "boneless skinless chicken breasts"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "amount": 0.5,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "garlic-powder",
+          "name": "garlic powder",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "garlic-powder",
+          "groceryName": "garlic powder"
+        },
+        {
+          "id": "ham",
+          "name": "sliced deli ham, chopped",
+          "amount": 12,
+          "unit": "oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "deli-ham",
+          "groceryName": "sliced deli ham"
+        },
+        {
+          "id": "swiss",
+          "name": "Swiss cheese slices",
+          "amount": 8,
+          "unit": "oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "swiss",
+          "groceryName": "Swiss cheese slices"
+        },
+        {
+          "id": "cream-cheese",
+          "name": "cream cheese",
+          "amount": 4,
+          "unit": "oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cream-cheese",
+          "groceryName": "cream cheese"
+        },
+        {
+          "id": "cream",
+          "name": "heavy cream",
+          "amount": 0.5,
+          "unit": "cup",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "heavy-cream",
+          "groceryName": "heavy cream"
+        },
+        {
+          "id": "dijon",
+          "name": "Dijon mustard",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "mustard",
+          "groceryName": "Dijon mustard"
+        },
+        {
+          "id": "parmesan-sauce",
+          "name": "grated Parmesan, for the sauce",
+          "amount": 0.25,
+          "unit": "cup",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "parmesan",
+          "groceryName": "grated Parmesan"
+        },
+        {
+          "id": "rinds",
+          "name": "crushed pork rinds",
+          "amount": 1,
+          "unit": "cup",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "pork-rinds",
+          "groceryName": "pork rinds"
+        },
+        {
+          "id": "parmesan-top",
+          "name": "grated Parmesan, for the topping",
+          "amount": 0.25,
+          "unit": "cup",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "parmesan",
+          "groceryName": "grated Parmesan"
+        },
+        {
+          "id": "butter",
+          "name": "butter, melted",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "butter"
+        },
+        {
+          "id": "beans",
+          "name": "fresh green beans, trimmed",
+          "amount": 2,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "green-beans",
+          "groceryName": "fresh green beans"
+        },
+        {
+          "id": "bean-butter",
+          "name": "butter for the green beans",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "butter"
+        },
+        {
+          "id": "bean-garlic",
+          "name": "garlic, minced, for the green beans",
+          "amount": 2,
+          "unit": "cloves",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "garlic",
+          "groceryName": "garlic"
+        },
+        {
+          "id": "rolls",
+          "name": "dinner rolls, only if kids want them",
+          "amount": 12,
+          "unit": "rolls",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "dinner-rolls",
+          "groceryName": "dinner rolls"
+        }
+      ],
+      "steps": [
+        {
+          "id": "heat",
+          "text": "Heat the oven to 375°F. Season the chicken cubes with the salt, pepper, and garlic powder."
+        },
+        {
+          "id": "sauce",
+          "text": "Stir the cream cheese, heavy cream, Dijon, and 1/4 cup Parmesan into a sauce. Fold in the chicken and the chopped ham. Spread it in a baking dish and lay the Swiss slices over the top."
+        },
+        {
+          "id": "top",
+          "text": "Mix the crushed pork rinds, 1/4 cup Parmesan, and melted butter. Sprinkle that over the Swiss."
+        },
+        {
+          "id": "bake",
+          "text": "Bake at 375°F for 30 to 35 minutes, until the chicken is 165°F.",
+          "timers": [
+            {
+              "id": "bake-30",
+              "label": "Bake cordon bleu",
+              "seconds": 1800,
+              "note": "30 to 35 minutes. 165°F decides, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "beans",
+          "text": "Steam the green beans for 6 to 8 minutes. Drain them and toss with the butter and garlic.",
+          "timers": [
+            {
+              "id": "beans-6",
+              "label": "Steam green beans",
+              "seconds": 360,
+              "note": "6 to 8 minutes."
+            }
+          ]
+        },
+        {
+          "id": "serve",
+          "text": "Serve the bake with the green beans. Dinner rolls only for kids who want them."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Reheat leftovers to 165°F."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "ccb-cube",
+          "label": "Cube the chicken and chop the ham"
+        },
+        {
+          "id": "ccb-beans",
+          "label": "Trim the green beans"
+        }
+      ]
+    },
+    {
+      "id": "sheet-pan-italian-sausage-peppers",
+      "version": 1,
+      "title": "Sheet-pan Italian sausage with peppers and onions",
+      "summary": "Italian sausage links roasted with peppers and onions, finished with Parmesan, plus a Caesar salad with no croutons.",
+      "servings": 6,
+      "servingsNote": "About 6 adult portions.",
+      "style": "Oven, 425°F, two sheet pans. Low-carb as written. No croutons.",
+      "illustration": "oven",
+      "authoring": "Household plan for the week of Nov 29, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Italian sausage is done at 160°F. Reheat leftovers to 165°F.",
+      "kidSide": "Hoagie rolls or rice for kids who want them.",
+      "photo": {
+        "src": "assets/photos/sheet-pan-chicken-fajitas.jpg",
+        "alt": "A flour tortilla topped with chicken, peppers, sour cream, and salsa.",
+        "caption": "Photograph by jeffreyw, CC BY 2.0. It shows chicken fajitas on a tortilla. It is not this dinner. This plan is Italian sausage with peppers and onions and a Caesar salad, with no croutons.",
+        "author": "jeffreyw",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chicken_fajitas.jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "sausage",
+          "name": "Italian sausage links, no added sugar",
+          "amount": 3.5,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "italian-sausage-links",
+          "groceryName": "Italian sausage links, no added sugar"
+        },
+        {
+          "id": "peppers",
+          "name": "bell peppers, sliced",
+          "amount": 4,
+          "unit": "peppers",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "bell-peppers",
+          "groceryName": "bell peppers"
+        },
+        {
+          "id": "onions",
+          "name": "yellow onions, sliced",
+          "amount": 2,
+          "unit": "onions",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "yellow-onion",
+          "groceryName": "yellow onions"
+        },
+        {
+          "id": "oil",
+          "name": "olive oil",
+          "amount": 3,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "olive-oil",
+          "groceryName": "olive oil"
+        },
+        {
+          "id": "garlic",
+          "name": "garlic, minced",
+          "amount": 3,
+          "unit": "cloves",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "garlic",
+          "groceryName": "garlic"
+        },
+        {
+          "id": "italian",
+          "name": "Italian seasoning",
+          "amount": 2,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "italian-seasoning",
+          "groceryName": "Italian seasoning"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "parmesan",
+          "name": "grated Parmesan",
+          "amount": 0.25,
+          "unit": "cup",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "parmesan",
+          "groceryName": "grated Parmesan"
+        },
+        {
+          "id": "romaine",
+          "name": "romaine hearts",
+          "amount": 3,
+          "unit": "hearts",
+          "note": "1 three-pack",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "romaine",
+          "groceryName": "romaine hearts"
+        },
+        {
+          "id": "caesar",
+          "name": "Caesar dressing",
+          "amount": 0.5,
+          "unit": "cup",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "caesar-dressing",
+          "groceryName": "Caesar dressing"
+        },
+        {
+          "id": "parmesan-salad",
+          "name": "grated Parmesan, for the salad",
+          "amount": 0.25,
+          "unit": "cup",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "parmesan",
+          "groceryName": "grated Parmesan"
+        },
+        {
+          "id": "rolls",
+          "name": "hoagie rolls, only if kids want them",
+          "amount": 6,
+          "unit": "rolls",
+          "note": "Optional. Rice is the other choice. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "hoagie-rolls",
+          "groceryName": "hoagie rolls"
+        },
+        {
+          "id": "rice",
+          "name": "rice, only if kids want it instead of hoagie rolls",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "rice",
+          "groceryName": "rice"
+        }
+      ],
+      "steps": [
+        {
+          "id": "heat",
+          "text": "Heat the oven to 425°F. Toss the sausage links, bell peppers, and onions with the olive oil, garlic, Italian seasoning, salt, and pepper. Spread them on two sheet pans."
+        },
+        {
+          "id": "roast",
+          "text": "Roast at 425°F for 25 to 30 minutes, flipping once, until the sausage reaches 160°F.",
+          "timers": [
+            {
+              "id": "roast-25",
+              "label": "Roast sausage and peppers",
+              "seconds": 1500,
+              "note": "25 to 30 minutes. Flip once. 160°F decides, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "finish",
+          "text": "Sprinkle 1/4 cup Parmesan over the sausage and peppers."
+        },
+        {
+          "id": "salad",
+          "text": "Toss the romaine with 1/2 cup Caesar dressing and 1/4 cup Parmesan. No croutons."
+        },
+        {
+          "id": "serve",
+          "text": "Serve the sausage and peppers with the salad. Hoagie rolls or rice only for kids who want them."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Reheat leftovers to 165°F."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "ssp-slice",
+          "label": "Slice the peppers and onions"
+        },
+        {
+          "id": "ssp-salad",
+          "label": "Chop the romaine for the Caesar salad"
+        }
+      ]
+    },
+    {
+      "id": "garlic-butter-steak-bites",
+      "version": 1,
+      "title": "Garlic butter steak bites",
+      "summary": "Sirloin cubes seared and finished with garlic butter and mushrooms, with cauliflower mash and a side salad.",
+      "servings": 6,
+      "servingsNote": "About 6 adult portions. Separate from the older steak-bites card so earlier weeks keep their own amounts.",
+      "style": "Skillet. Low-carb as written.",
+      "illustration": "skillet",
+      "authoring": "Household plan for the week of Nov 29, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Steak is done at 145°F, then rest 3 minutes. Reheat leftovers to 165°F.",
+      "kidSide": "Rice for kids who want it.",
+      "photo": {
+        "src": "assets/photos/steak-bites.jpg",
+        "alt": "Seared steak cubes in a cast-iron skillet with garlic and parsley.",
+        "caption": "Original image made for this app. It shows seared steak cubes. It does not show the mushrooms, cauliflower mash, and side salad on this plate.",
+        "author": "Original image made for these kitchen apps",
+        "license": "Original work for this project",
+        "licenseUrl": "",
+        "sourceUrl": "",
+        "changes": ""
+      },
+      "ingredients": [
+        {
+          "id": "sirloin",
+          "name": "sirloin steak, cut into 1-inch cubes",
+          "amount": 4,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "sirloin",
+          "groceryName": "sirloin steak"
+        },
+        {
+          "id": "salt",
+          "name": "salt",
+          "amount": 2,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "pepper",
+          "name": "black pepper",
+          "amount": 1,
+          "unit": "tsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "black-pepper",
+          "groceryName": "black pepper"
+        },
+        {
+          "id": "oil",
+          "name": "olive oil",
+          "amount": 2,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "olive-oil",
+          "groceryName": "olive oil"
+        },
+        {
+          "id": "butter",
+          "name": "butter",
+          "amount": 4,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "butter"
+        },
+        {
+          "id": "garlic",
+          "name": "garlic, smashed",
+          "amount": 6,
+          "unit": "cloves",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "garlic",
+          "groceryName": "garlic"
+        },
+        {
+          "id": "mushrooms",
+          "name": "baby bella mushrooms",
+          "amount": 16,
+          "unit": "oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "mushrooms",
+          "groceryName": "baby bella mushrooms"
+        },
+        {
+          "id": "cauliflower",
+          "name": "cauliflower",
+          "amount": 2,
+          "unit": "heads",
+          "note": "large",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cauliflower",
+          "groceryName": "cauliflower"
+        },
+        {
+          "id": "cream-cheese",
+          "name": "cream cheese",
+          "amount": 4,
+          "unit": "oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cream-cheese",
+          "groceryName": "cream cheese"
+        },
+        {
+          "id": "mash-butter",
+          "name": "butter for the mash",
+          "amount": 3,
+          "unit": "tbsp",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter",
+          "groceryName": "butter"
+        },
+        {
+          "id": "parmesan",
+          "name": "grated Parmesan",
+          "amount": 0.5,
+          "unit": "cup",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "parmesan",
+          "groceryName": "grated Parmesan"
+        },
+        {
+          "id": "mash-salt",
+          "name": "salt",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "salt",
+          "groceryName": "salt"
+        },
+        {
+          "id": "greens",
+          "name": "spring mix",
+          "amount": 1,
+          "unit": "container",
+          "note": "5 oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "salad-greens",
+          "groceryName": "spring mix"
+        },
+        {
+          "id": "ranch",
+          "name": "ranch dressing",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "ranch",
+          "groceryName": "ranch dressing"
+        },
+        {
+          "id": "rice",
+          "name": "rice, only if kids want it",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "rice",
+          "groceryName": "rice"
+        }
+      ],
+      "steps": [
+        {
+          "id": "season",
+          "text": "Cut the sirloin into 1-inch cubes, pat them dry, and toss with the salt, pepper, and oil."
+        },
+        {
+          "id": "sear",
+          "text": "Sear the steak in batches in a hot skillet until the center of a cube reaches 145°F."
+        },
+        {
+          "id": "rest",
+          "text": "Rest the steak for 3 minutes.",
+          "timers": [
+            {
+              "id": "rest-3",
+              "label": "Rest steak",
+              "seconds": 180,
+              "note": "3 minutes."
+            }
+          ]
+        },
+        {
+          "id": "mushrooms",
+          "text": "In the same skillet, melt the 4 tablespoons of butter with the garlic. Add the mushrooms and cook until they are browned, then pour that over the rested steak."
+        },
+        {
+          "id": "mash",
+          "text": "Steam the cauliflower for 12 to 15 minutes. Mash it with the cream cheese, 3 tablespoons of butter, 1/2 cup Parmesan, and salt.",
+          "timers": [
+            {
+              "id": "steam-12",
+              "label": "Steam cauliflower",
+              "seconds": 720,
+              "note": "12 to 15 minutes."
+            }
+          ]
+        },
+        {
+          "id": "serve",
+          "text": "Serve the steak bites with the cauliflower mash and a side salad of the spring mix and ranch. Rice only for kids who want it."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers and refrigerate within 2 hours. Reheat leftovers to 165°F."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "gbs-cut",
+          "label": "Cut the sirloin into 1-inch cubes"
+        },
+        {
+          "id": "gbs-mash",
+          "label": "Start the cauliflower mash"
+        },
+        {
+          "id": "gbs-salad",
+          "label": "Set out the spring mix and ranch"
+        }
+      ]
+    },
+    {
+      "id": "slow-cooker-crack-chicken",
+      "version": 1,
+      "title": "Slow-cooker crack chicken",
+      "summary": "Chicken slow-cooked with cream cheese and ranch, shredded with bacon and cheddar, and served in butter lettuce with cucumber.",
+      "servings": 8,
+      "servingsNote": "About 8 adult portions, so there is some left for lunch.",
+      "style": "Slow cooker, low 4 to 6 hours. Low-carb as written.",
+      "illustration": "pot",
+      "authoring": "Household plan for the week of Nov 29, 2026. The recipe and its amounts are newly written for this plan.",
+      "safety": "Chicken is done at 165°F. Cool leftovers within 2 hours. Reheat leftovers to 165°F.",
+      "kidSide": "Slider buns for kids who want them.",
+      "photo": {
+        "src": "assets/photos/turkey-burger-lettuce-wraps.jpg",
+        "alt": "A burger patty wrapped in lettuce with tomato and onion.",
+        "caption": "Photograph by Liat Portal (uploaded by HaJunkiyada), CC BY-SA 4.0. It shows a burger lettuce wrap from a different recipe. It is not this crack chicken, which is shredded chicken with cream cheese, ranch, bacon, and cheddar in butter lettuce.",
+        "author": "HaJunkiyada (photo by Liat Portal)",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Hamburger_lettuce_wrap_with_ptitim.jpg",
+        "changes": "Downloaded a 1280-pixel-wide display version and saved as JPEG. Cropping was not applied."
+      },
+      "ingredients": [
+        {
+          "id": "chicken",
+          "name": "boneless skinless chicken breasts",
+          "amount": 4,
+          "unit": "lb",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "chicken-breasts",
+          "groceryName": "boneless skinless chicken breasts"
+        },
+        {
+          "id": "cream-cheese",
+          "name": "cream cheese",
+          "amount": 16,
+          "unit": "oz",
+          "note": "2 blocks",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cream-cheese",
+          "groceryName": "cream cheese"
+        },
+        {
+          "id": "ranch",
+          "name": "dry ranch seasoning",
+          "amount": 2,
+          "unit": "packets",
+          "note": "1 oz each",
+          "scalable": true,
+          "group": "pantry",
+          "groceryKey": "ranch-seasoning",
+          "groceryName": "dry ranch seasoning"
+        },
+        {
+          "id": "bacon",
+          "name": "bacon, cooked and crumbled",
+          "amount": 12,
+          "unit": "oz",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "bacon",
+          "groceryName": "bacon"
+        },
+        {
+          "id": "cheddar",
+          "name": "shredded cheddar",
+          "amount": 2,
+          "unit": "cups",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cheddar",
+          "groceryName": "shredded cheddar"
+        },
+        {
+          "id": "green-onions",
+          "name": "green onions, sliced",
+          "amount": 3,
+          "unit": "onions",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "green-onions",
+          "groceryName": "green onions"
+        },
+        {
+          "id": "lettuce",
+          "name": "butter lettuce",
+          "amount": 2,
+          "unit": "heads",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "butter-lettuce",
+          "groceryName": "butter lettuce"
+        },
+        {
+          "id": "cucumber",
+          "name": "cucumber slices",
+          "scalable": true,
+          "group": "shop",
+          "groceryKey": "cucumbers",
+          "groceryName": "cucumbers"
+        },
+        {
+          "id": "buns",
+          "name": "slider buns, only if kids want them",
+          "amount": 12,
+          "unit": "buns",
+          "note": "Optional. Not part of the low-carb plate.",
+          "scalable": false,
+          "group": "kids-starch",
+          "groceryKey": "slider-buns",
+          "groceryName": "slider buns"
+        }
+      ],
+      "steps": [
+        {
+          "id": "pot",
+          "text": "Put the chicken, cream cheese, and ranch seasoning in the slow cooker."
+        },
+        {
+          "id": "cook",
+          "text": "Cover and cook on low for 4 to 6 hours, until the chicken reaches 165°F. Start it by noon when dinner has to be early.",
+          "timers": [
+            {
+              "id": "low-4h",
+              "label": "Slow cook on low",
+              "seconds": 14400,
+              "note": "4 to 6 hours on low. 165°F decides, not the timer."
+            }
+          ]
+        },
+        {
+          "id": "bacon",
+          "text": "Cook the bacon until it is crisp, then crumble it."
+        },
+        {
+          "id": "shred",
+          "text": "Shred the chicken in the pot. Stir in the cheddar, bacon, and green onions."
+        },
+        {
+          "id": "serve",
+          "text": "Serve in butter lettuce leaves with cucumber slices. Slider buns only for kids who want them."
+        },
+        {
+          "id": "store",
+          "text": "Cool leftovers within 2 hours and refrigerate them. Reheat leftovers to 165°F."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "scc-start",
+          "label": "Start the slow cooker by noon"
+        },
+        {
+          "id": "scc-bacon",
+          "label": "Cook and crumble the bacon"
+        },
+        {
+          "id": "scc-lettuce",
+          "label": "Separate the butter lettuce leaves"
         }
       ]
     }
