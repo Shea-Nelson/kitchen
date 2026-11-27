@@ -1,7 +1,7 @@
 {
   "schema": "kitchen.weeks",
   "schemaVersion": 1,
-  "authoring": "Nov 10 afternoon swap for Sun Nov 8 through Sat Nov 14, 2026. Sunday Vital frozen pizza (store-bought, already eaten). Monday Kevin's frozen teriyaki (store-bought). Tuesday pizza night (one-time swap: Finn has friends over; no church Wednesday, Veterans Day). Wednesday garlic Parmesan chicken with side salad (chicken already on hand; moved from Tuesday this week only). Thursday broccoli ham bake. Friday garlic butter steak bites. Saturday out of town (also away Sunday Nov 15). Standing rule remains Wednesday is pizza night. Egg roll in a bowl and pork carnitas dropped. No seafood. No nutrition figures. Week of Nov 15–21, 2026 added Fri Nov 13 as the plan for review; swaps can still change it. Week of Nov 22–28, 2026 added Fri Nov 20 as the plan for review (Thanksgiving week; grandparents visiting); swaps can still change it. Updated later Fri Nov 20: Thursday dinner is at Dawn's in Cocoa Beach, not at home; leftover-turkey lunches were replaced. Updated Mon Nov 23: Monday dinner is grilled burgers with Pop Pop (no written recipe). Lemon garlic chicken thighs is unassigned, not rescheduled. The week may change because plans are chaotic.",
+  "authoring": "Nov 10 afternoon swap for Sun Nov 8 through Sat Nov 14, 2026. Sunday Vital frozen pizza (store-bought, already eaten). Monday Kevin's frozen teriyaki (store-bought). Tuesday pizza night (one-time swap: Finn has friends over; no church Wednesday, Veterans Day). Wednesday garlic Parmesan chicken with side salad (chicken already on hand; moved from Tuesday this week only). Thursday broccoli ham bake. Friday garlic butter steak bites. Saturday out of town (also away Sunday Nov 15). Standing rule remains Wednesday is pizza night. Egg roll in a bowl and pork carnitas dropped. No seafood. No nutrition figures. Week of Nov 15–21, 2026 added Fri Nov 13 as the plan for review; swaps can still change it. Week of Nov 22–28, 2026 added Fri Nov 20 as the plan for review (Thanksgiving week; grandparents visiting); swaps can still change it. Updated later Fri Nov 20: Thursday dinner is at Dawn's in Cocoa Beach, not at home; leftover-turkey lunches were replaced. Updated Mon Nov 23: Monday dinner is grilled burgers with Pop Pop (no written recipe). Lemon garlic chicken thighs is unassigned, not rescheduled. The week may change because plans are chaotic. Week of Nov 29–Dec 5, 2026 added as a fresh plan for review. Saturday dinner is Jacob's wedding reception.",
   "household": "Family of five. Home-cooked dinners are written for about 6 adult portions. Adults eat keto or low-carb. Kid starches are optional and listed on their own. Store-bought nights and away nights have no invented recipes. Wednesday is always pizza night.",
   "weeks": [
     {
@@ -1153,6 +1153,403 @@
             {
               "id": "chips",
               "label": "Lay's variety pack, 1 (18 ct) — Same as the Nov 16 order."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-11-29",
+      "startsOn": "2026-11-29",
+      "endsOn": "2026-12-05",
+      "title": "Sun Nov 29 – Sat Dec 5, 2026",
+      "groceryNote": "Fresh plan for review. Yogurt, Crystal Light, Quest crackers and chips amounts match the Nov 16 order; Quest donuts/bars still need an amount. Saturday hot dogs and buns are only needed if you're not eating at Jacob's reception. Nothing here orders food; Giles owns the Walmart cart.",
+      "days": [
+        {
+          "date": "2026-11-29",
+          "weekday": "Sunday",
+          "title": "Slow-cooker beef chili",
+          "recipeId": "slow-cooker-beef-chili",
+          "servings": 8,
+          "breakfast": "Scrambled eggs with sheet-pan bacon and strawberries, for about 6 (12 eggs, 1 1/2 lb bacon)",
+          "lunch": "After church: chef salads with deli turkey, ham, hard-boiled eggs, cheddar, grape tomatoes, cucumber, and ranch (before gingerbread houses at 1)",
+          "dinnerNote": "Start the slow cooker before church. No beans. Gingerbread houses 1–4 PM. Tortilla chips for the kids."
+        },
+        {
+          "date": "2026-11-30",
+          "weekday": "Monday",
+          "title": "Chicken cordon bleu bake",
+          "recipeId": "chicken-cordon-bleu-bake",
+          "servings": 6,
+          "breakfast": "Cabot plain Greek yogurt with strawberries and walnuts; Ratio yogurt cups for the kids; eggs for anyone who wants them",
+          "lunch": "Leftover beef chili (if any); backup: deli turkey and cheese roll-ups with pickles and string cheese",
+          "dinnerNote": "Chicken cordon bleu bake with garlic butter green beans, 375°F until the chicken is 165°F. Dinner rolls for the kids."
+        },
+        {
+          "date": "2026-12-01",
+          "weekday": "Tuesday",
+          "title": "Sheet-pan Italian sausage with peppers and onions",
+          "recipeId": "sheet-pan-italian-sausage-peppers",
+          "servings": 6,
+          "breakfast": "Two Quest donuts or a Quest bar with coffee; scrambled eggs for everyone else",
+          "lunch": "Leftover chicken cordon bleu bake (if any); backup: chef salads with deli turkey and ham",
+          "dinnerNote": "Busy night (concessions 5:30–7, orchestra rehearsal 6–8:30). About 25 to 30 minutes on two sheet pans; eat by about 5. Caesar salad, no croutons. Hoagie rolls or rice for the kids."
+        },
+        {
+          "date": "2026-12-02",
+          "weekday": "Wednesday",
+          "title": "Pizza night",
+          "recipeId": "keto-pizza-bowls",
+          "servings": 6,
+          "breakfast": "Sausage and cheddar egg bake (makes two mornings): 18 eggs, 1 lb breakfast sausage browned to 160°F, 2 cups cheddar, 1/2 cup heavy cream, 350°F for 35 to 40 minutes until set (160°F).",
+          "lunch": "Leftover sheet-pan sausage and peppers (if any); backup: turkey and cheese roll-ups with pickles and string cheese",
+          "dinnerNote": "Eat early; Route 56 game night at 6 PM. Kids' pizza (takeout or frozen). Adults: crustless keto pizza bowls, 1 1/2 lb ground beef browned to 160°F, 1 1/2 cups Rao's, 3 cups mozzarella, about 3 oz pepperoni, 400°F."
+        },
+        {
+          "date": "2026-12-03",
+          "weekday": "Thursday",
+          "title": "Garlic butter steak bites",
+          "recipeId": "garlic-butter-steak-bites",
+          "servings": 6,
+          "breakfast": "Leftover sausage and cheddar egg bake (if any); backup: Cabot yogurt or a Quest bar",
+          "lunch": "Leftover pizza bowls (if any); backup: chef salads with deli turkey and ham",
+          "dinnerNote": "Basketball at 6; about 30 minutes, eat around 5. Garlic butter steak bites with mushrooms, cauliflower mash, and a side salad. Rice for the kids."
+        },
+        {
+          "date": "2026-12-04",
+          "weekday": "Friday",
+          "title": "Slow-cooker crack chicken",
+          "recipeId": "slow-cooker-crack-chicken",
+          "servings": 8,
+          "breakfast": "Cabot plain Greek yogurt or a Quest bar; Ratio cups for the kids; eggs for anyone",
+          "lunch": "Leftover steak bites (if any); backup: deli turkey and cheese roll-ups with pickles and string cheese",
+          "dinnerNote": "Emery's holiday concert at 6. Start the slow cooker by noon (low 4 to 6 hours), eat early. Slider buns for the kids."
+        },
+        {
+          "date": "2026-12-05",
+          "weekday": "Saturday",
+          "title": "Jacob's wedding reception",
+          "recipeId": null,
+          "servings": 6,
+          "breakfast": "Fried eggs and sheet-pan bacon with strawberries, for about 6",
+          "lunch": "Leftover crack chicken lettuce wraps (if any), early before the 1 PM wedding; backup: deli turkey and cheese roll-ups",
+          "dinnerNote": "Reception 5–11 PM. If you're not eating there: bunless all-beef hot dogs with sauerkraut and pork rinds (buns for the kids)."
+        }
+      ],
+      "grocery": [
+        {
+          "id": "produce",
+          "title": "Produce",
+          "items": [
+            {
+              "id": "yellow-onion",
+              "label": "Yellow onions, 3 — 1 Sun chili, 2 Tue."
+            },
+            {
+              "id": "bell-peppers",
+              "label": "Bell peppers, 5 — 1 green for Sun chili, 4 mixed for Tue."
+            },
+            {
+              "id": "garlic",
+              "label": "Garlic, 2 heads — About 15 cloves. Check supply."
+            },
+            {
+              "id": "green-onions",
+              "label": "Green onions, 2 bunches — Sun chili, Fri chicken."
+            },
+            {
+              "id": "green-beans",
+              "label": "Fresh green beans, 2 lb — Mon."
+            },
+            {
+              "id": "cauliflower",
+              "label": "Cauliflower, 2 large heads — Thu."
+            },
+            {
+              "id": "mushrooms",
+              "label": "Baby bella mushrooms, 16 oz — Thu."
+            },
+            {
+              "id": "romaine",
+              "label": "Romaine hearts, 2 three-packs — Sun chef salads, Tue Caesar."
+            },
+            {
+              "id": "salad-greens",
+              "label": "Spring mix, 1 container (5 oz) — Thu."
+            },
+            {
+              "id": "butter-lettuce",
+              "label": "Butter lettuce, 2 heads — Fri."
+            },
+            {
+              "id": "tomatoes",
+              "label": "Grape tomatoes, 1 pint — Sun lunch."
+            },
+            {
+              "id": "cucumbers",
+              "label": "Cucumbers, 2 — Sun lunch, Fri."
+            },
+            {
+              "id": "berries",
+              "label": "Strawberries, 2 lb — Sun, Mon, Sat breakfasts."
+            }
+          ]
+        },
+        {
+          "id": "meat",
+          "title": "Meat and deli",
+          "items": [
+            {
+              "id": "ground-beef",
+              "label": "Ground beef 80/20 (grass-fed if available), 5 1/2 lb — 4 lb Sun chili, 1 1/2 lb Wed pizza bowls."
+            },
+            {
+              "id": "chicken-breasts",
+              "label": "Boneless skinless chicken breasts, 7 lb — 3 lb Mon, 4 lb Fri."
+            },
+            {
+              "id": "italian-sausage-links",
+              "label": "Italian sausage links, no added sugar, 3 1/2 lb — Tue."
+            },
+            {
+              "id": "sirloin",
+              "label": "Sirloin steak, 4 lb — Thu."
+            },
+            {
+              "id": "deli-ham",
+              "label": "Sliced ham (Wright uncured, as before), 2 lb — 12 oz Mon bake, rest Sun chef salads and backups."
+            },
+            {
+              "id": "deli-turkey",
+              "label": "Deli turkey, 2 lb — Sun chef salads, backup roll-ups."
+            },
+            {
+              "id": "bacon",
+              "label": "Bacon, about 4 lb — 1 1/2 lb Sun breakfast, 12 oz Fri chicken, 1 1/2 lb Sat breakfast."
+            },
+            {
+              "id": "breakfast-sausage",
+              "label": "Breakfast sausage, 1 roll (16 oz) — Wed egg bake."
+            },
+            {
+              "id": "pepperoni",
+              "label": "Pepperoni, 1 pack (3.5 oz) — Wed."
+            },
+            {
+              "id": "hot-dogs",
+              "label": "All-beef hot dogs, 1 pack (8) — Sat backup if not eating at the reception."
+            }
+          ]
+        },
+        {
+          "id": "dairy",
+          "title": "Dairy and eggs",
+          "items": [
+            {
+              "id": "eggs",
+              "label": "Eggs, 5 dozen — 12 Sun, 6 hard-boiled Sun lunch, 18 Wed egg bake, 12 Sat, plus weekday eggs. Count what's left first."
+            },
+            {
+              "id": "cheddar",
+              "label": "Shredded sharp cheddar, 2 lb (8 cups)"
+            },
+            {
+              "id": "mozzarella",
+              "label": "Shredded mozzarella, 16 oz bag — Wed."
+            },
+            {
+              "id": "swiss",
+              "label": "Swiss cheese slices, 8 oz — Mon."
+            },
+            {
+              "id": "parmesan",
+              "label": "Grated Parmesan, 1 container (8 oz) — Mon, Tue, Thu."
+            },
+            {
+              "id": "cream-cheese",
+              "label": "Cream cheese, 3 blocks (8 oz) — 4 oz Mon, 4 oz Thu, 16 oz Fri."
+            },
+            {
+              "id": "heavy-cream",
+              "label": "Heavy cream, 1 pint — Mon, Wed."
+            },
+            {
+              "id": "sour-cream",
+              "label": "Sour cream, 16 oz — Sun chili."
+            },
+            {
+              "id": "butter",
+              "label": "Kerrygold butter, 1 lb — Plus what's on hand."
+            },
+            {
+              "id": "string-cheese",
+              "label": "String cheese, 1 pack"
+            },
+            {
+              "id": "greek-yogurt",
+              "label": "Cabot 10% milkfat plain Greek yogurt, 1 tub (2 lb) — Same as the Nov 16 order; confirm."
+            },
+            {
+              "id": "ratio-yogurt",
+              "label": "Ratio protein yogurt cups, vanilla (kids), 1 pack (4 cups) — Same as the Nov 16 order; confirm."
+            }
+          ]
+        },
+        {
+          "id": "pantry",
+          "title": "Pantry (check the shelf first)",
+          "items": [
+            {
+              "id": "diced-tomatoes",
+              "label": "Diced tomatoes, 2 cans (14.5 oz)"
+            },
+            {
+              "id": "tomato-sauce",
+              "label": "Tomato sauce, 1 can (15 oz)"
+            },
+            {
+              "id": "tomato-paste",
+              "label": "Tomato paste, 1 small can — Uses 2 tbsp."
+            },
+            {
+              "id": "marinara",
+              "label": "Rao's marinara, 1 jar (24 oz)"
+            },
+            {
+              "id": "ranch-seasoning",
+              "label": "Dry ranch seasoning, 2 packets (1 oz)"
+            },
+            {
+              "id": "mustard",
+              "label": "Dijon mustard — Check first."
+            },
+            {
+              "id": "caesar-dressing",
+              "label": "Caesar dressing, 1 bottle"
+            },
+            {
+              "id": "ranch",
+              "label": "Ranch dressing — Check first."
+            },
+            {
+              "id": "pickles",
+              "label": "Dill pickles — Check first."
+            },
+            {
+              "id": "sauerkraut",
+              "label": "Sauerkraut — Check first."
+            },
+            {
+              "id": "walnuts",
+              "label": "Chopped walnuts — Check first."
+            },
+            {
+              "id": "coffee",
+              "label": "Coffee — Check first."
+            }
+          ],
+          "pantry": true
+        },
+        {
+          "id": "spices",
+          "title": "Spices and oils (usually on hand; check first)",
+          "items": [
+            {
+              "id": "olive-oil",
+              "label": "Olive oil — Check first."
+            },
+            {
+              "id": "salt",
+              "label": "Salt — Check first."
+            },
+            {
+              "id": "black-pepper",
+              "label": "Black pepper — Check first."
+            },
+            {
+              "id": "chili-powder",
+              "label": "Chili powder — Check first."
+            },
+            {
+              "id": "cumin",
+              "label": "Ground cumin — Check first."
+            },
+            {
+              "id": "oregano",
+              "label": "Dried oregano — Check first."
+            },
+            {
+              "id": "smoked-paprika",
+              "label": "Smoked paprika — Check first."
+            },
+            {
+              "id": "garlic-powder",
+              "label": "Garlic powder — Check first."
+            },
+            {
+              "id": "italian-seasoning",
+              "label": "Italian seasoning — Check first."
+            }
+          ],
+          "pantry": true
+        },
+        {
+          "id": "snacks",
+          "title": "Snacks and drinks",
+          "items": [
+            {
+              "id": "quest",
+              "label": "Quest donuts or bars, qty: confirm"
+            },
+            {
+              "id": "quest-crackers",
+              "label": "Quest protein crackers, Cheddar Blast, 1 box (4 ct)"
+            },
+            {
+              "id": "crystal-light",
+              "label": "Crystal Light Raspberry Lemonade, 1 box (10 packets)"
+            },
+            {
+              "id": "pork-rinds",
+              "label": "Pork rinds, 2 bags (5 oz) — One is the Mon bake topping."
+            }
+          ]
+        },
+        {
+          "id": "kids",
+          "title": "For the kids",
+          "items": [
+            {
+              "id": "kids-pizza",
+              "label": "Kids' pizza (takeout or frozen) — Wed."
+            },
+            {
+              "id": "tortilla-chips",
+              "label": "Tortilla chips, 1 bag — Sun."
+            },
+            {
+              "id": "dinner-rolls",
+              "label": "Dinner rolls, 1 pack (12) — Mon."
+            },
+            {
+              "id": "hoagie-rolls",
+              "label": "Hoagie rolls, 1 pack (6) — Tue, or rice."
+            },
+            {
+              "id": "rice",
+              "label": "Rice — Check first. Tue and Thu."
+            },
+            {
+              "id": "slider-buns",
+              "label": "Slider buns, 1 pack (12) — Fri."
+            },
+            {
+              "id": "hot-dog-buns",
+              "label": "Hot dog buns, 1 pack — Sat backup."
+            },
+            {
+              "id": "chips",
+              "label": "Lay's variety pack, 1 (18 ct)"
             }
           ]
         }

@@ -150,7 +150,14 @@
     "coffee": "pantry",
     "quest-crackers": "snacks",
     "tater-tots": "kids",
-    "pumpkin-pie": "kids"
+    "pumpkin-pie": "kids",
+    "swiss": "dairy",
+    "diced-tomatoes": "pantry",
+    "tomato-sauce": "pantry",
+    "italian-sausage-links": "meat",
+    "hoagie-rolls": "kids",
+    "slider-buns": "kids",
+    "tortilla-chips": "kids"
   },
   "weeks": {
     "2026-11-08": {
@@ -1759,6 +1766,719 @@
         },
         {
           "key": "water",
+          "hide": true
+        },
+        {
+          "key": "mozzarella-kids",
+          "hide": true
+        },
+        {
+          "key": "pita",
+          "hide": true
+        }
+      ]
+    },
+    "2026-11-29": {
+      "note": "Fresh plan for review. Yogurt, Crystal Light, Quest crackers and chips amounts match the Nov 16 order; Quest donuts/bars still need an amount. Saturday hot dogs and buns are only needed if you're not eating at Jacob's reception. Nothing here orders food; Giles owns the Walmart cart.",
+      "dinnerShort": {
+        "2026-11-29": "chili",
+        "2026-11-30": "cordon bleu",
+        "2026-12-01": "sausage and peppers",
+        "2026-12-02": "pizza night",
+        "2026-12-03": "steak bites",
+        "2026-12-04": "crack chicken",
+        "2026-12-05": "wedding reception"
+      },
+      "items": [
+        {
+          "key": "yellow-onion",
+          "name": "Yellow onions",
+          "section": "produce",
+          "qty": "3",
+          "note": "1 Sun chili, 2 Tue.",
+          "for": [
+            "2026-11-29",
+            "2026-12-01"
+          ]
+        },
+        {
+          "key": "bell-peppers",
+          "name": "Bell peppers",
+          "section": "produce",
+          "qty": "5",
+          "note": "1 green for Sun chili, 4 mixed for Tue.",
+          "for": [
+            "2026-11-29",
+            "2026-12-01"
+          ]
+        },
+        {
+          "key": "garlic",
+          "name": "Garlic",
+          "section": "produce",
+          "qty": "2 heads",
+          "note": "About 15 cloves. Check supply.",
+          "for": [
+            "2026-11-29",
+            "2026-11-30",
+            "2026-12-01",
+            "2026-12-03"
+          ]
+        },
+        {
+          "key": "green-onions",
+          "name": "Green onions",
+          "section": "produce",
+          "qty": "2 bunches",
+          "note": "Sun chili, Fri chicken.",
+          "for": [
+            "2026-11-29",
+            "2026-12-04"
+          ]
+        },
+        {
+          "key": "green-beans",
+          "name": "Fresh green beans",
+          "section": "produce",
+          "qty": "2 lb",
+          "note": "Mon.",
+          "for": [
+            "2026-11-30"
+          ]
+        },
+        {
+          "key": "cauliflower",
+          "name": "Cauliflower",
+          "section": "produce",
+          "qty": "2 large heads",
+          "note": "Thu.",
+          "for": [
+            "2026-12-03"
+          ]
+        },
+        {
+          "key": "mushrooms",
+          "name": "Baby bella mushrooms",
+          "section": "produce",
+          "qty": "16 oz",
+          "note": "Thu.",
+          "for": [
+            "2026-12-03"
+          ]
+        },
+        {
+          "key": "romaine",
+          "name": "Romaine hearts",
+          "section": "produce",
+          "qty": "2 three-packs",
+          "note": "Sun chef salads, Tue Caesar.",
+          "for": [
+            "2026-11-29 lunch",
+            "2026-12-01"
+          ]
+        },
+        {
+          "key": "salad-greens",
+          "name": "Spring mix",
+          "section": "produce",
+          "qty": "1 container (5 oz)",
+          "note": "Thu.",
+          "for": [
+            "2026-12-03"
+          ]
+        },
+        {
+          "key": "butter-lettuce",
+          "name": "Butter lettuce",
+          "section": "produce",
+          "qty": "2 heads",
+          "note": "Fri.",
+          "for": [
+            "2026-12-04"
+          ]
+        },
+        {
+          "key": "tomatoes",
+          "name": "Grape tomatoes",
+          "section": "produce",
+          "qty": "1 pint",
+          "note": "Sun lunch.",
+          "for": [
+            "2026-11-29 lunch"
+          ]
+        },
+        {
+          "key": "cucumbers",
+          "name": "Cucumbers",
+          "section": "produce",
+          "qty": "2",
+          "note": "Sun lunch, Fri.",
+          "for": [
+            "2026-11-29 lunch",
+            "2026-12-04"
+          ]
+        },
+        {
+          "key": "berries",
+          "name": "Strawberries",
+          "section": "produce",
+          "qty": "2 lb",
+          "note": "Sun, Mon, Sat breakfasts.",
+          "for": [
+            "2026-11-29 breakfast",
+            "2026-11-30 breakfast",
+            "2026-12-05 breakfast"
+          ]
+        },
+        {
+          "key": "ground-beef",
+          "name": "Ground beef 80/20 (grass-fed if available)",
+          "section": "meat",
+          "qty": "5 1/2 lb",
+          "note": "4 lb Sun chili, 1 1/2 lb Wed pizza bowls.",
+          "for": [
+            "2026-11-29",
+            "2026-12-02"
+          ]
+        },
+        {
+          "key": "chicken-breasts",
+          "name": "Boneless skinless chicken breasts",
+          "section": "meat",
+          "qty": "7 lb",
+          "note": "3 lb Mon, 4 lb Fri.",
+          "for": [
+            "2026-11-30",
+            "2026-12-04"
+          ]
+        },
+        {
+          "key": "italian-sausage-links",
+          "name": "Italian sausage links, no added sugar",
+          "section": "meat",
+          "qty": "3 1/2 lb",
+          "note": "Tue.",
+          "for": [
+            "2026-12-01"
+          ]
+        },
+        {
+          "key": "sirloin",
+          "name": "Sirloin steak",
+          "section": "meat",
+          "qty": "4 lb",
+          "note": "Thu.",
+          "for": [
+            "2026-12-03"
+          ]
+        },
+        {
+          "key": "deli-ham",
+          "name": "Sliced ham (Wright uncured, as before)",
+          "section": "meat",
+          "qty": "2 lb",
+          "note": "12 oz Mon bake, rest Sun chef salads and backups.",
+          "for": [
+            "2026-11-30",
+            "2026-11-29 lunch",
+            "backup roll-ups"
+          ]
+        },
+        {
+          "key": "deli-turkey",
+          "name": "Deli turkey",
+          "section": "meat",
+          "qty": "2 lb",
+          "note": "Sun chef salads, backup roll-ups.",
+          "for": [
+            "2026-11-29 lunch",
+            "backup roll-ups"
+          ]
+        },
+        {
+          "key": "bacon",
+          "name": "Bacon",
+          "section": "meat",
+          "qty": "about 4 lb",
+          "note": "1 1/2 lb Sun breakfast, 12 oz Fri chicken, 1 1/2 lb Sat breakfast.",
+          "for": [
+            "2026-11-29 breakfast",
+            "2026-12-04",
+            "2026-12-05 breakfast"
+          ]
+        },
+        {
+          "key": "breakfast-sausage",
+          "name": "Breakfast sausage",
+          "section": "meat",
+          "qty": "1 roll (16 oz)",
+          "note": "Wed egg bake.",
+          "for": [
+            "2026-12-02 breakfast"
+          ]
+        },
+        {
+          "key": "pepperoni",
+          "name": "Pepperoni",
+          "section": "meat",
+          "qty": "1 pack (3.5 oz)",
+          "note": "Wed.",
+          "for": [
+            "2026-12-02"
+          ]
+        },
+        {
+          "key": "hot-dogs",
+          "name": "All-beef hot dogs",
+          "section": "meat",
+          "qty": "1 pack (8)",
+          "note": "Sat backup if not eating at the reception.",
+          "for": [
+            "2026-12-05"
+          ]
+        },
+        {
+          "key": "eggs",
+          "name": "Eggs",
+          "section": "dairy",
+          "qty": "5 dozen",
+          "note": "12 Sun, 6 hard-boiled Sun lunch, 18 Wed egg bake, 12 Sat, plus weekday eggs. Count what's left first.",
+          "for": [
+            "2026-11-29 breakfast",
+            "2026-11-29 lunch",
+            "2026-12-02 breakfast",
+            "2026-12-05 breakfast",
+            "weekday eggs"
+          ]
+        },
+        {
+          "key": "cheddar",
+          "name": "Shredded sharp cheddar",
+          "section": "dairy",
+          "qty": "2 lb (8 cups)",
+          "for": [
+            "2026-11-29",
+            "2026-12-02 breakfast",
+            "2026-12-04",
+            "lunches"
+          ]
+        },
+        {
+          "key": "mozzarella",
+          "name": "Shredded mozzarella",
+          "section": "dairy",
+          "qty": "16 oz bag",
+          "note": "Wed.",
+          "for": [
+            "2026-12-02"
+          ]
+        },
+        {
+          "key": "swiss",
+          "name": "Swiss cheese slices",
+          "section": "dairy",
+          "qty": "8 oz",
+          "note": "Mon.",
+          "for": [
+            "2026-11-30"
+          ]
+        },
+        {
+          "key": "parmesan",
+          "name": "Grated Parmesan",
+          "section": "dairy",
+          "qty": "1 container (8 oz)",
+          "note": "Mon, Tue, Thu.",
+          "for": [
+            "2026-11-30",
+            "2026-12-01",
+            "2026-12-03"
+          ]
+        },
+        {
+          "key": "cream-cheese",
+          "name": "Cream cheese",
+          "section": "dairy",
+          "qty": "3 blocks (8 oz)",
+          "note": "4 oz Mon, 4 oz Thu, 16 oz Fri.",
+          "for": [
+            "2026-11-30",
+            "2026-12-03",
+            "2026-12-04"
+          ]
+        },
+        {
+          "key": "heavy-cream",
+          "name": "Heavy cream",
+          "section": "dairy",
+          "qty": "1 pint",
+          "note": "Mon, Wed.",
+          "for": [
+            "2026-11-30",
+            "2026-12-02 breakfast"
+          ]
+        },
+        {
+          "key": "sour-cream",
+          "name": "Sour cream",
+          "section": "dairy",
+          "qty": "16 oz",
+          "note": "Sun chili.",
+          "for": [
+            "2026-11-29"
+          ]
+        },
+        {
+          "key": "butter",
+          "name": "Kerrygold butter",
+          "section": "dairy",
+          "qty": "1 lb",
+          "note": "Plus what's on hand.",
+          "for": [
+            "2026-11-30",
+            "2026-12-03"
+          ]
+        },
+        {
+          "key": "string-cheese",
+          "name": "String cheese",
+          "section": "dairy",
+          "qty": "1 pack",
+          "for": [
+            "backup roll-ups"
+          ]
+        },
+        {
+          "key": "greek-yogurt",
+          "name": "Cabot 10% milkfat plain Greek yogurt",
+          "section": "dairy",
+          "qty": "1 tub (2 lb)",
+          "note": "Same as the Nov 16 order; confirm.",
+          "for": [
+            "2026-11-30 breakfast",
+            "2026-12-03 breakfast",
+            "2026-12-04 breakfast"
+          ]
+        },
+        {
+          "key": "ratio-yogurt",
+          "name": "Ratio protein yogurt cups, vanilla (kids)",
+          "section": "dairy",
+          "qty": "1 pack (4 cups)",
+          "note": "Same as the Nov 16 order; confirm.",
+          "for": [
+            "2026-11-30 breakfast",
+            "2026-12-04 breakfast"
+          ]
+        },
+        {
+          "key": "diced-tomatoes",
+          "name": "Diced tomatoes",
+          "section": "pantry",
+          "qty": "2 cans (14.5 oz)",
+          "for": [
+            "2026-11-29"
+          ]
+        },
+        {
+          "key": "tomato-sauce",
+          "name": "Tomato sauce",
+          "section": "pantry",
+          "qty": "1 can (15 oz)",
+          "for": [
+            "2026-11-29"
+          ]
+        },
+        {
+          "key": "tomato-paste",
+          "name": "Tomato paste",
+          "section": "pantry",
+          "qty": "1 small can",
+          "note": "Uses 2 tbsp.",
+          "for": [
+            "2026-11-29"
+          ]
+        },
+        {
+          "key": "marinara",
+          "name": "Rao's marinara",
+          "section": "pantry",
+          "qty": "1 jar (24 oz)",
+          "for": [
+            "2026-12-02"
+          ]
+        },
+        {
+          "key": "ranch-seasoning",
+          "name": "Dry ranch seasoning",
+          "section": "pantry",
+          "qty": "2 packets (1 oz)",
+          "for": [
+            "2026-12-04"
+          ]
+        },
+        {
+          "key": "mustard",
+          "name": "Dijon mustard",
+          "section": "pantry",
+          "note": "Check first.",
+          "for": [
+            "2026-11-30"
+          ]
+        },
+        {
+          "key": "caesar-dressing",
+          "name": "Caesar dressing",
+          "section": "pantry",
+          "qty": "1 bottle",
+          "for": [
+            "2026-12-01"
+          ]
+        },
+        {
+          "key": "ranch",
+          "name": "Ranch dressing",
+          "section": "pantry",
+          "note": "Check first.",
+          "for": [
+            "2026-11-29 lunch",
+            "2026-12-03"
+          ]
+        },
+        {
+          "key": "pickles",
+          "name": "Dill pickles",
+          "section": "pantry",
+          "note": "Check first.",
+          "for": [
+            "backup roll-ups"
+          ]
+        },
+        {
+          "key": "sauerkraut",
+          "name": "Sauerkraut",
+          "section": "pantry",
+          "note": "Check first.",
+          "for": [
+            "2026-12-05"
+          ]
+        },
+        {
+          "key": "walnuts",
+          "name": "Chopped walnuts",
+          "section": "pantry",
+          "note": "Check first.",
+          "for": [
+            "2026-11-30 breakfast"
+          ]
+        },
+        {
+          "key": "coffee",
+          "name": "Coffee",
+          "section": "pantry",
+          "note": "Check first.",
+          "for": [
+            "2026-12-01 breakfast"
+          ]
+        },
+        {
+          "key": "olive-oil",
+          "name": "Olive oil",
+          "section": "spices",
+          "note": "Check first.",
+          "for": [
+            "2026-12-01",
+            "2026-12-03"
+          ]
+        },
+        {
+          "key": "salt",
+          "name": "Salt",
+          "section": "spices",
+          "note": "Check first."
+        },
+        {
+          "key": "black-pepper",
+          "name": "Black pepper",
+          "section": "spices",
+          "note": "Check first."
+        },
+        {
+          "key": "chili-powder",
+          "name": "Chili powder",
+          "section": "spices",
+          "note": "Check first.",
+          "for": [
+            "2026-11-29"
+          ]
+        },
+        {
+          "key": "cumin",
+          "name": "Ground cumin",
+          "section": "spices",
+          "note": "Check first.",
+          "for": [
+            "2026-11-29"
+          ]
+        },
+        {
+          "key": "oregano",
+          "name": "Dried oregano",
+          "section": "spices",
+          "note": "Check first.",
+          "for": [
+            "2026-11-29"
+          ]
+        },
+        {
+          "key": "smoked-paprika",
+          "name": "Smoked paprika",
+          "section": "spices",
+          "note": "Check first.",
+          "for": [
+            "2026-11-29"
+          ]
+        },
+        {
+          "key": "garlic-powder",
+          "name": "Garlic powder",
+          "section": "spices",
+          "note": "Check first.",
+          "for": [
+            "2026-11-30",
+            "2026-12-02"
+          ]
+        },
+        {
+          "key": "italian-seasoning",
+          "name": "Italian seasoning",
+          "section": "spices",
+          "note": "Check first.",
+          "for": [
+            "2026-12-01",
+            "2026-12-02"
+          ]
+        },
+        {
+          "key": "quest",
+          "name": "Quest donuts or bars",
+          "section": "snacks",
+          "qty": "qty: confirm",
+          "for": [
+            "2026-12-01 breakfast",
+            "2026-12-03 breakfast",
+            "2026-12-04 breakfast"
+          ]
+        },
+        {
+          "key": "quest-crackers",
+          "name": "Quest protein crackers, Cheddar Blast",
+          "section": "snacks",
+          "qty": "1 box (4 ct)",
+          "for": [
+            "snacks"
+          ]
+        },
+        {
+          "key": "crystal-light",
+          "name": "Crystal Light Raspberry Lemonade",
+          "section": "snacks",
+          "qty": "1 box (10 packets)",
+          "for": [
+            "drinks"
+          ]
+        },
+        {
+          "key": "pork-rinds",
+          "name": "Pork rinds",
+          "section": "snacks",
+          "qty": "2 bags (5 oz)",
+          "note": "One is the Mon bake topping.",
+          "for": [
+            "2026-11-30",
+            "2026-12-05"
+          ]
+        },
+        {
+          "key": "kids-pizza",
+          "name": "Kids' pizza (takeout or frozen)",
+          "section": "kids",
+          "note": "Wed.",
+          "for": [
+            "2026-12-02"
+          ]
+        },
+        {
+          "key": "tortilla-chips",
+          "name": "Tortilla chips",
+          "section": "kids",
+          "qty": "1 bag",
+          "note": "Sun.",
+          "for": [
+            "2026-11-29"
+          ]
+        },
+        {
+          "key": "dinner-rolls",
+          "name": "Dinner rolls",
+          "section": "kids",
+          "qty": "1 pack (12)",
+          "note": "Mon.",
+          "for": [
+            "2026-11-30"
+          ]
+        },
+        {
+          "key": "hoagie-rolls",
+          "name": "Hoagie rolls",
+          "section": "kids",
+          "qty": "1 pack (6)",
+          "note": "Tue, or rice.",
+          "for": [
+            "2026-12-01"
+          ]
+        },
+        {
+          "key": "rice",
+          "name": "Rice",
+          "section": "kids",
+          "note": "Check first. Tue and Thu.",
+          "for": [
+            "2026-12-01",
+            "2026-12-03"
+          ]
+        },
+        {
+          "key": "slider-buns",
+          "name": "Slider buns",
+          "section": "kids",
+          "qty": "1 pack (12)",
+          "note": "Fri.",
+          "for": [
+            "2026-12-04"
+          ]
+        },
+        {
+          "key": "hot-dog-buns",
+          "name": "Hot dog buns",
+          "section": "kids",
+          "qty": "1 pack",
+          "note": "Sat backup.",
+          "for": [
+            "2026-12-05"
+          ]
+        },
+        {
+          "key": "chips",
+          "name": "Lay's variety pack",
+          "section": "kids",
+          "qty": "1 (18 ct)",
+          "for": [
+            "kids' snacks"
+          ]
+        },
+        {
+          "key": "italian-sausage",
           "hide": true
         },
         {
