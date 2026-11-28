@@ -20,9 +20,11 @@
   };
 
   let weeksDoc = null;
+  let recipesDoc = null;
   let recipes = {};
   let week = null;
   let picks = null;
+  const ideasState = {};
 
   function esc(v) { return K.esc(v); }
   function say(text) { live.textContent = ''; setTimeout(function () { live.textContent = text; }, 30); }
@@ -69,8 +71,17 @@
       '<button type="button" class="vote up" data-vote="approve" aria-pressed="false">' + ICON.up + '<span>Love it</span></button>' +
       '<button type="button" class="vote down" data-vote="change" aria-pressed="false">' + ICON.down + '<span>Change it</span></button>' +
       '</div>' +
-      '<div class="swap" hidden><label for="' + id + '-swap">Swap for…</label>' +
-      '<input id="' + id + '-swap" type="text" maxlength="' + R.SWAP_MAX + '" autocomplete="off" enterkeyhint="done" placeholder="What would you like instead?"></div>' +
+      '<div class="swap" hidden>' +
+      '<label for="' + id + '-swap">Swap for…</label>' +
+      '<input id="' + id + '-swap" type="text" maxlength="' + R.SWAP_MAX + '" autocomplete="off" enterkeyhint="done" placeholder="What would you like instead?">' +
+      '<button type="button" class="suggest-toggle" aria-expanded="false" aria-controls="' + id + '-ideas">I don’t know, suggest something</button>' +
+      '<div class="ideas" id="' + id + '-ideas" hidden>' +
+      '<p class="ideas-lead" id="' + id + '-ideas-h" tabindex="-1">A few dinners from our kitchen. The adults stay keto; the kids can have sides.</p>' +
+      '<div class="chips" role="group" aria-labelledby="' + id + '-ideas-h"></div>' +
+      '<div class="ideas-actions">' +
+      '<button type="button" class="ideas-more">Show me others</button>' +
+      '<button type="button" class="ideas-surprise" aria-pressed="false">Not sure — Scorpy, you choose</button>' +
+      '</div></div></div>' +
       '</div></article>';
   }
 
@@ -98,7 +109,7 @@
       '<section class="intro-block">' +
       '<p class="kicker">Meal plan review</p>' +
       '<h1>' + esc(week.title.replace(/, \d{4}$/, '')) + '</h1>' +
-      '<p class="lede">Give each dinner a thumbs-up, or a thumbs-down with a swap idea. Your picks save on this phone as you go, then one tap sends them.</p>' +
+      '<p class="lede">Give each dinner a thumbs-up, or a thumbs-down with a swap idea. If you are not sure, you can ask for a few ideas. Your picks save on this phone as you go, then one tap sends them.</p>' +
       weekNav() +
       '</section>' +
       '<div class="rv-days">' + week.days.map(cardHtml).join('') + '</div>' +
@@ -116,6 +127,34 @@
     wire();
   }
 
+  function otherSwapTitles(exceptDate) {
+    const titles = [];
+    week.days.forEach(function (day) {
+      if (day.date === exceptDate) return;
+      const swap = picks.days[day.date] && picks.days[day.date].swap;
+      if (swap && swap.trim() && !R.isSurpriseSwap(swap)) titles.push(swap);
+    });
+    return titles;
+  }
+
+  function paintIdeas(card, day) {
+    const state = ideasState[day.date] || { open: false, offset: 0 };
+    const toggle = card.querySelector('.suggest-toggle');
+    const panel = card.querySelector('.ideas');
+    toggle.setAttribute('aria-expanded', String(Boolean(state.open)));
+    panel.hidden = !state.open;
+    const p = picks.days[day.date];
+    const surprise = card.querySelector('.ideas-surprise');
+    surprise.setAttribute('aria-pressed', String(R.isSurpriseSwap(p.swap)));
+    const chips = card.querySelector('.chips');
+    if (!state.open) { chips.innerHTML = ''; return; }
+    const list = R.suggestionsFor(recipesDoc, week, { size: 4, offset: state.offset, excludeTitles: otherSwapTitles(day.date) });
+    chips.innerHTML = list.map(function (recipe) {
+      const pressed = p.swap.trim().toLowerCase() === recipe.title.trim().toLowerCase();
+      return '<button type="button" class="chip" data-title="' + esc(recipe.title) + '" aria-pressed="' + String(pressed) + '">' + esc(recipe.title) + '</button>';
+    }).join('');
+  }
+
   function paint() {
     week.days.forEach(function (day) {
       const card = app.querySelector('.rv-day[data-date="' + day.date + '"]');
@@ -127,7 +166,10 @@
       const swap = card.querySelector('.swap');
       swap.hidden = p.vote !== 'change';
       const input = swap.querySelector('input');
-      if (input !== document.activeElement && input.value !== p.swap) input.value = p.swap;
+      const shown = R.isSurpriseSwap(p.swap) ? '' : p.swap;
+      if (input !== document.activeElement && input.value !== shown) input.value = shown;
+      input.placeholder = R.isSurpriseSwap(p.swap) ? 'Scorpy will choose a dinner' : 'What would you like instead?';
+      paintIdeas(card, day);
     });
     const notes = document.getElementById('notes');
     if (notes !== document.activeElement && notes.value !== picks.notes) notes.value = picks.notes;
@@ -152,13 +194,18 @@
 
   function changed() { picks = R.normalize(picks, week); save(); summary(); }
 
+  function stateFor(date) {
+    if (!ideasState[date]) ideasState[date] = { open: false, offset: 0 };
+    return ideasState[date];
+  }
+
   function wire() {
     app.querySelectorAll('.vote').forEach(function (btn) {
       btn.addEventListener('click', function () {
         const date = btn.closest('.rv-day').dataset.date;
         const p = picks.days[date];
         p.vote = p.vote === btn.dataset.vote ? '' : btn.dataset.vote;
-        if (p.vote !== 'change') p.swap = '';
+        if (p.vote !== 'change') { p.swap = ''; ideasState[date] = { open: false, offset: (ideasState[date] && ideasState[date].offset) || 0 }; }
         save(); paint();
         say(R.dayLabel(date) + ': ' + (p.vote === 'approve' ? 'love it' : p.vote === 'change' ? 'change it' : 'cleared'));
         if (p.vote === 'change') btn.closest('.rv-day').querySelector('.swap input').focus({ preventScroll: true });
@@ -168,7 +215,44 @@
       input.addEventListener('input', function () {
         picks.days[input.closest('.rv-day').dataset.date].swap = input.value;
         changed();
+        paintIdeas(input.closest('.rv-day'), week.days.find(function (d) { return d.date === input.closest('.rv-day').dataset.date; }));
       });
+    });
+    app.addEventListener('click', function (e) {
+      const card = e.target.closest('.rv-day');
+      if (!card) return;
+      const date = card.dataset.date;
+      const day = week.days.find(function (d) { return d.date === date; });
+      const p = picks.days[date];
+      if (e.target.closest('.suggest-toggle')) {
+        const state = stateFor(date);
+        state.open = !state.open;
+        paintIdeas(card, day);
+        say(state.open ? 'Here are a few dinner ideas.' : 'Suggestions hidden.');
+        if (state.open) card.querySelector('.ideas-lead').focus({ preventScroll: true });
+        return;
+      }
+      if (e.target.closest('.ideas-more')) {
+        const state = stateFor(date);
+        state.open = true;
+        state.offset += 4;
+        paintIdeas(card, day);
+        const names = Array.prototype.map.call(card.querySelectorAll('.chip'), function (c) { return c.textContent; }).join(', ');
+        say(names ? 'Other ideas: ' + names : 'No other ideas right now.');
+        return;
+      }
+      const chip = e.target.closest('.chip');
+      if (chip) {
+        p.swap = chip.dataset.title;
+        save(); paint();
+        say(R.dayLabel(date) + ': swap for ' + chip.dataset.title);
+        return;
+      }
+      if (e.target.closest('.ideas-surprise')) {
+        p.swap = p.swap && R.isSurpriseSwap(p.swap) ? '' : R.SURPRISE_SWAP;
+        save(); paint();
+        say(R.dayLabel(date) + (R.isSurpriseSwap(p.swap) ? ': Scorpy will choose' : ': surprise-me cleared'));
+      }
     });
     document.getElementById('notes').addEventListener('input', function (e) {
       picks.notes = e.target.value;
@@ -218,6 +302,7 @@
     fetch('../recipes/data/recipes.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error('recipes ' + r.status); return r.json(); })
   ]).then(function (docs) {
     weeksDoc = docs[0];
+    recipesDoc = docs[1];
     docs[1].recipes.forEach(function (r) { recipes[r.id] = r; });
     const requested = new URLSearchParams(location.search).get('week');
     week = R.pickWeek(weeksDoc, requested, K.easternISODate(new Date()));

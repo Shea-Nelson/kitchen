@@ -92,3 +92,69 @@ test('the review page loads no third-party code and no trackers', () => {
     assert.doesNotMatch(src, /analytics|gtag|pixel|sendBeacon|XMLHttpRequest|formspree|googleapis/i, file);
   });
 });
+
+test('suggestions come from the dinner library and skip this week plus known dislikes', () => {
+  const pool = R.suggestionPool(recipesDoc, week);
+  const ids = pool.map(r => r.id);
+  assert.ok(ids.includes('egg-roll-bowl'));
+  assert.ok(ids.includes('pork-carnitas'));
+  assert.ok(ids.includes('tuscan-chicken'));
+  assert.ok(!ids.includes('garlic-butter-salmon'));
+  assert.ok(!ids.includes('scrambled-eggs'));
+  assert.ok(!ids.includes('fried-eggs'));
+  assert.ok(!ids.includes('thanksgiving-turkey-breast'));
+  week.days.forEach(day => {
+    if (day.recipeId) assert.ok(!ids.includes(day.recipeId), day.recipeId);
+  });
+  pool.forEach(r => {
+    assert.doesNotMatch((r.id + ' ' + r.title + ' ' + (r.summary || '')), /shrimp|salmon|scampi|seafood|\bfish\b|thanksgiving/i);
+    assert.ok(!r.section, r.id);
+  });
+  const first = R.suggestionsFor(recipesDoc, week, { size: 4, offset: 0 });
+  const next = R.suggestionsFor(recipesDoc, week, { size: 4, offset: 4 });
+  assert.equal(first.length, 4);
+  assert.equal(next.length, 4);
+  assert.deepEqual(first.map(r => r.title), pool.slice(0, 4).map(r => r.title));
+  assert.notEqual(next[0].id, first[0].id);
+  const withoutCarnitas = R.suggestionsFor(recipesDoc, week, { size: 4, offset: 0, excludeTitles: ['Pork carnitas'] });
+  assert.ok(!withoutCarnitas.some(r => r.title === 'Pork carnitas'));
+});
+
+test('a chosen idea or surprise-me is written into the email lines the routine reads', () => {
+  const p = R.normalize({ days: {
+    '2026-11-29': { vote: 'approve' },
+    '2026-11-30': { vote: 'change', swap: 'Pork carnitas' },
+    '2026-12-01': { vote: 'change', swap: 'Not sure — Scorpy, you choose' },
+    '2026-12-02': { vote: 'change', swap: '' }
+  } }, week);
+  assert.equal(R.isSurpriseSwap(p.days['2026-12-01'].swap), true);
+  assert.equal(R.swapText(p.days['2026-12-01']), 'surprise me');
+  assert.equal(R.SURPRISE_SWAP, 'surprise me');
+  const text = R.body(week, p, 'https://shea-nelson.github.io/kitchen/review/?week=2026-11-29');
+  assert.match(text, /Mon Nov 30 - Chicken cordon bleu bake: CHANGE: Pork carnitas/);
+  assert.match(text, /Tue Dec 1 - .*: CHANGE: surprise me/);
+  assert.match(text, /Wed Dec 2 - Pizza night: CHANGE: \(no suggestion/);
+  assert.match(text, /^DAY 2026-11-30 \| Chicken cordon bleu bake \| CHANGE \| Pork carnitas$/m);
+  assert.match(text, /^DAY 2026-12-01 \| .* \| CHANGE \| surprise me$/m);
+  assert.match(text, /^DAY 2026-12-02 \| Pizza night \| CHANGE \| $/m);
+  const parsed = R.parsePicksBody(text);
+  assert.equal(parsed.ok, true);
+  assert.equal(parsed.weekId, '2026-11-29');
+  assert.equal(parsed.days['2026-11-29'].vote, 'approve');
+  assert.equal(parsed.days['2026-11-30'].swap, 'Pork carnitas');
+  assert.equal(parsed.days['2026-12-01'].swap, 'surprise me');
+  assert.equal(parsed.days['2026-12-02'].swap, '');
+  assert.equal(parsed.days['2026-12-03'].vote, '');
+});
+
+test('surprise-me aliases and the parser stay stable', () => {
+  assert.equal(R.isSurpriseSwap('surprise me'), true);
+  assert.equal(R.isSurpriseSwap('Surprise Me'), true);
+  assert.equal(R.isSurpriseSwap('Not sure - Scorpy, you choose'), true);
+  assert.equal(R.isSurpriseSwap('scorpy, you choose'), true);
+  assert.equal(R.isSurpriseSwap('tacos'), false);
+  assert.equal(R.isSurpriseSwap(''), false);
+  const parsed = R.parsePicksBody('WEEK: 2026-11-29\nDAY 2026-11-30 | Chicken cordon bleu bake | CHANGE | surprise me\nNOTES-JSON: "hello"\n');
+  assert.deepEqual(parsed.days['2026-11-30'], { vote: 'change', swap: 'surprise me', dinner: 'Chicken cordon bleu bake' });
+  assert.equal(parsed.notes, 'hello');
+});
