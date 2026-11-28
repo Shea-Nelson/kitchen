@@ -166,24 +166,24 @@
       "key": "cheddar",
       "name": "Shredded mild cheddar",
       "section": "dairy",
-      "note": "Always mild, not sharp."
+      "note": "Always mild, not sharp. Only applied when this key is already on the week and not hidden."
     },
     {
       "key": "ratio-yogurt",
       "name": "Ratio protein yogurt cups, vanilla (kids)",
       "section": "dairy",
-      "qty": "8"
+      "qty": "8",
+      "note": "Standing quantity is 8 cups in total, including any other Ratio flavors already on the week."
     },
     {
-      "key": "starbucks-coffee",
-      "name": "Starbucks refrigerated unsweetened coffee",
+      "key": "starbucks-brewed-coffee",
+      "name": "Starbucks unsweetened brewed coffee",
       "section": "dairy",
-      "qty": "1",
-      "note": "Every week."
+      "note": "Refrigerated. Every week."
     },
     {
-      "key": "coffee-creamer",
-      "name": "Coffee creamer",
+      "key": "starbucks-caramel-creamer",
+      "name": "Starbucks zero sugar caramel creamer",
       "section": "dairy",
       "qty": "1",
       "note": "Every week."
@@ -389,15 +389,14 @@
           ]
         },
         {
-          "key": "starbucks-coffee",
-          "name": "Starbucks refrigerated unsweetened coffee",
+          "key": "starbucks-brewed-coffee",
+          "name": "Starbucks unsweetened brewed coffee",
           "section": "dairy",
-          "qty": "1",
-          "note": "Every week."
+          "note": "Refrigerated. Every week."
         },
         {
-          "key": "coffee-creamer",
-          "name": "Coffee creamer",
+          "key": "starbucks-caramel-creamer",
+          "name": "Starbucks zero sugar caramel creamer",
           "section": "dairy",
           "qty": "1",
           "note": "Every week."
@@ -856,15 +855,14 @@
           "section": "dairy"
         },
         {
-          "key": "starbucks-coffee",
-          "name": "Starbucks refrigerated unsweetened coffee",
+          "key": "starbucks-brewed-coffee",
+          "name": "Starbucks unsweetened brewed coffee",
           "section": "dairy",
-          "qty": "1",
-          "note": "Every week."
+          "note": "Refrigerated. Every week."
         },
         {
-          "key": "coffee-creamer",
-          "name": "Coffee creamer",
+          "key": "starbucks-caramel-creamer",
+          "name": "Starbucks zero sugar caramel creamer",
           "section": "dairy",
           "qty": "1",
           "note": "Every week."
@@ -1514,15 +1512,14 @@
           ]
         },
         {
-          "key": "starbucks-coffee",
-          "name": "Starbucks refrigerated unsweetened coffee",
+          "key": "starbucks-brewed-coffee",
+          "name": "Starbucks unsweetened brewed coffee",
           "section": "dairy",
-          "qty": "1",
-          "note": "Every week."
+          "note": "Refrigerated. Every week."
         },
         {
-          "key": "coffee-creamer",
-          "name": "Coffee creamer",
+          "key": "starbucks-caramel-creamer",
+          "name": "Starbucks zero sugar caramel creamer",
           "section": "dairy",
           "qty": "1",
           "note": "Every week."
@@ -1851,7 +1848,7 @@
       ]
     },
     "2026-11-29": {
-      "note": "Fresh plan for review. Yogurt, Crystal Light, Quest crackers and chips amounts match the Nov 16 order; Quest donuts/bars still need an amount. Saturday hot dogs and buns are only needed if you're not eating at Jacob's reception. Nothing here orders food; Giles owns the Walmart cart.",
+      "note": "Fresh plan for review. Yogurt, Quest crackers and chips amounts match the Nov 16 order; Quest donuts/bars still need an amount. Saturday hot dogs are only needed if you're not eating at Jacob's reception. Grocery list edited by Nicole on Nov 27. Nothing here orders food; Giles owns the Walmart cart.",
       "dinnerShort": {
         "2026-11-29": "chili",
         "2026-11-30": "cheeseburger casserole",
@@ -1886,11 +1883,11 @@
           ]
         },
         {
-          "key": "garlic",
-          "name": "Garlic",
+          "key": "minced-garlic",
+          "name": "Minced garlic",
           "section": "produce",
-          "qty": "2 heads",
-          "note": "About 15 cloves. Check supply.",
+          "qty": "1 jar",
+          "note": "Replaces fresh garlic (Sun chili, Mon casserole, Tue, Thu).",
           "for": [
             "2026-11-29",
             "2026-11-30",
@@ -1960,16 +1957,6 @@
           "note": "Fri.",
           "for": [
             "2026-12-04"
-          ]
-        },
-        {
-          "key": "tomatoes",
-          "name": "Grape tomatoes",
-          "section": "produce",
-          "qty": "1 pint",
-          "note": "Sun lunch.",
-          "for": [
-            "2026-11-29 lunch"
           ]
         },
         {
@@ -2049,17 +2036,6 @@
           ]
         },
         {
-          "key": "deli-turkey",
-          "name": "Deli turkey",
-          "section": "meat",
-          "qty": "2 lb",
-          "note": "Sun chef salads, backup roll-ups.",
-          "for": [
-            "2026-11-29 lunch",
-            "backup roll-ups"
-          ]
-        },
-        {
           "key": "bacon",
           "name": "Bacon",
           "section": "meat",
@@ -2118,11 +2094,11 @@
           ]
         },
         {
-          "key": "cheddar",
-          "name": "Shredded mild cheddar",
+          "key": "mild-cheddar",
+          "name": "Shredded mild cheddar cheese",
           "section": "dairy",
-          "qty": "2 1/2 lb (10 cups)",
-          "note": "Includes 2 1/4 cups Mon casserole.",
+          "qty": "8 cups",
+          "note": "Replaces the sharp cheddar. Covers Sun chili, 2 1/4 cups Mon casserole, Wed egg bake, Fri chicken, lunches.",
           "for": [
             "2026-11-29",
             "2026-11-30",
@@ -2139,18 +2115,6 @@
           "note": "Wed.",
           "for": [
             "2026-12-02"
-          ]
-        },
-
-        {
-          "key": "parmesan",
-          "name": "Grated Parmesan",
-          "section": "dairy",
-          "qty": "1 container (8 oz)",
-          "note": "Tue, Thu.",
-          "for": [
-            "2026-12-01",
-            "2026-12-03"
           ]
         },
         {
@@ -2186,25 +2150,6 @@
           ]
         },
         {
-          "key": "butter",
-          "name": "Kerrygold butter",
-          "section": "dairy",
-          "qty": "1 lb",
-          "note": "Plus what's on hand.",
-          "for": [
-            "2026-12-03"
-          ]
-        },
-        {
-          "key": "string-cheese",
-          "name": "String cheese",
-          "section": "dairy",
-          "qty": "1 pack",
-          "for": [
-            "backup roll-ups"
-          ]
-        },
-        {
           "key": "greek-yogurt",
           "name": "Cabot 10% milkfat plain Greek yogurt",
           "section": "dairy",
@@ -2220,25 +2165,33 @@
           "key": "ratio-yogurt",
           "name": "Ratio protein yogurt cups, vanilla (kids)",
           "section": "dairy",
-          "qty": "8",
+          "qty": "1 pack (4 cups)",
+          "note": "Same as the Nov 16 order; confirm.",
           "for": [
             "2026-11-30 breakfast",
             "2026-12-04 breakfast"
           ]
         },
         {
-          "key": "starbucks-coffee",
-          "name": "Starbucks refrigerated unsweetened coffee",
+          "key": "ratio-yogurt-strawberry",
+          "name": "Ratio yogurt strawberry",
           "section": "dairy",
-          "qty": "1",
-          "note": "Every week."
+          "qty": "4 cups"
         },
         {
-          "key": "coffee-creamer",
-          "name": "Coffee creamer",
+          "key": "starbucks-brewed-coffee",
+          "name": "Starbucks unsweetened brewed coffee",
           "section": "dairy",
-          "qty": "1",
-          "note": "Every week."
+          "note": "Refrigerated",
+          "for": [
+            "2026-12-01 breakfast"
+          ]
+        },
+        {
+          "key": "starbucks-caramel-creamer",
+          "name": "Starbucks zero sugar caramel creamer",
+          "section": "dairy",
+          "qty": "1"
         },
         {
           "key": "diced-tomatoes",
@@ -2354,92 +2307,6 @@
           ]
         },
         {
-          "key": "coffee",
-          "name": "Coffee",
-          "section": "pantry",
-          "note": "Check first.",
-          "for": [
-            "2026-12-01 breakfast"
-          ]
-        },
-        {
-          "key": "olive-oil",
-          "name": "Olive oil",
-          "section": "spices",
-          "note": "Check first.",
-          "for": [
-            "2026-12-01",
-            "2026-12-03"
-          ]
-        },
-        {
-          "key": "salt",
-          "name": "Salt",
-          "section": "spices",
-          "note": "Check first."
-        },
-        {
-          "key": "black-pepper",
-          "name": "Black pepper",
-          "section": "spices",
-          "note": "Check first."
-        },
-        {
-          "key": "chili-powder",
-          "name": "Chili powder",
-          "section": "spices",
-          "note": "Check first.",
-          "for": [
-            "2026-11-29"
-          ]
-        },
-        {
-          "key": "cumin",
-          "name": "Ground cumin",
-          "section": "spices",
-          "note": "Check first.",
-          "for": [
-            "2026-11-29"
-          ]
-        },
-        {
-          "key": "oregano",
-          "name": "Dried oregano",
-          "section": "spices",
-          "note": "Check first.",
-          "for": [
-            "2026-11-29"
-          ]
-        },
-        {
-          "key": "smoked-paprika",
-          "name": "Smoked paprika",
-          "section": "spices",
-          "note": "Check first.",
-          "for": [
-            "2026-11-29"
-          ]
-        },
-        {
-          "key": "garlic-powder",
-          "name": "Garlic powder",
-          "section": "spices",
-          "note": "Check first.",
-          "for": [
-            "2026-12-02"
-          ]
-        },
-        {
-          "key": "italian-seasoning",
-          "name": "Italian seasoning",
-          "section": "spices",
-          "note": "Check first.",
-          "for": [
-            "2026-12-01",
-            "2026-12-02"
-          ]
-        },
-        {
           "key": "quest",
           "name": "Quest donuts or bars",
           "section": "snacks",
@@ -2460,10 +2327,9 @@
           ]
         },
         {
-          "key": "crystal-light",
-          "name": "Crystal Light Raspberry Lemonade",
+          "key": "crystal-light-different",
+          "name": "Crystal Light (a different flavor)",
           "section": "snacks",
-          "qty": "1 box (10 packets)",
           "for": [
             "drinks"
           ]
@@ -2476,15 +2342,6 @@
           "note": "Sat backup if not eating at the reception.",
           "for": [
             "2026-12-05"
-          ]
-        },
-        {
-          "key": "kids-pizza",
-          "name": "Kids' pizza (takeout or frozen)",
-          "section": "kids",
-          "note": "Wed.",
-          "for": [
-            "2026-12-02"
           ]
         },
         {
@@ -2508,46 +2365,6 @@
           ]
         },
         {
-          "key": "hoagie-rolls",
-          "name": "Hoagie rolls",
-          "section": "kids",
-          "qty": "1 pack (6)",
-          "note": "Tue, or rice.",
-          "for": [
-            "2026-12-01"
-          ]
-        },
-        {
-          "key": "rice",
-          "name": "Rice",
-          "section": "kids",
-          "note": "Check first. Tue and Thu.",
-          "for": [
-            "2026-12-01",
-            "2026-12-03"
-          ]
-        },
-        {
-          "key": "slider-buns",
-          "name": "Slider buns",
-          "section": "kids",
-          "qty": "1 pack (12)",
-          "note": "Fri.",
-          "for": [
-            "2026-12-04"
-          ]
-        },
-        {
-          "key": "hot-dog-buns",
-          "name": "Hot dog buns",
-          "section": "kids",
-          "qty": "1 pack",
-          "note": "Sat backup.",
-          "for": [
-            "2026-12-05"
-          ]
-        },
-        {
           "key": "chips",
           "name": "Lay's variety pack",
           "section": "kids",
@@ -2566,6 +2383,58 @@
         },
         {
           "key": "pita",
+          "hide": true
+        },
+        {
+          "key": "garlic",
+          "hide": true
+        },
+        {
+          "key": "cheddar",
+          "hide": true
+        },
+        {
+          "key": "parmesan",
+          "hide": true
+        },
+        {
+          "key": "butter",
+          "hide": true
+        },
+        {
+          "key": "olive-oil",
+          "hide": true
+        },
+        {
+          "key": "salt",
+          "hide": true
+        },
+        {
+          "key": "black-pepper",
+          "hide": true
+        },
+        {
+          "key": "chili-powder",
+          "hide": true
+        },
+        {
+          "key": "cumin",
+          "hide": true
+        },
+        {
+          "key": "oregano",
+          "hide": true
+        },
+        {
+          "key": "smoked-paprika",
+          "hide": true
+        },
+        {
+          "key": "garlic-powder",
+          "hide": true
+        },
+        {
+          "key": "italian-seasoning",
           "hide": true
         }
       ]

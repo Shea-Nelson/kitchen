@@ -74,9 +74,10 @@
       });
     });
 
+    const hidden = new Set();
     (plan.items || []).forEach(function (entry) {
       const existing = items.get(entry.key);
-      if (entry.hide) { items.delete(entry.key); return; }
+      if (entry.hide) { hidden.add(entry.key); items.delete(entry.key); return; }
       const item = existing || { key: entry.key, name: entry.name || entry.key, section: entry.section || sectionOf[entry.key] || 'other', parts: [], tags: [], note: '', qty: '' };
       if (entry.name) item.name = entry.name;
       if (entry.section) item.section = entry.section;
@@ -88,6 +89,7 @@
 
     (listDoc.regulars || []).forEach(function (entry) {
       if (!entry || !entry.key) return;
+      if (hidden.has(entry.key)) return;
       const existing = items.get(entry.key);
       if (existing) {
         if (entry.name && (!existing.name || /sharp cheddar/i.test(existing.name))) existing.name = entry.name;

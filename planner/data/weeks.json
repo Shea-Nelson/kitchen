@@ -166,12 +166,12 @@
               "label": "Ratio yogurt cups, 8"
             },
             {
-              "id": "starbucks-coffee",
-              "label": "Starbucks refrigerated unsweetened coffee, 1"
+              "id": "starbucks-brewed-coffee",
+              "label": "Starbucks unsweetened brewed coffee — Refrigerated"
             },
             {
-              "id": "coffee-creamer",
-              "label": "Coffee creamer, 1"
+              "id": "starbucks-caramel-creamer",
+              "label": "Starbucks zero sugar caramel creamer, 1"
             }
           ]
         },
@@ -572,12 +572,12 @@
               "label": "Ratio yogurt cups, 8"
             },
             {
-              "id": "starbucks-coffee",
-              "label": "Starbucks refrigerated unsweetened coffee, 1"
+              "id": "starbucks-brewed-coffee",
+              "label": "Starbucks unsweetened brewed coffee — Refrigerated"
             },
             {
-              "id": "coffee-creamer",
-              "label": "Coffee creamer, 1"
+              "id": "starbucks-caramel-creamer",
+              "label": "Starbucks zero sugar caramel creamer, 1"
             }
           ]
         },
@@ -1005,12 +1005,12 @@
               "label": "Ratio protein yogurt cups, vanilla (kids), 8"
             },
             {
-              "id": "starbucks-coffee",
-              "label": "Starbucks refrigerated unsweetened coffee, 1"
+              "id": "starbucks-brewed-coffee",
+              "label": "Starbucks unsweetened brewed coffee — Refrigerated"
             },
             {
-              "id": "coffee-creamer",
-              "label": "Coffee creamer, 1"
+              "id": "starbucks-caramel-creamer",
+              "label": "Starbucks zero sugar caramel creamer, 1"
             }
           ]
         },
@@ -1187,7 +1187,7 @@
       "startsOn": "2026-11-29",
       "endsOn": "2026-12-05",
       "title": "Sun Nov 29 – Sat Dec 5, 2026",
-      "groceryNote": "Fresh plan for review. Yogurt, Crystal Light, Quest crackers and chips amounts match the Nov 16 order; Quest donuts/bars still need an amount. Saturday hot dogs and buns are only needed if you're not eating at Jacob's reception. Nothing here orders food; Giles owns the Walmart cart.",
+      "groceryNote": "Fresh plan for review. Yogurt, Quest crackers and chips amounts match the Nov 16 order; Quest donuts/bars still need an amount. Saturday hot dogs are only needed if you're not eating at Jacob's reception. Grocery list edited by Nicole on Nov 27. Nothing here orders food; Giles owns the Walmart cart.",
       "days": [
         {
           "date": "2026-11-29",
@@ -1274,8 +1274,8 @@
               "label": "Bell peppers, 5 — 1 green for Sun chili, 4 mixed for Tue."
             },
             {
-              "id": "garlic",
-              "label": "Garlic, 2 heads — About 15 cloves. Check supply."
+              "id": "minced-garlic",
+              "label": "Minced garlic, 1 jar — Replaces fresh garlic (Sun chili, Mon casserole, Tue, Thu)."
             },
             {
               "id": "green-onions",
@@ -1300,10 +1300,6 @@
             {
               "id": "butter-lettuce",
               "label": "Butter lettuce, 2 heads — Fri."
-            },
-            {
-              "id": "tomatoes",
-              "label": "Grape tomatoes, 1 pint — Sun lunch."
             },
             {
               "id": "cucumbers",
@@ -1340,10 +1336,6 @@
               "label": "Sliced ham (Wright uncured, as before), 1 1/4 lb — Sun chef salads and backups."
             },
             {
-              "id": "deli-turkey",
-              "label": "Deli turkey, 2 lb — Sun chef salads, backup roll-ups."
-            },
-            {
               "id": "bacon",
               "label": "Bacon, about 4 1/2 lb — 1 1/2 lb Sun breakfast, 9 oz Mon casserole, 12 oz Fri chicken, 1 1/2 lb Sat breakfast."
             },
@@ -1370,16 +1362,12 @@
               "label": "Eggs, 6 dozen — 12 Sun, 6 hard-boiled Sun lunch, 5 Mon casserole, 18 Wed egg bake, 12 Sat, plus weekday eggs. Count what's left first."
             },
             {
-              "id": "cheddar",
-              "label": "Shredded mild cheddar, 2 1/2 lb (10 cups) — Includes 2 1/4 cups Mon casserole."
+              "id": "mild-cheddar",
+              "label": "Shredded mild cheddar cheese, 8 cups — Replaces the sharp cheddar. Covers Sun chili, 2 1/4 cups Mon casserole, Wed egg bake, Fri chicken, lunches."
             },
             {
               "id": "mozzarella",
               "label": "Shredded mozzarella, 16 oz bag — Wed."
-            },
-            {
-              "id": "parmesan",
-              "label": "Grated Parmesan, 1 container (8 oz) — Tue, Thu."
             },
             {
               "id": "cream-cheese",
@@ -1394,28 +1382,24 @@
               "label": "Sour cream, 16 oz — Sun chili."
             },
             {
-              "id": "butter",
-              "label": "Kerrygold butter, 1 lb — Plus what's on hand."
-            },
-            {
-              "id": "string-cheese",
-              "label": "String cheese, 1 pack"
-            },
-            {
               "id": "greek-yogurt",
               "label": "Cabot 10% milkfat plain Greek yogurt, 1 tub (2 lb) — Same as the Nov 16 order; confirm."
             },
             {
               "id": "ratio-yogurt",
-              "label": "Ratio protein yogurt cups, vanilla (kids), 8"
+              "label": "Ratio protein yogurt cups, vanilla (kids), 1 pack (4 cups) — Same as the Nov 16 order; confirm."
             },
             {
-              "id": "starbucks-coffee",
-              "label": "Starbucks refrigerated unsweetened coffee, 1"
+              "id": "ratio-yogurt-strawberry",
+              "label": "Ratio yogurt strawberry, 4 cups"
             },
             {
-              "id": "coffee-creamer",
-              "label": "Coffee creamer, 1"
+              "id": "starbucks-brewed-coffee",
+              "label": "Starbucks unsweetened brewed coffee — Refrigerated"
+            },
+            {
+              "id": "starbucks-caramel-creamer",
+              "label": "Starbucks zero sugar caramel creamer, 1"
             }
           ]
         },
@@ -1470,53 +1454,6 @@
             {
               "id": "walnuts",
               "label": "Chopped walnuts — Check first."
-            },
-            {
-              "id": "coffee",
-              "label": "Coffee — Check first."
-            }
-          ],
-          "pantry": true
-        },
-        {
-          "id": "spices",
-          "title": "Spices and oils (usually on hand; check first)",
-          "items": [
-            {
-              "id": "olive-oil",
-              "label": "Olive oil — Check first."
-            },
-            {
-              "id": "salt",
-              "label": "Salt — Check first."
-            },
-            {
-              "id": "black-pepper",
-              "label": "Black pepper — Check first."
-            },
-            {
-              "id": "chili-powder",
-              "label": "Chili powder — Check first."
-            },
-            {
-              "id": "cumin",
-              "label": "Ground cumin — Check first."
-            },
-            {
-              "id": "oregano",
-              "label": "Dried oregano — Check first."
-            },
-            {
-              "id": "smoked-paprika",
-              "label": "Smoked paprika — Check first."
-            },
-            {
-              "id": "garlic-powder",
-              "label": "Garlic powder — Check first."
-            },
-            {
-              "id": "italian-seasoning",
-              "label": "Italian seasoning — Check first."
             }
           ],
           "pantry": true
@@ -1534,8 +1471,8 @@
               "label": "Quest protein crackers, Cheddar Blast, 1 box (4 ct)"
             },
             {
-              "id": "crystal-light",
-              "label": "Crystal Light Raspberry Lemonade, 1 box (10 packets)"
+              "id": "crystal-light-different",
+              "label": "Crystal Light (a different flavor)"
             },
             {
               "id": "pork-rinds",
@@ -1548,32 +1485,12 @@
           "title": "For the kids",
           "items": [
             {
-              "id": "kids-pizza",
-              "label": "Kids' pizza (takeout or frozen) — Wed."
-            },
-            {
               "id": "tortilla-chips",
               "label": "Tortilla chips, 1 bag — Sun."
             },
             {
               "id": "tater-tots",
               "label": "Frozen tater tots, 1 bag (32 oz) — Mon, for the kids."
-            },
-            {
-              "id": "hoagie-rolls",
-              "label": "Hoagie rolls, 1 pack (6) — Tue, or rice."
-            },
-            {
-              "id": "rice",
-              "label": "Rice — Check first. Tue and Thu."
-            },
-            {
-              "id": "slider-buns",
-              "label": "Slider buns, 1 pack (12) — Fri."
-            },
-            {
-              "id": "hot-dog-buns",
-              "label": "Hot dog buns, 1 pack — Sat backup."
             },
             {
               "id": "chips",
