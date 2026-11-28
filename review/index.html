@@ -9,7 +9,7 @@
 <meta name="description" content="Look over the week's dinners, tap a thumb for each one, and send your picks.">
 <title>Review the week · Family kitchen</title>
 <link rel="stylesheet" href="../kitchen/hearth.css">
-<link rel="stylesheet" href="review.css?v=suggest-1">
+<link rel="stylesheet" href="review.css?v=grocery-1">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" sizes="180x180" href="/kitchen/icons/apple-touch-icon.png">
 <link rel="manifest" href="/kitchen/manifest.webmanifest">
@@ -17,8 +17,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <script src="../kitchen/state.js" defer></script>
-<script src="picks.js?v=suggest-1" defer></script>
-<script src="app.js?v=suggest-1" defer></script>
+<script src="picks.js?v=grocery-1" defer></script>
+<script src="app.js?v=grocery-1" defer></script>
 </head>
 <body class="page-review">
 <a class="skip" href="#app">Skip to the dinners</a>
@@ -50,10 +50,20 @@
 <dialog id="gate" aria-labelledby="gateTitle">
   <form method="dialog">
     <h1 id="gateTitle">Clear all picks?</h1>
-    <p>This clears the thumbs, swaps, and notes for this week on this phone.</p>
+    <p>This clears the thumbs, swaps, grocery list edits, and notes for this week on this phone.</p>
     <div class="row">
       <button class="btn-quiet" value="cancel" type="submit">Keep them</button>
       <button class="btn-danger" value="ok" type="submit">Clear</button>
+    </div>
+  </form>
+</dialog>
+<dialog id="grocery-gate" aria-labelledby="groceryGateTitle">
+  <form method="dialog">
+    <h1 id="groceryGateTitle">Reset the grocery list?</h1>
+    <p>This puts the written grocery list back the way it started. Your dinner picks and notes stay as they are.</p>
+    <div class="row">
+      <button class="btn-quiet" value="cancel" type="submit">Keep my edits</button>
+      <button class="btn-danger" value="ok" type="submit">Reset the list</button>
     </div>
   </form>
 </dialog>

@@ -158,3 +158,65 @@ test('surprise-me aliases and the parser stay stable', () => {
   assert.deepEqual(parsed.days['2026-11-30'], { vote: 'change', swap: 'surprise me', dinner: 'Chicken cordon bleu bake' });
   assert.equal(parsed.notes, 'hello');
 });
+
+test('grocery edits persist, can be sent on their own, and round-trip in the email', () => {
+  const empty = R.normalize({}, week);
+  assert.deepEqual(empty.grocery, { removed: [], added: [] });
+  assert.equal(R.hasGroceryEdits(empty), false);
+  assert.equal(R.hasAnything(week, empty), false);
+
+  const raw = {
+    days: { '2026-11-29': { vote: 'approve' } },
+    grocery: {
+      removed: ['Yellow onions, 3', 'yellow onions, 3', 'Not on the list', { label: 'Bell peppers, 5' }],
+      added: [
+        { name: 'Salsa', qty: '1 jar', section: 'Produce' },
+        { name: 'Extra bacon', qty: '', section: '' },
+        { name: '', qty: '1', section: 'Produce' },
+        { name: 'Pipe|name', qty: '1|box', section: 'Snacks|drinks' }
+      ]
+    }
+  };
+  const p = R.normalize(raw, week);
+  assert.deepEqual(p.grocery.removed, ['Yellow onions, 3', 'Bell peppers, 5']);
+  assert.equal(p.grocery.added[0].name, 'Salsa');
+  assert.equal(p.grocery.added[0].qty, '1 jar');
+  assert.equal(p.grocery.added[0].section, 'Produce');
+  assert.equal(p.grocery.added[1].name, 'Extra bacon');
+  assert.ok(p.grocery.added.every(i => i.name !== ''));
+  assert.ok(p.grocery.added.some(i => i.name === 'Pipe/name' && i.qty === '1/box' && i.section === 'Snacks/drinks'));
+  assert.equal(R.hasGroceryEdits(p), true);
+
+  const groceryOnly = R.normalize({ grocery: { added: [{ name: 'Salsa', qty: '1 jar', section: 'Produce' }] } }, week);
+  assert.equal(R.hasAnything(week, groceryOnly), true);
+  assert.equal(R.counts(week, groceryOnly).open, 7);
+
+  const text = R.body(week, p, 'https://shea-nelson.github.io/kitchen/review/?week=2026-11-29');
+  assert.match(text, /Grocery list changes:/);
+  assert.match(text, /^- Leave off: Yellow onions, 3$/m);
+  assert.match(text, /^- Leave off: Bell peppers, 5$/m);
+  assert.match(text, /^- Add: Salsa, 1 jar \(Produce\)$/m);
+  assert.match(text, /^- Add: Extra bacon$/m);
+  assert.match(text, /^GROCERY REMOVE \| Yellow onions, 3$/m);
+  assert.match(text, /^GROCERY REMOVE \| Bell peppers, 5$/m);
+  assert.match(text, /^GROCERY ADD \| Salsa \| 1 jar \| Produce$/m);
+  assert.match(text, /^GROCERY ADD \| Extra bacon \|  \| $/m);
+  const parsed = R.parsePicksBody(text);
+  assert.deepEqual(parsed.grocery.removed, ['Yellow onions, 3', 'Bell peppers, 5']);
+  assert.deepEqual(parsed.grocery.added[0], { name: 'Salsa', qty: '1 jar', section: 'Produce' });
+  assert.deepEqual(parsed.grocery.added.find(i => i.name === 'Extra bacon'), { name: 'Extra bacon', qty: '', section: '' });
+  assert.equal(parsed.days['2026-11-29'].vote, 'approve');
+
+  const dinnerOnly = R.body(week, R.normalize({ days: { '2026-11-29': { vote: 'approve' } } }, week), '');
+  assert.doesNotMatch(dinnerOnly, /GROCERY /);
+  assert.doesNotMatch(dinnerOnly, /Grocery list changes/);
+});
+
+test("the suggestion filter includes the Swiss cheese dislike", () => {
+  assert.ok(R.DISLIKES.some(d => d.id === 'swiss' && /Nicole/i.test(d.label)));
+  const fake = { id: 'swiss-bake', title: 'Swiss cheese bake', summary: 'A casserole with Swiss.', ingredients: [{ name: 'Swiss cheese slices' }] };
+  assert.equal(R.suggestionPool({ recipes: [fake, recipesDoc.recipes.find(r => r.id === 'egg-roll-bowl')] }, week).map(r => r.id).includes('swiss-bake'), false);
+  recipesDoc.recipes.forEach(r => {
+    assert.doesNotMatch(JSON.stringify(r), /\bswiss\b/i, r.id);
+  });
+});

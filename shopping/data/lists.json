@@ -151,7 +151,7 @@
     "quest-crackers": "snacks",
     "tater-tots": "kids",
     "pumpkin-pie": "kids",
-    "swiss": "dairy",
+    "provolone": "dairy",
     "diced-tomatoes": "pantry",
     "tomato-sauce": "pantry",
     "italian-sausage-links": "meat",
@@ -2074,8 +2074,8 @@
           ]
         },
         {
-          "key": "swiss",
-          "name": "Swiss cheese slices",
+          "key": "provolone",
+          "name": "Provolone cheese slices",
           "section": "dairy",
           "qty": "8 oz",
           "note": "Mon.",

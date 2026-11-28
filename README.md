@@ -22,6 +22,10 @@ The email body has a plain-language list and a machine-readable block the weekly
     WEEK: 2026-11-29
     DAY 2026-11-30 | Chicken cordon bleu bake | CHANGE | Pork carnitas
     DAY 2026-12-01 | Sheet-pan Italian sausage with peppers and onions | CHANGE | surprise me
+    GROCERY REMOVE | Yellow onions, 3
+    GROCERY ADD | Salsa | 1 jar | Produce
     NOTES-JSON: "No fish this week"
 
 `APPROVE` keeps the planned dinner. `CHANGE` plus a dinner name is the swap to use. `CHANGE` plus `surprise me` means Nicole asked Scorpy to choose a family-friendly keto dinner from the library (not already on that week, and not seafood). `CHANGE` with a blank swap, or `NONE`, follows the existing rules (offer options, or leave as planned).
+
+Grocery list edits from the review page are optional. `GROCERY REMOVE | <item as listed>` means leave that written item off the shopping list (the text is the peek label, without the long em-dash note). `GROCERY ADD | <item> | <qty> | <section>` adds an item she typed; quantity and store section may be blank. Dinner picks can be sent again after grocery edits; grocery-only edits are enough to send on their own.
