@@ -48,7 +48,10 @@ test('this week matches the final dinner order and drops the removed dinners', (
   recipesDoc.recipes.forEach(recipe => {
     assert.doesNotMatch(recipe.id + recipe.title, /shrimp/i);
   });
-  assert.doesNotMatch(blob, /Nicole|Shea|Scorpy|discord/i);
+  const nicoleNote = 'Grocery list edited by Nicole on Nov 27.';
+  const nov29note = weeksDoc.weeks.find(w => w.id === '2026-11-29').groceryNote;
+  assert.equal(nov29note.split(nicoleNote).length - 1, 1);
+  assert.doesNotMatch(blob.replaceAll(nicoleNote, ''), /Nicole|Shea|Scorpy|discord/i);
   assert.match(week.days[0].dinnerNote, /Vital/);
   assert.match(week.days[0].dinnerNote, /Already eaten/);
   assert.match(week.days[1].lunch, /Turkey and cheese roll-ups/);
@@ -363,7 +366,7 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
   assert.equal(schedule.days['2026-11-29'], undefined);
   assert.equal(K.recipeIdForDate('2026-11-29', schedule, weeksDoc), 'slow-cooker-beef-chili');
   assert.equal(K.recipeIdForDate('2026-12-05', schedule, weeksDoc), null);
-  assert.deepEqual(nov29.grocery.map(section => section.id), ['produce', 'meat', 'dairy', 'pantry', 'spices', 'snacks', 'kids']);
+  assert.deepEqual(nov29.grocery.map(section => section.id), ['produce', 'meat', 'dairy', 'pantry', 'snacks', 'kids']);
   const labels = nov29.grocery.flatMap(section => section.items.map(item => item.label)).join('\n');
   assert.match(labels, /7 3\/4 lb/);
   assert.match(labels, /4 lb — Fri/);
@@ -371,6 +374,10 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
   assert.match(nov29.groceryNote, /Jacob's reception/);
   assert.doesNotMatch(labels, /shrimp|salmon|seafood/i);
   assert.match(nov29.groceryNote, /Fresh plan for review/);
+  assert.match(nov29.groceryNote, /Grocery list edited by Nicole on Nov 27\./);
+  assert.doesNotMatch(nov29.groceryNote, /Crystal Light/);
+  assert.doesNotMatch(nov29.groceryNote, /buns/i);
+  assert.equal(listDoc.weeks['2026-11-29'].note, nov29.groceryNote);
   assert.ok(listDoc.weeks['2026-11-29']);
   const built = S.buildList(nov29, catalog, listDoc);
   const by = key => built.sections.flatMap(section => section.items).find(item => item.key === key);
@@ -381,5 +388,126 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
   assert.equal(by('italian-sausage'), undefined);
   assert.equal(by('pita'), undefined);
   assert.doesNotMatch(JSON.stringify(built), /shrimp|salmon|seafood/i);
-  assert.deepEqual(built.sections.map(section => section.id), ['produce', 'meat', 'dairy', 'pantry', 'spices', 'snacks', 'kids']);
+  assert.deepEqual(built.sections.map(section => section.id), ['produce', 'meat', 'dairy', 'pantry', 'snacks', 'kids']);
+});
+
+test('Nicole\'s Nov 27 grocery edits for the week of Nov 29', () => {
+  const S = require('../shopping/list.js');
+  const listDoc = JSON.parse(fs.readFileSync(path.join(root, 'shopping/data/lists.json'), 'utf8'));
+  const nov29 = weeksDoc.weeks.find(w => w.id === '2026-11-29');
+  const planItems = listDoc.weeks['2026-11-29'].items;
+  const built = S.buildList(nov29, catalog, listDoc);
+  const builtItem = key => built.sections.flatMap(section => section.items).find(item => item.key === key);
+  const planItem = key => planItems.find(item => item.key === key);
+  const groceryItem = id => nov29.grocery.flatMap(section => section.items).find(item => item.id === id);
+  const grocerySection = id => {
+    const section = nov29.grocery.find(s => s.items.some(item => item.id === id));
+    return section && section.id;
+  };
+  const builtSection = key => {
+    const section = built.sections.find(s => s.items.some(item => item.key === key));
+    return section && section.id;
+  };
+
+  const removedIds = [
+    'garlic', 'tomatoes', 'deli-turkey', 'cheddar', 'string-cheese', 'crystal-light', 'kids-pizza',
+    'dinner-rolls', 'hoagie-rolls', 'rice', 'slider-buns', 'hot-dog-buns', 'parmesan', 'butter',
+    'olive-oil', 'salt', 'black-pepper', 'coffee', 'chili-powder', 'cumin', 'oregano',
+    'smoked-paprika', 'garlic-powder', 'italian-seasoning'
+  ];
+  const generatedRemoved = [
+    'garlic', 'cheddar', 'parmesan', 'butter', 'olive-oil', 'salt', 'black-pepper',
+    'chili-powder', 'cumin', 'oregano', 'smoked-paprika', 'garlic-powder', 'italian-seasoning'
+  ];
+  removedIds.forEach(id => {
+    assert.equal(groceryItem(id), undefined, id);
+    assert.equal(builtItem(id), undefined, id);
+  });
+  generatedRemoved.forEach(key => {
+    assert.equal(planItem(key) && planItem(key).hide, true, key);
+  });
+  ['tomatoes', 'deli-turkey', 'string-cheese', 'crystal-light', 'kids-pizza', 'dinner-rolls', 'hoagie-rolls', 'rice', 'slider-buns', 'hot-dog-buns', 'coffee'].forEach(key => {
+    assert.equal(planItems.some(item => item.key === key && !item.hide), false, key);
+  });
+
+  const labels = nov29.grocery.flatMap(section => section.items.map(item => item.label)).join('\n');
+  const builtText = JSON.stringify(built.sections);
+  [
+    'Garlic, 2 heads', 'Grape tomatoes', 'Deli turkey', 'Shredded sharp cheddar', 'String cheese',
+    'Crystal Light Raspberry', "Kids' pizza", 'Dinner rolls', 'Hoagie rolls', 'Slider buns',
+    'Hot dog buns', 'Grated Parmesan', 'Kerrygold', 'Olive oil', 'Chili powder', 'Ground cumin',
+    'Dried oregano', 'Smoked paprika', 'Garlic powder', 'Italian seasoning'
+  ].forEach(text => {
+    assert.equal(labels.includes(text), false, text);
+    assert.equal(builtText.includes(text), false, text);
+  });
+  assert.equal(built.sections.flatMap(section => section.items).some(item => item.name === 'Garlic'), false);
+  assert.equal(built.sections.flatMap(section => section.items).some(item => item.name === 'Rice'), false);
+  assert.equal(built.sections.flatMap(section => section.items).some(item => item.name === 'Salt'), false);
+  assert.equal(built.sections.flatMap(section => section.items).some(item => item.name === 'Black pepper'), false);
+  assert.equal(built.sections.flatMap(section => section.items).some(item => item.name === 'Coffee'), false);
+  assert.equal(built.sections.flatMap(section => section.items).some(item => item.name === 'Butter'), false);
+
+  assert.equal(groceryItem('minced-garlic').label, 'Minced garlic, 1 jar — Replaces fresh garlic (Sun chili, Mon casserole, Tue, Thu).');
+  assert.equal(grocerySection('minced-garlic'), 'produce');
+  assert.equal(groceryItem('mild-cheddar').label, 'Shredded mild cheddar cheese, 8 cups — Replaces the sharp cheddar. Covers Sun chili, 2 1/4 cups Mon casserole, Wed egg bake, Fri chicken, lunches.');
+  assert.equal(grocerySection('mild-cheddar'), 'dairy');
+  assert.equal(groceryItem('ratio-yogurt').label, 'Ratio protein yogurt cups, vanilla (kids), 1 pack (4 cups) — Same as the Nov 16 order; confirm.');
+  assert.equal(groceryItem('ratio-yogurt-strawberry').label, 'Ratio yogurt strawberry, 4 cups');
+  assert.equal(grocerySection('ratio-yogurt-strawberry'), 'dairy');
+  assert.equal(groceryItem('crystal-light-different').label, 'Crystal Light (a different flavor)');
+  assert.equal(grocerySection('crystal-light-different'), 'snacks');
+  assert.equal(groceryItem('starbucks-brewed-coffee').label, 'Starbucks unsweetened brewed coffee — Refrigerated');
+  assert.equal(grocerySection('starbucks-brewed-coffee'), 'dairy');
+  assert.equal(groceryItem('starbucks-caramel-creamer').label, 'Starbucks zero sugar caramel creamer, 1');
+  assert.equal(grocerySection('starbucks-caramel-creamer'), 'dairy');
+
+  const cheddarFor = ['2026-11-29', '2026-11-30', '2026-12-02 breakfast', '2026-12-04', 'lunches'];
+  assert.deepEqual(planItem('mild-cheddar').for, cheddarFor);
+  assert.equal(planItem('mild-cheddar').name, 'Shredded mild cheddar cheese');
+  assert.equal(planItem('mild-cheddar').qty, '8 cups');
+  assert.equal(planItem('mild-cheddar').section, 'dairy');
+  assert.equal(planItem('mild-cheddar').note, 'Replaces the sharp cheddar. Covers Sun chili, 2 1/4 cups Mon casserole, Wed egg bake, Fri chicken, lunches.');
+  assert.equal(planItem('minced-garlic').qty, '1 jar');
+  assert.equal(planItem('minced-garlic').note, 'Replaces fresh garlic (Sun chili, Mon casserole, Tue, Thu).');
+  assert.equal(planItem('ratio-yogurt').name, 'Ratio protein yogurt cups, vanilla (kids)');
+  assert.equal(planItem('ratio-yogurt').qty, '1 pack (4 cups)');
+  assert.equal(planItem('ratio-yogurt-strawberry').name, 'Ratio yogurt strawberry');
+  assert.equal(planItem('ratio-yogurt-strawberry').qty, '4 cups');
+  assert.equal(planItem('ratio-yogurt-strawberry').section, 'dairy');
+  assert.equal(planItem('crystal-light-different').name, 'Crystal Light (a different flavor)');
+  assert.equal(planItem('crystal-light-different').qty, undefined);
+  assert.equal(planItem('crystal-light-different').section, 'snacks');
+  assert.equal(planItem('starbucks-brewed-coffee').name, 'Starbucks unsweetened brewed coffee');
+  assert.equal(planItem('starbucks-brewed-coffee').qty, undefined);
+  assert.equal(planItem('starbucks-brewed-coffee').note, 'Refrigerated');
+  assert.equal(planItem('starbucks-brewed-coffee').section, 'dairy');
+  assert.equal(planItem('starbucks-caramel-creamer').name, 'Starbucks zero sugar caramel creamer');
+  assert.equal(planItem('starbucks-caramel-creamer').qty, '1');
+  assert.equal(planItem('starbucks-caramel-creamer').section, 'dairy');
+
+  assert.equal(builtItem('minced-garlic').name, 'Minced garlic');
+  assert.equal(builtItem('minced-garlic').qty, '1 jar');
+  assert.equal(builtSection('minced-garlic'), 'produce');
+  assert.equal(builtItem('mild-cheddar').name, 'Shredded mild cheddar cheese');
+  assert.equal(builtItem('mild-cheddar').qty, '8 cups');
+  assert.deepEqual(builtItem('mild-cheddar').for, ['Sun chili', 'Mon cheeseburger casserole', 'Wed breakfast', 'Fri crack chicken', 'lunches']);
+  assert.equal(builtSection('mild-cheddar'), 'dairy');
+  assert.equal(builtItem('ratio-yogurt').name, 'Ratio protein yogurt cups, vanilla (kids)');
+  assert.equal(builtItem('ratio-yogurt').qty, '1 pack (4 cups)');
+  assert.equal(builtItem('ratio-yogurt-strawberry').name, 'Ratio yogurt strawberry');
+  assert.equal(builtItem('ratio-yogurt-strawberry').qty, '4 cups');
+  assert.equal(builtSection('ratio-yogurt-strawberry'), 'dairy');
+  assert.equal(builtItem('crystal-light-different').name, 'Crystal Light (a different flavor)');
+  assert.equal(builtItem('crystal-light-different').qty, '');
+  assert.equal(builtSection('crystal-light-different'), 'snacks');
+  assert.equal(builtItem('starbucks-brewed-coffee').name, 'Starbucks unsweetened brewed coffee');
+  assert.equal(builtItem('starbucks-brewed-coffee').qty, '');
+  assert.equal(builtItem('starbucks-brewed-coffee').note, 'Refrigerated');
+  assert.equal(builtSection('starbucks-brewed-coffee'), 'dairy');
+  assert.equal(builtItem('starbucks-caramel-creamer').name, 'Starbucks zero sugar caramel creamer');
+  assert.equal(builtItem('starbucks-caramel-creamer').qty, '1');
+  assert.equal(builtSection('starbucks-caramel-creamer'), 'dairy');
+  const cheeseLines = built.sections.flatMap(section => section.items).filter(item => /cheddar/i.test(item.name) && !/cracker/i.test(item.name));
+  assert.deepEqual(cheeseLines.map(item => item.name), ['Shredded mild cheddar cheese']);
 });
