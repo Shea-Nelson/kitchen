@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f2ee">
+<meta name="robots" content="noindex">
+<meta name="description" content="Look over the week's dinners, tap a thumb for each one, and send your picks.">
+<title>Review the week · Family kitchen</title>
+<link rel="stylesheet" href="../kitchen/hearth.css">
+<link rel="stylesheet" href="review.css">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href="/kitchen/icons/apple-touch-icon.png">
+<link rel="manifest" href="/kitchen/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Kitchen">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script src="../kitchen/state.js" defer></script>
+<script src="picks.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body class="page-review">
+<a class="skip" href="#app">Skip to the dinners</a>
+<header class="top">
+  <div class="wrap top-row">
+    <a class="brand" href="./"><small>Family kitchen</small><strong>Review the week</strong></a>
+    <nav class="nav" aria-label="Kitchen">
+      <ul>
+        <li><a href="../planner/">Plan</a></li>
+        <li><a href="../recipes/">Recipes</a></li>
+        <li><a href="../shopping/">Shopping</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="wrap review" id="app" tabindex="-1">
+  <p class="loading">Loading the week…</p>
+  <noscript><p>This page needs JavaScript to show the week. The plain plan is on the <a href="../planner/">Plan page</a>.</p></noscript>
+</main>
+<div class="rv-dock" id="dock" hidden>
+  <div class="rv-dock-inner">
+    <p class="rv-dock-count" id="dock-count" aria-live="polite"></p>
+    <div class="rv-dock-buttons">
+      <a class="send" id="send" href="#send-help" role="button">Send my picks</a>
+      <button class="copy" id="copy" type="button">Copy my picks</button>
+    </div>
+  </div>
+</div>
+<dialog id="gate" aria-labelledby="gateTitle">
+  <form method="dialog">
+    <h1 id="gateTitle">Clear all picks?</h1>
+    <p>This clears the thumbs, swaps, and notes for this week on this phone.</p>
+    <div class="row">
+      <button class="btn-quiet" value="cancel" type="submit">Keep them</button>
+      <button class="btn-danger" value="ok" type="submit">Clear</button>
+    </div>
+  </form>
+</dialog>
+<p class="sr" id="live" aria-live="polite"></p>
+</body>
+</html>
