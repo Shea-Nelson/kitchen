@@ -373,6 +373,11 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
   assert.match(labels, /3 1\/2 lb/);
   assert.match(nov29.groceryNote, /Jacob's reception/);
   assert.doesNotMatch(labels, /shrimp|salmon|seafood/i);
+  assert.match(labels, /Shredded mild cheddar cheese, 8 cups/);
+  assert.match(labels, /Ratio protein yogurt cups, vanilla \(kids\), 1 pack \(4 cups\)/);
+  assert.match(labels, /Ratio yogurt strawberry, 4 cups/);
+  assert.match(labels, /Starbucks unsweetened brewed coffee/);
+  assert.match(labels, /Starbucks zero sugar caramel creamer, 1/);
   assert.match(nov29.groceryNote, /Fresh plan for review/);
   assert.match(nov29.groceryNote, /Grocery list edited by Nicole on Nov 27\./);
   assert.doesNotMatch(nov29.groceryNote, /Crystal Light/);
@@ -475,6 +480,8 @@ test('Nicole\'s Nov 27 grocery edits for the week of Nov 29', () => {
   assert.equal(planItem('ratio-yogurt-strawberry').name, 'Ratio yogurt strawberry');
   assert.equal(planItem('ratio-yogurt-strawberry').qty, '4 cups');
   assert.equal(planItem('ratio-yogurt-strawberry').section, 'dairy');
+  assert.match(planItem('ratio-yogurt').qty, /4 cups/);
+  assert.equal(planItem('ratio-yogurt-strawberry').qty, '4 cups');
   assert.equal(planItem('crystal-light-different').name, 'Crystal Light (a different flavor)');
   assert.equal(planItem('crystal-light-different').qty, undefined);
   assert.equal(planItem('crystal-light-different').section, 'snacks');
