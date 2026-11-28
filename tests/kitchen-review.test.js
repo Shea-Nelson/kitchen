@@ -220,3 +220,21 @@ test("the suggestion filter includes the Swiss cheese dislike", () => {
     assert.doesNotMatch(JSON.stringify(r), /\bswiss\b/i, r.id);
   });
 });
+
+test('leave-off keeps the grocery row in place and restores open pantry sections', () => {
+  const app = fs.readFileSync(path.join(root, 'review/app.js'), 'utf8');
+  const html = fs.readFileSync(path.join(root, 'review/index.html'), 'utf8');
+  assert.match(html, /review\.css\?v=grocery-2/);
+  assert.match(html, /picks\.js\?v=grocery-2/);
+  assert.match(html, /app\.js\?v=grocery-2/);
+  assert.match(html, /id="live"[^>]*aria-live="polite"/);
+  assert.match(app, /function syncToggleRow/);
+  assert.match(app, /function restoreGroceryView/);
+  assert.match(app, /function groceryViewSnapshot/);
+  assert.match(app, /pantry\.open = snap\.pantryOpen/);
+  assert.match(app, /window\.scrollTo\(0, snap\.y\)/);
+  assert.match(app, /toggle\.focus\(\{ preventScroll: true \}\)/);
+  const toggleBranch = app.split('if (toggle) {')[1].split('const drop =')[0];
+  assert.match(toggleBranch, /syncToggleRow/);
+  assert.doesNotMatch(toggleBranch, /paintGrocery\(\)/);
+});

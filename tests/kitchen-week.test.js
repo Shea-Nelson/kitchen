@@ -370,6 +370,11 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
   assert.match(labels, /3 1\/2 lb/);
   assert.match(nov29.groceryNote, /Jacob's reception/);
   assert.doesNotMatch(labels, /shrimp|salmon|seafood/i);
+  assert.match(labels, /Shredded mild cheddar, 2 1\/2 lb \(10 cups\)/);
+  assert.doesNotMatch(labels, /sharp cheddar/i);
+  assert.match(labels, /Ratio protein yogurt cups, vanilla \(kids\), 8/);
+  assert.match(labels, /Starbucks refrigerated unsweetened coffee, 1/);
+  assert.match(labels, /Coffee creamer, 1/);
   assert.match(nov29.groceryNote, /Fresh plan for review/);
   assert.ok(listDoc.weeks['2026-11-29']);
   const built = S.buildList(nov29, catalog, listDoc);

@@ -194,9 +194,95 @@
     return item.qty ? item.name + ', ' + item.qty : item.name;
   }
 
+  function groceryViewSnapshot() {
+    const root = document.getElementById('grocery-list');
+    const active = document.activeElement;
+    const pantry = root && root.querySelector('details.peek-pantry');
+    const box = document.getElementById('grocery');
+    const snap = {
+      y: window.scrollY,
+      pantryOpen: Boolean(pantry && pantry.open),
+      groceryOpen: Boolean(box && box.open),
+      focus: null
+    };
+    if (root && active && root.contains(active)) {
+      if (active.classList.contains('g-toggle')) snap.focus = { kind: 'toggle', label: active.getAttribute('data-label') };
+      else if (active.classList.contains('g-remove-add')) snap.focus = { kind: 'remove', index: active.getAttribute('data-index') };
+    } else if (active && (active.id === 'g-name' || active.id === 'g-qty' || active.id === 'g-section' || active.id === 'grocery-reset')) {
+      snap.focus = { kind: 'id', id: active.id };
+    }
+    return snap;
+  }
+
+  function findGroceryButton(root, snap) {
+    if (!root || !snap || !snap.focus) return null;
+    if (snap.focus.kind === 'toggle' && snap.focus.label) {
+      const buttons = root.querySelectorAll('.g-toggle');
+      for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].getAttribute('data-label') === snap.focus.label) return buttons[i];
+      }
+      return null;
+    }
+    if (snap.focus.kind === 'remove') {
+      const buttons = root.querySelectorAll('.g-remove-add');
+      const idx = Number(snap.focus.index);
+      if (buttons[idx]) return buttons[idx];
+      return buttons[buttons.length - 1] || null;
+    }
+    if (snap.focus.kind === 'id') return document.getElementById(snap.focus.id);
+    return null;
+  }
+
+  function restoreGroceryView(snap) {
+    if (!snap) return;
+    const root = document.getElementById('grocery-list');
+    const pantry = root && root.querySelector('details.peek-pantry');
+    if (pantry) pantry.open = snap.pantryOpen;
+    const box = document.getElementById('grocery');
+    if (box && snap.groceryOpen) box.open = true;
+    const el = findGroceryButton(root, snap);
+    if (el && el.focus) el.focus({ preventScroll: true });
+    window.scrollTo(0, snap.y);
+  }
+
+  function syncToggleRow(li, label, off) {
+    if (!li) return;
+    if (off) li.classList.add('is-off');
+    else li.classList.remove('is-off');
+    const name = li.querySelector('.g-name');
+    if (name) name.innerHTML = off ? '<s>' + esc(label) + '</s>' : esc(label);
+    const btn = li.querySelector('.g-toggle');
+    if (btn) {
+      btn.textContent = off ? 'Put back' : 'Leave off';
+      btn.setAttribute('aria-pressed', String(off));
+      btn.setAttribute('aria-label', off ? 'Put ' + label + ' back on the list' : 'Leave off ' + label);
+    }
+  }
+
+  function updateGroceryChrome() {
+    const catalog = R.groceryCatalog(week);
+    const g = picks.grocery;
+    const buyCount = catalog.filter(function (s) { return !s.pantry; }).reduce(function (n, s) { return n + s.items.length; }, 0);
+    const left = (g.removed || []).length;
+    const addedN = (g.added || []).length;
+    const count = document.getElementById('grocery-count');
+    let ctext = buyCount + ' items';
+    if (left) ctext += ' · ' + left + ' left off';
+    if (addedN) ctext += ' · ' + addedN + ' added';
+    if (count) count.textContent = ctext;
+    const reset = document.getElementById('grocery-reset');
+    if (reset) reset.hidden = !R.hasGroceryEdits(picks);
+    const box = document.getElementById('grocery');
+    if (box && R.hasGroceryEdits(picks) && !paintGrocery.opened) {
+      box.open = true;
+      paintGrocery.opened = true;
+    }
+  }
+
   function paintGrocery() {
     const root = document.getElementById('grocery-list');
     if (!root) return;
+    const snap = paintGrocery.ready ? groceryViewSnapshot() : null;
     const catalog = R.groceryCatalog(week);
     const g = picks.grocery;
     const removed = {};
@@ -251,21 +337,9 @@
       html += '<details class="peek-pantry"><summary>Pantry and spices, check first</summary>' + pantryBody + '</details>';
     }
     root.innerHTML = html;
-    const buyCount = buy.reduce(function (n, s) { return n + s.items.length; }, 0);
-    const left = g.removed.length;
-    const addedN = g.added.length;
-    const count = document.getElementById('grocery-count');
-    let ctext = buyCount + ' items';
-    if (left) ctext += ' · ' + left + ' left off';
-    if (addedN) ctext += ' · ' + addedN + ' added';
-    if (count) count.textContent = ctext;
-    const reset = document.getElementById('grocery-reset');
-    if (reset) reset.hidden = !R.hasGroceryEdits(picks);
-    const box = document.getElementById('grocery');
-    if (box && R.hasGroceryEdits(picks) && !paintGrocery.opened) {
-      box.open = true;
-      paintGrocery.opened = true;
-    }
+    updateGroceryChrome();
+    if (snap) restoreGroceryView(snap);
+    paintGrocery.ready = true;
   }
 
   function summary() {
@@ -360,8 +434,13 @@
           const list = picks.grocery.removed;
           const i = list.findIndex(function (l) { return l.toLowerCase() === label.toLowerCase(); });
           if (i >= 0) list.splice(i, 1); else list.push(label);
-          save(); paintGrocery(); summary();
-          say(i >= 0 ? label + ' is back on the list.' : label + ' will be left off.');
+          const off = i < 0;
+          save();
+          syncToggleRow(toggle.closest('.g-item'), label, off);
+          updateGroceryChrome();
+          summary();
+          say(off ? label + ' will be left off.' : label + ' is back on the list.');
+          toggle.focus({ preventScroll: true });
           return;
         }
         const drop = e.target.closest('.g-remove-add');
@@ -388,10 +467,13 @@
         picks = R.normalize(picks, week);
         save();
         addForm.reset();
+        const y = window.scrollY;
         paintGrocery(); summary();
         const last = picks.grocery.added[picks.grocery.added.length - 1];
         say(last ? last.name + ' was added to the grocery list.' : 'Could not add that item.');
-        document.getElementById('g-name').focus();
+        const nameField = document.getElementById('g-name');
+        if (nameField) nameField.focus({ preventScroll: true });
+        window.scrollTo(0, y);
       });
     }
     const resetBtn = document.getElementById('grocery-reset');

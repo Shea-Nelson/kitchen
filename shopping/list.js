@@ -86,6 +86,27 @@
       items.set(entry.key, item);
     });
 
+    (listDoc.regulars || []).forEach(function (entry) {
+      if (!entry || !entry.key) return;
+      const existing = items.get(entry.key);
+      if (existing) {
+        if (entry.name && (!existing.name || /sharp cheddar/i.test(existing.name))) existing.name = entry.name;
+        if (entry.section && !existing.section) existing.section = entry.section;
+        if (entry.qty && !existing.qty) existing.qty = entry.qty;
+        if (entry.note && !existing.note) existing.note = entry.note;
+        return;
+      }
+      items.set(entry.key, {
+        key: entry.key,
+        name: entry.name || entry.key,
+        section: entry.section || sectionOf[entry.key] || 'other',
+        parts: [],
+        tags: entry.for || [],
+        note: entry.note || '',
+        qty: entry.qty || ''
+      });
+    });
+
     items.forEach(function (item) {
       const out = {
         key: item.key,

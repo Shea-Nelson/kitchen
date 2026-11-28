@@ -1,7 +1,7 @@
 {
   "schema": "kitchen.shopping",
   "schemaVersion": 1,
-  "authoring": "Dinner items are read from the planner week and the cookbook. Each week below only sets the household amounts, adds breakfast, lunch, snack, and kid items, and hides what should not be bought. No nutrition figures.",
+  "authoring": "Dinner items are read from the planner week and the cookbook. Each week below only sets the household amounts, adds breakfast, lunch, snack, and kid items, and hides what should not be bought. No nutrition figures. Standing extras, added to every week and listed in regulars so a new week picks them up: shredded mild cheddar (not sharp), Ratio yogurt cups in a quantity of 8, Starbucks refrigerated unsweetened coffee (1), and coffee creamer (1) in dairy.",
   "sections": [
     {
       "id": "produce",
@@ -73,6 +73,8 @@
     "greek-yogurt": "dairy",
     "string-cheese": "dairy",
     "ratio-yogurt": "dairy",
+    "starbucks-coffee": "dairy",
+    "coffee-creamer": "dairy",
     "marinara": "pantry",
     "ranch": "pantry",
     "mustard": "pantry",
@@ -159,6 +161,34 @@
     "slider-buns": "kids",
     "tortilla-chips": "kids"
   },
+  "regulars": [
+    {
+      "key": "cheddar",
+      "name": "Shredded mild cheddar",
+      "section": "dairy",
+      "note": "Always mild, not sharp."
+    },
+    {
+      "key": "ratio-yogurt",
+      "name": "Ratio protein yogurt cups, vanilla (kids)",
+      "section": "dairy",
+      "qty": "8"
+    },
+    {
+      "key": "starbucks-coffee",
+      "name": "Starbucks refrigerated unsweetened coffee",
+      "section": "dairy",
+      "qty": "1",
+      "note": "Every week."
+    },
+    {
+      "key": "coffee-creamer",
+      "name": "Coffee creamer",
+      "section": "dairy",
+      "qty": "1",
+      "note": "Every week."
+    }
+  ],
   "weeks": {
     "2026-11-08": {
       "note": "For the home dinners Tuesday to Friday, plus breakfasts, lunches, and snacks. Sunday's Vital pizza and Monday's Kevin's teriyaki are already covered. Saturday is out of town. Nothing here orders food.",
@@ -302,7 +332,7 @@
         },
         {
           "key": "cheddar",
-          "name": "Shredded cheddar",
+          "name": "Shredded mild cheddar",
           "qty": "2 lb",
           "for": [
             "2026-11-11 breakfast",
@@ -353,9 +383,24 @@
         {
           "key": "ratio-yogurt",
           "name": "Ratio yogurt cups",
+          "qty": "8",
           "for": [
             "Snacks"
           ]
+        },
+        {
+          "key": "starbucks-coffee",
+          "name": "Starbucks refrigerated unsweetened coffee",
+          "section": "dairy",
+          "qty": "1",
+          "note": "Every week."
+        },
+        {
+          "key": "coffee-creamer",
+          "name": "Coffee creamer",
+          "section": "dairy",
+          "qty": "1",
+          "note": "Every week."
         },
         {
           "key": "marinara",
@@ -734,7 +779,7 @@
         },
         {
           "key": "cheddar",
-          "name": "Shredded cheddar",
+          "name": "Shredded mild cheddar",
           "qty": "2 lb",
           "for": [
             "2026-11-18 breakfast",
@@ -744,7 +789,7 @@
         },
         {
           "key": "cheddar-slices",
-          "name": "Cheddar slices",
+          "name": "Mild cheddar slices",
           "qty": "12 slices",
           "section": "dairy"
         },
@@ -804,11 +849,25 @@
         {
           "key": "ratio-yogurt",
           "name": "Ratio yogurt cups",
-          "qty": "qty: confirm",
+          "qty": "8",
           "for": [
             "Snacks"
           ],
           "section": "dairy"
+        },
+        {
+          "key": "starbucks-coffee",
+          "name": "Starbucks refrigerated unsweetened coffee",
+          "section": "dairy",
+          "qty": "1",
+          "note": "Every week."
+        },
+        {
+          "key": "coffee-creamer",
+          "name": "Coffee creamer",
+          "section": "dairy",
+          "qty": "1",
+          "note": "Every week."
         },
         {
           "key": "coconut-aminos",
@@ -1364,7 +1423,7 @@
         },
         {
           "key": "cheddar",
-          "name": "Shredded sharp cheddar",
+          "name": "Shredded mild cheddar",
           "section": "dairy",
           "qty": "about 2 1/2 lb (10 cups)",
           "for": [
@@ -1449,11 +1508,24 @@
           "key": "ratio-yogurt",
           "name": "Ratio protein yogurt cups, vanilla (kids)",
           "section": "dairy",
-          "qty": "1 pack (4 cups)",
-          "note": "Same as the Nov 16 order.",
+          "qty": "8",
           "for": [
             "kids' snacks"
           ]
+        },
+        {
+          "key": "starbucks-coffee",
+          "name": "Starbucks refrigerated unsweetened coffee",
+          "section": "dairy",
+          "qty": "1",
+          "note": "Every week."
+        },
+        {
+          "key": "coffee-creamer",
+          "name": "Coffee creamer",
+          "section": "dairy",
+          "qty": "1",
+          "note": "Every week."
         },
         {
           "key": "ranch-seasoning",
@@ -2047,7 +2119,7 @@
         },
         {
           "key": "cheddar",
-          "name": "Shredded sharp cheddar",
+          "name": "Shredded mild cheddar",
           "section": "dairy",
           "qty": "2 1/2 lb (10 cups)",
           "note": "Includes 2 1/4 cups Mon casserole.",
@@ -2148,12 +2220,25 @@
           "key": "ratio-yogurt",
           "name": "Ratio protein yogurt cups, vanilla (kids)",
           "section": "dairy",
-          "qty": "1 pack (4 cups)",
-          "note": "Same as the Nov 16 order; confirm.",
+          "qty": "8",
           "for": [
             "2026-11-30 breakfast",
             "2026-12-04 breakfast"
           ]
+        },
+        {
+          "key": "starbucks-coffee",
+          "name": "Starbucks refrigerated unsweetened coffee",
+          "section": "dairy",
+          "qty": "1",
+          "note": "Every week."
+        },
+        {
+          "key": "coffee-creamer",
+          "name": "Coffee creamer",
+          "section": "dairy",
+          "qty": "1",
+          "note": "Every week."
         },
         {
           "key": "diced-tomatoes",

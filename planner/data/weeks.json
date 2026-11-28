@@ -131,7 +131,7 @@
             },
             {
               "id": "cheddar",
-              "label": "Shredded cheddar, 2 lb (Thursday ham bake)"
+              "label": "Shredded mild cheddar, 2 lb (Thursday ham bake)"
             },
             {
               "id": "mozzarella",
@@ -163,7 +163,15 @@
             },
             {
               "id": "ratio",
-              "label": "Ratio yogurt cups"
+              "label": "Ratio yogurt cups, 8"
+            },
+            {
+              "id": "starbucks-coffee",
+              "label": "Starbucks refrigerated unsweetened coffee, 1"
+            },
+            {
+              "id": "coffee-creamer",
+              "label": "Coffee creamer, 1"
             }
           ]
         },
@@ -525,11 +533,11 @@
             },
             {
               "id": "cheddar",
-              "label": "Shredded cheddar, 2 lb — Mon, Tue, Thu dinners, egg bake, roll-ups"
+              "label": "Shredded mild cheddar, 2 lb — Mon, Tue, Thu dinners, egg bake, roll-ups"
             },
             {
               "id": "cheddar-slices",
-              "label": "Cheddar slices, 12 — Fri burgers"
+              "label": "Mild cheddar slices, 12 — Fri burgers"
             },
             {
               "id": "mozzarella",
@@ -561,7 +569,15 @@
             },
             {
               "id": "ratio-yogurt",
-              "label": "Ratio yogurt cups — qty: confirm"
+              "label": "Ratio yogurt cups, 8"
+            },
+            {
+              "id": "starbucks-coffee",
+              "label": "Starbucks refrigerated unsweetened coffee, 1"
+            },
+            {
+              "id": "coffee-creamer",
+              "label": "Coffee creamer, 1"
             }
           ]
         },
@@ -954,7 +970,7 @@
             },
             {
               "id": "cheddar",
-              "label": "Shredded sharp cheddar, about 2 1/2 lb (10 cups)"
+              "label": "Shredded mild cheddar, about 2 1/2 lb (10 cups)"
             },
             {
               "id": "mozzarella",
@@ -986,7 +1002,15 @@
             },
             {
               "id": "ratio-yogurt",
-              "label": "Ratio protein yogurt cups, vanilla (kids), 1 pack (4 cups) — Same as the Nov 16 order."
+              "label": "Ratio protein yogurt cups, vanilla (kids), 8"
+            },
+            {
+              "id": "starbucks-coffee",
+              "label": "Starbucks refrigerated unsweetened coffee, 1"
+            },
+            {
+              "id": "coffee-creamer",
+              "label": "Coffee creamer, 1"
             }
           ]
         },
@@ -1347,7 +1371,7 @@
             },
             {
               "id": "cheddar",
-              "label": "Shredded sharp cheddar, 2 1/2 lb (10 cups) — Includes 2 1/4 cups Mon casserole."
+              "label": "Shredded mild cheddar, 2 1/2 lb (10 cups) — Includes 2 1/4 cups Mon casserole."
             },
             {
               "id": "mozzarella",
@@ -1383,7 +1407,15 @@
             },
             {
               "id": "ratio-yogurt",
-              "label": "Ratio protein yogurt cups, vanilla (kids), 1 pack (4 cups) — Same as the Nov 16 order; confirm."
+              "label": "Ratio protein yogurt cups, vanilla (kids), 8"
+            },
+            {
+              "id": "starbucks-coffee",
+              "label": "Starbucks refrigerated unsweetened coffee, 1"
+            },
+            {
+              "id": "coffee-creamer",
+              "label": "Coffee creamer, 1"
             }
           ]
         },
