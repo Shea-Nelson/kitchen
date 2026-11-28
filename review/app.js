@@ -86,14 +86,27 @@
   }
 
   function peekHtml() {
-    const sections = R.groceryPeek(week);
-    const total = sections.reduce(function (n, s) { return n + s.items.length; }, 0);
-    if (!total) return '';
-    const body = sections.map(function (s) {
-      return '<h3>' + esc(s.title) + '</h3><ul>' + s.items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>';
+    const catalog = R.groceryCatalog(week);
+    if (!catalog.length) return '';
+    const sections = catalog.map(function (s) {
+      return '<option value="' + esc(s.title) + '"></option>';
     }).join('');
-    return '<details class="peek"><summary>Grocery list peek <span class="count">' + total + ' items</span></summary>' + body +
-      '<p class="peek-foot">Pantry staples are on the full list. <a href="../shopping/?week=' + encodeURIComponent(week.startsOn) + '">Open the full grocery list</a></p></details>';
+    return '<details class="peek" id="grocery">' +
+      '<summary><span class="peek-title">Grocery list</span> <span class="count" id="grocery-count"></span></summary>' +
+      '<p class="peek-lead">Leave off anything you don’t need, or add something of your own. Nothing is deleted for good — you can put an item back. Edits save on this phone and go out when you send or copy your picks, even if you already sent dinner picks.</p>' +
+      '<div id="grocery-list"></div>' +
+      '<form class="grocery-add" id="grocery-add">' +
+      '<h3>Add an item</h3>' +
+      '<p class="g-fields">' +
+      '<label class="g-field"><span>Item</span><input id="g-name" name="name" type="text" required maxlength="' + R.GROCERY_NAME_MAX + '" autocomplete="off" enterkeyhint="next"></label>' +
+      '<label class="g-field"><span>Quantity <span class="opt">(optional)</span></span><input id="g-qty" name="qty" type="text" maxlength="' + R.GROCERY_QTY_MAX + '" autocomplete="off" enterkeyhint="next" placeholder="e.g. 1 jar"></label>' +
+      '<label class="g-field"><span>Store section <span class="opt">(optional)</span></span><input id="g-section" name="section" type="text" list="g-sections" maxlength="' + R.GROCERY_SECTION_MAX + '" autocomplete="off" enterkeyhint="done" placeholder="e.g. Produce"></label>' +
+      '</p>' +
+      '<datalist id="g-sections">' + sections + '</datalist>' +
+      '<button type="submit" class="grocery-add-btn">Add to the list</button>' +
+      '</form>' +
+      '<p class="grocery-reset-wrap"><button type="button" class="btn-quiet" id="grocery-reset" hidden>Reset the grocery list</button></p>' +
+      '<p class="peek-foot">The full written list, including pantry staples, is also on the shopping page. <a href="../shopping/?week=' + encodeURIComponent(week.startsOn) + '">Open the full grocery list</a></p></details>';
   }
 
   function weekNav() {
@@ -109,7 +122,7 @@
       '<section class="intro-block">' +
       '<p class="kicker">Meal plan review</p>' +
       '<h1>' + esc(week.title.replace(/, \d{4}$/, '')) + '</h1>' +
-      '<p class="lede">Give each dinner a thumbs-up, or a thumbs-down with a swap idea. If you are not sure, you can ask for a few ideas. Your picks save on this phone as you go, then one tap sends them.</p>' +
+      '<p class="lede">Give each dinner a thumbs-up, or a thumbs-down with a swap idea. If you are not sure, you can ask for a few ideas. You can also leave items off the grocery list or add a few of your own. Your picks save on this phone as you go, then one tap sends them. You can send again if you change anything.</p>' +
       weekNav() +
       '</section>' +
       '<div class="rv-days">' + week.days.map(cardHtml).join('') + '</div>' +
@@ -117,7 +130,7 @@
       '<section class="notes-block"><label for="notes">Anything else about the week?</label>' +
       '<textarea id="notes" rows="4" maxlength="' + R.NOTES_MAX + '" placeholder="Allergies, guests, a night to eat out, anything at all."></textarea></section>' +
       '<section class="send-block" id="send-help"><h2>Send your picks</h2>' +
-      '<p>“Send my picks” opens a ready-to-go email in your mail app. Look it over and press send there. If nothing opens, tap “Copy my picks” and paste it into a message to Giles.</p>' +
+      '<p>“Send my picks” opens a ready-to-go email in your mail app. Look it over and press send there. If nothing opens, tap “Copy my picks” and paste it into a message to Giles. You can send again anytime if you change your picks or the grocery list.</p>' +
       '<details class="preview"><summary>See exactly what will be sent</summary><pre id="preview" tabindex="0"></pre></details>' +
       '<p class="fine">Picks stay on this device. This page has no tracking and sends nothing by itself. <button type="button" class="btn-quiet" id="clear">Clear my picks</button></p>' +
       '<p class="fine" id="save-warning" role="status"></p>' +
@@ -173,7 +186,86 @@
     });
     const notes = document.getElementById('notes');
     if (notes !== document.activeElement && notes.value !== picks.notes) notes.value = picks.notes;
+    paintGrocery();
     summary();
+  }
+
+  function groceryItemLabel(item) {
+    return item.qty ? item.name + ', ' + item.qty : item.name;
+  }
+
+  function paintGrocery() {
+    const root = document.getElementById('grocery-list');
+    if (!root) return;
+    const catalog = R.groceryCatalog(week);
+    const g = picks.grocery;
+    const removed = {};
+    (g.removed || []).forEach(function (label) { removed[label.toLowerCase()] = true; });
+    const buy = catalog.filter(function (s) { return !s.pantry; });
+    const pantry = catalog.filter(function (s) { return s.pantry; });
+    function rows(section, kind) {
+      return section.items.map(function (it) {
+        const off = Boolean(removed[it.label.toLowerCase()]);
+        const btn = off ? 'Put back' : 'Leave off';
+        const aria = off ? 'Put ' + it.label + ' back on the list' : 'Leave off ' + it.label;
+        const name = off ? '<s>' + esc(it.label) + '</s>' : esc(it.label);
+        return '<li class="g-item' + (off ? ' is-off' : '') + '">' +
+          '<span class="g-name" id="g-' + kind + '-' + esc(it.id || it.label) + '">' + name + '</span>' +
+          '<button type="button" class="g-toggle" data-label="' + esc(it.label) + '" aria-pressed="' + String(off) + '" aria-label="' + esc(aria) + '">' + btn + '</button></li>';
+      }).join('');
+    }
+    function sectionHtml(section, kind) {
+      return '<section class="g-section"><h3>' + esc(section.title) + '</h3><ul class="g-items">' + rows(section, kind) + '</ul></section>';
+    }
+    const addedBySection = {};
+    const addedLoose = [];
+    (g.added || []).forEach(function (item, i) {
+      const row = '<li class="g-item is-added">' +
+        '<span class="g-name">' + esc(groceryItemLabel(item)) + (item.section ? ' <span class="g-sec">(' + esc(item.section) + ')</span>' : '') + '</span>' +
+        '<button type="button" class="g-remove-add" data-index="' + i + '" aria-label="Remove ' + esc(item.name) + ' from your added items">Remove</button></li>';
+      const title = (item.section || '').trim().toLowerCase();
+      const match = title && catalog.find(function (s) { return s.title.toLowerCase() === title; });
+      if (match) {
+        if (!addedBySection[match.title]) addedBySection[match.title] = [];
+        addedBySection[match.title].push(row);
+      } else addedLoose.push(row);
+    });
+    let html = buy.map(function (s) {
+      const extra = addedBySection[s.title] ? addedBySection[s.title].join('') : '';
+      return '<section class="g-section"><h3>' + esc(s.title) + '</h3><ul class="g-items">' + rows(s, 'buy') + extra + '</ul></section>';
+    }).join('');
+    if (addedLoose.length) {
+      html += '<section class="g-section"><h3>Added by you</h3><ul class="g-items">' + addedLoose.join('') + '</ul></section>';
+    }
+    // leftover added items tagged to pantry sections
+    pantry.forEach(function (s) {
+      if (addedBySection[s.title]) {
+        /* shown inside pantry details below */
+      }
+    });
+    if (pantry.length) {
+      const pantryBody = pantry.map(function (s) {
+        const extra = addedBySection[s.title] ? addedBySection[s.title].join('') : '';
+        return '<section class="g-section"><h3>' + esc(s.title) + '</h3><ul class="g-items">' + rows(s, 'pantry') + extra + '</ul></section>';
+      }).join('');
+      html += '<details class="peek-pantry"><summary>Pantry and spices, check first</summary>' + pantryBody + '</details>';
+    }
+    root.innerHTML = html;
+    const buyCount = buy.reduce(function (n, s) { return n + s.items.length; }, 0);
+    const left = g.removed.length;
+    const addedN = g.added.length;
+    const count = document.getElementById('grocery-count');
+    let ctext = buyCount + ' items';
+    if (left) ctext += ' · ' + left + ' left off';
+    if (addedN) ctext += ' · ' + addedN + ' added';
+    if (count) count.textContent = ctext;
+    const reset = document.getElementById('grocery-reset');
+    if (reset) reset.hidden = !R.hasGroceryEdits(picks);
+    const box = document.getElementById('grocery');
+    if (box && R.hasGroceryEdits(picks) && !paintGrocery.opened) {
+      box.open = true;
+      paintGrocery.opened = true;
+    }
   }
 
   function summary() {
@@ -259,6 +351,55 @@
       changed();
     });
     document.getElementById('clear').addEventListener('click', function () { gate.showModal(); });
+    const groceryList = document.getElementById('grocery-list');
+    if (groceryList) {
+      groceryList.addEventListener('click', function (e) {
+        const toggle = e.target.closest('.g-toggle');
+        if (toggle) {
+          const label = toggle.dataset.label;
+          const list = picks.grocery.removed;
+          const i = list.findIndex(function (l) { return l.toLowerCase() === label.toLowerCase(); });
+          if (i >= 0) list.splice(i, 1); else list.push(label);
+          save(); paintGrocery(); summary();
+          say(i >= 0 ? label + ' is back on the list.' : label + ' will be left off.');
+          return;
+        }
+        const drop = e.target.closest('.g-remove-add');
+        if (drop) {
+          const idx = Number(drop.dataset.index);
+          const item = picks.grocery.added[idx];
+          if (item) {
+            picks.grocery.added.splice(idx, 1);
+            save(); paintGrocery(); summary();
+            say(item.name + ' was removed from your added items.');
+          }
+        }
+      });
+    }
+    const addForm = document.getElementById('grocery-add');
+    if (addForm) {
+      addForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('g-name').value;
+        const qty = document.getElementById('g-qty').value;
+        const section = document.getElementById('g-section').value;
+        const item = { name: name, qty: qty, section: section };
+        picks.grocery.added.push(item);
+        picks = R.normalize(picks, week);
+        save();
+        addForm.reset();
+        paintGrocery(); summary();
+        const last = picks.grocery.added[picks.grocery.added.length - 1];
+        say(last ? last.name + ' was added to the grocery list.' : 'Could not add that item.');
+        document.getElementById('g-name').focus();
+      });
+    }
+    const resetBtn = document.getElementById('grocery-reset');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        document.getElementById('grocery-gate').showModal();
+      });
+    }
   }
 
   gate.addEventListener('close', function () {
@@ -268,16 +409,26 @@
     gate.returnValue = '';
   });
 
+  document.getElementById('grocery-gate').addEventListener('close', function () {
+    const g = document.getElementById('grocery-gate');
+    if (g.returnValue === 'ok') {
+      picks.grocery = { removed: [], added: [] };
+      picks = R.normalize(picks, week);
+      save(); paint(); say('Grocery list restored. Your dinner picks are unchanged.');
+    }
+    g.returnValue = '';
+  });
+
   sendLink.addEventListener('click', function (e) {
     if (sendLink.getAttribute('aria-disabled') === 'true') {
       e.preventDefault();
-      say('Pick at least one dinner or add a note first.');
+      say('Pick at least one dinner, edit the grocery list, or add a note first.');
       document.getElementById('send-help').scrollIntoView({ block: 'center' });
     }
   });
 
   copyBtn.addEventListener('click', function () {
-    if (!R.hasAnything(week, picks)) { say('Pick at least one dinner or add a note first.'); return; }
+    if (!R.hasAnything(week, picks)) { say('Pick at least one dinner, edit the grocery list, or add a note first.'); return; }
     const text = R.subject(week) + '\n\n' + R.body(week, picks, pageUrl());
     function done() { copyBtn.textContent = 'Copied'; say('Your picks are copied.'); setTimeout(function () { copyBtn.textContent = 'Copy my picks'; }, 2200); }
     function fallback() {

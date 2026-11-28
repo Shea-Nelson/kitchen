@@ -11,6 +11,9 @@
   const STORAGE_KEY = 'kitchen.review.v1';
   const SWAP_MAX = 200;
   const NOTES_MAX = 1000;
+  const GROCERY_NAME_MAX = 80;
+  const GROCERY_QTY_MAX = 40;
+  const GROCERY_SECTION_MAX = 40;
   const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
   const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const DOWS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -61,6 +64,74 @@
     return String(value == null ? '' : value).replace(/\r/g, '').slice(0, max);
   }
 
+  function oneLine(value, max) {
+    return clean(value, max).replace(/\s*\n\s*/g, ' ').replace(/\|/g, '/').trim();
+  }
+
+  function peekLabel(item) {
+    return String(item && item.label || '').split(' \u2014 ')[0].trim();
+  }
+
+  /* Structured grocery list for the review page. groceryPeek stays a simple
+     string list of the buy-sections (no pantry) for older callers. */
+  function groceryCatalog(week) {
+    return ((week && week.grocery) || []).map(function (s) {
+      return {
+        id: s.id || '',
+        title: s.title,
+        pantry: Boolean(s.pantry),
+        items: (s.items || []).map(function (it) {
+          return { id: it.id || '', label: peekLabel(it) };
+        }).filter(function (it) { return it.label; })
+      };
+    }).filter(function (s) { return s.items.length; });
+  }
+
+  function groceryPeek(week) {
+    return groceryCatalog(week).filter(function (s) { return !s.pantry; }).map(function (s) {
+      return { title: s.title, items: s.items.map(function (it) { return it.label; }) };
+    });
+  }
+
+  function catalogLabels(week) {
+    const map = {};
+    groceryCatalog(week).forEach(function (section) {
+      section.items.forEach(function (it) {
+        map[it.label.toLowerCase()] = it.label;
+      });
+    });
+    return map;
+  }
+
+  function normalizeGrocery(raw, week) {
+    const src = raw && raw.grocery && typeof raw.grocery === 'object' ? raw.grocery : {};
+    const known = catalogLabels(week);
+    const removed = [];
+    const seen = {};
+    (Array.isArray(src.removed) ? src.removed : []).forEach(function (item) {
+      const label = oneLine(typeof item === 'string' ? item : item && item.label, SWAP_MAX);
+      const canon = label && known[label.toLowerCase()];
+      if (canon && !seen[canon.toLowerCase()]) { seen[canon.toLowerCase()] = true; removed.push(canon); }
+    });
+    const added = [];
+    (Array.isArray(src.added) ? src.added : []).forEach(function (item) {
+      if (!item || typeof item !== 'object') return;
+      const name = oneLine(item.name, GROCERY_NAME_MAX);
+      if (!name) return;
+      added.push({
+        name: name,
+        qty: oneLine(item.qty, GROCERY_QTY_MAX),
+        section: oneLine(item.section, GROCERY_SECTION_MAX)
+      });
+    });
+    return { removed: removed, added: added };
+  }
+
+  function hasGroceryEdits(picks) {
+    const g = picks && picks.grocery;
+    return Boolean(g && ((g.removed && g.removed.length) || (g.added && g.added.length)));
+  }
+
   function normalize(raw, week) {
     const out = { days: {}, notes: '' };
     const src = raw && typeof raw === 'object' ? raw : {};
@@ -70,6 +141,7 @@
       out.days[day.date] = { vote: vote, swap: vote === 'change' ? clean(d.swap, SWAP_MAX).replace(/\s*\n\s*/g, ' ') : '' };
     });
     out.notes = clean(src.notes, NOTES_MAX);
+    out.grocery = normalizeGrocery(src, week);
     return out;
   }
 
@@ -84,7 +156,7 @@
 
   function hasAnything(week, picks) {
     const c = counts(week, picks);
-    return c.approve + c.change > 0 || picks.notes.trim() !== '';
+    return c.approve + c.change > 0 || picks.notes.trim() !== '' || hasGroceryEdits(picks);
   }
 
   function subject(week) {
@@ -96,7 +168,10 @@
   }
 
   const SURPRISE_SWAP = 'surprise me';
-  const AVOID_RE = /shrimp|salmon|scampi|seafood|\bfish\b/i;
+  const DISLIKES = [
+    { id: 'seafood', label: 'no seafood', pattern: /shrimp|salmon|scampi|seafood|\bfish\b/i },
+    { id: 'swiss', label: 'no Swiss cheese (Nicole)', pattern: /\bswiss\b/i }
+  ];
   const SURPRISE_ALIASES = [
     'surprise me',
     'scorpy, you choose',
@@ -128,9 +203,14 @@
     return Boolean(recipe && recipe.id && recipe.title && !recipe.section);
   }
 
+  function recipeBlob(recipe) {
+    return [recipe.id, recipe.title, recipe.summary, recipe.style, JSON.stringify(recipe.ingredients || [])].join(' ');
+  }
+
   function isAvoidedDinner(recipe) {
-    const blob = [recipe.id, recipe.title, recipe.summary, recipe.style].join(' ');
-    return AVOID_RE.test(blob) || /thanksgiving/i.test(recipe.id + ' ' + recipe.title);
+    const blob = recipeBlob(recipe);
+    if (/thanksgiving/i.test(recipe.id + ' ' + recipe.title)) return true;
+    return DISLIKES.some(function (d) { return d.pattern.test(blob); });
   }
 
   /* Family-friendly keto dinners from the cookbook (and past weeks, since
@@ -190,6 +270,17 @@
     });
     lines.push('');
     lines.push('Notes: ' + (picks.notes.trim() ? picks.notes.trim().replace(/\n+/g, '\n       ') : '(none)'));
+    if (hasGroceryEdits(picks)) {
+      lines.push('');
+      lines.push('Grocery list changes:');
+      (picks.grocery.removed || []).forEach(function (label) { lines.push('- Leave off: ' + label); });
+      (picks.grocery.added || []).forEach(function (item) {
+        let line = '- Add: ' + item.name;
+        if (item.qty) line += ', ' + item.qty;
+        if (item.section) line += ' (' + item.section + ')';
+        lines.push(line);
+      });
+    }
     lines.push('');
     lines.push('--- machine-readable (please leave as is) ---');
     lines.push('WEEK: ' + week.id);
@@ -197,6 +288,12 @@
       const p = picks.days[day.date];
       lines.push('DAY ' + day.date + ' | ' + dinnerName(day) + ' | ' + (p.vote ? p.vote.toUpperCase() : 'NONE') + ' | ' + swapText(p));
     });
+    if (hasGroceryEdits(picks)) {
+      (picks.grocery.removed || []).forEach(function (label) { lines.push('GROCERY REMOVE | ' + label); });
+      (picks.grocery.added || []).forEach(function (item) {
+        lines.push('GROCERY ADD | ' + item.name + ' | ' + (item.qty || '') + ' | ' + (item.section || ''));
+      });
+    }
     lines.push('NOTES-JSON: ' + JSON.stringify(picks.notes.trim()));
     lines.push('--- end ---');
     if (pageUrl) { lines.push(''); lines.push('Review page: ' + pageUrl); }
@@ -210,22 +307,11 @@
       '&body=' + encodeURIComponent(body(week, picks, pageUrl));
   }
 
-  /* Grocery peek: the week's written list, with the long notes trimmed. */
-  function groceryPeek(week) {
-    const sections = (week.grocery || []).filter(function (s) { return !s.pantry; });
-    return sections.map(function (s) {
-      return {
-        title: s.title,
-        items: (s.items || []).map(function (it) { return String(it.label || '').split(' \u2014 ')[0]; })
-      };
-    });
-  }
-
   /* Turn the machine-readable block (or a whole email body) back into picks.
      CHANGE | surprise me means Nicole asked Scorpy to choose a dinner. */
   function parsePicksBody(text) {
     const src = String(text == null ? '' : text);
-    const out = { weekId: null, days: {}, notes: '', ok: false };
+    const out = { weekId: null, days: {}, notes: '', grocery: { removed: [], added: [] }, ok: false };
     const week = src.match(/^WEEK:\s*(\d{4}-\d{2}-\d{2})\s*$/m);
     if (week) out.weekId = week[1];
     const dayRe = /^DAY (\d{4}-\d{2}-\d{2}) \| (.*) \| (APPROVE|CHANGE|NONE) \| (.*)$/gm;
@@ -235,6 +321,17 @@
       let swap = vote === 'change' ? clean(m[4], SWAP_MAX).replace(/\s*\n\s*/g, ' ') : '';
       if (isSurpriseSwap(swap)) swap = SURPRISE_SWAP;
       out.days[m[1]] = { vote: vote, swap: swap, dinner: m[2] };
+    }
+    const remRe = /^GROCERY REMOVE \| (.*)$/gm;
+    while ((m = remRe.exec(src))) {
+      const label = oneLine(m[1], SWAP_MAX);
+      if (label) out.grocery.removed.push(label);
+    }
+    const addRe = /^GROCERY ADD \| ([^|]*) \| ([^|]*) \| (.*)$/gm;
+    while ((m = addRe.exec(src))) {
+      const name = oneLine(m[1], GROCERY_NAME_MAX);
+      if (!name) continue;
+      out.grocery.added.push({ name: name, qty: oneLine(m[2], GROCERY_QTY_MAX), section: oneLine(m[3], GROCERY_SECTION_MAX) });
     }
     const notesLine = src.match(/^NOTES-JSON:\s*(.*)$/m);
     if (notesLine) {
@@ -246,10 +343,11 @@
 
   return {
     STORAGE_KEY: STORAGE_KEY, SWAP_MAX: SWAP_MAX, NOTES_MAX: NOTES_MAX, RECIPIENTS: RECIPIENTS,
-    SURPRISE_SWAP: SURPRISE_SWAP,
+    GROCERY_NAME_MAX: GROCERY_NAME_MAX, GROCERY_QTY_MAX: GROCERY_QTY_MAX, GROCERY_SECTION_MAX: GROCERY_SECTION_MAX,
+    SURPRISE_SWAP: SURPRISE_SWAP, DISLIKES: DISLIKES,
     defaultReviewWeekId: defaultReviewWeekId, pickWeek: pickWeek, neighbours: neighbours,
-    normalize: normalize, counts: counts, hasAnything: hasAnything,
-    subject: subject, body: body, mailto: mailto, groceryPeek: groceryPeek,
+    normalize: normalize, counts: counts, hasAnything: hasAnything, hasGroceryEdits: hasGroceryEdits,
+    subject: subject, body: body, mailto: mailto, groceryPeek: groceryPeek, groceryCatalog: groceryCatalog,
     shortDate: shortDate, longDate: longDate, dayLabel: dayLabel,
     isSurpriseSwap: isSurpriseSwap, swapText: swapText,
     suggestionPool: suggestionPool, suggestionsFor: suggestionsFor,

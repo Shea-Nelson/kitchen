@@ -4258,9 +4258,9 @@
     },
     {
       "id": "chicken-cordon-bleu-bake",
-      "version": 1,
+      "version": 2,
       "title": "Chicken cordon bleu bake",
-      "summary": "Cubed chicken baked with ham, Swiss, and a cream cheese Dijon sauce under a pork-rind crust, with garlic butter green beans.",
+      "summary": "Cubed chicken baked with ham, provolone, and a cream cheese Dijon sauce under a pork-rind crust, with garlic butter green beans.",
       "servings": 6,
       "servingsNote": "About 6 adult portions.",
       "style": "Oven, 375°F. Low-carb as written.",
@@ -4271,7 +4271,7 @@
       "photo": {
         "src": "assets/photos/garlic-parmesan-chicken.jpg",
         "alt": "A seasoned baked chicken breast beside a green salad on a patterned plate.",
-        "caption": "Photograph by Daderot, CC0. It shows a baked chicken breast with a side salad from a different recipe. It is not this cordon bleu bake, which is cubed chicken with ham, Swiss, and a pork-rind topping, plus garlic butter green beans.",
+        "caption": "Photograph by Daderot, CC0. It shows a baked chicken breast with a side salad from a different recipe. It is not this cordon bleu bake, which is cubed chicken with ham, provolone, and a pork-rind topping, plus garlic butter green beans.",
         "author": "Daderot",
         "license": "CC0 1.0",
         "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -4330,14 +4330,14 @@
           "groceryName": "sliced deli ham"
         },
         {
-          "id": "swiss",
-          "name": "Swiss cheese slices",
+          "id": "provolone",
+          "name": "provolone cheese slices",
           "amount": 8,
           "unit": "oz",
           "scalable": true,
           "group": "shop",
-          "groceryKey": "swiss",
-          "groceryName": "Swiss cheese slices"
+          "groceryKey": "provolone",
+          "groceryName": "provolone cheese slices"
         },
         {
           "id": "cream-cheese",
@@ -4458,11 +4458,11 @@
         },
         {
           "id": "sauce",
-          "text": "Stir the cream cheese, heavy cream, Dijon, and 1/4 cup Parmesan into a sauce. Fold in the chicken and the chopped ham. Spread it in a baking dish and lay the Swiss slices over the top."
+          "text": "Stir the cream cheese, heavy cream, Dijon, and 1/4 cup Parmesan into a sauce. Fold in the chicken and the chopped ham. Spread it in a baking dish and lay the provolone slices over the top."
         },
         {
           "id": "top",
-          "text": "Mix the crushed pork rinds, 1/4 cup Parmesan, and melted butter. Sprinkle that over the Swiss."
+          "text": "Mix the crushed pork rinds, 1/4 cup Parmesan, and melted butter. Sprinkle that over the provolone."
         },
         {
           "id": "bake",
