@@ -95,9 +95,89 @@
     return day.title || 'No dinner';
   }
 
+  const SURPRISE_SWAP = 'surprise me';
+  const AVOID_RE = /shrimp|salmon|scampi|seafood|\bfish\b/i;
+  const SURPRISE_ALIASES = [
+    'surprise me',
+    'scorpy, you choose',
+    'not sure - scorpy, you choose',
+    'not sure, scorpy, you choose'
+  ];
+
+  function recipeList(recipesDoc) {
+    if (!recipesDoc) return [];
+    if (Array.isArray(recipesDoc.recipes)) return recipesDoc.recipes;
+    if (Array.isArray(recipesDoc)) return recipesDoc;
+    return [];
+  }
+
+  function isSurpriseSwap(value) {
+    const s = String(value == null ? '' : value).trim().toLowerCase()
+      .replace(/[\u2014\u2013]/g, '-').replace(/\s+/g, ' ');
+    if (!s) return false;
+    return SURPRISE_ALIASES.indexOf(s) !== -1;
+  }
+
+  function swapText(pick) {
+    if (!pick || pick.vote !== 'change') return '';
+    if (isSurpriseSwap(pick.swap)) return SURPRISE_SWAP;
+    return String(pick.swap || '').trim();
+  }
+
+  function isDinnerRecipe(recipe) {
+    return Boolean(recipe && recipe.id && recipe.title && !recipe.section);
+  }
+
+  function isAvoidedDinner(recipe) {
+    const blob = [recipe.id, recipe.title, recipe.summary, recipe.style].join(' ');
+    return AVOID_RE.test(blob) || /thanksgiving/i.test(recipe.id + ' ' + recipe.title);
+  }
+
+  /* Family-friendly keto dinners from the cookbook (and past weeks, since
+     those recipes live in the same file). Skips breakfasts, this week's
+     dinners, seafood (shrimp was removed; later weeks dropped fish), and
+     holiday-only cards like the Thanksgiving turkey. */
+  function suggestionPool(recipesDoc, week) {
+    const usedIds = {};
+    const usedTitles = {};
+    (week && week.days || []).forEach(function (day) {
+      if (day.recipeId) usedIds[day.recipeId] = true;
+      const title = String(day.title || '').trim().toLowerCase();
+      if (title) usedTitles[title] = true;
+    });
+    return recipeList(recipesDoc).filter(function (recipe) {
+      if (!isDinnerRecipe(recipe) || isAvoidedDinner(recipe)) return false;
+      if (usedIds[recipe.id]) return false;
+      if (usedTitles[String(recipe.title || '').trim().toLowerCase()]) return false;
+      return true;
+    }).sort(function (a, b) { return a.title < b.title ? -1 : a.title > b.title ? 1 : 0; });
+  }
+
+  function suggestionsFor(recipesDoc, week, opts) {
+    const size = opts && opts.size ? opts.size : 4;
+    const offset = opts && opts.offset ? opts.offset : 0;
+    const extra = {};
+    ((opts && opts.excludeTitles) || []).forEach(function (t) {
+      const key = String(t || '').trim().toLowerCase();
+      if (key) extra[key] = true;
+    });
+    const pool = suggestionPool(recipesDoc, week).filter(function (recipe) {
+      return !extra[String(recipe.title || '').trim().toLowerCase()];
+    });
+    if (!pool.length || size < 1) return [];
+    const start = ((offset % pool.length) + pool.length) % pool.length;
+    const count = Math.min(size, pool.length);
+    const out = [];
+    for (let i = 0; i < count; i++) out.push(pool[(start + i) % pool.length]);
+    return out;
+  }
+
   function pickLine(day, pick) {
     if (pick.vote === 'approve') return 'APPROVE';
-    if (pick.vote === 'change') return pick.swap.trim() ? 'CHANGE: ' + pick.swap.trim() : 'CHANGE: (no suggestion; please offer options)';
+    if (pick.vote === 'change') {
+      const swap = swapText(pick);
+      return swap ? 'CHANGE: ' + swap : 'CHANGE: (no suggestion; please offer options)';
+    }
     return 'NO PICK YET';
   }
 
@@ -115,7 +195,7 @@
     lines.push('WEEK: ' + week.id);
     (week.days || []).forEach(function (day) {
       const p = picks.days[day.date];
-      lines.push('DAY ' + day.date + ' | ' + dinnerName(day) + ' | ' + (p.vote ? p.vote.toUpperCase() : 'NONE') + ' | ' + p.swap.trim());
+      lines.push('DAY ' + day.date + ' | ' + dinnerName(day) + ' | ' + (p.vote ? p.vote.toUpperCase() : 'NONE') + ' | ' + swapText(p));
     });
     lines.push('NOTES-JSON: ' + JSON.stringify(picks.notes.trim()));
     lines.push('--- end ---');
@@ -141,11 +221,38 @@
     });
   }
 
+  /* Turn the machine-readable block (or a whole email body) back into picks.
+     CHANGE | surprise me means Nicole asked Scorpy to choose a dinner. */
+  function parsePicksBody(text) {
+    const src = String(text == null ? '' : text);
+    const out = { weekId: null, days: {}, notes: '', ok: false };
+    const week = src.match(/^WEEK:\s*(\d{4}-\d{2}-\d{2})\s*$/m);
+    if (week) out.weekId = week[1];
+    const dayRe = /^DAY (\d{4}-\d{2}-\d{2}) \| (.*) \| (APPROVE|CHANGE|NONE) \| (.*)$/gm;
+    let m;
+    while ((m = dayRe.exec(src))) {
+      const vote = m[3] === 'NONE' ? '' : m[3].toLowerCase();
+      let swap = vote === 'change' ? clean(m[4], SWAP_MAX).replace(/\s*\n\s*/g, ' ') : '';
+      if (isSurpriseSwap(swap)) swap = SURPRISE_SWAP;
+      out.days[m[1]] = { vote: vote, swap: swap, dinner: m[2] };
+    }
+    const notesLine = src.match(/^NOTES-JSON:\s*(.*)$/m);
+    if (notesLine) {
+      try { out.notes = String(JSON.parse(notesLine[1]) || ''); } catch (e) { out.notes = ''; }
+    }
+    out.ok = Boolean(out.weekId);
+    return out;
+  }
+
   return {
     STORAGE_KEY: STORAGE_KEY, SWAP_MAX: SWAP_MAX, NOTES_MAX: NOTES_MAX, RECIPIENTS: RECIPIENTS,
+    SURPRISE_SWAP: SURPRISE_SWAP,
     defaultReviewWeekId: defaultReviewWeekId, pickWeek: pickWeek, neighbours: neighbours,
     normalize: normalize, counts: counts, hasAnything: hasAnything,
     subject: subject, body: body, mailto: mailto, groceryPeek: groceryPeek,
-    shortDate: shortDate, longDate: longDate, dayLabel: dayLabel
+    shortDate: shortDate, longDate: longDate, dayLabel: dayLabel,
+    isSurpriseSwap: isSurpriseSwap, swapText: swapText,
+    suggestionPool: suggestionPool, suggestionsFor: suggestionsFor,
+    parsePicksBody: parsePicksBody
   };
 });

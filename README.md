@@ -16,3 +16,12 @@ Tests: `node --test tests/*.test.js`
 ## Weekly review page
 
 `review/` reads `planner/data/weeks.json` and `recipes/data/recipes.json`, so a new week shows up with no code change. It opens on the upcoming week (the first week that starts after today in Eastern time, else the current one); `?week=YYYY-MM-DD` opens another. Picks are saved in `localStorage` (`kitchen.review.v1`) and leave the device only when the reader taps "Send my picks" (a `mailto:` link) or "Copy my picks". No form service, no tracking. The email body format is built in `review/picks.js` and covered by `tests/kitchen-review.test.js`.
+
+The email body has a plain-language list and a machine-readable block the weekly routine can parse (`KitchenReview.parsePicksBody` in `review/picks.js`):
+
+    WEEK: 2026-11-29
+    DAY 2026-11-30 | Chicken cordon bleu bake | CHANGE | Pork carnitas
+    DAY 2026-12-01 | Sheet-pan Italian sausage with peppers and onions | CHANGE | surprise me
+    NOTES-JSON: "No fish this week"
+
+`APPROVE` keeps the planned dinner. `CHANGE` plus a dinner name is the swap to use. `CHANGE` plus `surprise me` means Nicole asked Scorpy to choose a family-friendly keto dinner from the library (not already on that week, and not seafood). `CHANGE` with a blank swap, or `NONE`, follows the existing rules (offer options, or leave as planned).
