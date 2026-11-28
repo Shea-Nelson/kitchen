@@ -51,12 +51,12 @@ test('the email has a plain list and a machine-readable block', () => {
   const p = R.normalize({ days: { '2026-11-29': { vote: 'approve' }, '2026-11-30': { vote: 'change', swap: 'tacos' }, '2026-12-01': { vote: 'change', swap: '' } }, notes: 'No fish\nthis week' }, week);
   const text = R.body(week, p, 'https://shea-nelson.github.io/kitchen/review/?week=2026-11-29');
   assert.match(text, /Sun Nov 29 - Slow-cooker beef chili: APPROVE/);
-  assert.match(text, /Mon Nov 30 - Chicken cordon bleu bake: CHANGE: tacos/);
+  assert.match(text, /Mon Nov 30 - Bacon cheeseburger casserole: CHANGE: tacos/);
   assert.match(text, /Tue Dec 1 - .*: CHANGE: \(no suggestion/);
   assert.match(text, /Wed Dec 2 - Pizza night: NO PICK YET/);
   assert.match(text, /^WEEK: 2026-11-29$/m);
   assert.match(text, /^DAY 2026-11-29 \| Slow-cooker beef chili \| APPROVE \| $/m);
-  assert.match(text, /^DAY 2026-11-30 \| Chicken cordon bleu bake \| CHANGE \| tacos$/m);
+  assert.match(text, /^DAY 2026-11-30 \| Bacon cheeseburger casserole \| CHANGE \| tacos$/m);
   assert.match(text, /^DAY 2026-12-02 \| Pizza night \| NONE \| $/m);
   assert.match(text, /^NOTES-JSON: "No fish\\nthis week"$/m);
   assert.equal(R.counts(week, p).open, 4);
@@ -131,10 +131,10 @@ test('a chosen idea or surprise-me is written into the email lines the routine r
   assert.equal(R.swapText(p.days['2026-12-01']), 'surprise me');
   assert.equal(R.SURPRISE_SWAP, 'surprise me');
   const text = R.body(week, p, 'https://shea-nelson.github.io/kitchen/review/?week=2026-11-29');
-  assert.match(text, /Mon Nov 30 - Chicken cordon bleu bake: CHANGE: Pork carnitas/);
+  assert.match(text, /Mon Nov 30 - Bacon cheeseburger casserole: CHANGE: Pork carnitas/);
   assert.match(text, /Tue Dec 1 - .*: CHANGE: surprise me/);
   assert.match(text, /Wed Dec 2 - Pizza night: CHANGE: \(no suggestion/);
-  assert.match(text, /^DAY 2026-11-30 \| Chicken cordon bleu bake \| CHANGE \| Pork carnitas$/m);
+  assert.match(text, /^DAY 2026-11-30 \| Bacon cheeseburger casserole \| CHANGE \| Pork carnitas$/m);
   assert.match(text, /^DAY 2026-12-01 \| .* \| CHANGE \| surprise me$/m);
   assert.match(text, /^DAY 2026-12-02 \| Pizza night \| CHANGE \| $/m);
   const parsed = R.parsePicksBody(text);
@@ -154,8 +154,8 @@ test('surprise-me aliases and the parser stay stable', () => {
   assert.equal(R.isSurpriseSwap('scorpy, you choose'), true);
   assert.equal(R.isSurpriseSwap('tacos'), false);
   assert.equal(R.isSurpriseSwap(''), false);
-  const parsed = R.parsePicksBody('WEEK: 2026-11-29\nDAY 2026-11-30 | Chicken cordon bleu bake | CHANGE | surprise me\nNOTES-JSON: "hello"\n');
-  assert.deepEqual(parsed.days['2026-11-30'], { vote: 'change', swap: 'surprise me', dinner: 'Chicken cordon bleu bake' });
+  const parsed = R.parsePicksBody('WEEK: 2026-11-29\nDAY 2026-11-30 | Bacon cheeseburger casserole | CHANGE | surprise me\nNOTES-JSON: "hello"\n');
+  assert.deepEqual(parsed.days['2026-11-30'], { vote: 'change', swap: 'surprise me', dinner: 'Bacon cheeseburger casserole' });
   assert.equal(parsed.notes, 'hello');
 });
 
@@ -168,7 +168,7 @@ test('grocery edits persist, can be sent on their own, and round-trip in the ema
   const raw = {
     days: { '2026-11-29': { vote: 'approve' } },
     grocery: {
-      removed: ['Yellow onions, 3', 'yellow onions, 3', 'Not on the list', { label: 'Bell peppers, 5' }],
+      removed: ['Yellow onions, 4', 'yellow onions, 4', 'Not on the list', { label: 'Bell peppers, 5' }],
       added: [
         { name: 'Salsa', qty: '1 jar', section: 'Produce' },
         { name: 'Extra bacon', qty: '', section: '' },
@@ -178,7 +178,7 @@ test('grocery edits persist, can be sent on their own, and round-trip in the ema
     }
   };
   const p = R.normalize(raw, week);
-  assert.deepEqual(p.grocery.removed, ['Yellow onions, 3', 'Bell peppers, 5']);
+  assert.deepEqual(p.grocery.removed, ['Yellow onions, 4', 'Bell peppers, 5']);
   assert.equal(p.grocery.added[0].name, 'Salsa');
   assert.equal(p.grocery.added[0].qty, '1 jar');
   assert.equal(p.grocery.added[0].section, 'Produce');
@@ -193,16 +193,16 @@ test('grocery edits persist, can be sent on their own, and round-trip in the ema
 
   const text = R.body(week, p, 'https://shea-nelson.github.io/kitchen/review/?week=2026-11-29');
   assert.match(text, /Grocery list changes:/);
-  assert.match(text, /^- Leave off: Yellow onions, 3$/m);
+  assert.match(text, /^- Leave off: Yellow onions, 4$/m);
   assert.match(text, /^- Leave off: Bell peppers, 5$/m);
   assert.match(text, /^- Add: Salsa, 1 jar \(Produce\)$/m);
   assert.match(text, /^- Add: Extra bacon$/m);
-  assert.match(text, /^GROCERY REMOVE \| Yellow onions, 3$/m);
+  assert.match(text, /^GROCERY REMOVE \| Yellow onions, 4$/m);
   assert.match(text, /^GROCERY REMOVE \| Bell peppers, 5$/m);
   assert.match(text, /^GROCERY ADD \| Salsa \| 1 jar \| Produce$/m);
   assert.match(text, /^GROCERY ADD \| Extra bacon \|  \| $/m);
   const parsed = R.parsePicksBody(text);
-  assert.deepEqual(parsed.grocery.removed, ['Yellow onions, 3', 'Bell peppers, 5']);
+  assert.deepEqual(parsed.grocery.removed, ['Yellow onions, 4', 'Bell peppers, 5']);
   assert.deepEqual(parsed.grocery.added[0], { name: 'Salsa', qty: '1 jar', section: 'Produce' });
   assert.deepEqual(parsed.grocery.added.find(i => i.name === 'Extra bacon'), { name: 'Extra bacon', qty: '', section: '' });
   assert.equal(parsed.days['2026-11-29'].vote, 'approve');

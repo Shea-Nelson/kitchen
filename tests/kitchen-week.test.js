@@ -140,7 +140,7 @@ test('a later week can be added without code changes', () => {
   assert.equal(K.weekContaining('2026-11-08', doc).days[0].title, 'Vital frozen pizza');
   assert.equal(K.recipeIdForDate('2026-11-18', schedule, doc), 'keto-pizza-bowls');
   assert.equal(K.defaultWeekId(doc, '2026-11-18'), '2026-11-15');
-  assert.equal(K.recipeIdForDate('2026-11-30', schedule, doc), 'chicken-cordon-bleu-bake');
+  assert.equal(K.recipeIdForDate('2026-11-30', schedule, doc), 'bacon-cheeseburger-casserole');
   assert.equal(K.defaultWeekId(doc, '2026-12-02'), '2026-11-29');
 });
 
@@ -302,7 +302,7 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
   assert.deepEqual(weeksDoc.weeks.map(w => w.id), ['2026-11-08', '2026-11-15', '2026-11-22', '2026-11-29']);
   const dinners = {
     '2026-11-29': { title: 'Slow-cooker beef chili', recipeId: 'slow-cooker-beef-chili', servings: 8 },
-    '2026-11-30': { title: 'Chicken cordon bleu bake', recipeId: 'chicken-cordon-bleu-bake', servings: 6 },
+    '2026-11-30': { title: 'Bacon cheeseburger casserole', recipeId: 'bacon-cheeseburger-casserole', servings: 6 },
     '2026-12-01': { title: 'Sheet-pan Italian sausage with peppers and onions', recipeId: 'sheet-pan-italian-sausage-peppers', servings: 6 },
     '2026-12-02': { title: 'Pizza night', recipeId: 'keto-pizza-bowls', servings: 6 },
     '2026-12-03': { title: 'Garlic butter steak bites', recipeId: 'garlic-butter-steak-bites', servings: 6 },
@@ -312,7 +312,7 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
   const lunches = [
     'After church: chef salads with deli turkey, ham, hard-boiled eggs, cheddar, grape tomatoes, cucumber, and ranch (before gingerbread houses at 1)',
     'Leftover beef chili (if any); backup: deli turkey and cheese roll-ups with pickles and string cheese',
-    'Leftover chicken cordon bleu bake (if any); backup: chef salads with deli turkey and ham',
+    'Leftover Bacon cheeseburger casserole (if any); backup: chef salads with deli turkey and ham',
     'Leftover sheet-pan sausage and peppers (if any); backup: turkey and cheese roll-ups with pickles and string cheese',
     'Leftover pizza bowls (if any); backup: chef salads with deli turkey and ham',
     'Leftover steak bites (if any); backup: deli turkey and cheese roll-ups with pickles and string cheese',
@@ -330,7 +330,13 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
     if (!day.recipeId) return;
     const recipe = catalog[day.recipeId];
     assert.ok(recipe, day.recipeId);
-    assert.equal(recipe.servings, day.servings);
+    // Cookbook card is 8 (family plus grandparents); this week's Monday is sized for about 6.
+    if (day.recipeId === 'bacon-cheeseburger-casserole') {
+      assert.equal(recipe.servings, 8);
+      assert.equal(day.servings, 6);
+    } else {
+      assert.equal(recipe.servings, day.servings);
+    }
     assert.match(JSON.stringify(recipe), /°F/);
     assert.ok(recipe.steps.length >= 4);
     const kidSide = recipe.kidSide || recipe.ingredients.some(item => item.group === 'kids-starch' || item.group === 'kids');
@@ -341,6 +347,7 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
   assert.match(catalog['slow-cooker-beef-chili'].safety, /160°F/);
   assert.match(JSON.stringify(catalog['slow-cooker-beef-chili']), /165°F/);
   assert.equal(catalog['slow-cooker-beef-chili'].ingredients.find(item => item.id === 'beef').amount, 4);
+  assert.match(catalog['bacon-cheeseburger-casserole'].safety, /160°F/);
   assert.match(catalog['chicken-cordon-bleu-bake'].safety, /165°F/);
   assert.match(catalog['sheet-pan-italian-sausage-peppers'].safety, /160°F/);
   assert.equal(catalog['sheet-pan-italian-sausage-peppers'].ingredients.find(item => item.id === 'sausage').amount, 3.5);
@@ -358,8 +365,8 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
   assert.equal(K.recipeIdForDate('2026-12-05', schedule, weeksDoc), null);
   assert.deepEqual(nov29.grocery.map(section => section.id), ['produce', 'meat', 'dairy', 'pantry', 'spices', 'snacks', 'kids']);
   const labels = nov29.grocery.flatMap(section => section.items.map(item => item.label)).join('\n');
-  assert.match(labels, /5 1\/2 lb/);
-  assert.match(labels, /7 lb/);
+  assert.match(labels, /7 3\/4 lb/);
+  assert.match(labels, /4 lb — Fri/);
   assert.match(labels, /3 1\/2 lb/);
   assert.match(nov29.groceryNote, /Jacob's reception/);
   assert.doesNotMatch(labels, /shrimp|salmon|seafood/i);
@@ -367,8 +374,8 @@ test('the week of Nov 29 has seven days, real recipes, and leftover lunches', ()
   assert.ok(listDoc.weeks['2026-11-29']);
   const built = S.buildList(nov29, catalog, listDoc);
   const by = key => built.sections.flatMap(section => section.items).find(item => item.key === key);
-  assert.equal(by('ground-beef').qty, '5 1/2 lb');
-  assert.equal(by('chicken-breasts').qty, '7 lb');
+  assert.equal(by('ground-beef').qty, '7 3/4 lb');
+  assert.equal(by('chicken-breasts').qty, '4 lb');
   assert.equal(by('italian-sausage-links').qty, '3 1/2 lb');
   assert.equal(by('sirloin').qty, '4 lb');
   assert.equal(by('italian-sausage'), undefined);
