@@ -1178,12 +1178,12 @@
         {
           "date": "2026-11-30",
           "weekday": "Monday",
-          "title": "Chicken cordon bleu bake",
-          "recipeId": "chicken-cordon-bleu-bake",
+          "title": "Bacon cheeseburger casserole",
+          "recipeId": "bacon-cheeseburger-casserole",
           "servings": 6,
           "breakfast": "Cabot plain Greek yogurt with strawberries and walnuts; Ratio yogurt cups for the kids; eggs for anyone who wants them",
           "lunch": "Leftover beef chili (if any); backup: deli turkey and cheese roll-ups with pickles and string cheese",
-          "dinnerNote": "Chicken cordon bleu bake with garlic butter green beans, 375°F until the chicken is 165°F. Dinner rolls for the kids."
+          "dinnerNote": "Bacon cheeseburger casserole with a side salad, sized for about 6: 2 1/4 lb ground beef browned to 160°F with 1 small onion, 9 oz bacon, 2 garlic cloves, 1 1/2 tbsp tomato paste, 1 1/2 tbsp yellow mustard, and 2 tsp Worcestershire; 2 1/4 cups cheddar; 5 eggs whisked with 1/2 cup plus 1 tbsp heavy cream. Bake at 350°F for 30 to 35 minutes until set (160°F). Top with about 6 tbsp chopped pickles. Tater tots for the kids."
         },
         {
           "date": "2026-12-01",
@@ -1192,7 +1192,7 @@
           "recipeId": "sheet-pan-italian-sausage-peppers",
           "servings": 6,
           "breakfast": "Two Quest donuts or a Quest bar with coffee; scrambled eggs for everyone else",
-          "lunch": "Leftover chicken cordon bleu bake (if any); backup: chef salads with deli turkey and ham",
+          "lunch": "Leftover Bacon cheeseburger casserole (if any); backup: chef salads with deli turkey and ham",
           "dinnerNote": "Busy night (concessions 5:30–7, orchestra rehearsal 6–8:30). About 25 to 30 minutes on two sheet pans; eat by about 5. Caesar salad, no croutons. Hoagie rolls or rice for the kids."
         },
         {
@@ -1243,7 +1243,7 @@
           "items": [
             {
               "id": "yellow-onion",
-              "label": "Yellow onions, 3 — 1 Sun chili, 2 Tue."
+              "label": "Yellow onions, 4 — 1 Sun chili, 1 Mon casserole, 2 Tue."
             },
             {
               "id": "bell-peppers",
@@ -1256,10 +1256,6 @@
             {
               "id": "green-onions",
               "label": "Green onions, 2 bunches — Sun chili, Fri chicken."
-            },
-            {
-              "id": "green-beans",
-              "label": "Fresh green beans, 2 lb — Mon."
             },
             {
               "id": "cauliflower",
@@ -1275,7 +1271,7 @@
             },
             {
               "id": "salad-greens",
-              "label": "Spring mix, 1 container (5 oz) — Thu."
+              "label": "Spring mix, 3 containers (5 oz) — 2 Mon casserole side salad, 1 Thu."
             },
             {
               "id": "butter-lettuce",
@@ -1301,11 +1297,11 @@
           "items": [
             {
               "id": "ground-beef",
-              "label": "Ground beef 80/20 (grass-fed if available), 5 1/2 lb — 4 lb Sun chili, 1 1/2 lb Wed pizza bowls."
+              "label": "Ground beef 80/20 (grass-fed if available), 7 3/4 lb — 4 lb Sun chili, 2 1/4 lb Mon casserole, 1 1/2 lb Wed pizza bowls."
             },
             {
               "id": "chicken-breasts",
-              "label": "Boneless skinless chicken breasts, 7 lb — 3 lb Mon, 4 lb Fri."
+              "label": "Boneless skinless chicken breasts, 4 lb — Fri."
             },
             {
               "id": "italian-sausage-links",
@@ -1317,7 +1313,7 @@
             },
             {
               "id": "deli-ham",
-              "label": "Sliced ham (Wright uncured, as before), 2 lb — 12 oz Mon bake, rest Sun chef salads and backups."
+              "label": "Sliced ham (Wright uncured, as before), 1 1/4 lb — Sun chef salads and backups."
             },
             {
               "id": "deli-turkey",
@@ -1325,7 +1321,7 @@
             },
             {
               "id": "bacon",
-              "label": "Bacon, about 4 lb — 1 1/2 lb Sun breakfast, 12 oz Fri chicken, 1 1/2 lb Sat breakfast."
+              "label": "Bacon, about 4 1/2 lb — 1 1/2 lb Sun breakfast, 9 oz Mon casserole, 12 oz Fri chicken, 1 1/2 lb Sat breakfast."
             },
             {
               "id": "breakfast-sausage",
@@ -1347,31 +1343,27 @@
           "items": [
             {
               "id": "eggs",
-              "label": "Eggs, 5 dozen — 12 Sun, 6 hard-boiled Sun lunch, 18 Wed egg bake, 12 Sat, plus weekday eggs. Count what's left first."
+              "label": "Eggs, 6 dozen — 12 Sun, 6 hard-boiled Sun lunch, 5 Mon casserole, 18 Wed egg bake, 12 Sat, plus weekday eggs. Count what's left first."
             },
             {
               "id": "cheddar",
-              "label": "Shredded sharp cheddar, 2 lb (8 cups)"
+              "label": "Shredded sharp cheddar, 2 1/2 lb (10 cups) — Includes 2 1/4 cups Mon casserole."
             },
             {
               "id": "mozzarella",
               "label": "Shredded mozzarella, 16 oz bag — Wed."
             },
             {
-              "id": "provolone",
-              "label": "Provolone cheese slices, 8 oz — Mon."
-            },
-            {
               "id": "parmesan",
-              "label": "Grated Parmesan, 1 container (8 oz) — Mon, Tue, Thu."
+              "label": "Grated Parmesan, 1 container (8 oz) — Tue, Thu."
             },
             {
               "id": "cream-cheese",
-              "label": "Cream cheese, 3 blocks (8 oz) — 4 oz Mon, 4 oz Thu, 16 oz Fri."
+              "label": "Cream cheese, 3 blocks (8 oz) — 4 oz Thu, 16 oz Fri."
             },
             {
               "id": "heavy-cream",
-              "label": "Heavy cream, 1 pint — Mon, Wed."
+              "label": "Heavy cream, 1 pint — Mon casserole, Wed egg bake."
             },
             {
               "id": "sour-cream",
@@ -1409,7 +1401,7 @@
             },
             {
               "id": "tomato-paste",
-              "label": "Tomato paste, 1 small can — Uses 2 tbsp."
+              "label": "Tomato paste, 1 small can — 2 tbsp Sun chili, about 1 1/2 tbsp Mon casserole."
             },
             {
               "id": "marinara",
@@ -1421,7 +1413,11 @@
             },
             {
               "id": "mustard",
-              "label": "Dijon mustard — Check first."
+              "label": "Yellow mustard — Check first. Mon casserole."
+            },
+            {
+              "id": "worcestershire",
+              "label": "Worcestershire sauce — Check first. Mon casserole."
             },
             {
               "id": "caesar-dressing",
@@ -1433,7 +1429,7 @@
             },
             {
               "id": "pickles",
-              "label": "Dill pickles — Check first."
+              "label": "Dill pickles — Check first. Mon casserole topping and backup lunches."
             },
             {
               "id": "sauerkraut",
@@ -1511,7 +1507,7 @@
             },
             {
               "id": "pork-rinds",
-              "label": "Pork rinds, 2 bags (5 oz) — One is the Mon bake topping."
+              "label": "Pork rinds, 1 bag (5 oz) — Sat backup if not eating at the reception."
             }
           ]
         },
@@ -1528,8 +1524,8 @@
               "label": "Tortilla chips, 1 bag — Sun."
             },
             {
-              "id": "dinner-rolls",
-              "label": "Dinner rolls, 1 pack (12) — Mon."
+              "id": "tater-tots",
+              "label": "Frozen tater tots, 1 bag (32 oz) — Mon, for the kids."
             },
             {
               "id": "hoagie-rolls",

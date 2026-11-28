@@ -1782,7 +1782,7 @@
       "note": "Fresh plan for review. Yogurt, Crystal Light, Quest crackers and chips amounts match the Nov 16 order; Quest donuts/bars still need an amount. Saturday hot dogs and buns are only needed if you're not eating at Jacob's reception. Nothing here orders food; Giles owns the Walmart cart.",
       "dinnerShort": {
         "2026-11-29": "chili",
-        "2026-11-30": "cordon bleu",
+        "2026-11-30": "cheeseburger casserole",
         "2026-12-01": "sausage and peppers",
         "2026-12-02": "pizza night",
         "2026-12-03": "steak bites",
@@ -1794,10 +1794,11 @@
           "key": "yellow-onion",
           "name": "Yellow onions",
           "section": "produce",
-          "qty": "3",
-          "note": "1 Sun chili, 2 Tue.",
+          "qty": "4",
+          "note": "1 Sun chili, 1 Mon casserole, 2 Tue.",
           "for": [
             "2026-11-29",
+            "2026-11-30",
             "2026-12-01"
           ]
         },
@@ -1836,16 +1837,7 @@
             "2026-12-04"
           ]
         },
-        {
-          "key": "green-beans",
-          "name": "Fresh green beans",
-          "section": "produce",
-          "qty": "2 lb",
-          "note": "Mon.",
-          "for": [
-            "2026-11-30"
-          ]
-        },
+
         {
           "key": "cauliflower",
           "name": "Cauliflower",
@@ -1881,9 +1873,10 @@
           "key": "salad-greens",
           "name": "Spring mix",
           "section": "produce",
-          "qty": "1 container (5 oz)",
-          "note": "Thu.",
+          "qty": "3 containers (5 oz)",
+          "note": "2 Mon casserole side salad, 1 Thu.",
           "for": [
+            "2026-11-30",
             "2026-12-03"
           ]
         },
@@ -1934,10 +1927,11 @@
           "key": "ground-beef",
           "name": "Ground beef 80/20 (grass-fed if available)",
           "section": "meat",
-          "qty": "5 1/2 lb",
-          "note": "4 lb Sun chili, 1 1/2 lb Wed pizza bowls.",
+          "qty": "7 3/4 lb",
+          "note": "4 lb Sun chili, 2 1/4 lb Mon casserole, 1 1/2 lb Wed pizza bowls.",
           "for": [
             "2026-11-29",
+            "2026-11-30",
             "2026-12-02"
           ]
         },
@@ -1945,10 +1939,9 @@
           "key": "chicken-breasts",
           "name": "Boneless skinless chicken breasts",
           "section": "meat",
-          "qty": "7 lb",
-          "note": "3 lb Mon, 4 lb Fri.",
+          "qty": "4 lb",
+          "note": "Fri.",
           "for": [
-            "2026-11-30",
             "2026-12-04"
           ]
         },
@@ -1976,10 +1969,9 @@
           "key": "deli-ham",
           "name": "Sliced ham (Wright uncured, as before)",
           "section": "meat",
-          "qty": "2 lb",
-          "note": "12 oz Mon bake, rest Sun chef salads and backups.",
+          "qty": "1 1/4 lb",
+          "note": "Sun chef salads and backups.",
           "for": [
-            "2026-11-30",
             "2026-11-29 lunch",
             "backup roll-ups"
           ]
@@ -1999,10 +1991,11 @@
           "key": "bacon",
           "name": "Bacon",
           "section": "meat",
-          "qty": "about 4 lb",
-          "note": "1 1/2 lb Sun breakfast, 12 oz Fri chicken, 1 1/2 lb Sat breakfast.",
+          "qty": "about 4 1/2 lb",
+          "note": "1 1/2 lb Sun breakfast, 9 oz Mon casserole, 12 oz Fri chicken, 1 1/2 lb Sat breakfast.",
           "for": [
             "2026-11-29 breakfast",
+            "2026-11-30",
             "2026-12-04",
             "2026-12-05 breakfast"
           ]
@@ -2041,11 +2034,12 @@
           "key": "eggs",
           "name": "Eggs",
           "section": "dairy",
-          "qty": "5 dozen",
-          "note": "12 Sun, 6 hard-boiled Sun lunch, 18 Wed egg bake, 12 Sat, plus weekday eggs. Count what's left first.",
+          "qty": "6 dozen",
+          "note": "12 Sun, 6 hard-boiled Sun lunch, 5 Mon casserole, 18 Wed egg bake, 12 Sat, plus weekday eggs. Count what's left first.",
           "for": [
             "2026-11-29 breakfast",
             "2026-11-29 lunch",
+            "2026-11-30",
             "2026-12-02 breakfast",
             "2026-12-05 breakfast",
             "weekday eggs"
@@ -2055,9 +2049,11 @@
           "key": "cheddar",
           "name": "Shredded sharp cheddar",
           "section": "dairy",
-          "qty": "2 lb (8 cups)",
+          "qty": "2 1/2 lb (10 cups)",
+          "note": "Includes 2 1/4 cups Mon casserole.",
           "for": [
             "2026-11-29",
+            "2026-11-30",
             "2026-12-02 breakfast",
             "2026-12-04",
             "lunches"
@@ -2073,24 +2069,14 @@
             "2026-12-02"
           ]
         },
-        {
-          "key": "provolone",
-          "name": "Provolone cheese slices",
-          "section": "dairy",
-          "qty": "8 oz",
-          "note": "Mon.",
-          "for": [
-            "2026-11-30"
-          ]
-        },
+
         {
           "key": "parmesan",
           "name": "Grated Parmesan",
           "section": "dairy",
           "qty": "1 container (8 oz)",
-          "note": "Mon, Tue, Thu.",
+          "note": "Tue, Thu.",
           "for": [
-            "2026-11-30",
             "2026-12-01",
             "2026-12-03"
           ]
@@ -2100,9 +2086,8 @@
           "name": "Cream cheese",
           "section": "dairy",
           "qty": "3 blocks (8 oz)",
-          "note": "4 oz Mon, 4 oz Thu, 16 oz Fri.",
+          "note": "4 oz Thu, 16 oz Fri.",
           "for": [
-            "2026-11-30",
             "2026-12-03",
             "2026-12-04"
           ]
@@ -2112,7 +2097,7 @@
           "name": "Heavy cream",
           "section": "dairy",
           "qty": "1 pint",
-          "note": "Mon, Wed.",
+          "note": "Mon casserole, Wed egg bake.",
           "for": [
             "2026-11-30",
             "2026-12-02 breakfast"
@@ -2135,7 +2120,6 @@
           "qty": "1 lb",
           "note": "Plus what's on hand.",
           "for": [
-            "2026-11-30",
             "2026-12-03"
           ]
         },
@@ -2194,9 +2178,10 @@
           "name": "Tomato paste",
           "section": "pantry",
           "qty": "1 small can",
-          "note": "Uses 2 tbsp.",
+          "note": "2 tbsp Sun chili, about 1 1/2 tbsp Mon casserole.",
           "for": [
-            "2026-11-29"
+            "2026-11-29",
+            "2026-11-30"
           ]
         },
         {
@@ -2219,9 +2204,18 @@
         },
         {
           "key": "mustard",
-          "name": "Dijon mustard",
+          "name": "Yellow mustard",
           "section": "pantry",
-          "note": "Check first.",
+          "note": "Check first. Mon casserole.",
+          "for": [
+            "2026-11-30"
+          ]
+        },
+        {
+          "key": "worcestershire",
+          "name": "Worcestershire sauce",
+          "section": "pantry",
+          "note": "Check first. Mon casserole.",
           "for": [
             "2026-11-30"
           ]
@@ -2239,9 +2233,10 @@
           "key": "ranch",
           "name": "Ranch dressing",
           "section": "pantry",
-          "note": "Check first.",
+          "note": "Check first. Mon side salad, Sun lunch, Thu.",
           "for": [
             "2026-11-29 lunch",
+            "2026-11-30",
             "2026-12-03"
           ]
         },
@@ -2249,8 +2244,9 @@
           "key": "pickles",
           "name": "Dill pickles",
           "section": "pantry",
-          "note": "Check first.",
+          "note": "Check first. Mon casserole topping and backup lunches.",
           "for": [
+            "2026-11-30",
             "backup roll-ups"
           ]
         },
@@ -2345,7 +2341,6 @@
           "section": "spices",
           "note": "Check first.",
           "for": [
-            "2026-11-30",
             "2026-12-02"
           ]
         },
@@ -2392,10 +2387,9 @@
           "key": "pork-rinds",
           "name": "Pork rinds",
           "section": "snacks",
-          "qty": "2 bags (5 oz)",
-          "note": "One is the Mon bake topping.",
+          "qty": "1 bag (5 oz)",
+          "note": "Sat backup if not eating at the reception.",
           "for": [
-            "2026-11-30",
             "2026-12-05"
           ]
         },
@@ -2419,11 +2413,11 @@
           ]
         },
         {
-          "key": "dinner-rolls",
-          "name": "Dinner rolls",
+          "key": "tater-tots",
+          "name": "Frozen tater tots",
           "section": "kids",
-          "qty": "1 pack (12)",
-          "note": "Mon.",
+          "qty": "1 bag (32 oz)",
+          "note": "Mon, for the kids.",
           "for": [
             "2026-11-30"
           ]
